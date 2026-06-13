@@ -2797,30 +2797,37 @@ body.template-page,
 }
 </style>
 
-<style id="lp6-h1-on-image">
-/* H1 sits ON the image's cream area (negative margin pulls image up under H1) */
-.ecom-9bkl1180f37,
-.ecom-djz4481vay {
-  margin-top: -120px !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-.ecom-oit8fygid0n,
-.ecom-oit8fygid0n .ecom__heading {
+
+
+<style id="lp6-h1-translate-onto-image">
+/* H1 visually translated DOWN onto the image. translateY doesn't disrupt flow. */
+.ecom-oit8fygid0n {
   position: relative !important;
   z-index: 5 !important;
-  margin-bottom: 0 !important;
+  transform: translateY(110px) !important;
 }
-/* Slight breathing room on H1 padding so it sits comfortably */
+/* Image pulled UP by equal amount so net layout is preserved (no empty gap) */
+.ecom-djz4481vay {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: -110px !important;
+}
+/* Push price block + everything below DOWN to compensate for the H1 living on the image */
+.ecom-jbayfv8mp6 ~ * {
+  margin-top: 60px !important;
+}
+/* Drop shadow on H1 text for legibility on the cream image area */
 .ecom-oit8fygid0n .ecom__heading {
-  padding: 24px 16px 0 !important;
+  text-shadow: 0 1px 0 rgba(255,253,248,0.6), 0 0 12px rgba(255,253,248,0.5) !important;
 }
-/* On smaller viewports, less aggressive overlap */
+
 @media (max-width: 400px) {
-  .ecom-9bkl1180f37, .ecom-djz4481vay { margin-top: -100px !important; }
+  .ecom-oit8fygid0n { transform: translateY(90px) !important; }
+  .ecom-djz4481vay { margin-top: -90px !important; }
 }
 @media (max-width: 350px) {
-  .ecom-9bkl1180f37, .ecom-djz4481vay { margin-top: -80px !important; }
+  .ecom-oit8fygid0n { transform: translateY(70px) !important; }
+  .ecom-djz4481vay { margin-top: -70px !important; }
 }
 </style>
 </head>
