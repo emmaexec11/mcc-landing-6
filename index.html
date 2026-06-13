@@ -2233,53 +2233,190 @@ upcart-widget{
 }
 </style>
 
-<style id="lp6-button-overflow-fix">
-/* CRITICAL: ensure all buttons respect their container width (box-sizing fix) */
-.lp6-sticky-cta-btn,
-.lp6-cta-impulse a,
-.ecom__element--button,
-a.ecom__element--button,
-.ecom-element-button a{
-  box-sizing:border-box !important;
-}
-/* Add safer padding to the sticky bar so the button has air on both sides */
-.lp6-sticky-cta{
-  padding-left:20px !important;
-  padding-right:20px !important;
-}
-/* Slightly cap the button max-width to leave breathing room */
-.lp6-sticky-cta-btn{
-  width:100% !important;
-  max-width:520px !important;
-  margin:0 auto !important;
-  display:flex !important;
-  align-items:center;
-  justify-content:center;
-}
-/* Force all sections to respect viewport width */
-*, *::before, *::after{box-sizing:border-box}
-/* LP A's other buttons (like 'Try our tester pack now') — also constrain */
-.ecom__element-button a,
-.ecom-element-button .ecom__element--button{
-  max-width:100% !important;
-  width:100% !important;
-  box-sizing:border-box !important;
-}
-@media (max-width:600px){
-  .lp6-sticky-cta{padding-left:16px !important;padding-right:16px !important}
-  .lp6-sticky-cta-btn{padding-left:18px !important;padding-right:18px !important}
-}
-</style>
 
-<style id="lp6-sticky-desktop-cap">
-.lp6-sticky-cta{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+
+
+
+<style id="lp6-pro-buttons">
+/* ===== LP 6 — Ultra-professional CTA design (2026) ===== */
+:root {
+  --lp6-cta-bg: #1F3A2E;
+  --lp6-cta-bg-hover: #2A4A3C;
+  --lp6-cta-bg-active: #15281F;
+  --lp6-cta-text: #FFFFFF;
+  --lp6-cta-scarcity: #C77B85;
+  --lp6-cta-shadow: 0 4px 16px rgba(31, 58, 46, 0.22), inset 0 1px 0 rgba(255,255,255,0.08);
+  --lp6-cta-shadow-hover: 0 8px 24px rgba(31, 58, 46, 0.32), inset 0 1px 0 rgba(255,255,255,0.12);
+  --lp6-cta-radius: 14px;
 }
-@media (min-width:601px){
-  .lp6-sticky-cta{padding:14px 24px !important}
-  .lp6-sticky-cta-btn{font-size:16px !important;padding:16px 24px !important}
+
+/* Universal CTA button — applies to all EcoComposer buttons */
+a.ecom__element--button,
+.ecom-element-button a,
+.ecom-element-button .ecom__element--button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: var(--lp6-cta-bg) !important;
+  color: var(--lp6-cta-text) !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  padding: 18px 28px !important;
+  border: none !important;
+  border-radius: var(--lp6-cta-radius) !important;
+  text-decoration: none !important;
+  min-height: 56px !important;
+  width: 100% !important;
+  max-width: 460px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  box-shadow: var(--lp6-cta-shadow) !important;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease, background 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+a.ecom__element--button:hover,
+.ecom-element-button a:hover,
+.ecom-element-button .ecom__element--button:hover {
+  background: var(--lp6-cta-bg-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--lp6-cta-shadow-hover) !important;
+}
+a.ecom__element--button:active,
+.ecom-element-button a:active,
+.ecom-element-button .ecom__element--button:active {
+  background: var(--lp6-cta-bg-active) !important;
+  transform: translateY(0) !important;
+}
+
+/* Subtle pulse animation drawing attention without screaming */
+@keyframes lp6-cta-pulse {
+  0%, 100% { box-shadow: var(--lp6-cta-shadow); }
+  50% { box-shadow: 0 6px 22px rgba(31, 58, 46, 0.32), inset 0 1px 0 rgba(255,255,255,0.12); }
+}
+a.ecom__element--button {
+  animation: lp6-cta-pulse 3.5s ease-in-out infinite;
+}
+a.ecom__element--button:hover {
+  animation: none;
+}
+
+/* Right-arrow indicator appended to button text */
+a.ecom__element--button::after {
+  content: '\2192'; /* → */
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+a.ecom__element--button:hover::after {
+  transform: translateX(4px);
+}
+
+/* Center buttons in their containers */
+.ecom-element-button,
+.ecom__element-button {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* ===== Sticky bottom CTA bar — price + scarcity + button ===== */
+.lp6-sticky-cta {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(255, 252, 248, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-top: 1px solid rgba(31, 58, 46, 0.08) !important;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom)) !important;
+  display: none;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.08) !important;
+}
+.lp6-sticky-cta.lp6-sticky-show {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.lp6-sticky-cta-info {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-shrink: 0 !important;
+  min-width: 0 !important;
+}
+.lp6-sticky-cta-price {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #1F3A2E !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em !important;
+}
+.lp6-sticky-cta-price-strike {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #888 !important;
+  text-decoration: line-through !important;
+  margin-left: 6px !important;
+}
+.lp6-sticky-cta-scarcity {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  color: var(--lp6-cta-scarcity) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-top: 2px !important;
+}
+.lp6-sticky-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  background: var(--lp6-cta-bg) !important;
+  color: var(--lp6-cta-text) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  padding: 14px 22px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 14px rgba(31, 58, 46, 0.25), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+  animation: lp6-cta-pulse 3.5s ease-in-out infinite;
+}
+.lp6-sticky-cta-btn:hover {
+  background: var(--lp6-cta-bg-hover) !important;
+  transform: translateY(-1px) !important;
+  animation: none !important;
+}
+.lp6-sticky-cta-btn::after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 2px;
+}
+
+@media (max-width: 380px) {
+  .lp6-sticky-cta { padding-left: 12px !important; padding-right: 12px !important; }
+  .lp6-sticky-cta-price { font-size: 15px !important; }
+  .lp6-sticky-cta-btn { font-size: 14px !important; padding: 12px 16px !important; }
 }
 </style>
 </head>
@@ -4673,5 +4810,31 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 </script>
 <!-- ===== End LP 6 EcoComposer Runtime Shim ===== -->
 
+
+<div class="lp6-sticky-cta" id="lp6-sticky-cta">
+  <div class="lp6-sticky-cta-info">
+    <div class="lp6-sticky-cta-price">$30 Tester Pack<span class="lp6-sticky-cta-price-strike">$90</span></div>
+    <div class="lp6-sticky-cta-scarcity">Selling out fast · Free shipping</div>
+  </div>
+  <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-sticky-cta-btn">Add to Cart</a>
+</div>
+
+
+<script id="lp6-sticky-cta-scroll">
+(function(){
+  var stickyEl = document.querySelector('.lp6-sticky-cta');
+  if (!stickyEl) return;
+  var threshold = 280;
+  function check() {
+    if (window.scrollY > threshold) {
+      stickyEl.classList.add('lp6-sticky-show');
+    } else {
+      stickyEl.classList.remove('lp6-sticky-show');
+    }
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  check();
+})();
+</script>
 </body>
 </html>
