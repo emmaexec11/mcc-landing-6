@@ -2219,6 +2219,41 @@ upcart-widget{
   pointer-events:none !important;
 }
 </style>
+
+<style id="lp6-button-overflow-fix">
+/* CRITICAL: ensure all buttons respect their container width (box-sizing fix) */
+.lp6-sticky-cta-btn,
+.lp6-cta-impulse a,
+.ecom__element--button,
+a.ecom__element--button,
+.ecom-element-button a{
+  box-sizing:border-box !important;
+}
+/* Add safer padding to the sticky bar so the button has air on both sides */
+.lp6-sticky-cta{
+  padding-left:20px !important;
+  padding-right:20px !important;
+}
+/* Slightly cap the button max-width to leave breathing room */
+.lp6-sticky-cta-btn{
+  width:100% !important;
+  max-width:calc(100% - 0px) !important;
+  margin:0 auto !important;
+}
+/* Force all sections to respect viewport width */
+*, *::before, *::after{box-sizing:border-box}
+/* LP A's other buttons (like 'Try our tester pack now') — also constrain */
+.ecom__element-button a,
+.ecom-element-button .ecom__element--button{
+  max-width:100% !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+}
+@media (max-width:600px){
+  .lp6-sticky-cta{padding-left:16px !important;padding-right:16px !important}
+  .lp6-sticky-cta-btn{padding-left:18px !important;padding-right:18px !important}
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
