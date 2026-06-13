@@ -1874,29 +1874,7 @@ first.parentNode.insertBefore(script, first);
 }
 </style>
 
-<style id="lp6-on-image-cursive-css">
-@media (max-width:600px){
-  /* Hide the original above-image cursive on mobile */
-  .lp6-cursive-headline{display:none !important}
-  /* Position the on-image cursive at TOP of image */
-  .ecom-djz4481vay .lp6-on-image-cursive{
-    position:absolute;left:50%;top:6%;
-    transform:translateX(-50%) rotate(-2deg);
-    z-index:5;
-    font-family:"Caveat",Georgia,serif;
-    font-size:22px;font-weight:600;color:#A06970;
-    text-align:center;white-space:nowrap;
-    line-height:1.1;
-  }
-  .ecom-djz4481vay .lp6-on-image-cursive .lp6-hearts{
-    display:inline-block;margin-left:5px;color:#C75D5D;font-size:18px;
-    transform:rotate(8deg);
-  }
-}
-@media (min-width:601px){
-  .ecom-djz4481vay .lp6-on-image-cursive{display:none}
-}
-</style>
+
 
 <style id="lp6-tagline-overlay-css">
 @media (max-width:600px){
@@ -2766,48 +2744,33 @@ a.ecom__element--button,
 
 
 
-<style id="lp6-h1-translate-onto-image">
-/* H1 visually translated DOWN onto the image. translateY doesn't disrupt flow. */
-.ecom-oit8fygid0n {
-  position: relative !important;
-  z-index: 5 !important;
-  transform: translateY(110px) !important;
-}
-/* Image pulled UP by equal amount so net layout is preserved (no empty gap) */
-.ecom-djz4481vay {
-  position: relative !important;
-  z-index: 1 !important;
-  margin-top: -110px !important;
-}
-/* Push price block + everything below DOWN to compensate for the H1 living on the image */
-.ecom-jbayfv8mp6 ~ * {
-  margin-top: 60px !important;
-}
-/* Drop shadow on H1 text for legibility on the cream image area */
-.ecom-oit8fygid0n .ecom__heading {
-  text-shadow: 0 1px 0 rgba(255,253,248,0.6), 0 0 12px rgba(255,253,248,0.5) !important;
+
+
+
+
+<style id="lp6-hero-master">
+/* ===== HERO MASTER STYLES — single source of truth ===== */
+
+/* 1) Hide the "best deal ever" cursive PERMANENTLY */
+.lp6-cursive-headline,
+.lp6-on-image-cursive,
+[class*="cursive-headline"],
+[class*="on-image-cursive"] {
+  display: none !important;
+  visibility: hidden !important;
 }
 
-@media (max-width: 400px) {
-  .ecom-oit8fygid0n { transform: translateY(90px) !important; }
-  .ecom-djz4481vay { margin-top: -90px !important; }
-}
-@media (max-width: 350px) {
-  .ecom-oit8fygid0n { transform: translateY(70px) !important; }
-  .ecom-djz4481vay { margin-top: -70px !important; }
-}
-</style>
-
-<style id="lp6-bg-blend">
-/* Page background — warm tan that matches the image's cream area */
-body.template-page,
+/* 2) Page background — warm tan matching image */
+html, body, body.template-page,
 .EComposer-theme,
+.shopify-section,
 .ecom-builder,
-.ecom-sections {
-  background-color: #EAD9C2 !important;  /* warm tan/beige sampled from image */
+.ecom-sections,
+.ecom-aogbocwsl4e {
+  background-color: #EAD9C2 !important;
 }
 
-/* Reduce padding/gap between announcement bar and H1 area */
+/* 3) Tight gap between announcement bar and H1 */
 .ecom-aogbocwsl4e,
 .ecom-jbayfv8mp6,
 .ecom-2gqyas3nio,
@@ -2815,20 +2778,55 @@ body.template-page,
 .ecom-o4t6ai3zw1o {
   padding-top: 8px !important;
   padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+/* 4) H1 sits ON the image — translateY pulls it down */
+.ecom-oit8fygid0n {
+  position: relative !important;
+  z-index: 5 !important;
+  transform: translateY(110px) !important;
+  padding-top: 8px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-
-.ecom-oit8fygid0n {
-  padding-top: 8px !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
+.ecom-djz4481vay {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: -110px !important;
 }
 
-/* Tighten the H1 itself */
+/* 5) Subtle drop-shadow on H1 for legibility */
 .ecom-oit8fygid0n .ecom__heading {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  text-shadow: 0 1px 0 rgba(234,217,194,0.85), 0 0 12px rgba(234,217,194,0.6) !important;
+}
+
+/* 6) Image full-bleed */
+.ecom-djz4481vay,
+.ecom-djz4481vay .core__block,
+.ecom-djz4481vay .ecom-base-image,
+.ecom-djz4481vay figure,
+.ecom-djz4481vay .ecom-container-image {
+  padding: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+.ecom-djz4481vay img {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  display: block !important;
+}
+
+/* 7) Responsive */
+@media (max-width: 400px) {
+  .ecom-oit8fygid0n { transform: translateY(90px) !important; }
+  .ecom-djz4481vay { margin-top: -90px !important; }
+}
+@media (max-width: 350px) {
+  .ecom-oit8fygid0n { transform: translateY(70px) !important; }
+  .ecom-djz4481vay { margin-top: -70px !important; }
 }
 </style>
 </head>
