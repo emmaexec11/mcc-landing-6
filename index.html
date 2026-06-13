@@ -2993,6 +2993,17 @@ html, body, body.template-page,
   .ecom-djz4481vay { margin-top: -80px !important; }
 }
 </style>
+
+<style id="lp6-img-crop-up">
+/* Crop top cream space off the hero image by shifting its content up */
+.ecom-djz4481vay img {
+  object-fit: cover !important;
+  object-position: 50% 30% !important;  /* shift content down 30% so top crops away */
+  aspect-ratio: 1 / 0.85 !important;
+  height: auto !important;
+}
+/* The image's HEIGHT becomes its natural width / 0.85 — effectively cropping ~15% from top + bottom */
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
