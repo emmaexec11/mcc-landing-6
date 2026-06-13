@@ -2519,6 +2519,33 @@ a.ecom__element--button.lp6-cta-secondary:hover {
   transform: none !important;
 }
 </style>
+
+<style id="lp6-sticky-btn-width-fix">
+/* Earlier rules set width:100% which made the button fill the whole bar
+   and squash the price column to 0px. Force compact width. */
+body .lp6-sticky-cta .lp6-sticky-cta-btn {
+  width: auto !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  min-width: 120px !important;
+  padding: 12px 18px !important;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+}
+body .lp6-sticky-cta .lp6-sticky-cta-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+body .lp6-sticky-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
