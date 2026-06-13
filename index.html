@@ -2736,10 +2736,16 @@ a.ecom__element--button,
   color: #FFFDF8 !important;
 }
 </style>
+
+<style id="lp6-bar-timing-fix">
+.lp6-bar-item {
+  transition: opacity 0.25s ease !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
-<span class="lp6-bar-item lp6-bar-active">Sold out 7 times this year · hand-poured weekly</span>
+<span class="lp6-bar-item lp6-bar-active">Sold out 7 times this year</span>
 <span class="lp6-bar-item">Over 436 five-star reviews</span>
 <span class="lp6-bar-item">Free Canadian shipping included</span>
 </div>
@@ -5178,6 +5184,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 })();
 </script>
 
+
+
 <script id="lp6-bar-rotate-js">
 (function(){
   function start(){
@@ -5185,9 +5193,13 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
     if (items.length < 2) return;
     var idx = 0;
     setInterval(function(){
+      // Step 1: fade out current
       items[idx].classList.remove('lp6-bar-active');
-      idx = (idx + 1) % items.length;
-      items[idx].classList.add('lp6-bar-active');
+      // Step 2: after fade-out completes (300ms), fade in next
+      setTimeout(function(){
+        idx = (idx + 1) % items.length;
+        items[idx].classList.add('lp6-bar-active');
+      }, 300);
     }, 3500);
   }
   if (document.readyState === 'loading'){
