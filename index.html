@@ -2454,71 +2454,7 @@ a.ecom__element--button:hover {
 }
 </style>
 
-<style id="lp6-cta-hierarchy">
-/* PRIMARY CTAs (all major buttons) — forest green, consistent across the page */
 
-/* Force the previously burgundy impulse CTA to match green primary style */
-.lp6-cta-impulse a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  background: #1F3A2E !important;
-  color: #FFFFFF !important;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 17px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em !important;
-  line-height: 1.3 !important;
-  padding: 18px 28px !important;
-  border: none !important;
-  border-radius: 14px !important;
-  text-decoration: none !important;
-  min-height: 56px !important;
-  width: 100% !important;
-  max-width: 460px !important;
-  margin: 0 auto !important;
-  box-sizing: border-box !important;
-  box-shadow: 0 4px 16px rgba(31, 58, 46, 0.22), inset 0 1px 0 rgba(255,255,255,0.08) !important;
-  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease, background 0.2s ease !important;
-}
-.lp6-cta-impulse a:hover {
-  background: #2A4A3C !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 8px 24px rgba(31, 58, 46, 0.32), inset 0 1px 0 rgba(255,255,255,0.12) !important;
-}
-.lp6-cta-impulse a span { color: #FFFFFF !important; }
-.lp6-cta-impulse a svg { stroke: #FFFFFF !important; color: #FFFFFF !important; }
-
-/* SECONDARY — plain text-link style. NOT a button. Looks like clickable inline text. */
-a.ecom__element--button.lp6-cta-secondary {
-  background: transparent !important;
-  color: #1F3A2E !important;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  padding: 6px 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  min-height: 0 !important;
-  width: auto !important;
-  max-width: none !important;
-  animation: none !important;
-  letter-spacing: 0 !important;
-  text-decoration: underline !important;
-  text-decoration-thickness: 1.5px !important;
-  text-underline-offset: 4px !important;
-  text-decoration-color: rgba(31, 58, 46, 0.4) !important;
-  margin: 0 auto !important;
-  display: inline-block !important;
-}
-a.ecom__element--button.lp6-cta-secondary:hover {
-  background: transparent !important;
-  text-decoration-color: #1F3A2E !important;
-  transform: none !important;
-}
-</style>
 
 <style id="lp6-sticky-btn-width-fix">
 /* Earlier rules set width:100% which made the button fill the whole bar
@@ -2545,6 +2481,68 @@ body .lp6-sticky-cta {
   justify-content: space-between !important;
   gap: 10px !important;
 }
+</style>
+
+<style id="lp6-cta-hierarchy">
+/* HIERARCHY: One strong primary CTA = sticky bar.
+   ALL inline buttons = small outline (subtle, consistent). */
+
+/* ALL inline buttons — small outline, consistent style */
+a.ecom__element--button,
+.ecom-element-button a,
+.ecom-element-button .ecom__element--button,
+.lp6-cta-impulse a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  color: #1F3A2E !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  padding: 12px 22px !important;
+  border: 1.5px solid #1F3A2E !important;
+  border-radius: 100px !important;
+  text-decoration: none !important;
+  min-height: 44px !important;
+  width: auto !important;
+  max-width: 90% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+a.ecom__element--button:hover,
+.ecom-element-button a:hover,
+.lp6-cta-impulse a:hover {
+  background: #1F3A2E !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+a.ecom__element--button:hover span,
+a.ecom__element--button:hover svg,
+.lp6-cta-impulse a:hover span,
+.lp6-cta-impulse a:hover svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+.lp6-cta-impulse a span { color: #1F3A2E !important; }
+.lp6-cta-impulse a svg { stroke: #1F3A2E !important; color: #1F3A2E !important; }
+
+/* Center each button's container */
+.ecom-element-button,
+.ecom__element-button {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* Remove arrow ::after — buttons already have their own indicators */
+a.ecom__element--button::after { display: none !important; }
 </style>
 </head>
 
@@ -4958,31 +4956,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 })();
 </script>
 
-<script id="lp6-cta-demote">
-(function(){
-  function demote(){
-    var demoteText = [
-      'Ditch Toxic Makeup',
-      'Simplify Your Routine',
-      'View More'
-    ];
-    var btns = document.querySelectorAll('a.ecom__element--button');
-    btns.forEach(function(b){
-      var txt = (b.textContent || '').trim();
-      for (var i = 0; i < demoteText.length; i++) {
-        if (txt.indexOf(demoteText[i]) !== -1) {
-          b.classList.add('lp6-cta-secondary');
-          break;
-        }
-      }
-    });
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', demote);
-  } else {
-    demote();
-  }
-})();
-</script>
+
 </body>
 </html>
