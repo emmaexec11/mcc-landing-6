@@ -2945,6 +2945,50 @@ html, body, body.template-page,
   font-size: 14px;
 }
 </style>
+
+<style id="lp6-final-gap-kill">
+/* Reviews badge — tight, sits right under the announcement bar with NO gap */
+.lp6-reviews-badge-wrap {
+  text-align: center;
+  width: 100%;
+  background: #EFE7DA;
+  padding: 10px 16px 4px;
+  margin: 0 !important;
+}
+.lp6-reviews-badge {
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Zero ALL spacing on the H1's section ancestors */
+.ecom-aogbocwsl4e,
+.ecom-aogbocwsl4e * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.ecom-oit8fygid0n {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.ecom-oit8fygid0n .ecom__heading {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+/* Keep the translateY but the H1 should now be RIGHT under the badge */
+.ecom-oit8fygid0n {
+  transform: translateY(60px) !important;
+}
+.ecom-djz4481vay {
+  margin-top: -60px !important;
+}
+@media (max-width: 400px) {
+  .ecom-oit8fygid0n { transform: translateY(50px) !important; }
+  .ecom-djz4481vay { margin-top: -50px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
