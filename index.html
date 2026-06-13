@@ -3002,71 +3002,9 @@ html, body, body.template-page,
 
 
 
-<style id="lp6-img-ultra-fix">
-/* Force the WHOLE chain from .ecom-w6fb2h3x14j down to be 100vw */
-body .ecom-aogbocwsl4e .ecom-w6fb2h3x14j,
-body .ecom-aogbocwsl4e .ecom-w6fb2h3x14j .core__column--wrapper,
-body .ecom-aogbocwsl4e .ecom-djz4481vay,
-body .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-base-image,
-body .ecom-aogbocwsl4e .ecom-djz4481vay figure,
-body .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-container-image,
-body .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-image-content-position,
-body .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-image-picture {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  position: relative !important;
-  left: 0 !important;
-}
 
-/* Container becomes the crop window */
-body .ecom-aogbocwsl4e .ecom-djz4481vay {
-  overflow: hidden !important;
-  height: 360px !important;  /* fixed height — crops the cream sky from top */
-  margin-left: calc(50% - 50vw) !important;
-  width: 100vw !important;
-}
 
-/* Image: fill container, anchored to BOTTOM (so cream sky is cropped off TOP) */
-body .ecom-aogbocwsl4e .ecom-djz4481vay img {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: auto !important;
-  min-height: 100% !important;
-  object-fit: cover !important;
-  object-position: 50% 100% !important;  /* anchor to BOTTOM = top crops off */
-  display: block !important;
-  position: relative !important;
-  left: 0 !important;
-  transform: none !important;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 50px, black calc(100% - 50px), transparent 100%) !important;
-  mask-image: linear-gradient(to bottom, transparent 0, black 50px, black calc(100% - 50px), transparent 100%) !important;
-}
 
-@media (max-width: 400px) {
-  body .ecom-aogbocwsl4e .ecom-djz4481vay { height: 320px !important; }
-}
-@media (max-width: 350px) {
-  body .ecom-aogbocwsl4e .ecom-djz4481vay { height: 290px !important; }
-}
-</style>
-
-<style id="lp6-force-left-zero">
-/* Image container shifted 20px from left edge somewhere up the chain.
-   Force-shift it back with margin-left so it sits at viewport left=0. */
-body .ecom-aogbocwsl4e .ecom-djz4481vay {
-  margin-left: -20px !important;
-  width: calc(100vw - 0px) !important;
-  position: relative !important;
-  left: 0 !important;
-}
-@media (min-width: 391px) {
-  body .ecom-aogbocwsl4e .ecom-djz4481vay { margin-left: 0 !important; }
-}
-</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
@@ -5513,31 +5451,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
-<script id="lp6-img-js-force">
-(function(){
-  function forceImg(){
-    var c = document.querySelector('.ecom-djz4481vay');
-    if (!c) return;
-    var img = c.querySelector('img');
-    if (!img) return;
-    var vw = window.innerWidth;
-    var rect = c.getBoundingClientRect();
-    // Force container to full viewport width starting at left=0
-    c.style.cssText += ';position:relative;left:' + (-rect.left) + 'px;width:' + vw + 'px;max-width:' + vw + 'px;margin-left:0;margin-right:0;padding-left:0;padding-right:0;overflow:hidden;box-sizing:border-box;';
-    img.style.cssText += ';width:' + vw + 'px;max-width:' + vw + 'px;height:auto;object-fit:cover;object-position:50% 100%;display:block;position:relative;left:0;-webkit-mask-image:linear-gradient(to bottom,transparent 0,black 50px,black calc(100% - 50px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,black 50px,black calc(100% - 50px),transparent 100%);';
-  }
-  function init(){
-    forceImg();
-    setTimeout(forceImg, 100);
-    setTimeout(forceImg, 500);
-    window.addEventListener('resize', forceImg);
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
+
 </body>
 </html>
