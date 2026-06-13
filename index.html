@@ -2737,11 +2737,7 @@ a.ecom__element--button,
 }
 </style>
 
-<style id="lp6-bar-timing-fix">
-.lp6-bar-item {
-  transition: opacity 0.25s ease !important;
-}
-</style>
+
 
 
 
@@ -2792,6 +2788,12 @@ body.template-page,
 @media (max-width: 350px) {
   .lp6-announcement-bar { font-size: 12.5px !important; letter-spacing: 0.04em !important; }
   .lp6-bar-item { font-size: 12.5px !important; }
+}
+</style>
+
+<style id="lp6-bar-smooth">
+.lp6-bar-item {
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 </style>
 </head>
@@ -5238,6 +5240,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
+
+
 <script id="lp6-bar-rotate-js">
 (function(){
   function start(){
@@ -5245,14 +5249,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
     if (items.length < 2) return;
     var idx = 0;
     setInterval(function(){
-      // Step 1: fade out current
       items[idx].classList.remove('lp6-bar-active');
-      // Step 2: after fade-out completes (300ms), fade in next
-      setTimeout(function(){
-        idx = (idx + 1) % items.length;
-        items[idx].classList.add('lp6-bar-active');
-      }, 300);
-    }, 3500);
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add('lp6-bar-active');
+    }, 4000);
   }
   if (document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', start);
