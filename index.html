@@ -2859,28 +2859,7 @@ html, body, body.template-page,
 }
 </style>
 
-<style id="lp6-no-gap">
-/* Zero all padding/margin on hero section nested blocks */
-.ecom-aogbocwsl4e,
-.ecom-aogbocwsl4e .core__row--columns,
-.ecom-aogbocwsl4e .core__column--wrapper,
-.ecom-aogbocwsl4e .core__blocks,
-.ecom-aogbocwsl4e .core__blocks--body,
-.ecom-aogbocwsl4e .ecom-row,
-.ecom-aogbocwsl4e .core__block,
-.ecom-aogbocwsl4e .ecom-block,
-.ecom-aogbocwsl4e .ecom-column,
-.ecom-aogbocwsl4e .ecom-section__overlay {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-/* Allow H1 a tiny bit of breathing room from the announcement bar */
-.ecom-oit8fygid0n {
-  padding-top: 12px !important;
-}
-</style>
+
 
 <style id="lp6-conversion-boost">
 /* Two-tone H1 emphasis */
@@ -2946,47 +2925,49 @@ html, body, body.template-page,
 }
 </style>
 
-<style id="lp6-final-gap-kill">
-/* Reviews badge — tight, sits right under the announcement bar with NO gap */
-.lp6-reviews-badge-wrap {
-  text-align: center;
-  width: 100%;
-  background: #EFE7DA;
-  padding: 10px 16px 4px;
-  margin: 0 !important;
-}
-.lp6-reviews-badge {
-  margin: 0 !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
 
-/* Zero ALL spacing on the H1's section ancestors */
+
+<style id="lp6-nuke-hero-padding">
+/* NUCLEAR option — kill every pixel of padding/margin in the hero */
 .ecom-aogbocwsl4e,
-.ecom-aogbocwsl4e * {
+.ecom-aogbocwsl4e *:not(.lp6-announcement-bar):not(.lp6-bar-item):not(.ecom__heading) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+
+/* Specific overrides: bar keeps its internal padding for vertical rhythm */
+.lp6-announcement-bar {
+  padding: 14px 16px !important;
+}
+
+/* H1 sits IMMEDIATELY below bar — no translate, no padding */
 .ecom-oit8fygid0n {
+  transform: none !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 .ecom-oit8fygid0n .ecom__heading {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding: 16px 16px 8px !important;
   margin: 0 !important;
+  line-height: 1.1 !important;
 }
-/* Keep the translateY but the H1 should now be RIGHT under the badge */
-.ecom-oit8fygid0n {
-  transform: translateY(60px) !important;
-}
+
+/* Image pulls UP overlapping H1 bottom edge */
 .ecom-djz4481vay {
-  margin-top: -60px !important;
+  margin-top: -40px !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
-@media (max-width: 400px) {
-  .ecom-oit8fygid0n { transform: translateY(50px) !important; }
-  .ecom-djz4481vay { margin-top: -50px !important; }
+.ecom-oit8fygid0n {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Reviews badge wrap — minimal padding */
+.lp6-reviews-badge-wrap {
+  padding: 8px 16px 0 !important;
 }
 </style>
 </head>
