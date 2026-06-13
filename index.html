@@ -2760,15 +2760,7 @@ a.ecom__element--button,
   visibility: hidden !important;
 }
 
-/* 2) Page background — warm tan matching image */
-html, body, body.template-page,
-.EComposer-theme,
-.shopify-section,
-.ecom-builder,
-.ecom-sections,
-.ecom-aogbocwsl4e {
-  background-color: #EAD9C2 !important;
-}
+/* Bg rule moved to section-bgs block */
 
 /* 3) Tight gap between announcement bar and H1 */
 .ecom-aogbocwsl4e,
@@ -2827,6 +2819,22 @@ html, body, body.template-page,
 @media (max-width: 350px) {
   .ecom-oit8fygid0n { transform: translateY(70px) !important; }
   .ecom-djz4481vay { margin-top: -70px !important; }
+}
+</style>
+
+<style id="lp6-section-bgs">
+/* Body + general page = cream (Wyld brand) */
+html, body, body.template-page,
+.EComposer-theme,
+.shopify-section,
+.ecom-builder,
+.ecom-sections {
+  background-color: #FAF3E8 !important;
+}
+
+/* ONLY the hero section gets the tan bg (matches image) */
+.ecom-aogbocwsl4e {
+  background-color: #EAD9C2 !important;
 }
 </style>
 </head>
