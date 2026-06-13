@@ -2996,29 +2996,28 @@ html, body, body.template-page,
 
 
 
-<style id="lp6-h1-over-tins">
-/* H1 translates DOWN onto the image, image pulls UP equal amount.
-   Net layout flow: zero. Pills/price block stay in place. */
-.ecom-oit8fygid0n {
-  position: relative !important;
-  z-index: 5 !important;
-  transform: translateY(180px) !important;
-}
+
+
+<style id="lp6-img-shift-up">
+/* Shift IMG content UP visually inside its container. Container size + pill positions unchanged. */
 .ecom-djz4481vay {
+  overflow: hidden !important;
+  height: 480px !important;  /* fixed container height — pills positioned within */
+  position: relative !important;
+}
+.ecom-djz4481vay img {
+  transform: translateY(-120px) !important;  /* shifts image content UP, cropping cream sky */
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
   position: relative !important;
   z-index: 1 !important;
-  margin-top: -180px !important;
 }
-.ecom-oit8fygid0n .ecom__heading {
-  text-shadow: 0 1px 0 rgba(239,231,218,0.8), 0 0 14px rgba(239,231,218,0.6) !important;
-}
+/* Pills stay positioned within the container (not affected by img transform) */
+
 @media (max-width: 400px) {
-  .ecom-oit8fygid0n { transform: translateY(150px) !important; }
-  .ecom-djz4481vay { margin-top: -150px !important; }
-}
-@media (max-width: 350px) {
-  .ecom-oit8fygid0n { transform: translateY(120px) !important; }
-  .ecom-djz4481vay { margin-top: -120px !important; }
+  .ecom-djz4481vay { height: 440px !important; }
+  .ecom-djz4481vay img { transform: translateY(-100px) !important; }
 }
 </style>
 </head>
