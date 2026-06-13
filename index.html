@@ -2202,6 +2202,23 @@ section, .ecom-section, .core__row--columns{max-width:100% !important}
   .lp6-sticky-cta-price{font-size:16px !important;padding:3px 11px !important}
 }
 </style>
+
+<style id="lp6-hide-upcart">
+/* UpCart widget — Shopify upsell cart app — hide on the LP clone */
+.upcart-sticky-widget,
+[class*="upcart"],
+[class*="StickyWidget"],
+[id*="upcart"],
+[id*="StickyWidget"],
+.upcart-modal,
+.upcart-iframe-container,
+upcart-widget{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
