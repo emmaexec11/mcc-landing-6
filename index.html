@@ -2994,15 +2994,32 @@ html, body, body.template-page,
 }
 </style>
 
-<style id="lp6-img-crop-up">
-/* Crop top cream space off the hero image by shifting its content up */
-.ecom-djz4481vay img {
-  object-fit: cover !important;
-  object-position: 50% 30% !important;  /* shift content down 30% so top crops away */
-  aspect-ratio: 1 / 0.85 !important;
-  height: auto !important;
+
+
+<style id="lp6-h1-over-tins">
+/* H1 translates DOWN onto the image, image pulls UP equal amount.
+   Net layout flow: zero. Pills/price block stay in place. */
+.ecom-oit8fygid0n {
+  position: relative !important;
+  z-index: 5 !important;
+  transform: translateY(180px) !important;
 }
-/* The image's HEIGHT becomes its natural width / 0.85 — effectively cropping ~15% from top + bottom */
+.ecom-djz4481vay {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: -180px !important;
+}
+.ecom-oit8fygid0n .ecom__heading {
+  text-shadow: 0 1px 0 rgba(239,231,218,0.8), 0 0 14px rgba(239,231,218,0.6) !important;
+}
+@media (max-width: 400px) {
+  .ecom-oit8fygid0n { transform: translateY(150px) !important; }
+  .ecom-djz4481vay { margin-top: -150px !important; }
+}
+@media (max-width: 350px) {
+  .ecom-oit8fygid0n { transform: translateY(120px) !important; }
+  .ecom-djz4481vay { margin-top: -120px !important; }
+}
 </style>
 </head>
 
