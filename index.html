@@ -2837,6 +2837,27 @@ html, body, body.template-page,
   background-color: #EFE7DA !important;
 }
 </style>
+
+<style id="lp6-image-feather">
+/* Feather the top + bottom edges of the hero image so it blends into the page bg
+   regardless of exact color match */
+.ecom-djz4481vay img {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  ) !important;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  ) !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
