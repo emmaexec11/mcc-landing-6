@@ -2639,11 +2639,38 @@ a.ecom__element--button,
   .lp6-bar-item { font-size: 13px !important; }
 }
 </style>
+
+<style id="lp6-bar-vcenter-fix">
+.lp6-announcement-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.lp6-bar-item {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) translateY(8px) !important;
+  opacity: 0 !important;
+  width: calc(100% - 24px) !important;
+  text-align: center !important;
+  white-space: normal !important;
+  transition: opacity 0.5s ease, transform 0.5s ease !important;
+  pointer-events: none !important;
+  line-height: 1.2 !important;
+}
+.lp6-bar-item.lp6-bar-active {
+  position: absolute !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) translateY(0) !important;
+  pointer-events: auto !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
 <span class="lp6-bar-item lp6-bar-active">★ Sold out 7x — hand-poured weekly ★</span>
-<span class="lp6-bar-item">✨ Over 436 five-star reviews ✨</span>
+<span class="lp6-bar-item">💕 Over 436 five-star reviews 💕</span>
 <span class="lp6-bar-item">🚚 Free Canadian shipping included</span>
 </div>
   <div class="EComposer-theme">
