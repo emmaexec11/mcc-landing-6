@@ -2742,6 +2742,53 @@ a.ecom__element--button,
   transition: opacity 0.25s ease !important;
 }
 </style>
+
+<style id="lp6-magazine-hero">
+/* Magazine-editorial hero: H1 overlaps top of image like IM8 */
+
+/* The H1 block stays in place but tightens spacing to next element */
+.ecom-oit8fygid0n .ecom__heading,
+.ecom-oit8fygid0n {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-bottom: -90px !important;
+  padding-bottom: 0 !important;
+}
+/* Subtle text shadow for legibility on the cream image area */
+.ecom-oit8fygid0n .ecom__heading {
+  text-shadow: 0 1px 2px rgba(255, 252, 248, 0.6), 0 0 16px rgba(255, 252, 248, 0.4) !important;
+}
+
+/* The image block below starts higher (pulled up under H1) */
+.ecom-9bkl1180f37,
+.ecom-9bkl1180f37 .ecom-base-image {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Shrink/hide the "It's the best deal ever" cursive when H1 is sitting on the image
+   (collision avoidance). Push it lower on the image. */
+.lp6-on-image-cursive {
+  margin-top: 80px !important;
+}
+
+/* On smaller viewports, less overlap (so text doesn't get cramped) */
+@media (max-width: 400px) {
+  .ecom-oit8fygid0n,
+  .ecom-oit8fygid0n .ecom__heading {
+    margin-bottom: -60px !important;
+  }
+  .lp6-on-image-cursive { margin-top: 60px !important; }
+}
+@media (max-width: 350px) {
+  .ecom-oit8fygid0n,
+  .ecom-oit8fygid0n .ecom__heading {
+    margin-bottom: -40px !important;
+  }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
