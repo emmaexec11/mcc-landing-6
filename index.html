@@ -2998,26 +2998,34 @@ html, body, body.template-page,
 
 
 
+
+
 <style id="lp6-img-shift-up">
-/* Shift IMG content UP visually inside its container. Container size + pill positions unchanged. */
+/* Image container: full viewport width, fixed height to crop top cream */
 .ecom-djz4481vay {
   overflow: hidden !important;
-  height: 480px !important;  /* fixed container height — pills positioned within */
   position: relative !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  aspect-ratio: 1 / 0.7 !important;
+  padding: 0 !important;
 }
 .ecom-djz4481vay img {
-  transform: translateY(-120px) !important;  /* shifts image content UP, cropping cream sky */
-  width: 100% !important;
+  width: 100vw !important;
   height: auto !important;
+  min-height: 100% !important;
   object-fit: cover !important;
-  position: relative !important;
-  z-index: 1 !important;
+  object-position: 50% 75% !important;  /* show BOTTOM 75% of image (crops cream sky from top) */
+  display: block !important;
+  transform: none !important;
+  /* Feather top + bottom so it blends with page bg */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 60px, black calc(100% - 60px), transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, transparent 0, black 60px, black calc(100% - 60px), transparent 100%) !important;
 }
-/* Pills stay positioned within the container (not affected by img transform) */
-
 @media (max-width: 400px) {
-  .ecom-djz4481vay { height: 440px !important; }
-  .ecom-djz4481vay img { transform: translateY(-100px) !important; }
+  .ecom-djz4481vay { aspect-ratio: 1 / 0.65 !important; }
 }
 </style>
 </head>
