@@ -2411,70 +2411,7 @@ a.ecom__element--button:hover {
 }
 </style>
 
-<style id="lp6-cta-hierarchy">
-/* The burgundy 'Get Yours Now — $30' impulse CTA — green to match brand */
-.lp6-cta-impulse a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  background: #1F3A2E !important;
-  color: #FFFFFF !important;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 17px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em !important;
-  line-height: 1.3 !important;
-  padding: 18px 28px !important;
-  border: none !important;
-  border-radius: 14px !important;
-  text-decoration: none !important;
-  min-height: 56px !important;
-  width: 100% !important;
-  max-width: 460px !important;
-  margin: 0 auto !important;
-  box-sizing: border-box !important;
-  box-shadow: 0 4px 16px rgba(31, 58, 46, 0.22), inset 0 1px 0 rgba(255,255,255,0.08) !important;
-  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease, background 0.2s ease !important;
-}
-.lp6-cta-impulse a:hover {
-  background: #2A4A3C !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 8px 24px rgba(31, 58, 46, 0.32), inset 0 1px 0 rgba(255,255,255,0.12) !important;
-}
-.lp6-cta-impulse a span {
-  color: #FFFFFF !important;
-}
-.lp6-cta-impulse a svg {
-  stroke: #FFFFFF !important;
-  color: #FFFFFF !important;
-}
 
-/* SECONDARY text-link CTA — for demoted in-between buttons.
-   Used by adding the lp6-cta-secondary class via JS to specific buttons. */
-.lp6-cta-secondary,
-a.ecom__element--button.lp6-cta-secondary {
-  background: transparent !important;
-  color: #1F3A2E !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  padding: 12px 20px !important;
-  border: 1.5px solid rgba(31, 58, 46, 0.25) !important;
-  border-radius: 100px !important;
-  box-shadow: none !important;
-  min-height: 44px !important;
-  width: auto !important;
-  max-width: none !important;
-  animation: none !important;
-  letter-spacing: 0.01em !important;
-}
-.lp6-cta-secondary:hover,
-a.ecom__element--button.lp6-cta-secondary:hover {
-  background: rgba(31, 58, 46, 0.05) !important;
-  border-color: #1F3A2E !important;
-  transform: translateY(-1px) !important;
-}
-</style>
 
 <style id="lp6-sticky-fit-fix">
 .lp6-sticky-cta {
@@ -2514,6 +2451,72 @@ a.ecom__element--button.lp6-cta-secondary:hover {
   .lp6-sticky-cta-price { font-size: 14px !important; }
   .lp6-sticky-cta-scarcity { font-size: 8px !important; }
   .lp6-sticky-cta-btn { font-size: 13px !important; padding: 11px 14px !important; min-width: 110px !important; }
+}
+</style>
+
+<style id="lp6-cta-hierarchy">
+/* PRIMARY CTAs (all major buttons) — forest green, consistent across the page */
+
+/* Force the previously burgundy impulse CTA to match green primary style */
+.lp6-cta-impulse a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: #1F3A2E !important;
+  color: #FFFFFF !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  padding: 18px 28px !important;
+  border: none !important;
+  border-radius: 14px !important;
+  text-decoration: none !important;
+  min-height: 56px !important;
+  width: 100% !important;
+  max-width: 460px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 16px rgba(31, 58, 46, 0.22), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease, background 0.2s ease !important;
+}
+.lp6-cta-impulse a:hover {
+  background: #2A4A3C !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(31, 58, 46, 0.32), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+}
+.lp6-cta-impulse a span { color: #FFFFFF !important; }
+.lp6-cta-impulse a svg { stroke: #FFFFFF !important; color: #FFFFFF !important; }
+
+/* SECONDARY — plain text-link style. NOT a button. Looks like clickable inline text. */
+a.ecom__element--button.lp6-cta-secondary {
+  background: transparent !important;
+  color: #1F3A2E !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  padding: 6px 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  animation: none !important;
+  letter-spacing: 0 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 4px !important;
+  text-decoration-color: rgba(31, 58, 46, 0.4) !important;
+  margin: 0 auto !important;
+  display: inline-block !important;
+}
+a.ecom__element--button.lp6-cta-secondary:hover {
+  background: transparent !important;
+  text-decoration-color: #1F3A2E !important;
+  transform: none !important;
 }
 </style>
 </head>
