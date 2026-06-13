@@ -2556,9 +2556,37 @@ a.ecom__element--button,
   color: #2A1F1A !important;
 }
 </style>
+
+<style id="lp6-bar-rotation">
+.lp6-announcement-bar {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.lp6-bar-item {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) translateY(8px) !important;
+  opacity: 0 !important;
+  transition: opacity 0.5s ease, transform 0.5s ease !important;
+  pointer-events: none !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+.lp6-bar-item.lp6-bar-active {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) translateY(0) !important;
+  position: relative !important;
+}
+</style>
 </head>
 
-<body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
+<body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
+<span class="lp6-bar-item lp6-bar-active">★ Sold out 7 times this year — hand-poured every week ★</span>
+<span class="lp6-bar-item">✨ Over 436 five-star reviews ✨</span>
+<span class="lp6-bar-item">🚚 Free Canadian shipping on your tester pack</span>
+</div>
   <div class="EComposer-theme">
     <div id="shopify-section-template--20359376863489__ecom-metamulticolourcream-page" class="shopify-section"> 
  
@@ -4985,6 +5013,26 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
     window.addEventListener('touchmove', check, {passive:true});
     window.addEventListener('resize', check, {passive:true});
     check();
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
+</script>
+
+<script id="lp6-bar-rotate-js">
+(function(){
+  function start(){
+    var items = document.querySelectorAll('.lp6-announcement-bar .lp6-bar-item');
+    if (items.length < 2) return;
+    var idx = 0;
+    setInterval(function(){
+      items[idx].classList.remove('lp6-bar-active');
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add('lp6-bar-active');
+    }, 3500);
   }
   if (document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', start);
