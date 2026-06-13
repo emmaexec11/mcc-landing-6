@@ -2475,6 +2475,47 @@ a.ecom__element--button.lp6-cta-secondary:hover {
   transform: translateY(-1px) !important;
 }
 </style>
+
+<style id="lp6-sticky-fit-fix">
+.lp6-sticky-cta {
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  gap: 10px !important;
+}
+.lp6-sticky-cta-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+.lp6-sticky-cta-price {
+  font-size: 15px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.lp6-sticky-cta-price-strike {
+  font-size: 12px !important;
+  margin-left: 4px !important;
+}
+.lp6-sticky-cta-scarcity {
+  font-size: 9px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.lp6-sticky-cta-btn {
+  font-size: 14px !important;
+  padding: 12px 18px !important;
+  min-width: 130px !important;
+  flex: 0 0 auto !important;
+}
+.lp6-sticky-cta-btn::after { display: none !important; }
+@media (max-width: 360px) {
+  .lp6-sticky-cta-price { font-size: 14px !important; }
+  .lp6-sticky-cta-scarcity { font-size: 8px !important; }
+  .lp6-sticky-cta-btn { font-size: 13px !important; padding: 11px 14px !important; min-width: 110px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
