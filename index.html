@@ -2089,6 +2089,9 @@ first.parentNode.insertBefore(script, first);
   position:fixed;
   bottom:0;left:0;right:0;
   background:rgba(255,255,255,0.96);
+  opacity:0;pointer-events:none;
+  transform:translateY(100%);
+  transition:opacity .3s ease, transform .3s ease;
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
   box-shadow:0 -4px 20px rgba(0,0,0,0.08);
@@ -2159,6 +2162,14 @@ shop-pay-banner,
 shop-login-button{
   display:none !important;
   visibility:hidden !important;
+}
+</style>
+
+<style id="lp6-sticky-show">
+.lp6-sticky-cta.lp6-sticky-show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
 }
 </style>
 </head>
@@ -4238,5 +4249,22 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
     <span class="lp6-sticky-cta-price">$30</span>
     <span class="lp6-sticky-cta-arrow">→</span>
   </a>
-</div></body>
+</div>
+<script id="lp6-sticky-scroll">
+(function(){
+  var stickyEl = document.querySelector('.lp6-sticky-cta');
+  if (!stickyEl) return;
+  var threshold = 220; // px scroll before showing
+  function check() {
+    if (window.scrollY > threshold) {
+      stickyEl.classList.add('lp6-sticky-show');
+    } else {
+      stickyEl.classList.remove('lp6-sticky-show');
+    }
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  check();
+})();
+</script>
+</body>
 </html>
