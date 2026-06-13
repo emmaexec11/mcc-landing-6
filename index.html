@@ -4380,6 +4380,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
+
+
+
 <!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
 <!-- Replaces ecom-main.js / ecomposer JS that was stripped. Runs on DOMContentLoaded. -->
 <script id="lp6-ecomposer-shim">
@@ -4488,10 +4491,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
           try { userCfg = JSON.parse(dataOpt); } catch(e){ console.warn('[LP6 shim] bad swiper config', e); }
         }
         // Build config — tell Swiper to use EcoComposer's class names
-        var slides = c.querySelectorAll('.ecom-slide, .swiper-slide');
+        var slides = c.querySelectorAll('.ecom-swiper-slide, .ecom-slide, .swiper-slide');
         var cfg = {
           wrapperClass: 'ecom-swiper-wrapper',
-          slideClass: 'ecom-slide',
+          slideClass: 'ecom-swiper-slide',
           slideActiveClass: userCfg.slideActiveClass || 'ecom-box-active',
           direction: userCfg.direction || 'horizontal',
           speed: userCfg.speed || 600,
