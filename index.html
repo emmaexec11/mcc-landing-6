@@ -2666,6 +2666,38 @@ a.ecom__element--button,
   pointer-events: auto !important;
 }
 </style>
+
+<style id="lp6-bar-grid-center">
+/* Use CSS grid stack trick — all rotating items occupy same cell, auto-centered */
+.lp6-announcement-bar {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  align-items: center !important;
+  justify-items: center !important;
+  padding: 14px 16px !important;
+  min-height: 48px !important;
+  line-height: 1.2 !important;
+}
+.lp6-bar-item {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  opacity: 0 !important;
+  transition: opacity 0.5s ease !important;
+  pointer-events: none !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+.lp6-bar-item.lp6-bar-active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
