@@ -2618,10 +2618,31 @@ a.ecom__element--button,
   .lp6-announcement-bar { font-size: 11px !important; }
 }
 </style>
+
+<style id="lp6-bar-bigger-text">
+.lp6-announcement-bar {
+  font-size: 15px !important;
+  letter-spacing: 0.02em !important;
+  padding: 14px 16px !important;
+  min-height: 48px !important;
+  font-weight: 700 !important;
+}
+.lp6-bar-item {
+  font-size: 15px !important;
+}
+@media (max-width: 400px) {
+  .lp6-announcement-bar { font-size: 14px !important; padding: 12px 12px !important; }
+  .lp6-bar-item { font-size: 14px !important; }
+}
+@media (max-width: 350px) {
+  .lp6-announcement-bar { font-size: 13px !important; }
+  .lp6-bar-item { font-size: 13px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
-<span class="lp6-bar-item lp6-bar-active">★ Sold out 7x this year — hand-poured weekly ★</span>
+<span class="lp6-bar-item lp6-bar-active">★ Sold out 7x — hand-poured weekly ★</span>
 <span class="lp6-bar-item">✨ Over 436 five-star reviews ✨</span>
 <span class="lp6-bar-item">🚚 Free Canadian shipping included</span>
 </div>
