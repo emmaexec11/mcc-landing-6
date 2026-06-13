@@ -2698,12 +2698,40 @@ a.ecom__element--button,
   transform: none !important;
 }
 </style>
+
+<style id="lp6-bar-premium">
+/* Clean premium top bar — solid burgundy, no gradient, no emoji */
+.lp6-announcement-bar {
+  background: #7A1E26 !important;
+  /* no gradient — single solid color reads premium */
+  color: #FDF8F0 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 14px 16px !important;
+  min-height: 46px !important;
+  text-shadow: none !important;
+}
+.lp6-bar-item {
+  font-size: 13px !important;
+  color: #FDF8F0 !important;
+}
+@media (max-width: 400px) {
+  .lp6-announcement-bar { font-size: 12px !important; letter-spacing: 0.06em !important; padding: 12px 14px !important; }
+  .lp6-bar-item { font-size: 12px !important; }
+}
+@media (max-width: 350px) {
+  .lp6-announcement-bar { font-size: 11px !important; letter-spacing: 0.04em !important; }
+  .lp6-bar-item { font-size: 11px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
-<span class="lp6-bar-item lp6-bar-active">★ Sold out 7x — hand-poured weekly ★</span>
-<span class="lp6-bar-item">💕 Over 436 five-star reviews 💕</span>
-<span class="lp6-bar-item">🚚 Free Canadian shipping included</span>
+<span class="lp6-bar-item lp6-bar-active">Sold out 7 times this year · hand-poured weekly</span>
+<span class="lp6-bar-item">Over 436 five-star reviews</span>
+<span class="lp6-bar-item">Free Canadian shipping included</span>
 </div>
   <div class="EComposer-theme">
     <div id="shopify-section-template--20359376863489__ecom-metamulticolourcream-page" class="shopify-section"> 
