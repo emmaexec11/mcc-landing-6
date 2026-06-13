@@ -2743,40 +2743,7 @@ a.ecom__element--button,
 
 
 
-<style id="lp6-hero-cleanup">
-/* 1) Hide the cursive "best deal ever" overlay */
-.lp6-cursive-headline,
-.lp6-on-image-cursive {
-  display: none !important;
-}
 
-/* 2) Image full-bleed — remove padding around the hero image */
-.ecom-9bkl1180f37,
-.ecom-9bkl1180f37 .ecom-base-image,
-.ecom-9bkl1180f37 .core__block,
-.ecom-djz4481vay {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: 100vw !important;
-  width: 100vw !important;
-}
-.ecom-9bkl1180f37 img,
-.ecom-djz4481vay img {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  display: block !important;
-}
-
-/* 3) Page background — neutral cream (less pink than previous #F2E6D3) */
-body.template-page,
-.EComposer-theme,
-.ecom-builder,
-.ecom-sections {
-  background-color: #F4EAD8 !important;  /* warm but neutral cream */
-}
-</style>
 
 <style id="lp6-bar-mobile-bigger">
 .lp6-announcement-bar { font-size: 15px !important; letter-spacing: 0.06em !important; padding: 15px 14px !important; min-height: 50px !important; }
@@ -2828,6 +2795,40 @@ body.template-page,
 @media (max-width: 350px) {
   .ecom-oit8fygid0n { transform: translateY(70px) !important; }
   .ecom-djz4481vay { margin-top: -70px !important; }
+}
+</style>
+
+<style id="lp6-bg-blend">
+/* Page background — warm tan that matches the image's cream area */
+body.template-page,
+.EComposer-theme,
+.ecom-builder,
+.ecom-sections {
+  background-color: #EAD9C2 !important;  /* warm tan/beige sampled from image */
+}
+
+/* Reduce padding/gap between announcement bar and H1 area */
+.ecom-aogbocwsl4e,
+.ecom-jbayfv8mp6,
+.ecom-2gqyas3nio,
+.ecom-7ggm6hhfod,
+.ecom-o4t6ai3zw1o {
+  padding-top: 8px !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.ecom-oit8fygid0n {
+  padding-top: 8px !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Tighten the H1 itself */
+.ecom-oit8fygid0n .ecom__heading {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 </style>
 </head>
