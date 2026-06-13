@@ -2237,8 +2237,11 @@ a.ecom__element--button,
 /* Slightly cap the button max-width to leave breathing room */
 .lp6-sticky-cta-btn{
   width:100% !important;
-  max-width:calc(100% - 0px) !important;
+  max-width:520px !important;
   margin:0 auto !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
 }
 /* Force all sections to respect viewport width */
 *, *::before, *::after{box-sizing:border-box}
@@ -2252,6 +2255,18 @@ a.ecom__element--button,
 @media (max-width:600px){
   .lp6-sticky-cta{padding-left:16px !important;padding-right:16px !important}
   .lp6-sticky-cta-btn{padding-left:18px !important;padding-right:18px !important}
+}
+</style>
+
+<style id="lp6-sticky-desktop-cap">
+.lp6-sticky-cta{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+@media (min-width:601px){
+  .lp6-sticky-cta{padding:14px 24px !important}
+  .lp6-sticky-cta-btn{font-size:16px !important;padding:16px 24px !important}
 }
 </style>
 </head>
