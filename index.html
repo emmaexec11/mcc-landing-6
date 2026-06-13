@@ -2533,14 +2533,7 @@ a.ecom__element--button,
 }
 </style>
 
-<style id="lp6-sticky-always-show">
-/* Always-visible sticky (Magic Spoon pattern — not scroll-triggered) */
-.lp6-sticky-cta {
-  display: flex !important;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-</style>
+
 
 <style id="lp6-warm-palette">
 /* Warm charcoal sticky bar — premium natural beauty palette, NOT Christmas */
@@ -4954,22 +4947,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 </div>
 
 
-<script id="lp6-sticky-cta-scroll">
-(function(){
-  var stickyEl = document.querySelector('.lp6-sticky-cta');
-  if (!stickyEl) return;
-  var threshold = 280;
-  function check() {
-    if (window.scrollY > threshold) {
-      stickyEl.classList.add('lp6-sticky-show');
-    } else {
-      stickyEl.classList.remove('lp6-sticky-show');
-    }
-  }
-  window.addEventListener('scroll', check, {passive:true});
-  check();
-})();
-</script>
+
 
 
 
@@ -4984,5 +4962,36 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
   <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-sticky-btn">ADD TO CART<span class="lp6-sticky-btn-price">$30</span></a>
 </div>
 
+
+<script id="lp6-sticky-cta-scroll">
+(function(){
+  var stickyEl;
+  function ensure(){
+    stickyEl = document.querySelector('.lp6-sticky-cta');
+    return !!stickyEl;
+  }
+  var threshold = 280;
+  function check(){
+    if (!stickyEl && !ensure()) return;
+    if (window.scrollY > threshold) {
+      stickyEl.classList.add('lp6-sticky-show');
+    } else {
+      stickyEl.classList.remove('lp6-sticky-show');
+    }
+  }
+  function start(){
+    ensure();
+    window.addEventListener('scroll', check, {passive:true});
+    window.addEventListener('touchmove', check, {passive:true});
+    window.addEventListener('resize', check, {passive:true});
+    check();
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
+</script>
 </body>
 </html>
