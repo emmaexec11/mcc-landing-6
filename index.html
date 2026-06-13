@@ -2796,6 +2796,33 @@ body.template-page,
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 </style>
+
+<style id="lp6-h1-on-image">
+/* H1 sits ON the image's cream area (negative margin pulls image up under H1) */
+.ecom-9bkl1180f37,
+.ecom-djz4481vay {
+  margin-top: -120px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+.ecom-oit8fygid0n,
+.ecom-oit8fygid0n .ecom__heading {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-bottom: 0 !important;
+}
+/* Slight breathing room on H1 padding so it sits comfortably */
+.ecom-oit8fygid0n .ecom__heading {
+  padding: 24px 16px 0 !important;
+}
+/* On smaller viewports, less aggressive overlap */
+@media (max-width: 400px) {
+  .ecom-9bkl1180f37, .ecom-djz4481vay { margin-top: -100px !important; }
+}
+@media (max-width: 350px) {
+  .ecom-9bkl1180f37, .ecom-djz4481vay { margin-top: -80px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
