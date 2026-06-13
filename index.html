@@ -3006,12 +3006,14 @@ html, body, body.template-page,
 
 
 
+
+
 <style id="lp6-bar-h1-space">
-.ecom-oit8fygid0n {
-  padding-top: 24px !important;
-}
-.ecom-oit8fygid0n .ecom__heading {
-  padding-top: 0 !important;
+/* Higher specificity to beat the .ecom-aogbocwsl4e *:not() wildcard */
+body .ecom-aogbocwsl4e .ecom-oit8fygid0n,
+.ecom-aogbocwsl4e > .core__row--columns .ecom-oit8fygid0n {
+  padding-top: 28px !important;
+  margin-top: 28px !important;
 }
 </style>
 </head>
