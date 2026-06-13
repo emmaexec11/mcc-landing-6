@@ -4383,7 +4383,18 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
+
+
+
 <!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
+<style id="lp6-shim-safety-css">
+/* Prevent retailer-logo slider + similar from collapsing to 0/1px while
+   Swiper computes autoHeight. Forces a sensible min height in case images
+   haven't loaded yet when autoHeight is first measured. */
+.ecom-swiper-container.ecom-slider { min-height: 70px; }
+.ecom-swiper-container.ecom-slider.ecom-slider-not-custom-height .ecom-swiper-wrapper { min-height: 70px; }
+.ecom-swiper-container .ecom-swiper-slide img { display: block; max-width: 100%; height: auto; }
+</style>
 <!-- Replaces ecom-main.js / ecomposer JS that was stripped. Runs on DOMContentLoaded. -->
 <script id="lp6-ecomposer-shim">
 (function(){
@@ -4529,7 +4540,21 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
           cfg.effect = userCfg.effect;
         }
         try {
-          new Swiper(c, cfg);
+          var sw = new Swiper(c, cfg);
+          // After images inside the swiper load, recompute autoHeight
+          // (fixes retailer-logo slider that collapses to 1px because
+          // autoHeight measured before images had loaded)
+          var imgs = c.querySelectorAll('img');
+          imgs.forEach(function(img){
+            if (img.complete){
+              if (sw.updateAutoHeight) sw.updateAutoHeight();
+            } else {
+              img.addEventListener('load', function(){ if (sw.updateAutoHeight) sw.updateAutoHeight(); });
+            }
+          });
+          // Belt-and-suspenders: nudge twice in case of late layout
+          setTimeout(function(){ try { sw.update(); sw.updateAutoHeight && sw.updateAutoHeight(); } catch(e){} }, 1500);
+          setTimeout(function(){ try { sw.update(); sw.updateAutoHeight && sw.updateAutoHeight(); } catch(e){} }, 3000);
         } catch (err){
           console.warn('[LP6 shim] Swiper init failed for container', idx, err);
         }
