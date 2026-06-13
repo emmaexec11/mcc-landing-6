@@ -2083,6 +2083,52 @@ first.parentNode.insertBefore(script, first);
   .lp6-shade-dot{width:14px !important;height:14px !important}
 }
 </style>
+
+<style id="lp6-sticky-cta-css">
+.lp6-sticky-cta{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 -4px 20px rgba(0,0,0,0.08);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  z-index:1000;
+  border-top:1px solid rgba(0,0,0,0.06);
+}
+.lp6-sticky-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#7A1E26;color:#FBF7F2;
+  text-decoration:none;
+  font-family:'Inter','Jost',-apple-system,sans-serif;
+  font-size:16px;font-weight:700;letter-spacing:0.02em;
+  padding:15px 22px;border-radius:30px;
+  box-shadow:0 4px 14px rgba(122,30,38,0.35);
+  width:100%;max-width:520px;margin:0 auto;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.lp6-sticky-cta-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(122,30,38,0.45)}
+.lp6-sticky-cta-price{
+  background:rgba(255,255,255,0.18);
+  padding:3px 10px;border-radius:14px;
+  font-weight:800;letter-spacing:-0.01em;
+  font-size:15px;
+}
+.lp6-sticky-cta-arrow{font-size:18px;line-height:1}
+/* Push page content so it doesn't sit underneath the sticky CTA */
+body{padding-bottom:90px}
+@media (max-width:600px){
+  .lp6-sticky-cta{padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+  .lp6-sticky-cta-btn{font-size:15px;padding:14px 18px}
+  .lp6-sticky-cta-price{font-size:14px;padding:2px 8px}
+  body{padding-bottom:80px}
+}
+/* Only show sticky CTA on mobile / tablet — desktop has space for in-page CTA */
+@media (min-width:1025px){
+  .lp6-sticky-cta{display:none}
+  body{padding-bottom:0}
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar"><span class="lp6-bar-item">★ Sold out 7 times this year — hand-poured every week ★</span></div>
@@ -4154,5 +4200,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 </div>
 
 </div><script src="https://cdn.shopify.com/storefront/standard-actions.js" type="module" data-source-attribution="shopify.standard_actions"></script>
-</body>
+<div class="lp6-sticky-cta">
+  <a class="lp6-sticky-cta-btn" href="https://naturallywyld.ca/cart/46591897567489:1?checkout">
+    <span class="lp6-sticky-cta-text">Get Yours Now</span>
+    <span class="lp6-sticky-cta-price">$30</span>
+    <span class="lp6-sticky-cta-arrow">→</span>
+  </a>
+</div></body>
 </html>
