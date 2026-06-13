@@ -4376,5 +4376,211 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
   check();
 })();
 </script>
+
+<!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
+<!-- Replaces ecom-main.js / ecomposer JS that was stripped. Runs on DOMContentLoaded. -->
+<script id="lp6-ecomposer-shim">
+(function(){
+  'use strict';
+
+  // ============================================================
+  // 1) COUNTER ANIMATION
+  //    Animate .element__counter--number from data-from-value -> data-to-value
+  //    when its container scrolls into view.
+  // ============================================================
+  function animateCounters(){
+    var counterEls = document.querySelectorAll('.element__counter--number');
+    if (!counterEls.length) return;
+
+    function findCounterConfig(el){
+      // Walk up looking for an ancestor with data-to-value
+      var node = el;
+      while (node && node !== document.body){
+        if (node.hasAttribute && node.hasAttribute('data-to-value')) return node;
+        // Look at children of parent for sibling that holds the data
+        var parent = node.parentElement;
+        if (parent){
+          var sib = parent.querySelector('[data-to-value]');
+          if (sib) return sib;
+        }
+        node = parent;
+      }
+      return null;
+    }
+
+    function easeOutQuad(t){ return t * (2 - t); }
+
+    function animateOne(numEl){
+      var cfg = findCounterConfig(numEl);
+      var to = 0, from = 0;
+      if (cfg){
+        to = parseInt(cfg.getAttribute('data-to-value'), 10) || 0;
+        from = parseInt(cfg.getAttribute('data-from-value'), 10) || 0;
+      }
+      if (!to){ return; }
+      var dur = 2200;
+      var start = performance.now();
+      function step(now){
+        var p = Math.min(1, (now - start) / dur);
+        var val = Math.floor(from + (to - from) * easeOutQuad(p));
+        numEl.textContent = val.toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    if (!('IntersectionObserver' in window)){
+      // Fallback — just animate all immediately
+      counterEls.forEach(animateOne);
+      return;
+    }
+
+    var seen = new WeakSet();
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && !seen.has(e.target)){
+          seen.add(e.target);
+          animateOne(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    counterEls.forEach(function(el){ obs.observe(el); });
+  }
+
+  // ============================================================
+  // 2) SWIPER CAROUSELS
+  //    Load Swiper 11 from CDN, then init each .ecom-swiper-container
+  // ============================================================
+  function initSwipers(){
+    // First, un-hide any .ecom-d-hide swiper containers (EcoComposer hides
+    // them until JS initializes — we just need to show them)
+    var hiddenSwipers = document.querySelectorAll('.ecom-swiper-container.ecom-d-hide');
+    hiddenSwipers.forEach(function(el){ el.classList.remove('ecom-d-hide'); });
+
+    var containers = document.querySelectorAll('.ecom-swiper-container');
+    if (!containers.length) return;
+
+    function injectSwiper(){
+      return new Promise(function(resolve, reject){
+        if (window.Swiper) return resolve(window.Swiper);
+        var cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+        document.head.appendChild(cssLink);
+        var s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+        s.onload = function(){ resolve(window.Swiper); };
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+
+    injectSwiper().then(function(Swiper){
+      containers.forEach(function(c, idx){
+        // Skip if already initialized
+        if (c.swiper) return;
+        try {
+          new Swiper(c, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: c.querySelectorAll('.swiper-slide').length > 1,
+            pagination: c.querySelector('.swiper-pagination') ? {
+              el: c.querySelector('.swiper-pagination'),
+              clickable: true
+            } : false,
+            navigation: c.querySelector('.swiper-button-next') ? {
+              nextEl: c.querySelector('.swiper-button-next'),
+              prevEl: c.querySelector('.swiper-button-prev')
+            } : false,
+            autoplay: c.classList.contains('ecom-slider') ? {
+              delay: 2500,
+              disableOnInteraction: false
+            } : false
+          });
+        } catch (err){
+          console.warn('[LP6 shim] Swiper init failed for container', idx, err);
+        }
+      });
+    }).catch(function(err){
+      console.warn('[LP6 shim] Swiper load failed', err);
+    });
+  }
+
+  // ============================================================
+  // 3) FAQ ACCORDIONS
+  //    Click .ecom-accordion__title → toggle open state on parent item
+  // ============================================================
+  function initAccordions(){
+    var titles = document.querySelectorAll('.ecom-accordion__title');
+    titles.forEach(function(title){
+      title.style.cursor = 'pointer';
+      title.addEventListener('click', function(){
+        var item = title.closest('.ecom-accordion__item');
+        if (!item) return;
+        var body = item.querySelector('.ecom-accordion__body');
+        var icon = title.querySelector('.ecom-accordion_nav--icon');
+
+        var wrapper = title.closest('.ecom-accordion__wrapper');
+        var closeAll = wrapper && wrapper.classList.contains('ecom-accordion-close-all');
+
+        var isOpen = body && body.classList.contains('ecom-accordion__body--auto-height');
+        // If closeAll behavior, close siblings first
+        if (closeAll && !isOpen){
+          wrapper.querySelectorAll('.ecom-accordion__body').forEach(function(b){
+            b.classList.remove('ecom-accordion__body--auto-height');
+            b.style.height = '0';
+          });
+          wrapper.querySelectorAll('.ecom-accordion_nav--icon').forEach(function(i){
+            i.classList.remove('ecom-items-icon-active');
+          });
+        }
+        if (isOpen){
+          body.classList.remove('ecom-accordion__body--auto-height');
+          body.style.height = '0';
+          if (icon) icon.classList.remove('ecom-items-icon-active');
+        } else {
+          body.classList.add('ecom-accordion__body--auto-height');
+          body.style.height = 'auto';
+          if (icon) icon.classList.add('ecom-items-icon-active');
+        }
+      });
+    });
+  }
+
+  // ============================================================
+  // 4) FORCE-LOAD IMAGES INSIDE HIDDEN ECOMPOSER WRAPPERS
+  //    Some images live inside parents with .ecom-d-hide that never gets
+  //    removed without EcoComposer's runtime. Strip .ecom-d-hide from any
+  //    parent that contains an <img>.
+  // ============================================================
+  function unhideImageContainers(){
+    var hidden = document.querySelectorAll('.ecom-d-hide');
+    hidden.forEach(function(h){
+      if (h.querySelector && h.querySelector('img')){
+        h.classList.remove('ecom-d-hide');
+      }
+    });
+  }
+
+  // ============================================================
+  // 5) INITIALIZATION
+  // ============================================================
+  function init(){
+    try { unhideImageContainers(); } catch(e){ console.warn('[LP6 shim] unhide failed', e); }
+    try { animateCounters(); } catch(e){ console.warn('[LP6 shim] counters failed', e); }
+    try { initSwipers(); } catch(e){ console.warn('[LP6 shim] swipers failed', e); }
+    try { initAccordions(); } catch(e){ console.warn('[LP6 shim] accordions failed', e); }
+    console.info('[LP6 shim] EcoComposer runtime replacement loaded');
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ===== End LP 6 EcoComposer Runtime Shim ===== -->
+
 </body>
 </html>
