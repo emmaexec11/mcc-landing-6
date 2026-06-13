@@ -4389,6 +4389,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
+
+
+
 <!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
 <style id="lp6-shim-safety-css">
 /* Prevent retailer-logo slider + similar from collapsing to 0/1px while
@@ -4397,6 +4400,20 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 .ecom-swiper-container.ecom-slider { min-height: 70px; }
 .ecom-swiper-container.ecom-slider.ecom-slider-not-custom-height .ecom-swiper-wrapper { min-height: 70px; }
 .ecom-swiper-container .ecom-swiper-slide img { display: block; max-width: 100%; height: auto; }
+/* EcoComposer's fade-in animations rely on its runtime JS to add the "active"
+   class on scroll. Without runtime JS the elements stay at opacity:0 forever.
+   Force visible. Match every variant of EcoComposer's animation classes. */
+.ecom-animation,
+[class*="ecom-anim"],
+[class*="ec-anim"],
+[class*="ecom-fade"],
+.ecom-aos-init,
+.ecom-data-aos,
+[data-aos]:not(.aos-animate) {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
 </style>
 <!-- Replaces ecom-main.js / ecomposer JS that was stripped. Runs on DOMContentLoaded. -->
 <script id="lp6-ecomposer-shim">
