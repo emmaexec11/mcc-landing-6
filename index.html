@@ -2992,9 +2992,7 @@ html, body, body.template-page,
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
-<span class="lp6-bar-item lp6-bar-active">Try our 3 best-selling shades — $30 ($90 value) + Free Shipping</span>
-<span class="lp6-bar-item">💕 Over 436 five-star reviews</span>
-<span class="lp6-bar-item">★ Sold out 7 times — hand-poured weekly ★</span>
+<span class="lp6-bar-item lp6-bar-active">★ Sold out 7 times this year — hand-poured weekly ★</span>
 </div>
   <div class="EComposer-theme">
     <div id="shopify-section-template--20359376863489__ecom-metamulticolourcream-page" class="shopify-section"> 
@@ -5435,24 +5433,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
-<script id="lp6-bar-rotate-js">
-(function(){
-  function start(){
-    var items = document.querySelectorAll('.lp6-announcement-bar .lp6-bar-item');
-    if (items.length < 2) return;
-    var idx = 0;
-    setInterval(function(){
-      items[idx].classList.remove('lp6-bar-active');
-      idx = (idx + 1) % items.length;
-      items[idx].classList.add('lp6-bar-active');
-    }, 4000);
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-})();
-</script>
+
 </body>
 </html>
