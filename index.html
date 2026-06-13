@@ -4377,6 +4377,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 })();
 </script>
 
+
+
+
 <!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
 <!-- Replaces ecom-main.js / ecomposer JS that was stripped. Runs on DOMContentLoaded. -->
 <script id="lp6-ecomposer-shim">
@@ -4477,26 +4480,53 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
     injectSwiper().then(function(Swiper){
       containers.forEach(function(c, idx){
-        // Skip if already initialized
         if (c.swiper) return;
+        // Parse data-option-swiper JSON config (EcoComposer's format)
+        var userCfg = {};
+        var dataOpt = c.getAttribute('data-option-swiper');
+        if (dataOpt){
+          try { userCfg = JSON.parse(dataOpt); } catch(e){ console.warn('[LP6 shim] bad swiper config', e); }
+        }
+        // Build config — tell Swiper to use EcoComposer's class names
+        var slides = c.querySelectorAll('.ecom-slide, .swiper-slide');
+        var cfg = {
+          wrapperClass: 'ecom-swiper-wrapper',
+          slideClass: 'ecom-slide',
+          slideActiveClass: userCfg.slideActiveClass || 'ecom-box-active',
+          direction: userCfg.direction || 'horizontal',
+          speed: userCfg.speed || 600,
+          loop: userCfg.loop !== undefined ? userCfg.loop : (slides.length > 2),
+          autoHeight: userCfg.autoHeight !== false,
+          grabCursor: userCfg.grabCursor !== false,
+          watchOverflow: true,
+          slidesPerView: 1,
+          spaceBetween: 16
+        };
+        if (userCfg.breakpoints) cfg.breakpoints = userCfg.breakpoints;
+        if (userCfg.autoplay && userCfg.autoplay.enabled !== false){
+          cfg.autoplay = {
+            delay: userCfg.autoplay.delay || 3500,
+            pauseOnMouseEnter: userCfg.autoplay.pauseOnMouseEnter !== false,
+            disableOnInteraction: userCfg.autoplay.disableOnInteraction === true
+          };
+        }
+        // Pagination
+        var pagEl = c.querySelector('.ecom-swiper-pagination, .swiper-pagination');
+        if (pagEl){
+          cfg.pagination = { el: pagEl, clickable: true, type: 'bullets' };
+        }
+        // Navigation
+        var nextEl = c.querySelector('.ecom-swiper-button-next, .swiper-button-next');
+        var prevEl = c.querySelector('.ecom-swiper-button-prev, .swiper-button-prev');
+        if (nextEl || prevEl){
+          cfg.navigation = { nextEl: nextEl, prevEl: prevEl };
+        }
+        // If effect is fade, set it
+        if (userCfg.effect && userCfg.effect !== 'slide'){
+          cfg.effect = userCfg.effect;
+        }
         try {
-          new Swiper(c, {
-            slidesPerView: 1,
-            spaceBetween: 16,
-            loop: c.querySelectorAll('.swiper-slide').length > 1,
-            pagination: c.querySelector('.swiper-pagination') ? {
-              el: c.querySelector('.swiper-pagination'),
-              clickable: true
-            } : false,
-            navigation: c.querySelector('.swiper-button-next') ? {
-              nextEl: c.querySelector('.swiper-button-next'),
-              prevEl: c.querySelector('.swiper-button-prev')
-            } : false,
-            autoplay: c.classList.contains('ecom-slider') ? {
-              delay: 2500,
-              disableOnInteraction: false
-            } : false
-          });
+          new Swiper(c, cfg);
         } catch (err){
           console.warn('[LP6 shim] Swiper init failed for container', idx, err);
         }
