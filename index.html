@@ -4386,6 +4386,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
+
+
+
 <!-- ===== LP 6 EcoComposer Runtime Shim ===== -->
 <style id="lp6-shim-safety-css">
 /* Prevent retailer-logo slider + similar from collapsing to 0/1px while
@@ -4616,6 +4619,19 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
     hidden.forEach(function(h){
       if (h.querySelector && h.querySelector('img')){
         h.classList.remove('ecom-d-hide');
+      }
+    });
+    // Strip loading="lazy" and fetchpriority="low" so images load right away
+    // (EcoComposer's lazy-load placeholder spinner stays visible without runtime JS)
+    var lazyImgs = document.querySelectorAll('img[loading="lazy"]');
+    lazyImgs.forEach(function(img){
+      img.setAttribute('loading', 'eager');
+      img.removeAttribute('fetchpriority');
+      // Force browser to re-evaluate src by re-assigning (in case it was already aborted)
+      if (img.src && (!img.complete || img.naturalWidth === 0)){
+        var s = img.src;
+        img.src = '';
+        img.src = s;
       }
     });
   }
