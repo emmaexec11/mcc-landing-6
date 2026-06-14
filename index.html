@@ -3094,6 +3094,27 @@ body .lp6-announcement-bar .lp6-bar-item {
   }
 }
 </style>
+
+<style id="lp6-bar-fit-all-devices">
+body .lp6-announcement-bar {
+  font-size: 14px !important;
+  letter-spacing: 0.04em !important;
+}
+body .lp6-announcement-bar .lp6-bar-item {
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  overflow: visible !important;
+}
+@media (max-width: 380px) {
+  body .lp6-announcement-bar { font-size: 13px !important; letter-spacing: 0.03em !important; }
+  body .lp6-announcement-bar .lp6-bar-item { font-size: 13px !important; }
+}
+@media (max-width: 340px) {
+  body .lp6-announcement-bar { font-size: 12px !important; letter-spacing: 0.02em !important; }
+  body .lp6-announcement-bar .lp6-bar-item { font-size: 12px !important; }
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
