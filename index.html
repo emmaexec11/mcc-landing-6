@@ -2748,116 +2748,11 @@ a.ecom__element--button,
 
 
 
-<style id="lp6-hero-master">
-/* ===== HERO MASTER STYLES — single source of truth ===== */
 
-/* 1) Hide the "best deal ever" cursive PERMANENTLY */
-.lp6-cursive-headline,
-.lp6-on-image-cursive,
-[class*="cursive-headline"],
-[class*="on-image-cursive"] {
-  display: none !important;
-  visibility: hidden !important;
-}
 
-/* Bg rule moved to section-bgs block */
 
-/* 3) Tight gap between announcement bar and H1 */
-.ecom-aogbocwsl4e,
-.ecom-jbayfv8mp6,
-.ecom-2gqyas3nio,
-.ecom-7ggm6hhfod,
-.ecom-o4t6ai3zw1o {
-  padding-top: 8px !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-}
 
-/* 4) H1 sits ON the image — translateY pulls it down */
-.ecom-oit8fygid0n {
-  position: relative !important;
-  z-index: 5 !important;
-  transform: translateY(110px) !important;
-  padding-top: 8px !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-.ecom-djz4481vay {
-  position: relative !important;
-  z-index: 1 !important;
-  margin-top: -110px !important;
-}
 
-/* 5) Subtle drop-shadow on H1 for legibility */
-.ecom-oit8fygid0n .ecom__heading {
-  text-shadow: 0 1px 0 rgba(234,217,194,0.85), 0 0 12px rgba(234,217,194,0.6) !important;
-}
-
-/* 6) Image full-bleed */
-.ecom-djz4481vay,
-.ecom-djz4481vay .core__block,
-.ecom-djz4481vay .ecom-base-image,
-.ecom-djz4481vay figure,
-.ecom-djz4481vay .ecom-container-image {
-  padding: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 100vw !important;
-  max-width: 100vw !important;
-}
-.ecom-djz4481vay img {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  display: block !important;
-}
-
-/* 7) Responsive */
-@media (max-width: 400px) {
-  .ecom-oit8fygid0n { transform: translateY(90px) !important; }
-  .ecom-djz4481vay { margin-top: -90px !important; }
-}
-@media (max-width: 350px) {
-  .ecom-oit8fygid0n { transform: translateY(70px) !important; }
-  .ecom-djz4481vay { margin-top: -70px !important; }
-}
-</style>
-
-<style id="lp6-section-bgs">
-/* Body + general page = cream (Wyld brand) */
-html, body, body.template-page,
-.EComposer-theme,
-.shopify-section,
-.ecom-builder,
-.ecom-sections {
-  background-color: #FAF3E8 !important;
-}
-
-/* ONLY the hero section gets the tan bg (matches image) */
-.ecom-aogbocwsl4e {
-  background-color: #F3ECDA !important;
-}
-</style>
-
-<style id="lp6-image-feather">
-/* Feather the top + bottom edges of the hero image so it blends into the page bg
-   regardless of exact color match */
-.ecom-djz4481vay img {
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 60px,
-    black calc(100% - 60px),
-    transparent 100%
-  ) !important;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 60px,
-    black calc(100% - 60px),
-    transparent 100%
-  ) !important;
-}
-</style>
 
 
 
@@ -2927,72 +2822,6 @@ html, body, body.template-page,
 
 
 
-<style id="lp6-nuke-hero-padding">
-/* NUCLEAR option — kill every pixel of padding/margin in the hero */
-.ecom-aogbocwsl4e,
-.ecom-aogbocwsl4e *:not(.lp6-announcement-bar):not(.lp6-bar-item):not(.ecom__heading) {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* Specific overrides: bar keeps its internal padding for vertical rhythm */
-.lp6-announcement-bar {
-  padding: 14px 16px !important;
-}
-
-/* H1 sits IMMEDIATELY below bar — no translate, no padding */
-.ecom-oit8fygid0n {
-  transform: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-.ecom-oit8fygid0n .ecom__heading {
-  padding: 16px 16px 8px !important;
-  margin: 0 !important;
-  line-height: 1.1 !important;
-}
-
-/* Image pulls UP overlapping H1 bottom edge */
-.ecom-djz4481vay {
-  margin-top: -40px !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-.ecom-oit8fygid0n {
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-/* Reviews badge wrap — minimal padding */
-.lp6-reviews-badge-wrap {
-  padding: 8px 16px 0 !important;
-}
-</style>
-
-<style id="lp6-tighten-image-up">
-/* More aggressive image pull-up so it overlaps the H1's bottom edge */
-.ecom-djz4481vay {
-  margin-top: -100px !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-.ecom-oit8fygid0n {
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-/* The H1 padding-bottom — make it 0 so image can come right up */
-.ecom-oit8fygid0n .ecom__heading {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-@media (max-width: 400px) {
-  .ecom-djz4481vay { margin-top: -80px !important; }
-}
-</style>
 
 
 
@@ -3008,14 +2837,10 @@ html, body, body.template-page,
 
 
 
-<style id="lp6-bar-h1-space">
-/* Higher specificity to beat the .ecom-aogbocwsl4e *:not() wildcard */
-body .ecom-aogbocwsl4e .ecom-oit8fygid0n,
-.ecom-aogbocwsl4e > .core__row--columns .ecom-oit8fygid0n {
-  padding-top: 28px !important;
-  margin-top: 28px !important;
-}
-</style>
+
+
+
+
 
 <style id="lp6-stars-pill-css">
 body .lp6-stars-pill-wrap {
@@ -3057,18 +2882,7 @@ body .ecom-aogbocwsl4e .ecom-oit8fygid0n {
 }
 </style>
 
-<style id="lp6-pill-center-fix">
-body .lp6-stars-pill-wrap {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100% !important;
-  text-align: center !important;
-}
-body .lp6-stars-pill {
-  margin: 0 auto !important;
-}
-</style>
+
 
 <style id="lp6-hard-fixes">
 /* Pill wrap: actually center on viewport (not on overflowing parent) */
@@ -3101,37 +2915,42 @@ body .ecom-aogbocwsl4e {
 
 
 
-<style id="lp6-img-full-bleed-fade">
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay,
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-base-image,
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay figure,
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay .ecom-container-image {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
+
+
+
+
+<style id="lp6-hero-clean-final">
+/* CLEAN HERO RESET — minimal CSS, no fighting EcoComposer */
+
+/* Hero section bg matches image */
+body .ecom-aogbocwsl4e {
+  background-color: #F9EFE5 !important;
 }
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay img {
+
+/* Hide the "best deal ever" cursive */
+.lp6-cursive-headline, .lp6-on-image-cursive { display: none !important; }
+
+/* Image: simple full-width within whatever container EcoComposer gives us, centered, no feather mask */
+body .ecom-djz4481vay img {
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
   display: block !important;
-  margin: 0 !important;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 40px, black calc(100% - 40px), transparent 100%) !important;
-  mask-image: linear-gradient(to bottom, transparent 0, black 40px, black calc(100% - 40px), transparent 100%) !important;
+  margin: 0 auto !important;
 }
-</style>
 
-<style id="lp6-img-center">
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-djz4481vay {
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Small 24px gap between announcement bar and H1 */
+body .ecom-aogbocwsl4e .ecom-oit8fygid0n {
+  padding-top: 20px !important;
 }
-html body .EComposer-theme .ecom-aogbocwsl4e .ecom-w6fb2h3x14j,
-html body .EComposer-theme .ecom-aogbocwsl4e .core__column--wrapper {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  text-align: center !important;
+
+/* Stars pill: centered between bar and H1 */
+body .lp6-stars-pill-wrap {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 14px 16px 0 !important;
+  background: #F9EFE5 !important;
 }
 </style>
 </head>
@@ -3531,7 +3350,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
   </div>
   <p class="lp6-clear-line2">Use on <b>lips, cheeks &amp; eyes</b>. Coloured with real fruit — no plastic, no toxins.</p>
   <p class="lp6-clear-line3"><b>$30 + free shipping</b> — worth $90.</p>
-</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-nb9zizu2kol"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4j8ivoprcol"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1uy6wgoj6d3"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-mh753qn29a"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-mknvs2akmic"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block ecom-c27amw4lv4"><div class="ecom__element ecom-element element__text ecom-type-deffault"><div class="text-content ecom-html has-drop-cap-view-framed"><span style="color: rgb(0, 0, 0); font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 14px; letter-spacing: normal;">Over 436 Five-Star Reviews!</span></div></div></div> <div class="ecom-block ecom-core core__block ecom-h2wht9yvv7l"><div class="ecom__element ecom-element-button ecom-button-default"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="https://naturallywyld.ca/cart/46591897567489:1?checkout"><span class="ecom__element--button-icon-text">Try our tester pack now</span><span class="ecom-button-icon ecom__element--button-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 12.96875 4.28125 L 11.53125 5.71875 L 21.8125 16 L 11.53125 26.28125 L 12.96875 27.71875 L 23.96875 16.71875 L 24.65625 16 L 23.96875 15.28125 Z"></path></svg></span></a></div></div> <div class="ecom-block ecom-core core__block ecom-9wsj04gi9a6"><div class="ecom__element ecom-element element__text ecom-type-deffault"><div class="text-content ecom-html has-drop-cap-view-framed">⬆ Click here to get yours ⬆&nbsp;</div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-7ggm6hhfod"><div class="core__column--wrapper" id="ecom-7ggm6hhfod"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-o4t6ai3zw1o"><div class="ecom-row ecom-core core__block ecom-9bw6bg7zmir" data-id="ecom-9bw6bg7zmir" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-w6fb2h3x14j"><div class="core__column--wrapper" id="ecom-w6fb2h3x14j"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-oit8fygid0n hide-on-desktop hide-on-tablet"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault"><h1 class="ecom__heading ecom-db"><div>Everything You Wanted in Natural Makeup—Finally Done Right.</div></h1></div></div> <div class="lp6-cursive-headline">"It's the best deal ever"<span class="lp6-hearts">💕💕</span></div><div class="ecom-block ecom-core core__block ecom-djz4481vay"><div class="ecom-element ecom-base-image"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><source media="(max-width: 767px)" srcset="hero-photoreal.jpg?v=15"><img class="" loading="lazy" fetchpriority="low" src="hero-photoreal.jpg?v=15" srcset="hero-photoreal.jpg?v=15 640w, hero-photoreal.jpg?v=15&amp;width=600&amp;crop=center 600w" sizes="(max-width: 600px) 600px, 640px" alt="Multi_colour_cream_bundle_Tester_pack_landing_page_348a39d0-6d02-4bd0-a25a-a591a6f6b55a" width="640" height="640"></picture></div></div></figure></div><div class="lp6-on-image-overlay"><span class="lp6-on-image-overlay-pill">$90 VALUE · PLUS FREE SHIPPING</span></div><div class="lp6-price-block-overlay">
+</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-nb9zizu2kol"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4j8ivoprcol"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1uy6wgoj6d3"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-mh753qn29a"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-mknvs2akmic"><div class="ecom-element ecom-icon ecom-flex"><a class="ecom-icon--container ecom-in_flex" href="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 30.335938 12.546875 L 20.164063 11.472656 L 16 2.132813 L 11.835938 11.472656 L 1.664063 12.546875 L 9.261719 19.394531 L 7.140625 29.398438 L 16 24.289063 L 24.859375 29.398438 L 22.738281 19.394531 Z"></path></svg></a></div></div> <div class="ecom-block ecom-core core__block ecom-c27amw4lv4"><div class="ecom__element ecom-element element__text ecom-type-deffault"><div class="text-content ecom-html has-drop-cap-view-framed"><span style="color: rgb(0, 0, 0); font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 14px; letter-spacing: normal;">Over 436 Five-Star Reviews!</span></div></div></div> <div class="ecom-block ecom-core core__block ecom-h2wht9yvv7l"><div class="ecom__element ecom-element-button ecom-button-default"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="https://naturallywyld.ca/cart/46591897567489:1?checkout"><span class="ecom__element--button-icon-text">Try our tester pack now</span><span class="ecom-button-icon ecom__element--button-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M 12.96875 4.28125 L 11.53125 5.71875 L 21.8125 16 L 11.53125 26.28125 L 12.96875 27.71875 L 23.96875 16.71875 L 24.65625 16 L 23.96875 15.28125 Z"></path></svg></span></a></div></div> <div class="ecom-block ecom-core core__block ecom-9wsj04gi9a6"><div class="ecom__element ecom-element element__text ecom-type-deffault"><div class="text-content ecom-html has-drop-cap-view-framed">⬆ Click here to get yours ⬆&nbsp;</div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-7ggm6hhfod"><div class="core__column--wrapper" id="ecom-7ggm6hhfod"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-o4t6ai3zw1o"><div class="ecom-row ecom-core core__block ecom-9bw6bg7zmir" data-id="ecom-9bw6bg7zmir" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-w6fb2h3x14j"><div class="core__column--wrapper" id="ecom-w6fb2h3x14j"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-oit8fygid0n hide-on-desktop hide-on-tablet"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault"><h1 class="ecom__heading ecom-db"><div>Everything You Wanted in Natural Makeup—Finally Done Right.</div></h1></div></div> <div class="lp6-cursive-headline">"It's the best deal ever"<span class="lp6-hearts">💕💕</span></div><div class="ecom-block ecom-core core__block ecom-djz4481vay"><div class="ecom-element ecom-base-image"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><source media="(max-width: 767px)" srcset="hero-photoreal.jpg?v=20"><img class="" loading="lazy" fetchpriority="low" src="hero-photoreal.jpg?v=20" srcset="hero-photoreal.jpg?v=20 640w, hero-photoreal.jpg?v=20&amp;width=600&amp;crop=center 600w" sizes="(max-width: 600px) 600px, 640px" alt="Multi_colour_cream_bundle_Tester_pack_landing_page_348a39d0-6d02-4bd0-a25a-a591a6f6b55a" width="640" height="640"></picture></div></div></figure></div><div class="lp6-on-image-overlay"><span class="lp6-on-image-overlay-pill">$90 VALUE · PLUS FREE SHIPPING</span></div><div class="lp6-price-block-overlay">
   <span class="lp6-pb-now">$30</span>
   <span class="lp6-pb-was">$90 value</span>
   <span class="lp6-pb-save">SAVE $60</span>
