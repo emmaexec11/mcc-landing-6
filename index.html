@@ -3069,6 +3069,31 @@ body .lp6-stars-pill {
   margin: 0 auto !important;
 }
 </style>
+
+<style id="lp6-hard-fixes">
+/* Pill wrap: actually center on viewport (not on overflowing parent) */
+body .lp6-stars-pill-wrap {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 14px 16px 0 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Visibly lighter cream — match Devon's vision (much closer to pure cream-white) */
+body.template-page,
+.EComposer-theme,
+.shopify-section,
+.ecom-builder,
+.ecom-sections,
+body .ecom-aogbocwsl4e {
+  background-color: #FAF5EA !important;
+}
+</style>
 </head>
 
 <body class="template-page"><div class="lp6-announcement-bar" id="lp6-announcement-bar">
