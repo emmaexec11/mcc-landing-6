@@ -5583,31 +5583,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,ac
 
 
 
-<script id="lp6-img-force-inline">
-(function(){
-  function applyForce(){
-    var c = document.querySelector('.ecom-djz4481vay');
-    if (!c) return;
-    var img = c.querySelector('img');
-    if (!img) return;
-    var vw = window.innerWidth;
-    var rect = c.getBoundingClientRect();
-    var leftShift = -rect.left;
-    c.style.cssText += ';position:relative;left:' + leftShift + 'px;width:' + vw + 'px;max-width:' + vw + 'px;margin:0;padding:0;overflow:hidden;box-sizing:border-box;';
-    img.style.cssText += ';width:' + vw + 'px;max-width:' + vw + 'px;height:auto;display:block;margin:0;padding:0;-webkit-mask-image:linear-gradient(to bottom,transparent 0,black 12px,black calc(100% - 30px),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,black 12px,black calc(100% - 30px),transparent 100%);';
-  }
-  function init(){
-    applyForce();
-    setTimeout(applyForce, 100);
-    setTimeout(applyForce, 500);
-    window.addEventListener('resize', applyForce);
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
+
 </body>
 </html>
