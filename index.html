@@ -3081,15 +3081,23 @@ body .ecom-djz4481vay {
   padding-bottom: 0 !important;
 }
 body .lp6-super-clear {
-  margin-top: 4px !important;
+  margin-top: -28px !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 body .ecom-djz4481vay .lp6-on-image-overlay {
-  bottom: -8% !important;
+  bottom: 4% !important;
 }
 @media (max-width: 600px) {
   body .ecom-djz4481vay .lp6-on-image-overlay {
-    bottom: -8% !important;
+    bottom: 4% !important;
   }
+}
+/* Force-defeat parent overflow:hidden that clips the negative-margin'd header */
+body div.text-content.ecom-html,
+html body .ecom-8w1pkq45qsh .text-content,
+html body .ecom-8w1pkq45qsh .ecom__element .text-content {
+  overflow: visible !important;
 }
 </style>
 
