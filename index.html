@@ -4019,69 +4019,98 @@ body .ecom-9wsj04gi9a6 {
 section.ecom-4v7g0f4jxor { display: none !important; }
 </style>
 
-<!-- LP6 BATCH SCARCITY STRIP — between ATC trust pills and Jennifer T. -->
+<!-- LP6 BATCH SCARCITY STRIP — modern redesign -->
 <style id="lp6-batch-strip-css">
 .lp6-batch-strip {
   background: #FEFCF8;
-  padding: 2px 20px 14px;
+  padding: 4px 20px 18px;
   display: flex;
   justify-content: center;
 }
 .lp6-batch-strip-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
   max-width: 380px;
-  padding: 12px 16px;
-  background: rgba(74, 124, 89, 0.07);
-  border: 1px solid rgba(74, 124, 89, 0.18);
-  border-radius: 14px;
+  width: 100%;
+  padding: 18px 22px 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(110, 43, 61, 0.10);
+  border-radius: 18px;
   font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 12.5px;
-  color: #2A3D32;
-  line-height: 1.4;
-  text-align: left;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(74, 53, 38, 0.05), 0 1px 3px rgba(74, 53, 38, 0.03);
 }
-.lp6-batch-strip-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-  line-height: 1;
-}
-.lp6-batch-strip-text { flex: 1; min-width: 0; }
-.lp6-batch-strip-title {
+.lp6-batch-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
   font-weight: 700;
-  color: #2D5A3D;
-  display: block;
-  font-size: 13px;
-  margin-bottom: 2px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6E2B3D;
+  margin-bottom: 12px;
+}
+.lp6-batch-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6E2B3D;
+  box-shadow: 0 0 0 0 rgba(110, 43, 61, 0.55);
+  animation: lp6-batch-pulse 1.8s ease-in-out infinite;
+}
+@keyframes lp6-batch-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(110, 43, 61, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(110, 43, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(110, 43, 61, 0); }
+}
+.lp6-batch-main {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  line-height: 1.05;
 }
 .lp6-batch-strip-count {
-  color: #6E2B3D;
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 36px;
   font-weight: 800;
+  color: #6E2B3D;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.lp6-batch-label {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: -0.005em;
 }
 .lp6-batch-strip-ship {
-  display: block;
+  font-size: 12px;
   color: #6B5C54;
-  font-size: 11.5px;
-  margin-top: 4px;
-  font-style: italic;
+  margin-top: 8px;
+  letter-spacing: 0.01em;
 }
 @media (max-width: 380px) {
-  .lp6-batch-strip { padding: 10px 16px 12px; }
-  .lp6-batch-strip-inner { padding: 10px 14px; gap: 10px; font-size: 12px; }
-  .lp6-batch-strip-icon { font-size: 18px; }
+  .lp6-batch-strip { padding: 4px 16px 14px; }
+  .lp6-batch-strip-inner { padding: 16px 18px 14px; }
+  .lp6-batch-strip-count { font-size: 30px; }
+  .lp6-batch-label { font-size: 15px; }
 }
 </style>
 
-<aside class="lp6-batch-strip" aria-label="Small batch scarcity">
+<aside class="lp6-batch-strip" aria-label="Live batch availability">
   <div class="lp6-batch-strip-inner">
-    <span class="lp6-batch-strip-icon">🌿</span>
-    <div class="lp6-batch-strip-text">
-      <span class="lp6-batch-strip-title">Hand-Poured Fresh in Kelowna, BC</span>
-      This week's batch is almost gone — <span class="lp6-batch-strip-count" id="lp6-batch-count">18</span> left
-      <span class="lp6-batch-strip-ship">Order today · Ships within 48 hours</span>
+    <div class="lp6-batch-eyebrow">
+      <span class="lp6-batch-pulse"></span>
+      <span>Hand-Poured · This Week's Batch</span>
     </div>
+    <div class="lp6-batch-main">
+      <span class="lp6-batch-strip-count" id="lp6-batch-count">14</span>
+      <span class="lp6-batch-label">sets left · selling out fast</span>
+    </div>
+    <div class="lp6-batch-strip-ship">Order today · Ships within 48 hours from Kelowna</div>
   </div>
 </aside>
 
@@ -6167,10 +6196,10 @@ section.ecom-4v7g0f4jxor { display: none !important; }
 <!-- LP6 LIVE BATCH COUNTER — auto-decrement, persists via localStorage -->
 <script id="lp6-batch-counter-js">
 (function(){
-  var KEY = 'lp6-batch-count-v2';
-  var DEFAULT_START = 18;
-  var MIN_FLOOR = 4;
-  var DECREMENT_MS = 8 * 60 * 1000; // tick every 8 minutes
+  var KEY = 'lp6-batch-count-v3';
+  var DEFAULT_START = 14;
+  var MIN_FLOOR = 3;
+  var DECREMENT_MS = 4 * 60 * 1000; // tick every 4 minutes (visible faster)
   var data = null;
   try {
     var stored = localStorage.getItem(KEY);
