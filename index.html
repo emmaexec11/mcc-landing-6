@@ -3929,30 +3929,59 @@ body .ecom-9wsj04gi9a6 {
 .lp6-pain-stats {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 360px;
-  margin: 0 auto 32px;
+  max-width: 440px;
+  margin: 4px auto 32px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid rgba(31, 27, 22, 0.06);
+  box-shadow: 0 4px 18px rgba(74, 53, 38, 0.05);
+  overflow: hidden;
 }
 .lp6-stat-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(31, 31, 31, 0.06);
-  border-radius: 16px;
-  padding: 26px 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(31, 27, 22, 0.04);
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 22px;
+  border-bottom: 1px solid rgba(31, 27, 22, 0.07);
+  text-align: left;
+  position: relative;
+}
+.lp6-stat-card:last-child { border-bottom: none; }
+.lp6-stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  background: #6E2B3D;
+  border-radius: 0 2px 2px 0;
 }
 .lp6-stat-number {
   font-family: "Abhaya Libre", Georgia, "Times New Roman", serif;
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 800;
-  color: #1A1A1A;
-  line-height: 1;
-  margin-bottom: 8px;
+  color: #6E2B3D;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-align: left;
 }
 .lp6-stat-desc {
-  font-size: 13.5px;
-  color: #5A5A5A;
-  line-height: 1.45;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  color: #2A2A2A;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.lp6-stat-desc b {
+  color: #1A1A1A;
+  font-weight: 700;
+}
+@media (max-width: 380px) {
+  .lp6-stat-card { grid-template-columns: 92px 1fr; gap: 14px; padding: 18px 18px; }
+  .lp6-stat-number { font-size: 38px; }
+  .lp6-stat-desc { font-size: 13.5px; }
 }
 .lp6-bridge {
   margin: 8px 0 24px;
@@ -4228,16 +4257,16 @@ section.ecom-4v7g0f4jxor { display: none !important; }
 
   <div class="lp6-pain-stats">
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">120B+</div>
-      <div class="lp6-stat-desc">Units of beauty packaging dumped in landfill every year.</div>
-    </div>
-    <div class="lp6-stat-card">
       <div class="lp6-stat-number">168</div>
-      <div class="lp6-stat-desc">Chemicals the average woman applies to her skin daily — most never tested for safety.</div>
+      <div class="lp6-stat-desc"><b>chemicals on your skin every day</b> — most never tested for long-term safety.</div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">70%</div>
-      <div class="lp6-stat-desc">Of "natural" makeup still uses plastic tubes or synthetic colours.</div>
+      <div class="lp6-stat-number">26<span style="font-size:0.5em;letter-spacing:-0.02em;margin-left:2px">sec</span></div>
+      <div class="lp6-stat-desc"><b>how fast skin-applied chemicals enter your bloodstream</b> — what you put on, you absorb.</div>
+    </div>
+    <div class="lp6-stat-card">
+      <div class="lp6-stat-number">12+</div>
+      <div class="lp6-stat-desc"><b>EU-banned ingredients</b> still legal in Canadian makeup right now.</div>
     </div>
   </div>
 
