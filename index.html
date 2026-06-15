@@ -4079,7 +4079,7 @@ section.ecom-4v7g0f4jxor { display: none !important; }
     <span class="lp6-batch-strip-icon">🌿</span>
     <div class="lp6-batch-strip-text">
       <span class="lp6-batch-strip-title">Hand-Poured Fresh in Kelowna, BC</span>
-      This batch keeps selling out — <span class="lp6-batch-strip-count">187 of 300</span> left
+      This week's batch is almost gone — <span class="lp6-batch-strip-count" id="lp6-batch-count">18</span> left
       <span class="lp6-batch-strip-ship">Order today · Ships within 48 hours</span>
     </div>
   </div>
@@ -6161,6 +6161,52 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   } else {
     init();
   }
+})();
+</script>
+
+<!-- LP6 LIVE BATCH COUNTER — auto-decrement, persists via localStorage -->
+<script id="lp6-batch-counter-js">
+(function(){
+  var KEY = 'lp6-batch-count-v2';
+  var DEFAULT_START = 18;
+  var MIN_FLOOR = 4;
+  var DECREMENT_MS = 8 * 60 * 1000; // tick every 8 minutes
+  var data = null;
+  try {
+    var stored = localStorage.getItem(KEY);
+    if (stored) data = JSON.parse(stored);
+  } catch(e){}
+  if (!data || typeof data.count !== 'number') {
+    data = { count: DEFAULT_START, ts: Date.now() };
+  } else {
+    var elapsed = Date.now() - (data.ts || Date.now());
+    var ticks = Math.floor(elapsed / DECREMENT_MS);
+    if (ticks > 0) {
+      data.count = Math.max(MIN_FLOOR, data.count - ticks);
+      data.ts = Date.now();
+    }
+  }
+  if (data.count < MIN_FLOOR) data.count = MIN_FLOOR;
+  try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+
+  function paint(){
+    var el = document.getElementById('lp6-batch-count');
+    if (el) el.textContent = data.count;
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', paint);
+  } else {
+    paint();
+  }
+
+  setInterval(function(){
+    if (data.count > MIN_FLOOR) {
+      data.count--;
+      data.ts = Date.now();
+      try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+      paint();
+    }
+  }, DECREMENT_MS);
 })();
 </script>
 
