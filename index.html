@@ -4287,7 +4287,151 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   </div>
 </section>
 
-<!-- LP6 TESTIMONIALS SECTION — real Judge.me reviews -->
+<!-- LP6 UGC COLLAGE SECTION — real customer photos -->
+<style id="lp6-ugc-collage-css">
+.lp6-ugc {
+  background: #FEFCF8;
+  padding: 48px 18px 52px;
+  text-align: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+.lp6-ugc-overline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6E2B3D;
+  margin: 0 0 12px;
+}
+.lp6-ugc-h2 {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.lp6-ugc-aggregate {
+  font-size: 13px;
+  color: #6B5C54;
+  margin: 0 0 28px;
+}
+.lp6-ugc-aggregate-stars {
+  color: #E8B544;
+  letter-spacing: 1px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+.lp6-ugc-aggregate b { color: #1A1A1A; font-weight: 700; }
+.lp6-ugc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 460px;
+  margin: 0 auto 28px;
+}
+.lp6-ugc-photo {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #FFFFFF;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(74, 53, 38, 0.10), 0 1px 3px rgba(74, 53, 38, 0.05);
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+.lp6-ugc-photo:nth-child(odd) { transform: rotate(-1.2deg); }
+.lp6-ugc-photo:nth-child(even) { transform: rotate(1.1deg); }
+.lp6-ugc-photo:nth-child(4n) { transform: rotate(-0.8deg); }
+.lp6-ugc-photo:nth-child(5n) { transform: rotate(1.5deg); }
+.lp6-ugc-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+/* Varied heights — moodboard feel */
+.lp6-ugc-photo.tall { aspect-ratio: 3 / 4; }
+.lp6-ugc-photo.square { aspect-ratio: 1 / 1; }
+.lp6-ugc-photo.short { aspect-ratio: 4 / 3; }
+.lp6-ugc-stars {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #E8B544;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  line-height: 1;
+}
+.lp6-ugc-readmore {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #6E2B3D;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(110, 43, 61, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+.lp6-ugc-readmore:hover { border-bottom-color: #6E2B3D; }
+@media (max-width: 380px) {
+  .lp6-ugc { padding: 40px 14px 44px; }
+  .lp6-ugc-grid { gap: 10px; }
+  .lp6-ugc-photo { padding: 4px; border-radius: 12px; }
+}
+</style>
+
+<section class="lp6-ugc" id="lp6-ugc" aria-label="Customer photos">
+  <p class="lp6-ugc-overline">Real Customers · Real Lips</p>
+  <h2 class="lp6-ugc-h2">What our community is wearing</h2>
+  <p class="lp6-ugc-aggregate">
+    <span class="lp6-ugc-aggregate-stars">★★★★★</span>
+    <b>4.9</b> from <b>177+ verified reviews</b>
+  </p>
+
+  <div class="lp6-ugc-grid">
+    <figure class="lp6-ugc-photo tall">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_1.png" alt="Customer wearing Naturally Wyld Multi-Colour Cream" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+    <figure class="lp6-ugc-photo square">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_2.png" alt="Customer wearing Naturally Wyld Raspberry Kiss" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+    <figure class="lp6-ugc-photo short">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_3.png" alt="Customer with Naturally Wyld natural makeup" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+    <figure class="lp6-ugc-photo tall">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Sarah_Testimonial_7bbfe559-aa29-4b88-9f87-785caac8c755.png" alt="Sarah wearing Naturally Wyld Multi-Colour Cream" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+    <figure class="lp6-ugc-photo square">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_4.png" alt="Customer wearing Naturally Wyld" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+    <figure class="lp6-ugc-photo tall">
+      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_5.png" alt="Customer wearing Naturally Wyld natural multi-colour cream" loading="lazy">
+      <span class="lp6-ugc-stars">★★★★★</span>
+    </figure>
+  </div>
+
+  <a href="https://naturallywyld.ca/products/multi-colour-cream#reviews" class="lp6-ugc-readmore" target="_blank" rel="noopener">Read all 177 reviews →</a>
+</section>
+
+<!-- LP6 (OLD) TESTIMONIALS SECTION — replaced by UGC collage above -->
+<style id="lp6-testimonials-css-disabled">
+.lp6-testimonials { display: none !important; }
+</style>
+
 <style id="lp6-testimonials-css">
 .lp6-testimonials {
   background: #FEFCF8;
