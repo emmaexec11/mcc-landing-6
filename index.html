@@ -4287,15 +4287,24 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   </div>
 </section>
 
-<!-- LP6 UGC COLLAGE SECTION — real customer photos -->
-<style id="lp6-ugc-collage-css">
-.lp6-ugc {
-  background: #FEFCF8;
-  padding: 48px 18px 52px;
-  text-align: center;
+<!-- ════════════════════════════════════════════════════════
+     LP2 SECTIONS — restyled in LP6 typography (Abhaya Libre + Inter + wine #6E2B3D)
+     Order: Social Proof → How It Works → UGC Videos → Ingredients → Guarantee → FAQ → Final CTA
+     ════════════════════════════════════════════════════════ -->
+<style id="lp6-lp2-sections-css">
+/* Shared section styles */
+.lp6-lp2 {
   font-family: 'Inter', -apple-system, sans-serif;
+  text-align: center;
+  padding: 52px 20px;
 }
-.lp6-ugc-overline {
+.lp6-lp2.bg-cream { background: #F6EEE2; }
+.lp6-lp2.bg-bright { background: #FEFCF8; }
+.lp6-lp2.bg-wine { background: #2C1F1A; color: #F6EEE2; }
+.lp6-lp2.bg-wine .lp6-lp2-h2 { color: #FFFFFF; }
+.lp6-lp2.bg-wine .lp6-lp2-overline { color: #C9A3AD; }
+.lp6-lp2.bg-wine .lp6-lp2-sub { color: #DCC9C0; }
+.lp6-lp2-overline {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -4303,375 +4312,680 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   color: #6E2B3D;
   margin: 0 0 12px;
 }
-.lp6-ugc-h2 {
+.lp6-lp2-h2 {
   font-family: "Abhaya Libre", Georgia, serif;
   font-size: 28px;
   font-weight: 800;
   color: #1A1A1A;
   line-height: 1.1;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   letter-spacing: -0.01em;
 }
-.lp6-ugc-aggregate {
-  font-size: 13px;
-  color: #6B5C54;
-  margin: 0 0 28px;
+.lp6-lp2-sub {
+  font-size: 14.5px;
+  color: #5A5A5A;
+  line-height: 1.5;
+  max-width: 420px;
+  margin: 0 auto 28px;
 }
-.lp6-ugc-aggregate-stars {
-  color: #E8B544;
-  letter-spacing: 1px;
-  margin-right: 6px;
-  font-size: 14px;
-}
-.lp6-ugc-aggregate b { color: #1A1A1A; font-weight: 700; }
-.lp6-ugc-grid {
+
+/* SECTION: Social Proof Wall */
+.lp6-sp-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 10px;
   max-width: 460px;
   margin: 0 auto 28px;
 }
-.lp6-ugc-photo {
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #FFFFFF;
-  padding: 6px;
-  box-shadow: 0 4px 16px rgba(74, 53, 38, 0.10), 0 1px 3px rgba(74, 53, 38, 0.05);
-  transform: rotate(0deg);
-  transition: transform 0.3s;
-}
-.lp6-ugc-photo:nth-child(odd) { transform: rotate(-1.2deg); }
-.lp6-ugc-photo:nth-child(even) { transform: rotate(1.1deg); }
-.lp6-ugc-photo:nth-child(4n) { transform: rotate(-0.8deg); }
-.lp6-ugc-photo:nth-child(5n) { transform: rotate(1.5deg); }
-.lp6-ugc-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-}
-/* Varied heights — moodboard feel */
-.lp6-ugc-photo.tall { aspect-ratio: 3 / 4; }
-.lp6-ugc-photo.square { aspect-ratio: 1 / 1; }
-.lp6-ugc-photo.short { aspect-ratio: 4 / 3; }
-.lp6-ugc-stars {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #E8B544;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  line-height: 1;
-}
-.lp6-ugc-readmore {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #6E2B3D;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(110, 43, 61, 0.3);
-  padding-bottom: 1px;
-  transition: border-color 0.2s;
-}
-.lp6-ugc-readmore:hover { border-bottom-color: #6E2B3D; }
-@media (max-width: 380px) {
-  .lp6-ugc { padding: 40px 14px 44px; }
-  .lp6-ugc-grid { gap: 10px; }
-  .lp6-ugc-photo { padding: 4px; border-radius: 12px; }
-}
-</style>
-
-<section class="lp6-ugc" id="lp6-ugc" aria-label="Customer photos">
-  <p class="lp6-ugc-overline">Real Customers · Real Lips</p>
-  <h2 class="lp6-ugc-h2">What our community is wearing</h2>
-  <p class="lp6-ugc-aggregate">
-    <span class="lp6-ugc-aggregate-stars">★★★★★</span>
-    <b>4.9</b> from <b>177+ verified reviews</b>
-  </p>
-
-  <div class="lp6-ugc-grid">
-    <figure class="lp6-ugc-photo tall">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_1.png" alt="Customer wearing Naturally Wyld Multi-Colour Cream" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-    <figure class="lp6-ugc-photo square">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_2.png" alt="Customer wearing Naturally Wyld Raspberry Kiss" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-    <figure class="lp6-ugc-photo short">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_3.png" alt="Customer with Naturally Wyld natural makeup" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-    <figure class="lp6-ugc-photo tall">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Sarah_Testimonial_7bbfe559-aa29-4b88-9f87-785caac8c755.png" alt="Sarah wearing Naturally Wyld Multi-Colour Cream" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-    <figure class="lp6-ugc-photo square">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_4.png" alt="Customer wearing Naturally Wyld" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-    <figure class="lp6-ugc-photo tall">
-      <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Multi_Testimonial_5.png" alt="Customer wearing Naturally Wyld natural multi-colour cream" loading="lazy">
-      <span class="lp6-ugc-stars">★★★★★</span>
-    </figure>
-  </div>
-
-  <a href="https://naturallywyld.ca/products/multi-colour-cream#reviews" class="lp6-ugc-readmore" target="_blank" rel="noopener">Read all 177 reviews →</a>
-</section>
-
-<!-- LP6 (OLD) TESTIMONIALS SECTION — replaced by UGC collage above -->
-<style id="lp6-testimonials-css-disabled">
-.lp6-testimonials { display: none !important; }
-</style>
-
-<style id="lp6-testimonials-css">
-.lp6-testimonials {
-  background: #FEFCF8;
-  padding: 48px 20px 56px;
-  text-align: center;
-  font-family: 'Inter', -apple-system, sans-serif;
-}
-.lp6-testi-overline {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #6E2B3D;
-  margin: 0 0 12px;
-}
-.lp6-testi-h2 {
-  font-family: "Abhaya Libre", Georgia, serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: #1A1A1A;
-  line-height: 1.1;
-  margin: 0 0 10px;
-  letter-spacing: -0.01em;
-}
-.lp6-testi-aggregate {
-  font-size: 13px;
-  color: #6B5C54;
-  margin: 0 0 32px;
-  letter-spacing: 0.01em;
-}
-.lp6-testi-aggregate-stars {
-  color: #E8B544;
-  letter-spacing: 1px;
-  margin-right: 6px;
-  font-size: 14px;
-}
-.lp6-testi-aggregate b { color: #1A1A1A; font-weight: 700; }
-.lp6-testi-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  max-width: 460px;
-  margin: 0 auto 28px;
-}
-.lp6-testi-card {
+.lp6-sp-stat {
   background: #FFFFFF;
   border: 1px solid rgba(31, 27, 22, 0.06);
-  border-radius: 16px;
-  padding: 22px 20px 20px;
+  border-radius: 14px;
+  padding: 18px 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(74, 53, 38, 0.04);
+}
+.lp6-sp-stat-num {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #6E2B3D;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.lp6-sp-stat-lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #5A5A5A;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.lp6-sp-reviews {
   display: grid;
-  grid-template-columns: 48px 1fr;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.lp6-sp-review {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.06);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 42px 1fr;
   gap: 14px;
   align-items: start;
-  box-shadow: 0 2px 10px rgba(74, 53, 38, 0.04);
   text-align: left;
+  box-shadow: 0 2px 8px rgba(74, 53, 38, 0.04);
 }
-.lp6-testi-avatar {
-  width: 48px;
-  height: 48px;
+.lp6-sp-avatar {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Abhaya Libre", Georgia, serif;
-  font-size: 20px;
+  font-family: "Abhaya Libre", serif;
+  font-size: 18px;
   font-weight: 800;
   color: #FFFFFF;
-  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #6E2B3D 0%, #8A3D52 100%);
   flex-shrink: 0;
 }
-.lp6-testi-avatar.av-a { background: linear-gradient(135deg, #6E2B3D 0%, #8A3D52 100%); }
-.lp6-testi-avatar.av-b { background: linear-gradient(135deg, #A26A6A 0%, #C08585 100%); }
-.lp6-testi-avatar.av-c { background: linear-gradient(135deg, #5E4A3A 0%, #8A6F58 100%); }
-.lp6-testi-avatar.av-d { background: linear-gradient(135deg, #C8345E 0%, #E45580 100%); }
-.lp6-testi-avatar.av-e { background: linear-gradient(135deg, #6E3848 0%, #9C5468 100%); }
-.lp6-testi-content { min-width: 0; }
-.lp6-testi-stars {
+.lp6-sp-review-stars {
   color: #E8B544;
   letter-spacing: 1.5px;
-  font-size: 13px;
-  margin-bottom: 6px;
+  font-size: 12px;
   line-height: 1;
+  margin-bottom: 6px;
 }
-.lp6-testi-quote {
-  font-family: "Abhaya Libre", Georgia, serif;
+.lp6-sp-review-text {
+  font-family: "Abhaya Libre", serif;
   font-style: italic;
-  font-size: 15px;
+  font-size: 14.5px;
   color: #1F1F1F;
-  line-height: 1.45;
-  margin: 0 0 10px;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
-.lp6-testi-attr {
+.lp6-sp-review-name {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
-  font-size: 12px;
+  font-size: 11.5px;
   color: #5A5A5A;
-  line-height: 1.3;
+  flex-wrap: wrap;
 }
-.lp6-testi-name {
-  font-weight: 700;
-  color: #1A1A1A;
-  font-family: 'Inter', sans-serif;
-}
-.lp6-testi-sep { color: #C9C0B5; }
-.lp6-testi-verified {
+.lp6-sp-review-name b { color: #1A1A1A; font-weight: 700; }
+.lp6-sp-verified {
   display: inline-flex;
   align-items: center;
   gap: 3px;
   color: #4A7C59;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
-.lp6-testi-verified::before {
+.lp6-sp-verified::before {
   content: "✓";
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   background: #E8F0E8;
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.lp6-testi-shade {
-  display: inline-block;
-  font-size: 11px;
-  color: #6E2B3D;
-  background: rgba(110, 43, 61, 0.08);
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+
+/* SECTION: How It Works */
+.lp6-hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 460px;
+  margin: 0 auto 24px;
 }
-.lp6-testi-readmore {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
+.lp6-hiw-step {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.07);
+  border-radius: 16px;
+  padding: 22px 22px;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  align-items: start;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(74, 53, 38, 0.04);
+}
+.lp6-hiw-num {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #6E2B3D;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Abhaya Libre", serif;
+  font-size: 19px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.lp6-hiw-title {
+  font-family: "Abhaya Libre", serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.lp6-hiw-body {
   font-size: 13.5px;
-  font-weight: 600;
-  color: #6E2B3D;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(110, 43, 61, 0.3);
-  padding-bottom: 1px;
-  transition: border-color 0.2s;
+  color: #5A5A5A;
+  line-height: 1.4;
 }
-.lp6-testi-readmore:hover { border-bottom-color: #6E2B3D; }
+.lp6-hiw-close {
+  font-family: "Abhaya Libre", serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #6B5C54;
+  margin-top: 24px;
+}
+
+/* SECTION: UGC Video Reel */
+.lp6-vids-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 14px 18px;
+  margin: 0 -20px 8px;
+  scrollbar-width: none;
+}
+.lp6-vids-track::-webkit-scrollbar { display: none; }
+.lp6-vid-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+}
+.lp6-vid-wrap {
+  position: relative;
+  width: 220px;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1A1A1A;
+  box-shadow: 0 6px 18px rgba(74, 53, 38, 0.10), 0 1px 3px rgba(74, 53, 38, 0.06);
+}
+.lp6-vid-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lp6-vid-cap {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #2A2A2A;
+  line-height: 1.4;
+}
+.lp6-vid-cap b { color: #1A1A1A; font-weight: 700; }
+.lp6-vid-stars {
+  color: #E8B544;
+  letter-spacing: 1.5px;
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+/* SECTION: Ingredient Transparency */
+.lp6-ing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto 24px;
+}
+.lp6-ing-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.07);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  align-items: start;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(74, 53, 38, 0.04);
+}
+.lp6-ing-icon { font-size: 28px; line-height: 1; }
+.lp6-ing-title {
+  font-family: "Abhaya Libre", serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+}
+.lp6-ing-list { font-size: 13px; color: #5A5A5A; line-height: 1.5; }
+.lp6-ing-full {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.07);
+  border-radius: 14px;
+  padding: 18px 20px;
+  max-width: 460px;
+  margin: 0 auto 12px;
+  text-align: left;
+}
+.lp6-ing-full-h {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6E2B3D;
+  margin: 0 0 8px;
+}
+.lp6-ing-full-list {
+  font-size: 12px;
+  color: #2A2A2A;
+  line-height: 1.6;
+}
+.lp6-ing-never {
+  background: #2C1F1A;
+  color: #F6EEE2;
+  border-radius: 14px;
+  padding: 16px 20px;
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: left;
+}
+.lp6-ing-never-h {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E8B544;
+  margin: 0 0 8px;
+}
+.lp6-ing-never-list { font-size: 12px; color: #FFFFFF; line-height: 1.6; }
+
+/* SECTION: Guarantee */
+.lp6-grnt-body {
+  font-size: 15px;
+  color: #2A2A2A;
+  line-height: 1.55;
+  max-width: 460px;
+  margin: 0 auto 20px;
+}
+.lp6-grnt-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: left;
+}
+.lp6-grnt-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  color: #1A1A1A;
+  font-weight: 600;
+}
+.lp6-grnt-check::before {
+  content: "✓";
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #6E2B3D;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* SECTION: FAQ */
+.lp6-faq {
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: left;
+}
+.lp6-faq-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.07);
+  border-radius: 14px;
+  padding: 0;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.lp6-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-family: "Abhaya Libre", serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.3;
+  list-style: none;
+}
+.lp6-faq-q::-webkit-details-marker { display: none; }
+.lp6-faq-q::after {
+  content: "+";
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #6E2B3D;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.lp6-faq-item[open] .lp6-faq-q::after { content: "−"; }
+.lp6-faq-a {
+  padding: 0 20px 18px;
+  font-size: 13.5px;
+  color: #4A4A4A;
+  line-height: 1.55;
+}
+
+/* SECTION: Final CTA */
+.lp6-final-warning {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E8B544;
+  margin: 0 0 12px;
+}
+.lp6-final-trust {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #DCC9C0;
+}
+
 @media (max-width: 380px) {
-  .lp6-testimonials { padding: 40px 16px 44px; }
-  .lp6-testi-card { padding: 18px 16px 16px; grid-template-columns: 42px 1fr; gap: 12px; }
-  .lp6-testi-avatar { width: 42px; height: 42px; font-size: 17px; }
-  .lp6-testi-quote { font-size: 14px; }
+  .lp6-lp2 { padding: 44px 16px; }
+  .lp6-lp2-h2 { font-size: 24px; }
+  .lp6-sp-stat-num { font-size: 22px; }
+  .lp6-hiw-step { padding: 18px; gap: 12px; }
+  .lp6-vid-card { flex: 0 0 200px; }
+  .lp6-vid-wrap { width: 200px; }
 }
 </style>
 
-<section class="lp6-testimonials" id="lp6-testimonials" aria-label="Customer reviews">
-  <p class="lp6-testi-overline">Real Customers · Real Lips</p>
-  <h2 class="lp6-testi-h2">Loved by thousands of Canadian women</h2>
-  <p class="lp6-testi-aggregate">
-    <span class="lp6-testi-aggregate-stars">★★★★★</span>
-    <b>4.9</b> from <b>177+ verified Judge.me reviews</b>
-  </p>
+<!-- 3. SOCIAL PROOF WALL -->
+<section class="lp6-lp2 bg-cream" aria-label="Social proof">
+  <p class="lp6-lp2-overline">12,000+ Canadians can't be wrong</p>
+  <h2 class="lp6-lp2-h2">The clean-beauty switch everyone's making.</h2>
+  <p class="lp6-lp2-sub">5 years. 12,000+ orders. Sold out 7 times. Here's what people actually say.</p>
 
-  <div class="lp6-testi-stack">
-
-    <article class="lp6-testi-card">
-      <div class="lp6-testi-avatar av-a">K</div>
-      <div class="lp6-testi-content">
-        <div class="lp6-testi-stars">★★★★★</div>
-        <p class="lp6-testi-quote">"I love the colour! It is a brownish red which is perfect for my skin tone. I love how I can wear it on my lips and cheeks. It wears very well and doesn't need to be reapplied often. And I love that this is a Canadian product."</p>
-        <div class="lp6-testi-attr">
-          <span class="lp6-testi-name">Kim H.</span>
-          <span class="lp6-testi-sep">·</span>
-          <span class="lp6-testi-verified">Verified buyer</span>
-          <span class="lp6-testi-shade">Fallen Leaves</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="lp6-testi-card">
-      <div class="lp6-testi-avatar av-d">J</div>
-      <div class="lp6-testi-content">
-        <div class="lp6-testi-stars">★★★★★</div>
-        <p class="lp6-testi-quote">"Perfect colour for fair skin and blonde hair. Has a nice shine to it when applied. Stays on quite well. The most natural lip colour I could find — would definitely order it again."</p>
-        <div class="lp6-testi-attr">
-          <span class="lp6-testi-name">Janet R.</span>
-          <span class="lp6-testi-sep">·</span>
-          <span class="lp6-testi-verified">Verified buyer</span>
-          <span class="lp6-testi-shade">Raspberry Kiss</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="lp6-testi-card">
-      <div class="lp6-testi-avatar av-b">M</div>
-      <div class="lp6-testi-content">
-        <div class="lp6-testi-stars">★★★★★</div>
-        <p class="lp6-testi-quote">"Love the three face colours. I have used them on eyes, lips, and cheeks. The colours are pretty and soft and they stay on all through the day 🥰"</p>
-        <div class="lp6-testi-attr">
-          <span class="lp6-testi-name">Maureen G.</span>
-          <span class="lp6-testi-sep">·</span>
-          <span class="lp6-testi-verified">Verified buyer</span>
-          <span class="lp6-testi-shade">3-Shade Tester Pack</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="lp6-testi-card">
-      <div class="lp6-testi-avatar av-e">K</div>
-      <div class="lp6-testi-content">
-        <div class="lp6-testi-stars">★★★★★</div>
-        <p class="lp6-testi-quote">"From the moment I opened the very environmentally conscious packaging, I knew I liked this company. Absolutely love the makeup and use it on my cheeks, eyelids, and lips. It looks amazing — and I know I'm not putting toxins on my skin. Highly recommended!"</p>
-        <div class="lp6-testi-attr">
-          <span class="lp6-testi-name">Karie M.</span>
-          <span class="lp6-testi-sep">·</span>
-          <span class="lp6-testi-verified">Verified buyer</span>
-          <span class="lp6-testi-shade">3-Shade Tester Pack</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="lp6-testi-card">
-      <div class="lp6-testi-avatar av-c">M</div>
-      <div class="lp6-testi-content">
-        <div class="lp6-testi-stars">★★★★★</div>
-        <p class="lp6-testi-quote">"Just love this makeup and its multi-uses. The colours are beautiful and create an individual look. Easy to apply and long-lasting!"</p>
-        <div class="lp6-testi-attr">
-          <span class="lp6-testi-name">Maureen S.</span>
-          <span class="lp6-testi-sep">·</span>
-          <span class="lp6-testi-verified">Verified buyer</span>
-        </div>
-      </div>
-    </article>
-
+  <div class="lp6-sp-stats">
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">12,000+</div><div class="lp6-sp-stat-lbl">Happy Customers</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">4.9 ★</div><div class="lp6-sp-stat-lbl">From 436+ Reviews</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">7×</div><div class="lp6-sp-stat-lbl">Sold Out Completely</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">8,652</div><div class="lp6-sp-stat-lbl">Plastic Units Saved</div></div>
   </div>
 
-  <a href="https://naturallywyld.ca/products/multi-colour-cream#reviews" class="lp6-testi-readmore" target="_blank" rel="noopener">Read all 177 reviews →</a>
+  <div class="lp6-sp-reviews">
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">M</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"Why did no one tell me this would replace 3 products in one?? My makeup bag has never been this empty."</p>
+        <div class="lp6-sp-review-name"><b>Mya</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">S</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"Makes me feel pretty without all the effort. The Raspberry Kiss is my new personality."</p>
+        <div class="lp6-sp-review-name"><b>Sarah</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">S</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"LIFE-CHANGING for pregnancy-safe makeup. I felt like I had nothing safe to put on my face and this saved me. Beautiful colour, beautiful ingredients, beautiful brand."</p>
+        <div class="lp6-sp-review-name"><b>Shaye</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">L</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"Perfect for contouring, blush, eyes and cheeks. My lips were dry — still soft three days later."</p>
+        <div class="lp6-sp-review-name"><b>Laura</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">G</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"All 3 colours in the trio are gorgeous on my cheeks AND lips. Love natural ingredients on my face."</p>
+        <div class="lp6-sp-review-name"><b>Glynis M.</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+    <article class="lp6-sp-review">
+      <div class="lp6-sp-avatar">C</div>
+      <div>
+        <div class="lp6-sp-review-stars">★★★★★</div>
+        <p class="lp6-sp-review-text">"The colours are great. I use them on my eyes and lips and the darkest as contour. So versatile — one tin really does the work of three."</p>
+        <div class="lp6-sp-review-name"><b>Carol R.</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
+      </div>
+    </article>
+  </div>
 </section>
 
+<!-- 4. HOW IT WORKS -->
+<section class="lp6-lp2 bg-bright" aria-label="How it works">
+  <p class="lp6-lp2-overline">Your whole face · 30 seconds</p>
+  <h2 class="lp6-lp2-h2">How it works.</h2>
+  <p class="lp6-lp2-sub">Open the tin, swipe with a finger, blend. That's the whole routine.</p>
+
+  <div class="lp6-hiw-steps">
+    <div class="lp6-hiw-step">
+      <div class="lp6-hiw-num">1</div>
+      <div>
+        <h3 class="lp6-hiw-title">Open a tin</h3>
+        <p class="lp6-hiw-body">Pick any shade. Twist the lid off. You get all 3 — no decisions required.</p>
+      </div>
+    </div>
+    <div class="lp6-hiw-step">
+      <div class="lp6-hiw-num">2</div>
+      <div>
+        <h3 class="lp6-hiw-title">Swipe & blend</h3>
+        <p class="lp6-hiw-body">Finger or beauty blender. Dab on lips, cheeks, and eyes. Blend with whatever's nearest.</p>
+      </div>
+    </div>
+    <div class="lp6-hiw-step">
+      <div class="lp6-hiw-num">3</div>
+      <div>
+        <h3 class="lp6-hiw-title">Glow all day</h3>
+        <p class="lp6-hiw-body">4–6 hours of natural colour with a soft stain that lingers even longer.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="lp6-hiw-close">"Honestly the easiest morning routine I've ever had."</p>
+</section>
+
+<!-- 5. UGC VIDEO REEL -->
+<section class="lp6-lp2 bg-cream" aria-label="Customer videos">
+  <p class="lp6-lp2-overline">Real customers · Real videos</p>
+  <h2 class="lp6-lp2-h2">People are obsessed.</h2>
+
+  <div class="lp6-vids-track">
+    <div class="lp6-vid-card">
+      <div class="lp6-vid-wrap">
+        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
+    </div>
+    <div class="lp6-vid-card">
+      <div class="lp6-vid-wrap">
+        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/product-pan.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="lp6-vid-cap"><b>Real fruit · Real tins</b><br>Hand-poured in Kelowna</div>
+    </div>
+    <div class="lp6-vid-card">
+      <div class="lp6-vid-wrap">
+        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Shaye</b> — "A hidden gem"</div>
+    </div>
+    <div class="lp6-vid-card">
+      <div class="lp6-vid-wrap">
+        <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — "Every single day"</div>
+    </div>
+    <div class="lp6-vid-card">
+      <div class="lp6-vid-wrap">
+        <video src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Mya</b> — "Replaced 3 products"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. INGREDIENT TRANSPARENCY -->
+<section class="lp6-lp2 bg-bright" aria-label="Ingredient transparency">
+  <p class="lp6-lp2-overline">What's actually inside</p>
+  <h2 class="lp6-lp2-h2">Every ingredient, nothing hidden.</h2>
+  <p class="lp6-lp2-sub">21 ingredients you can pronounce — and zero you can't. Coloured by real fruit. Conditioned by real plants.</p>
+
+  <div class="lp6-ing-cards">
+    <div class="lp6-ing-card">
+      <div class="lp6-ing-icon">🍇</div>
+      <div>
+        <h3 class="lp6-ing-title">Real fruit pigments</h3>
+        <p class="lp6-ing-list">Beet root · Bilberry · Mineral micas &amp; oxides</p>
+      </div>
+    </div>
+    <div class="lp6-ing-card">
+      <div class="lp6-ing-icon">🍃</div>
+      <div>
+        <h3 class="lp6-ing-title">Skin-loving botanicals</h3>
+        <p class="lp6-ing-list">Jojoba · Shea · Coconut · Castor · Green tea</p>
+      </div>
+    </div>
+    <div class="lp6-ing-card">
+      <div class="lp6-ing-icon">💧</div>
+      <div>
+        <h3 class="lp6-ing-title">Hydrating support</h3>
+        <p class="lp6-ing-list">Hyaluronic acid · Vitamin E · Olive squalane</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lp6-ing-full">
+    <div class="lp6-ing-full-h">Full ingredient list</div>
+    <div class="lp6-ing-full-list">Myrica Berry Wax · Shea Butter · Candelilla Wax · Coconut Oil · Jojoba Oil · Castor Oil · Cetearyl (from coconuts) · Sunflower Lecithin · Olive Squalane · Vitamin A · Vitamin E · Beet Root Powder · Bamboo Silica · Hyaluronic Acid · Xanthan Gum · Gum Arabic · Green Tea Extract · Isoamyl Laureate · Bilberry Extract · Oxides · Micas</div>
+  </div>
+
+  <div class="lp6-ing-never">
+    <div class="lp6-ing-never-h">Never</div>
+    <div class="lp6-ing-never-list">Parabens · PEGs · Synthetic dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
+  </div>
+</section>
+
+<!-- 7. GUARANTEE -->
+<section class="lp6-lp2 bg-cream" aria-label="Guarantee">
+  <p class="lp6-lp2-overline">The Wyld promise</p>
+  <h2 class="lp6-lp2-h2">Love it or your money back.</h2>
+  <p class="lp6-grnt-body">Try the full starter set risk-free for 30 days. If you don't love how it looks, how it feels, or how clean it is — message us and we'll refund every penny. No return required, no questions, no fine print.</p>
+
+  <div class="lp6-grnt-checks">
+    <div class="lp6-grnt-check">30-day full refund</div>
+    <div class="lp6-grnt-check">No return needed — keep the tins</div>
+    <div class="lp6-grnt-check">Real humans answer email</div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="lp6-lp2 bg-bright" aria-label="Frequently asked questions">
+  <p class="lp6-lp2-overline">The honest answers</p>
+  <h2 class="lp6-lp2-h2">Questions, answered.</h2>
+
+  <div class="lp6-faq">
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">What shades do I get?</summary>
+      <div class="lp6-faq-a">Raspberry Kiss (berry-pink), Hazelnut (warm nude), and Fallen Leaves (deep cranberry). Universally flattering — picked to work on every skin tone.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">Safe for sensitive or acne-prone skin?</summary>
+      <div class="lp6-faq-a">Yes. Non-comedogenic, fragrance-free, talc-free, pregnancy-safe. If you're extra reactive, patch-test on your inner wrist first.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">Why $30 vs $40+ for clean brands?</summary>
+      <div class="lp6-faq-a">Family-run Canadian brand selling direct. No Sephora markup. The $30 starter exists so you can actually try it without committing to a full lineup.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">How long does it last?</summary>
+      <div class="lp6-faq-a">4–6 hours of wear with a soft stain that lingers longer. Each 7g tin gives you roughly 6 months of daily use.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">What if I don't love it?</summary>
+      <div class="lp6-faq-a">Message us within 30 days. We'll refund every penny — no return required, no questions.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">When will my order arrive?</summary>
+      <div class="lp6-faq-a">Orders before 2pm PT ship the same day. Tracking emailed when shipped. Most Canadian buyers receive it within 2–7 business days.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">What's the shelf life?</summary>
+      <div class="lp6-faq-a">Sealed: 18 months. Opened: 9–12 months. Every tin is hand-poured fresh this week.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">Safe during pregnancy or nursing?</summary>
+      <div class="lp6-faq-a">Yes — every ingredient is EWG-safe and free of common pregnancy-flagged chemicals. Always check with your doctor to be safe.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">Does it work on darker skin tones?</summary>
+      <div class="lp6-faq-a">Yes. Raspberry Kiss reads bright on deep skin, Fallen Leaves layers as rich plum, Hazelnut works as warming bronzer. All buildable.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">How do I remove it?</summary>
+      <div class="lp6-faq-a">Regular oil-based or micellar cleanser. Or a warm washcloth — the plant oils melt right off.</div>
+    </details>
+    <details class="lp6-faq-item">
+      <summary class="lp6-faq-q">Can I buy singles later?</summary>
+      <div class="lp6-faq-a">Yes — 8+ shades available beyond these 3. The starter set just helps you find your favourites first.</div>
+    </details>
+  </div>
+</section>
+
+<!-- 9. FINAL CTA -->
+<section class="lp6-lp2 bg-wine" aria-label="Final call to action">
+  <p class="lp6-final-warning">⚠ This batch goes fast · Sold out 7×</p>
+  <h2 class="lp6-lp2-h2">Stop wasting money on fake clean.</h2>
+  <p class="lp6-lp2-sub">Join 12,000+ Canadians who've switched to makeup made with real food. Last batch sold out in 11 days. Hand-poured this week. Next batch in 6 weeks.</p>
+
+  <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-mini-cta-btn" style="background: #FFFFFF; color: #2C1F1A; box-shadow: 0 6px 20px rgba(0,0,0,0.18);">Claim My Starter Set — $30 →</a>
+
+  <div class="lp6-final-trust">
+    <span>Free shipping</span>
+    <span>· 30-day guarantee</span>
+    <span>· Ships in 24 hrs</span>
+    <span>· Made in 🇨🇦</span>
+  </div>
+</section>
 
 </div></div>
 </div>
