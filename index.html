@@ -4246,19 +4246,19 @@ section.ecom-4v7g0f4jxor { display: none !important; }
 
   <div class="lp6-pain-stats">
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">120B+</div>
+      <div class="lp6-stat-number" data-count="120" data-suffix="B+">120B+</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>packaging units</b> in landfill yearly</div>
       </div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">5 lbs</div>
+      <div class="lp6-stat-number" data-count="5" data-suffix=" lbs">5 lbs</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>absorbed through skin</b> per year</div>
       </div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">70%</div>
+      <div class="lp6-stat-number" data-count="70" data-suffix="%">70%</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>of "natural" brands</b> still use plastic + dyes</div>
       </div>
@@ -4968,10 +4968,10 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   <p class="lp6-lp2-sub">5 years. 12,000+ orders. Sold out 7 times. Here's what people actually say.</p>
 
   <div class="lp6-sp-stats">
-    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">12,000+</div><div class="lp6-sp-stat-lbl">Happy Customers</div></div>
-    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">4.9 <span style="color: #E8B544">★</span></div><div class="lp6-sp-stat-lbl">From 436+ Reviews</div></div>
-    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">7×</div><div class="lp6-sp-stat-lbl">Sold Out Completely</div></div>
-    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num">8,652</div><div class="lp6-sp-stat-lbl">Plastic Units Saved</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num" data-count="12000" data-suffix="+" data-comma="1">12,000+</div><div class="lp6-sp-stat-lbl">Happy Customers</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num" data-count="4.9" data-suffix=" <span style=&quot;color:#E8B544&quot;>★</span>" data-decimal="1">4.9 <span style="color:#E8B544">★</span></div><div class="lp6-sp-stat-lbl">From 436+ Reviews</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num" data-count="7" data-suffix="×">7×</div><div class="lp6-sp-stat-lbl">Sold Out Completely</div></div>
+    <div class="lp6-sp-stat"><div class="lp6-sp-stat-num" data-count="8652" data-comma="1">8,652</div><div class="lp6-sp-stat-lbl">Plastic Units Saved</div></div>
   </div>
 
   <div class="lp6-sp-reviews">
@@ -5079,6 +5079,169 @@ section.ecom-4v7g0f4jxor { display: none !important; }
     </details>
   </div>
 </section>
+
+<style id="lp6-premium-polish-2026-v2">
+/* ════════ POLISH V2 — bigger numbers, reduce wine, scroll reveals ════════ */
+
+/* Reduce wine on stat numbers — use charcoal for a more premium feel */
+body .lp6-sp-stat-num,
+body .lp6-stat-number {
+  color: #1A1A1A !important;
+  font-size: 44px !important;
+  font-family: "Abhaya Libre", serif !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+}
+@media (max-width: 480px) {
+  body .lp6-sp-stat-num,
+  body .lp6-stat-number {
+    font-size: 32px !important;
+  }
+}
+
+/* Section overlines → neutral grey (less wine) */
+body .lp6-lp2-overline,
+body .lp6-overline {
+  color: #5A5A5A !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+}
+
+/* Subtle gold underline accent under H2 headlines for premium polish */
+body .lp6-lp2-h2,
+body .lp6-h2 {
+  position: relative !important;
+  padding-bottom: 14px !important;
+  margin-bottom: 16px !important;
+}
+body .lp6-lp2-h2::after,
+body .lp6-h2::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 44px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
+  border-radius: 2px !important;
+}
+section[aria-label="Final call to action"] .lp6-lp2-h2::after {
+  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
+}
+
+/* Stat numbers in animation-prep state (invisible until JS triggers) */
+.lp6-stat-anim {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.lp6-stat-anim.lp6-stat-revealed {
+  opacity: 1;
+}
+
+/* Scroll reveal — sections fade in + slide up */
+.lp6-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.9, 0.3, 1), transform 0.7s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+.lp6-reveal.lp6-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp6-reveal, .lp6-stat-anim {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+</style>
+
+<script id="lp6-stat-counter">
+(function(){
+  // Easing — cubic ease-out (snappy decel)
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function formatNumber(n, opts) {
+    var hasDecimal = opts.decimal;
+    var hasComma = opts.comma;
+    var rounded = hasDecimal ? n.toFixed(1) : Math.round(n).toString();
+    if (hasComma && !hasDecimal) {
+      rounded = Math.round(n).toLocaleString('en-US');
+    }
+    return rounded + (opts.suffix || '');
+  }
+
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var decimal = el.getAttribute('data-decimal') === '1';
+    var comma = el.getAttribute('data-comma') === '1';
+    var duration = 1800;
+    var startTime = null;
+
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var elapsed = ts - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var current = target * ease(progress);
+      el.innerHTML = formatNumber(current, { decimal: decimal, comma: comma, suffix: suffix });
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.innerHTML = formatNumber(target, { decimal: decimal, comma: comma, suffix: suffix });
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initCounters() {
+    var counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+    // Reset to 0 visually before observer kicks in
+    counters.forEach(function(el) {
+      var decimal = el.getAttribute('data-decimal') === '1';
+      var comma = el.getAttribute('data-comma') === '1';
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.innerHTML = formatNumber(0, { decimal: decimal, comma: comma, suffix: suffix });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !entry.target._counted) {
+          entry.target._counted = true;
+          animateCount(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(el) { observer.observe(el); });
+  }
+
+  // Section reveal observer
+  function initReveals() {
+    var sections = document.querySelectorAll('section[aria-label], aside[aria-label]');
+    sections.forEach(function(s) { s.classList.add('lp6-reveal'); });
+    var revObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lp6-reveal-visible');
+          revObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(function(s) { revObserver.observe(s); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { initCounters(); initReveals(); });
+  } else {
+    initCounters();
+    initReveals();
+  }
+})();
+</script>
 
 <style id="lp6-premium-polish-2026">
 /* ════════ 2026 PREMIUM POLISH — kills generic white-box feel ════════ */
