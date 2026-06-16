@@ -5281,6 +5281,12 @@ body .lp6-vid-cap b {
 }
 </style>
 
+<style id="lp6-scroll-fix">
+/* FIX: EComposer's html{scroll-behavior:smooth} causes laggy/stuck feel on mobile touch scrolls.
+   Override to auto so touch scroll feels native and responsive. Smooth scroll was hurting UX. */
+html { scroll-behavior: auto !important; }
+</style>
+
 <style id="lp6-tighter-spacing-2026">
 /* ════════ SPACING AUDIT — tighten over-padded sections ════════ */
 /* Default lp6-lp2 sections were 52px+, sections were getting bloated */
