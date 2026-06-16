@@ -3929,43 +3929,40 @@ body .ecom-9wsj04gi9a6 {
 .lp6-pain-stats {
   display: flex;
   flex-direction: column;
-  max-width: 440px;
+  max-width: 460px;
   margin: 4px auto 32px;
   background: #FFFFFF;
-  border-radius: 18px;
-  border: 1px solid rgba(31, 27, 22, 0.06);
-  box-shadow: 0 4px 18px rgba(74, 53, 38, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(31, 27, 22, 0.07);
+  box-shadow: 0 6px 24px rgba(74, 53, 38, 0.06), 0 1px 3px rgba(74, 53, 38, 0.04);
   overflow: hidden;
 }
 .lp6-stat-card {
   display: grid;
-  grid-template-columns: 108px 1fr;
+  grid-template-columns: 96px 1fr;
   gap: 18px;
-  align-items: center;
-  padding: 22px 22px;
-  border-bottom: 1px solid rgba(31, 27, 22, 0.07);
+  align-items: start;
+  padding: 24px 22px;
+  border-bottom: 1px solid rgba(31, 27, 22, 0.06);
   text-align: left;
   position: relative;
 }
 .lp6-stat-card:last-child { border-bottom: none; }
-.lp6-stat-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 22%;
-  bottom: 22%;
-  width: 3px;
-  background: #6E2B3D;
-  border-radius: 0 2px 2px 0;
-}
 .lp6-stat-number {
   font-family: "Abhaya Libre", Georgia, "Times New Roman", serif;
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 800;
   color: #6E2B3D;
   line-height: 0.95;
   letter-spacing: -0.03em;
   text-align: left;
+  padding-top: 2px;
+}
+.lp6-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
 }
 .lp6-stat-desc {
   font-family: 'Inter', -apple-system, sans-serif;
@@ -3978,10 +3975,19 @@ body .ecom-9wsj04gi9a6 {
   color: #1A1A1A;
   font-weight: 700;
 }
+.lp6-stat-source {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 10.5px;
+  font-style: italic;
+  color: #8A7E73;
+  letter-spacing: 0.01em;
+  margin-top: 2px;
+}
 @media (max-width: 380px) {
-  .lp6-stat-card { grid-template-columns: 92px 1fr; gap: 14px; padding: 18px 18px; }
-  .lp6-stat-number { font-size: 38px; }
+  .lp6-stat-card { grid-template-columns: 82px 1fr; gap: 14px; padding: 20px 18px; }
+  .lp6-stat-number { font-size: 42px; }
   .lp6-stat-desc { font-size: 13.5px; }
+  .lp6-stat-source { font-size: 10px; }
 }
 .lp6-bridge {
   margin: 8px 0 24px;
@@ -4257,16 +4263,25 @@ section.ecom-4v7g0f4jxor { display: none !important; }
 
   <div class="lp6-pain-stats">
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">168</div>
-      <div class="lp6-stat-desc"><b>chemicals on your skin every day</b> — most never tested for long-term safety.</div>
+      <div class="lp6-stat-number">$0</div>
+      <div class="lp6-stat-content">
+        <div class="lp6-stat-desc"><b>FDA pre-approval required</b> before a cosmetic goes to market. Cosmetics are self-regulated — unlike food or drugs.</div>
+        <div class="lp6-stat-source">Source: U.S. FDA, Cosmetic Safety</div>
+      </div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">26<span style="font-size:0.5em;letter-spacing:-0.02em;margin-left:2px">sec</span></div>
-      <div class="lp6-stat-desc"><b>how fast skin-applied chemicals enter your bloodstream</b> — what you put on, you absorb.</div>
+      <div class="lp6-stat-number">1,300+</div>
+      <div class="lp6-stat-content">
+        <div class="lp6-stat-desc"><b>cosmetic ingredients banned by the EU</b> for safety concerns. North America bans just 11.</div>
+        <div class="lp6-stat-source">Source: EU Cosmetics Regulation 1223/2009</div>
+      </div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-number">12+</div>
-      <div class="lp6-stat-desc"><b>EU-banned ingredients</b> still legal in Canadian makeup right now.</div>
+      <div class="lp6-stat-number">61%</div>
+      <div class="lp6-stat-content">
+        <div class="lp6-stat-desc"><b>of lipsticks tested by the FDA contained lead.</b> Some had levels above the limit for infant exposure.</div>
+        <div class="lp6-stat-source">Source: FDA Lipstick Lead Survey</div>
+      </div>
     </div>
   </div>
 
