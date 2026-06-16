@@ -5080,6 +5080,207 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   </div>
 </section>
 
+<style id="lp6-polish-v3-2026">
+/* ════════ POLISH V3 — final amazing-touches pass ════════ */
+
+/* Pain stats — connected horizontal strip (kills mobile label cramping) */
+body .lp6-pain-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
+  background: linear-gradient(135deg, #FFF6E8 0%, #FFFFFF 100%) !important;
+  border-radius: 24px !important;
+  padding: 26px 12px !important;
+  box-shadow: 0 2px 14px rgba(110,43,61,0.06), inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  margin: 22px auto 26px !important;
+  max-width: 700px !important;
+  border: 1px solid rgba(110,43,61,0.08) !important;
+}
+body .lp6-stat-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 10px !important;
+  position: relative !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+body .lp6-stat-card:not(:last-child)::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 15% !important;
+  height: 70% !important;
+  width: 1px !important;
+  background: rgba(110, 43, 61, 0.18) !important;
+}
+body .lp6-stat-content { display: block !important; }
+body .lp6-stat-desc {
+  font-family: "Inter", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #5A5A5A !important;
+  line-height: 1.35 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+body .lp6-stat-desc b {
+  display: block !important;
+  color: #1A1A1A !important;
+  font-weight: 700 !important;
+  margin-bottom: 1px !important;
+}
+@media (max-width: 480px) {
+  body .lp6-pain-stats { padding: 20px 8px !important; }
+  body .lp6-stat-card { padding: 0 6px !important; }
+  body .lp6-stat-desc { font-size: 10px !important; }
+}
+
+/* Trust bridge — pull-quote treatment with decorative quote mark */
+body .lp6-trust-bridge-card {
+  position: relative !important;
+}
+body .lp6-trust-bridge-quote {
+  font-family: "Abhaya Libre", Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1A1A1A !important;
+  line-height: 1.4 !important;
+  position: relative !important;
+  padding-left: 0 !important;
+}
+body .lp6-trust-bridge-quote::before {
+  content: '\201C' !important;
+  font-family: "Abhaya Libre", Georgia, serif !important;
+  font-size: 48px !important;
+  color: #6E2B3D !important;
+  opacity: 0.25 !important;
+  position: absolute !important;
+  top: -14px !important;
+  left: -6px !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Batch scarcity — number to charcoal */
+body .lp6-batch-strip-count {
+  color: #1A1A1A !important;
+}
+
+/* Ingredient cards — stronger title hierarchy */
+body .lp6-ing-title {
+  font-family: "Abhaya Libre", serif !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #1A1A1A !important;
+  margin: 0 0 4px !important;
+  letter-spacing: -0.01em !important;
+}
+body .lp6-ing-list {
+  font-size: 13px !important;
+  color: #5A5A5A !important;
+  line-height: 1.4 !important;
+}
+body .lp6-ing-icon {
+  font-size: 26px !important;
+  flex-shrink: 0 !important;
+}
+body .lp6-ing-card {
+  padding: 18px 20px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 1px 4px rgba(110,43,61,0.04) !important;
+  border: 1px solid rgba(110,43,61,0.06) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+body .lp6-ing-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(110,43,61,0.1) !important;
+}
+
+/* Full ingredient list + Never list — better visual weight */
+body .lp6-ing-full {
+  background: #F9F4EF !important;
+  border-radius: 14px !important;
+  padding: 18px 20px !important;
+  margin-top: 16px !important;
+  border: 1px solid rgba(110,43,61,0.08) !important;
+}
+body .lp6-ing-full-h {
+  font-family: "Inter", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #6E2B3D !important;
+  margin-bottom: 8px !important;
+}
+body .lp6-ing-full-list {
+  font-size: 13px !important;
+  color: #3A3A3A !important;
+  line-height: 1.6 !important;
+}
+body .lp6-ing-never {
+  background: #1A1A1A !important;
+  border-radius: 14px !important;
+  padding: 18px 20px !important;
+  margin-top: 12px !important;
+  position: relative !important;
+}
+body .lp6-ing-never::before {
+  content: '✗' !important;
+  position: absolute !important;
+  top: 16px !important;
+  right: 18px !important;
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.1) !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+body .lp6-ing-never-h {
+  font-family: "Inter", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #E8B544 !important;
+  margin-bottom: 8px !important;
+}
+body .lp6-ing-never-list {
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.85) !important;
+  line-height: 1.6 !important;
+}
+
+/* UGC video caption — pill-styled */
+body .lp6-vid-cap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  padding: 12px 4px 0 !important;
+}
+body .lp6-vid-stars {
+  color: #E8B544 !important;
+  font-size: 12px !important;
+}
+body .lp6-vid-cap b {
+  font-family: "Abhaya Libre", serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #1A1A1A !important;
+  letter-spacing: -0.01em !important;
+}
+</style>
+
 <style id="lp6-tighter-spacing-2026">
 /* ════════ SPACING AUDIT — tighten over-padded sections ════════ */
 /* Default lp6-lp2 sections were 52px+, sections were getting bloated */
