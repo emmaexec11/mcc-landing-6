@@ -5080,6 +5080,50 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   </div>
 </section>
 
+<style id="lp6-tighter-spacing-2026">
+/* ════════ SPACING AUDIT — tighten over-padded sections ════════ */
+/* Default lp6-lp2 sections were 52px+, sections were getting bloated */
+body section.lp6-lp2 { padding: 40px 20px !important; }
+body section[aria-label="How it works"] { padding: 44px 20px !important; }
+body section[aria-label="Guarantee"] { padding: 44px 20px !important; }
+body section[aria-label="Frequently asked questions"] { padding: 44px 20px !important; }
+body section[aria-label="Ingredient transparency"] { padding: 40px 20px !important; }
+body section[aria-label="Social proof"] { padding: 40px 20px !important; }
+body section[aria-label="Customer videos"] { padding: 40px 20px !important; }
+body section[aria-label="Final call to action"] { padding: 44px 20px !important; }
+
+/* Section 2 (pain stats + diff bullets) — already tight, tiny tighten */
+body section.lp6-section-2 { padding-bottom: 24px !important; }
+
+/* Tighten H2 vertical gaps inside sections */
+body .lp6-lp2-h2, body .lp6-h2 { margin-bottom: 10px !important; }
+body .lp6-lp2-sub { margin-top: 8px !important; margin-bottom: 20px !important; }
+body .lp6-lp2-overline { margin-bottom: 8px !important; }
+
+/* Stat cards — slightly tighter internal padding */
+body .lp6-sp-stats { padding: 24px 16px !important; margin: 22px auto 28px !important; }
+body .lp6-pain-stats { gap: 12px !important; }
+
+/* HIW collage gap reduction */
+body .lp6-hiw-grid { gap: 36px !important; }
+@media (max-width: 768px) {
+  body .lp6-hiw-grid { gap: 22px !important; }
+  body section.lp6-lp2 { padding: 36px 18px !important; }
+  body section[aria-label="How it works"] { padding: 38px 18px !important; }
+  body section[aria-label="Guarantee"] { padding: 38px 18px !important; }
+  body section[aria-label="Frequently asked questions"] { padding: 38px 18px !important; }
+}
+
+/* Tighten guarantee crest spacing */
+body section[aria-label="Guarantee"]::before { margin-bottom: 8px !important; font-size: 30px !important; }
+
+/* Tighten FAQ container top margin */
+body .lp6-faq { margin: 18px auto 0 !important; }
+
+/* Tighten gap above mini-CTAs in section 2 */
+body .lp6-mini-cta { margin-top: 18px !important; }
+</style>
+
 <style id="lp6-premium-polish-2026-v2">
 /* ════════ POLISH V2 — bigger numbers, reduce wine, scroll reveals ════════ */
 
