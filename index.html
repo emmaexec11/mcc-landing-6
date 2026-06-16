@@ -4287,6 +4287,247 @@ section.ecom-4v7g0f4jxor { display: none !important; }
   </div>
 </section>
 
+<!-- LP6 TESTIMONIALS SECTION — real Judge.me reviews -->
+<style id="lp6-testimonials-css">
+.lp6-testimonials {
+  background: #FEFCF8;
+  padding: 48px 20px 56px;
+  text-align: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+.lp6-testi-overline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6E2B3D;
+  margin: 0 0 12px;
+}
+.lp6-testi-h2 {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.lp6-testi-aggregate {
+  font-size: 13px;
+  color: #6B5C54;
+  margin: 0 0 32px;
+  letter-spacing: 0.01em;
+}
+.lp6-testi-aggregate-stars {
+  color: #E8B544;
+  letter-spacing: 1px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+.lp6-testi-aggregate b { color: #1A1A1A; font-weight: 700; }
+.lp6-testi-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 460px;
+  margin: 0 auto 28px;
+}
+.lp6-testi-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 27, 22, 0.06);
+  border-radius: 16px;
+  padding: 22px 20px 20px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: start;
+  box-shadow: 0 2px 10px rgba(74, 53, 38, 0.04);
+  text-align: left;
+}
+.lp6-testi-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+.lp6-testi-avatar.av-a { background: linear-gradient(135deg, #6E2B3D 0%, #8A3D52 100%); }
+.lp6-testi-avatar.av-b { background: linear-gradient(135deg, #A26A6A 0%, #C08585 100%); }
+.lp6-testi-avatar.av-c { background: linear-gradient(135deg, #5E4A3A 0%, #8A6F58 100%); }
+.lp6-testi-avatar.av-d { background: linear-gradient(135deg, #C8345E 0%, #E45580 100%); }
+.lp6-testi-avatar.av-e { background: linear-gradient(135deg, #6E3848 0%, #9C5468 100%); }
+.lp6-testi-content { min-width: 0; }
+.lp6-testi-stars {
+  color: #E8B544;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.lp6-testi-quote {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #1F1F1F;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+.lp6-testi-attr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #5A5A5A;
+  line-height: 1.3;
+}
+.lp6-testi-name {
+  font-weight: 700;
+  color: #1A1A1A;
+  font-family: 'Inter', sans-serif;
+}
+.lp6-testi-sep { color: #C9C0B5; }
+.lp6-testi-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #4A7C59;
+  font-weight: 600;
+  font-size: 11px;
+}
+.lp6-testi-verified::before {
+  content: "✓";
+  font-size: 10px;
+  font-weight: 800;
+  background: #E8F0E8;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lp6-testi-shade {
+  display: inline-block;
+  font-size: 11px;
+  color: #6E2B3D;
+  background: rgba(110, 43, 61, 0.08);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.lp6-testi-readmore {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #6E2B3D;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(110, 43, 61, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+.lp6-testi-readmore:hover { border-bottom-color: #6E2B3D; }
+@media (max-width: 380px) {
+  .lp6-testimonials { padding: 40px 16px 44px; }
+  .lp6-testi-card { padding: 18px 16px 16px; grid-template-columns: 42px 1fr; gap: 12px; }
+  .lp6-testi-avatar { width: 42px; height: 42px; font-size: 17px; }
+  .lp6-testi-quote { font-size: 14px; }
+}
+</style>
+
+<section class="lp6-testimonials" id="lp6-testimonials" aria-label="Customer reviews">
+  <p class="lp6-testi-overline">Real Customers · Real Lips</p>
+  <h2 class="lp6-testi-h2">Loved by thousands of Canadian women</h2>
+  <p class="lp6-testi-aggregate">
+    <span class="lp6-testi-aggregate-stars">★★★★★</span>
+    <b>4.9</b> from <b>177+ verified Judge.me reviews</b>
+  </p>
+
+  <div class="lp6-testi-stack">
+
+    <article class="lp6-testi-card">
+      <div class="lp6-testi-avatar av-a">K</div>
+      <div class="lp6-testi-content">
+        <div class="lp6-testi-stars">★★★★★</div>
+        <p class="lp6-testi-quote">"I love the colour! It is a brownish red which is perfect for my skin tone. I love how I can wear it on my lips and cheeks. It wears very well and doesn't need to be reapplied often. And I love that this is a Canadian product."</p>
+        <div class="lp6-testi-attr">
+          <span class="lp6-testi-name">Kim H.</span>
+          <span class="lp6-testi-sep">·</span>
+          <span class="lp6-testi-verified">Verified buyer</span>
+          <span class="lp6-testi-shade">Fallen Leaves</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="lp6-testi-card">
+      <div class="lp6-testi-avatar av-d">J</div>
+      <div class="lp6-testi-content">
+        <div class="lp6-testi-stars">★★★★★</div>
+        <p class="lp6-testi-quote">"Perfect colour for fair skin and blonde hair. Has a nice shine to it when applied. Stays on quite well. The most natural lip colour I could find — would definitely order it again."</p>
+        <div class="lp6-testi-attr">
+          <span class="lp6-testi-name">Janet R.</span>
+          <span class="lp6-testi-sep">·</span>
+          <span class="lp6-testi-verified">Verified buyer</span>
+          <span class="lp6-testi-shade">Raspberry Kiss</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="lp6-testi-card">
+      <div class="lp6-testi-avatar av-b">M</div>
+      <div class="lp6-testi-content">
+        <div class="lp6-testi-stars">★★★★★</div>
+        <p class="lp6-testi-quote">"Love the three face colours. I have used them on eyes, lips, and cheeks. The colours are pretty and soft and they stay on all through the day 🥰"</p>
+        <div class="lp6-testi-attr">
+          <span class="lp6-testi-name">Maureen G.</span>
+          <span class="lp6-testi-sep">·</span>
+          <span class="lp6-testi-verified">Verified buyer</span>
+          <span class="lp6-testi-shade">3-Shade Tester Pack</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="lp6-testi-card">
+      <div class="lp6-testi-avatar av-e">K</div>
+      <div class="lp6-testi-content">
+        <div class="lp6-testi-stars">★★★★★</div>
+        <p class="lp6-testi-quote">"From the moment I opened the very environmentally conscious packaging, I knew I liked this company. Absolutely love the makeup and use it on my cheeks, eyelids, and lips. It looks amazing — and I know I'm not putting toxins on my skin. Highly recommended!"</p>
+        <div class="lp6-testi-attr">
+          <span class="lp6-testi-name">Karie M.</span>
+          <span class="lp6-testi-sep">·</span>
+          <span class="lp6-testi-verified">Verified buyer</span>
+          <span class="lp6-testi-shade">3-Shade Tester Pack</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="lp6-testi-card">
+      <div class="lp6-testi-avatar av-c">M</div>
+      <div class="lp6-testi-content">
+        <div class="lp6-testi-stars">★★★★★</div>
+        <p class="lp6-testi-quote">"Just love this makeup and its multi-uses. The colours are beautiful and create an individual look. Easy to apply and long-lasting!"</p>
+        <div class="lp6-testi-attr">
+          <span class="lp6-testi-name">Maureen S.</span>
+          <span class="lp6-testi-sep">·</span>
+          <span class="lp6-testi-verified">Verified buyer</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <a href="https://naturallywyld.ca/products/multi-colour-cream#reviews" class="lp6-testi-readmore" target="_blank" rel="noopener">Read all 177 reviews →</a>
+</section>
+
 
 </div></div>
 </div>
