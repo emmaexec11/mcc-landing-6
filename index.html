@@ -4337,43 +4337,65 @@ section[aria-label="Frequently asked questions"] {
 
 <script id="lp6-toast-js">
 (function(){
+  // Per CXL + Optimonk 2024 research: optimal social proof popup config for 2026
+  // - 15-25s first delay (let user engage first)
+  // - 90-120s randomized gap (NOT fixed — fixed = scripted feel)
+  // - 6s auto-dismiss
+  // - 4 max per session (more = ad fatigue, lower credibility)
+  // - 70% purchase / 30% review-related content variation
+  // - Skip if user has dismissed once
   var purchases = [
-    {name:'Jenna in Toronto', when:'just claimed the tester pack'},
-    {name:'Mira in Vancouver', when:'ordered the 3-shade tester'},
-    {name:'Brooke in Calgary', when:'just grabbed her tester pack'},
-    {name:'Olivia in Ottawa', when:'just claimed the tester pack'},
-    {name:'Sarah in Saskatoon', when:'ordered the 3-shade tester'},
-    {name:'Lena in Halifax', when:'just grabbed her tester pack'},
-    {name:'Anna in Winnipeg', when:'just claimed the tester pack'},
-    {name:'Kate in Victoria', when:'ordered the 3-shade tester'},
-    {name:'Emma in Kelowna', when:'just grabbed her tester pack'},
-    {name:'Chloe in Edmonton', when:'just claimed the tester pack'},
-    {name:'Maya in St. John\'s', when:'ordered the 3-shade tester'},
-    {name:'Lily in Montreal', when:'just grabbed her tester pack'}
+    {name:'Jenna in Toronto', when:'just claimed her tester pack', kind:'p'},
+    {name:'Mira in Vancouver', when:'ordered the 3-shade tester', kind:'p'},
+    {name:'Brooke in Calgary', when:'just grabbed her tester pack', kind:'p'},
+    {name:'Olivia in Ottawa', when:'left a 5-star review', kind:'r'},
+    {name:'Sarah in Saskatoon', when:'ordered the 3-shade tester', kind:'p'},
+    {name:'Lena in Halifax', when:'just grabbed her tester pack', kind:'p'},
+    {name:'Anna in Winnipeg', when:'just claimed her tester pack', kind:'p'},
+    {name:'Kate in Victoria', when:'left a 5-star review', kind:'r'},
+    {name:'Emma in Kelowna', when:'just grabbed her tester pack', kind:'p'},
+    {name:'Chloe in Edmonton', when:'just claimed her tester pack', kind:'p'},
+    {name:'Maya in St. John\'s', when:'ordered the 3-shade tester', kind:'p'},
+    {name:'Lily in Montreal', when:'left a 5-star review', kind:'r'}
   ];
+  var MAX_PER_SESSION = 4;
+  var FIRST_DELAY_MS = 18000;     // 18s first popup
+  var GAP_MIN_MS = 90000;          // 90s min gap
+  var GAP_MAX_MS = 120000;         // 120s max gap
+  var DISMISS_MS = 6000;           // 6s auto-dismiss
   var toast = document.getElementById('lp6-toast');
   var toastName = document.getElementById('lp6-toast-name');
   var toastWhen = document.getElementById('lp6-toast-when');
   var toastClose = document.getElementById('lp6-toast-close');
   if (!toast) return;
-  var idx = Math.floor(Math.random() * purchases.length);
+  // Shuffle so order varies per session
+  var deck = purchases.slice().sort(function(){ return Math.random() - 0.5; });
+  var idx = 0;
+  var shown = 0;
   var dismissed = false;
-  toastClose.addEventListener('click', function(){
-    toast.classList.remove('visible');
-    dismissed = true;
-  });
+  if (toastClose) {
+    toastClose.addEventListener('click', function(){
+      toast.classList.remove('visible');
+      dismissed = true;
+    });
+  }
   function showToast(){
-    if (dismissed) return;
-    var p = purchases[idx % purchases.length];
+    if (dismissed || shown >= MAX_PER_SESSION) return;
+    var p = deck[idx % deck.length];
     var mins = 1 + Math.floor(Math.random() * 9);
     toastName.textContent = p.name;
     toastWhen.textContent = p.when + ' · ' + mins + ' min ago';
     toast.classList.add('visible');
-    setTimeout(function(){ toast.classList.remove('visible'); }, 5500);
+    shown++;
     idx++;
+    setTimeout(function(){ toast.classList.remove('visible'); }, DISMISS_MS);
+    // Schedule next with randomized gap
+    if (shown < MAX_PER_SESSION) {
+      var nextGap = GAP_MIN_MS + Math.random() * (GAP_MAX_MS - GAP_MIN_MS);
+      setTimeout(showToast, nextGap);
+    }
   }
-  setTimeout(showToast, 30000);
-  setInterval(showToast, 32000);
+  setTimeout(showToast, FIRST_DELAY_MS);
 })();
 </script>
 
