@@ -2578,6 +2578,83 @@ body .lp6-vid-cap b {
 }
 </style>
 
+<style id="lp6-inline-qty-cta">
+/* Magic Spoon style: inline quantity selector + ATC button on one row */
+.lp6-buy-action-row {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  margin: 8px 0 0 !important;
+  width: 100% !important;
+}
+.lp6-buy-qty-inline {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #6E2B3D !important;
+  border-radius: 100px !important;
+  padding: 0 4px !important;
+  flex-shrink: 0 !important;
+  height: auto !important;
+  min-height: 52px !important;
+  gap: 0 !important;
+}
+.lp6-buy-qty-inline .lp6-buy-qty-btn {
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  background: transparent !important;
+  color: #6E2B3D !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  transition: background 0.15s ease !important;
+}
+.lp6-buy-qty-inline .lp6-buy-qty-btn:hover { background: rgba(110, 43, 61, 0.08) !important; }
+.lp6-buy-qty-inline .lp6-buy-qty-input {
+  width: 28px !important;
+  height: 32px !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #1A1A1A !important;
+  padding: 0 !important;
+  -moz-appearance: textfield !important;
+}
+.lp6-buy-qty-inline .lp6-buy-qty-input::-webkit-outer-spin-button,
+.lp6-buy-qty-inline .lp6-buy-qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+/* ATC button in the action row — flex-grow to fill remaining space */
+.lp6-buy-action-row .lp6-buy-cta {
+  flex: 1 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 52px !important;
+}
+/* Trust row goes on its own line below the action row */
+.lp6-buy-trust-row {
+  margin-top: 14px !important;
+}
+@media (max-width: 380px) {
+  .lp6-buy-qty-inline { min-height: 48px !important; }
+  .lp6-buy-qty-inline .lp6-buy-qty-btn { width: 28px !important; height: 28px !important; font-size: 16px !important; }
+  .lp6-buy-qty-inline .lp6-buy-qty-input { width: 24px !important; font-size: 14px !important; }
+  .lp6-buy-action-row .lp6-buy-cta { min-height: 48px !important; font-size: 15px !important; }
+}
+</style>
+
 <style id="lp6-cream-nuke">
 /* ====== NUKE ALL CREAM GRADIENTS — Devon's "old feeling" fix ====== */
 body section[aria-label="Before and after"],
@@ -3515,22 +3592,22 @@ section[aria-label="Frequently asked questions"] {
       <span class="lp6-buy-was">$90</span>
       <span class="lp6-buy-save">SAVE $60</span>
     </div>
-    <div class="lp6-buy-qty-row">
-      <label class="lp6-buy-qty-label">Quantity:</label>
-      <div class="lp6-buy-qty-control">
-        <button type="button" class="lp6-buy-qty-btn" data-action="decrement" aria-label="Decrease">−</button>
-        <input type="number" class="lp6-buy-qty-input" value="1" min="1" max="10" aria-label="Quantity">
-        <button type="button" class="lp6-buy-qty-btn" data-action="increment" aria-label="Increase">+</button>
-      </div>
-    </div>
     <div class="lp6-hero-scarcity" id="lp6-hero-scarcity" aria-live="polite">
       <span class="lp6-hero-scarcity-pulse"></span>
       <span class="lp6-hero-scarcity-text">Only <strong id="lp6-hero-scarcity-count">27</strong> tester packs left · next batch poured tomorrow</span>
     </div>
 
-    <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-buy-cta" id="lp6-buy-cta-link">
-      Add to Cart — $30
-    </a>
+    <!-- Magic Spoon style: inline quantity + ADD TO CART in single pill -->
+    <div class="lp6-buy-action-row">
+      <div class="lp6-buy-qty-inline" aria-label="Quantity selector">
+        <button type="button" class="lp6-buy-qty-btn" data-action="decrement" aria-label="Decrease quantity">−</button>
+        <input type="number" class="lp6-buy-qty-input" value="1" min="1" max="10" aria-label="Quantity">
+        <button type="button" class="lp6-buy-qty-btn" data-action="increment" aria-label="Increase quantity">+</button>
+      </div>
+      <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-buy-cta" id="lp6-buy-cta-link">
+        Add to Cart — $30
+      </a>
+    </div>
     <div class="lp6-buy-trust-row">
       <span class="lp6-trust-pill">✓ Free Shipping</span>
       <span class="lp6-trust-pill">✓ 30-Day Money Back</span>
