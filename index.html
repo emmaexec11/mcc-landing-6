@@ -3693,7 +3693,73 @@ section[aria-label="Frequently asked questions"] {
 </style>
 
 <style id="lp6-pain-stats-premium">
-/* ════════ PAIN STATS — premium pro graphics ════════ */
+/* ════════ PAIN STATS — minimalist editorial (no cards, hairline dividers) ════════ */
+body .lp6-pain-stats-v3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 36px auto 32px !important;
+  max-width: 640px !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 8px 14px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  position: relative !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-card:not(:last-child)::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 18% !important;
+  height: 64% !important;
+  width: 1px !important;
+  background: rgba(110, 43, 61, 0.16) !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-number {
+  color: #6E2B3D !important;
+  font-size: 48px !important;
+  font-family: "Abhaya Libre", Georgia, serif !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-desc {
+  font-family: "Inter", -apple-system, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #5A5A5A !important;
+  line-height: 1.4 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  max-width: 130px !important;
+}
+@media (max-width: 600px) {
+  body .lp6-pain-stats-v3 { margin: 28px auto 24px !important; }
+  body .lp6-pain-stats-v3 .lp6-stat-card { padding: 6px 8px !important; gap: 6px !important; }
+  body .lp6-pain-stats-v3 .lp6-stat-number { font-size: 34px !important; }
+  body .lp6-pain-stats-v3 .lp6-stat-desc { font-size: 10.5px !important; max-width: 110px !important; }
+}
+
+/* Legacy v2 styles kept dormant for revert */
 body .lp6-pain-stats-v2 {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -3866,33 +3932,18 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
 <section class="lp6-section-2" id="lp6-pain-diff">
   <h2 class="lp6-h2">The dirty truth: 98% of "clean" makeup <em>isn't.</em></h2>
 
-  <div class="lp6-pain-stats lp6-pain-stats-v2">
+  <div class="lp6-pain-stats lp6-pain-stats-v3">
     <div class="lp6-stat-card">
-      <div class="lp6-stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
-      </div>
       <div class="lp6-stat-number" data-count="120" data-suffix="B+">120B+</div>
-      <div class="lp6-stat-content">
-        <div class="lp6-stat-desc"><b>packaging units</b> in landfill yearly</div>
-      </div>
+      <div class="lp6-stat-desc">Packaging units in landfill yearly</div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-      </div>
       <div class="lp6-stat-number" data-count="5" data-suffix=" lbs">5 lbs</div>
-      <div class="lp6-stat-content">
-        <div class="lp6-stat-desc"><b>absorbed through skin</b> per year</div>
-      </div>
+      <div class="lp6-stat-desc">Absorbed through skin per year</div>
     </div>
     <div class="lp6-stat-card">
-      <div class="lp6-stat-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 3-9 8-11 5 2 8 6 8 11a7 7 0 0 1-7 7Z"/><path d="M12 9v11"/></svg>
-      </div>
       <div class="lp6-stat-number" data-count="70" data-suffix="%">70%</div>
-      <div class="lp6-stat-content">
-        <div class="lp6-stat-desc"><b>of "natural" brands</b> still use plastic + dyes</div>
-      </div>
+      <div class="lp6-stat-desc">Still use plastic + synthetic dyes</div>
     </div>
   </div>
 
