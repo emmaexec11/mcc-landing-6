@@ -208,7 +208,9 @@
 </style>
 
 <style id="lp6-tagline-overlay-css">
-@media (max-width:600px){/* Position 'Get our tester pack' UNDER the pill {
+@media (max-width:600px){
+  /* Position 'Get our tester pack' UNDER the pill */
+  .lp6-on-image-tagline {
     position:absolute;left:50%;bottom:7%;
     transform:translateX(-50%);
     z-index:5;text-align:center;width:max-content;max-width:90%;
@@ -1095,13 +1097,17 @@ body.template-page, .EComposer-theme, .shopify-section {
 }
 </style>
 
-<style id="lp6-hero-clean-final">/* CLEAN HERO RESET — minimal CSS {
+<style id="lp6-hero-clean-final">
+/* CLEAN HERO RESET — minimal CSS */
+body {
   background-color: #FFFFFF !important;
 }
 
 /* Show cursive "best deal ever" between H1 and image */
 .lp6-cursive-headline { display: block !important; text-align: center; }
-.lp6-on-image-cursive { display: none !important; }/* Image: simple full-width within whatever container EcoComposer gives us, centered {
+.lp6-on-image-cursive { display: none !important; }
+/* Image: simple full-width within whatever container EcoComposer gives us, centered */
+.lp6-hero-image-wrap img {
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
@@ -1528,7 +1534,9 @@ body .lp6-buy-box .lp6-buy-cta:hover {
   padding: 24px 22px 40px;
   text-align: center;
   font-family: 'Inter', -apple-system, sans-serif;
-}/* Gradient transition starts INSIDE hero (after image area) {
+}
+/* Gradient transition starts INSIDE hero (after image area) */
+.lp6-hero-gradient-end {
   background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 55%, #FFFFFF 75%, #FFFFFF 100%) !important;
 }
 .lp6-overline {
