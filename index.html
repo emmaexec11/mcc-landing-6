@@ -2587,24 +2587,24 @@ body .lp6-vid-cap b {
   margin: 10px 0 0 !important;
   gap: 0 !important;
   align-items: stretch !important;
+  position: relative !important;
 }
 .lp6-mspoon-qty {
-  flex: 1.3 1 0% !important;
+  flex: 1 1 0% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  padding: 0 14px 0 18px !important;
+  padding: 0 38px 0 18px !important; /* extra right padding so content doesn't hide under ATC overlap */
   border-radius: 28px 0 0 28px !important;
-  /* Outline on top, bottom, and left only — right edge merges into ATC */
-  box-shadow:
-    inset 0 2px 0 0 #6E2B3D,
-    inset 0 -2px 0 0 #6E2B3D,
-    inset 2px 0 0 0 #6E2B3D !important;
+  /* Full 4-side outline — ATC will overlap and hide the right edge */
+  box-shadow: inset 0 0 0 2px #6E2B3D !important;
   background: #FFFFFF !important;
   color: #6E2B3D !important;
-  margin: 0 !important;
+  margin: 0 -3px 0 0 !important; /* pulls into ATC (Magic Spoon trick) */
   border: 0 !important;
   height: 55px !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 .lp6-mspoon-qty-label {
   font-family: 'Inter', system-ui, sans-serif !important;
@@ -2663,13 +2663,13 @@ body .lp6-vid-cap b {
   margin: 0 !important;
 }
 .lp6-mspoon-atc {
-  flex: 1 1 0% !important;
+  flex: 0 1 auto !important; /* content-sized, doesn't grow — Magic Spoon style */
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   background: #6E2B3D !important;
   color: #FFFFFF !important;
-  border-radius: 0 28px 28px 0 !important;
+  border-radius: 50px !important; /* FULL pill all sides — left rounded edge hides under qty */
   text-decoration: none !important;
   font-family: 'Inter', system-ui, sans-serif !important;
   font-weight: 800 !important;
@@ -2677,16 +2677,28 @@ body .lp6-vid-cap b {
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   height: 55px !important;
-  margin: 0 0 0 -2px !important;
-  padding: 0 14px !important;
+  margin: 0 0 0 -30px !important; /* HUGE negative margin overlaps qty (Magic Spoon trick) */
+  padding: 0 24px !important;
   box-shadow: none !important;
   border: 0 !important;
   transition: background 0.2s ease !important;
   white-space: nowrap !important;
+  position: relative !important;
+  z-index: 2 !important; /* above qty pill */
 }
 .lp6-mspoon-atc span { white-space: nowrap !important; }
 .lp6-mspoon-atc:hover { background: #5A2233 !important; }
-.lp6-buy-trust-row { margin-top: 14px !important; }
+.lp6-buy-trust-row { margin-top: 6px !important; }
+.lp6-risk-free {
+  text-align: center !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 12px !important;
+  color: #5A5A5A !important;
+  margin: 12px 0 8px !important;
+  line-height: 1.4 !important;
+}
+.lp6-risk-free b { color: #1A1A1A !important; font-weight: 700 !important; }
+.lp6-risk-free a { color: #6E2B3D !important; text-decoration: underline !important; }
 @media (max-width: 380px) {
   .lp6-mspoon-action, .lp6-mspoon-qty, .lp6-mspoon-atc { height: 50px !important; }
   .lp6-mspoon-qty-label { font-size: 11px !important; }
@@ -3651,9 +3663,10 @@ section[aria-label="Frequently asked questions"] {
         <span>ADD TO CART</span>
       </a>
     </div>
+    <p class="lp6-risk-free">Try risk-free — <b>100% happiness guaranteed</b>. <a href="#guarantee">See terms</a>.</p>
     <div class="lp6-buy-trust-row">
       <span class="lp6-trust-pill">✓ Free Shipping</span>
-      <span class="lp6-trust-pill">✓ 30-Day Money Back</span>
+      <span class="lp6-trust-pill">✓ 100% Happiness Guarantee</span>
     </div>
   </div>
 
