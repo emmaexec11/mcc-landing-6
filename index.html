@@ -3173,6 +3173,52 @@ body .lp6-grnt-check {
   backdrop-filter: blur(4px);
 }
 .lp6-ba-before .lp6-ba-label { background: rgba(60,40,30,0.55); color: #FFFFFF; }
+
+/* New photo-based 2-card layout */
+.lp6-ba-grid-2 { grid-template-columns: 1fr !important; max-width: 480px !important; gap: 20px !important; }
+@media (min-width: 768px) {
+  .lp6-ba-grid-2 { grid-template-columns: 1fr 1fr !important; max-width: 760px !important; gap: 20px !important; }
+}
+.lp6-ba-card-photo { position: relative; }
+.lp6-ba-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #F2EDE6;
+}
+.lp6-ba-card-photo::before {
+  content: "BEFORE";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 5px 11px;
+  border-radius: 99px;
+  z-index: 2;
+  pointer-events: none;
+}
+.lp6-ba-card-photo::after {
+  content: "AFTER";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  background: rgba(110, 43, 61, 0.85);
+  padding: 5px 11px;
+  border-radius: 99px;
+  z-index: 2;
+  pointer-events: none;
+}
 .lp6-ba-card figcaption {
   text-align: center;
   padding: 12px 14px 14px;
@@ -4097,33 +4143,23 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
       </div>
     </div>
   </div>
+  <div style="text-align:center; margin-top:24px;">
+    <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
+  </div>
 </section>
 
-<!-- BEFORE / AFTER — placeholder images for Devon to swap with AI later -->
+<!-- BEFORE / AFTER — AI-generated photoreal -->
 <section class="lp6-lp2 bg-bright lp6-ba-section" aria-label="Before and after">
   <h2 class="lp6-lp2-h2">See the real difference.</h2>
   <p class="lp6-lp2-sub">No filters. No retouching. Just one tin of Multi-Colour Cream applied in 30 seconds.</p>
 
-  <div class="lp6-ba-grid">
-    <figure class="lp6-ba-card">
-      <div class="lp6-ba-split">
-        <div class="lp6-ba-half lp6-ba-before"><span class="lp6-ba-label">Before</span></div>
-        <div class="lp6-ba-half lp6-ba-after"><span class="lp6-ba-label">After</span></div>
-      </div>
-      <figcaption>Hazelnut · warm everyday flush</figcaption>
-    </figure>
-    <figure class="lp6-ba-card">
-      <div class="lp6-ba-split">
-        <div class="lp6-ba-half lp6-ba-before"><span class="lp6-ba-label">Before</span></div>
-        <div class="lp6-ba-half lp6-ba-after"><span class="lp6-ba-label">After</span></div>
-      </div>
+  <div class="lp6-ba-grid lp6-ba-grid-2">
+    <figure class="lp6-ba-card lp6-ba-card-photo">
+      <img src="ba-fallen-leaves.jpg?v=1" alt="Before and after — Fallen Leaves cranberry on lips and cheeks" class="lp6-ba-photo" loading="lazy">
       <figcaption>Fallen Leaves · cranberry on lips + cheeks</figcaption>
     </figure>
-    <figure class="lp6-ba-card">
-      <div class="lp6-ba-split">
-        <div class="lp6-ba-half lp6-ba-before"><span class="lp6-ba-label">Before</span></div>
-        <div class="lp6-ba-half lp6-ba-after"><span class="lp6-ba-label">After</span></div>
-      </div>
+    <figure class="lp6-ba-card lp6-ba-card-photo">
+      <img src="ba-raspberry-kiss.jpg?v=1" alt="Before and after — Raspberry Kiss soft berry-pink glow" class="lp6-ba-photo" loading="lazy">
       <figcaption>Raspberry Kiss · soft berry-pink glow</figcaption>
     </figure>
   </div>
@@ -4141,6 +4177,10 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
   <div class="lp6-ing-never">
     <div class="lp6-ing-never-h">Never</div>
     <div class="lp6-ing-never-list">Parabens · PEGs · Synthetic dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px;">
+    <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
   </div>
 </section>
 
