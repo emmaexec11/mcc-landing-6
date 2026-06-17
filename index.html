@@ -3219,6 +3219,43 @@ body .lp6-grnt-check {
   z-index: 2;
   pointer-events: none;
 }
+
+/* TRUE before/after — two separate UGC photos side by side */
+.lp6-ba-card-pair { background: #FFFFFF; }
+.lp6-ba-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #FFFFFF;
+}
+.lp6-ba-pair-cell {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #F2EDE6;
+}
+.lp6-ba-pair-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lp6-ba-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  border-radius: 99px;
+  pointer-events: none;
+}
+.lp6-ba-tag-before { background: rgba(0, 0, 0, 0.55); }
+.lp6-ba-tag-after { background: rgba(110, 43, 61, 0.85); }
+
 .lp6-ba-card figcaption {
   text-align: center;
   padding: 12px 14px 14px;
@@ -4154,12 +4191,18 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
   <p class="lp6-lp2-sub">No filters. No retouching. Just one tin of Multi-Colour Cream applied in 30 seconds.</p>
 
   <div class="lp6-ba-grid lp6-ba-grid-2">
-    <figure class="lp6-ba-card lp6-ba-card-photo">
-      <img src="ba-fallen-leaves.jpg?v=1" alt="Before and after — Fallen Leaves cranberry on lips and cheeks" class="lp6-ba-photo" loading="lazy">
+    <figure class="lp6-ba-card lp6-ba-card-pair">
+      <div class="lp6-ba-pair">
+        <div class="lp6-ba-pair-cell"><img src="ba-fl-before.jpg?v=1" alt="Customer before applying Fallen Leaves" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-before">BEFORE</span></div>
+        <div class="lp6-ba-pair-cell"><img src="ba-fl-after.jpg?v=1" alt="Customer after applying Fallen Leaves" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-after">AFTER</span></div>
+      </div>
       <figcaption>Fallen Leaves · cranberry on lips + cheeks</figcaption>
     </figure>
-    <figure class="lp6-ba-card lp6-ba-card-photo">
-      <img src="ba-raspberry-kiss.jpg?v=1" alt="Before and after — Raspberry Kiss soft berry-pink glow" class="lp6-ba-photo" loading="lazy">
+    <figure class="lp6-ba-card lp6-ba-card-pair">
+      <div class="lp6-ba-pair">
+        <div class="lp6-ba-pair-cell"><img src="ba-rk-before.jpg?v=1" alt="Customer before applying Raspberry Kiss" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-before">BEFORE</span></div>
+        <div class="lp6-ba-pair-cell"><img src="ba-rk-after.jpg?v=1" alt="Customer after applying Raspberry Kiss" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-after">AFTER</span></div>
+      </div>
       <figcaption>Raspberry Kiss · soft berry-pink glow</figcaption>
     </figure>
   </div>
