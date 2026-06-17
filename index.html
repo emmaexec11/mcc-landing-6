@@ -2891,6 +2891,80 @@ body .lp6-grnt-check {
 .lp6-rwall-loadmore.lp6-rwall-loadmore-done { display: none; }
 </style>
 
+<style id="lp6-diff-grid-css">
+/* ====== "Why we're not like other makeup" — premium card grid ====== */
+.lp6-diff-block {
+  margin: 0 auto !important;
+  max-width: 720px !important;
+  text-align: center !important;
+  padding: 0 !important;
+}
+.lp6-diff-block .lp6-h2 {
+  margin-bottom: 24px !important;
+}
+.lp6-diff-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  margin: 22px auto 0 !important;
+  max-width: 720px !important;
+}
+@media (min-width: 768px) {
+  .lp6-diff-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 14px !important; }
+}
+.lp6-diff-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(110, 43, 61, 0.10) !important;
+  border-radius: 14px !important;
+  padding: 18px 14px 16px !important;
+  text-align: center !important;
+  box-shadow: 0 1px 4px rgba(110, 43, 61, 0.04) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+.lp6-diff-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(110, 43, 61, 0.1) !important;
+  border-color: rgba(110, 43, 61, 0.22) !important;
+}
+.lp6-diff-card-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: linear-gradient(135deg, #FBF1E5 0%, #FFFFFF 100%) !important;
+  border: 1px solid rgba(110, 43, 61, 0.10) !important;
+  border-radius: 50% !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  margin: 0 auto 10px !important;
+  box-shadow: 0 2px 6px rgba(110, 43, 61, 0.05) !important;
+}
+.lp6-diff-card-title {
+  font-family: "Abhaya Libre", Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #1A1A1A !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 6px !important;
+  line-height: 1.2 !important;
+}
+.lp6-diff-card-body {
+  font-family: "Inter", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 400 !important;
+  color: #5A5A5A !important;
+  line-height: 1.4 !important;
+}
+@media (max-width: 380px) {
+  .lp6-diff-grid { gap: 8px !important; }
+  .lp6-diff-card { padding: 14px 10px 12px !important; }
+  .lp6-diff-card-icon { width: 40px !important; height: 40px !important; font-size: 20px !important; margin-bottom: 8px !important; }
+  .lp6-diff-card-title { font-size: 14px !important; }
+  .lp6-diff-card-body { font-size: 11.5px !important; }
+}
+</style>
+
 <style id="lp6-vs-table-css">
 /* ====== US vs THEM COMPARISON TABLE ====== */
 .lp6-vs-section { padding: 40px 16px !important; }
@@ -3702,72 +3776,53 @@ section[aria-label="Frequently asked questions"] {
   <p class="lp6-bridge">We did this differently.</p>
 
   <div class="lp6-diff-block">
-    <h2 class="lp6-h2">Why We're Not Like Other Makeup</h2>
-    <ul class="lp6-diff-list">
-      <li><span class="lp6-diff-icon">🍓</span><span><b>Coloured with real fruits &amp; veggies</b> — not synthetic dyes</span></li>
-      <li><span class="lp6-diff-icon">💧</span><span><b>Nourishing skincare + makeup</b> in one simple product</span></li>
-      <li><span class="lp6-diff-icon">💋</span><span><b>Smooth, creamy application</b> — buildable + forgiving</span></li>
-      <li><span class="lp6-diff-icon">⏱️</span><span><b>Long-lasting stains</b> — stays put without fading fast</span></li>
-      <li><span class="lp6-diff-icon">✨</span><span><b>3 products in 1</b> — for lips, cheeks, and eyes</span></li>
-      <li><span class="lp6-diff-icon">🐰</span><span><b>Vegan &amp; cruelty-free</b> — never tested on animals</span></li>
-      <li><span class="lp6-diff-icon">♻️</span><span><b>Plastic-free eco tins</b> — handmade in Okanagan, BC</span></li>
-      <li><span class="lp6-diff-icon">🌺</span><span><b>No hormone disruptors</b> — safe for sensitive skin</span></li>
-    </ul>
+    <h2 class="lp6-h2">Why we're not like other makeup.</h2>
+
+    <div class="lp6-diff-grid">
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">🍓</div>
+        <div class="lp6-diff-card-title">Real fruit colour</div>
+        <div class="lp6-diff-card-body">Coloured with real fruits &amp; veggies — not synthetic dyes</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">💧</div>
+        <div class="lp6-diff-card-title">Skincare + makeup</div>
+        <div class="lp6-diff-card-body">Nourishing botanicals built right into the formula</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">💋</div>
+        <div class="lp6-diff-card-title">Buildable cream</div>
+        <div class="lp6-diff-card-body">Smooth, creamy texture that's forgiving and easy to layer</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">⏱️</div>
+        <div class="lp6-diff-card-title">Long-lasting stain</div>
+        <div class="lp6-diff-card-body">Stays put for hours without fading fast</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">✨</div>
+        <div class="lp6-diff-card-title">3 products in 1</div>
+        <div class="lp6-diff-card-body">Use on lips, cheeks, and eyes — one tin, three places</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">🐰</div>
+        <div class="lp6-diff-card-title">Vegan, cruelty-free</div>
+        <div class="lp6-diff-card-body">Never tested on animals. Zero animal-derived ingredients.</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">♻️</div>
+        <div class="lp6-diff-card-title">Plastic-free tins</div>
+        <div class="lp6-diff-card-body">Recyclable metal tins, handmade in Okanagan, BC</div>
+      </div>
+      <div class="lp6-diff-card">
+        <div class="lp6-diff-card-icon">🌺</div>
+        <div class="lp6-diff-card-title">No hormone disruptors</div>
+        <div class="lp6-diff-card-body">No parabens, talc, or synthetic fragrance. Safe for sensitive skin.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- US vs THEM — comparison table (Magic Spoon pattern, decision-clarity for cold traffic) -->
-<section class="lp6-lp2 bg-cream lp6-vs-section" aria-label="Naturally Wyld versus drugstore makeup">
-  <h2 class="lp6-lp2-h2">Naturally Wyld vs. drugstore makeup.</h2>
-
-  <div class="lp6-vs-table">
-    <div class="lp6-vs-row lp6-vs-head">
-      <div class="lp6-vs-cell lp6-vs-feat"></div>
-      <div class="lp6-vs-cell lp6-vs-us">
-        <span class="lp6-vs-brand-us">Naturally Wyld</span>
-      </div>
-      <div class="lp6-vs-cell lp6-vs-them">
-        <span class="lp6-vs-brand-them">Drugstore<br>Makeup</span>
-      </div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">Coloured with real fruit &amp; veggies</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">Replaces 3 products in 1 tin</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">No hormone disruptors or talc</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">Vegan &amp; cruelty-free</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-maybe">Sometimes</span></div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">Hand-poured in Canada</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
-    </div>
-
-    <div class="lp6-vs-row">
-      <div class="lp6-vs-cell lp6-vs-feat">Plastic-free eco packaging</div>
-      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
-      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
-    </div>
-  </div>
-</section>
 
 <section class="lp6-lp2 bg-bright lp6-hiw-section" aria-label="How it works">
   <div class="lp6-hiw-grid">
