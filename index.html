@@ -2578,6 +2578,159 @@ body .lp6-vid-cap b {
 }
 </style>
 
+<style id="lp6-vid-marquee-css">
+/* ====== AUTO-ROTATING UGC VIDEO CAROUSEL — IM8 style ====== */
+.lp6-vids-marquee {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 12px 0;
+  /* Soft fade on the edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
+}
+.lp6-vids-track-auto {
+  display: flex !important;
+  gap: 14px !important;
+  padding: 4px 0 8px !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+  width: max-content !important;
+  animation: lp6-vid-marquee 40s linear infinite;
+}
+.lp6-vids-marquee:hover .lp6-vids-track-auto { animation-play-state: paused; }
+@keyframes lp6-vid-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp6-vids-track-auto { animation: none; }
+}
+</style>
+
+<style id="lp6-judgeme-css">
+/* ====== JUDGE.ME WIDGET CONTAINER (lazy-loaded) ====== */
+.lp6-judgeme-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F2 100%) !important;
+  padding: 44px 16px !important;
+}
+.lp6-judgeme-wrap {
+  max-width: 760px;
+  margin: 22px auto 0;
+  min-height: 200px;
+}
+/* Loose default styles so widget content reads well */
+.lp6-judgeme-wrap .jdgm-rev-widg__title,
+.lp6-judgeme-wrap .jdgm-write-rev-link { font-family: "Inter", sans-serif !important; }
+.lp6-judgeme-wrap .jdgm-rev__author { font-weight: 700 !important; color: #1A1A1A !important; }
+.lp6-judgeme-wrap .jdgm-rev__title  { font-family: "Abhaya Libre", serif !important; }
+</style>
+
+<style id="lp6-vs-table-css">
+/* ====== US vs THEM COMPARISON TABLE ====== */
+.lp6-vs-section { padding: 40px 16px !important; }
+.lp6-vs-table {
+  max-width: 580px;
+  margin: 22px auto 0;
+  background: #FFFFFF;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(110, 43, 61, 0.08);
+  border: 1px solid rgba(110, 43, 61, 0.08);
+}
+.lp6-vs-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(110, 43, 61, 0.08);
+}
+.lp6-vs-row:last-child { border-bottom: none; }
+.lp6-vs-head {
+  background: linear-gradient(180deg, #F9F4EF 0%, #FFFFFF 100%);
+}
+.lp6-vs-cell {
+  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: #1A1A1A;
+  text-align: center;
+}
+.lp6-vs-cell.lp6-vs-feat {
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 16px;
+  font-weight: 600;
+  color: #1A1A1A;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.lp6-vs-cell.lp6-vs-us {
+  background: rgba(110, 43, 61, 0.04);
+}
+.lp6-vs-head .lp6-vs-cell.lp6-vs-us { background: rgba(110, 43, 61, 0.08); }
+.lp6-vs-brand-us {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #6E2B3D;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.lp6-vs-brand-them {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8A8A8A;
+  line-height: 1.2;
+}
+.lp6-vs-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #6E2B3D;
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 14px;
+}
+.lp6-vs-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #F2EDE6;
+  color: #C0392B;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 13px;
+}
+.lp6-vs-maybe {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8A8A8A;
+  font-style: italic;
+}
+@media (max-width: 480px) {
+  .lp6-vs-cell { padding: 12px 8px; font-size: 12px; }
+  .lp6-vs-cell.lp6-vs-feat { padding-left: 12px; font-size: 12px; }
+  .lp6-vs-brand-us { font-size: 13px; }
+  .lp6-vs-brand-them { font-size: 11px; }
+  .lp6-vs-check, .lp6-vs-x { width: 22px; height: 22px; font-size: 12px; }
+}
+</style>
+
 <style id="lp6-hero-scarcity-css">
 /* DYNAMIC SCARCITY CHIP — above Add to Cart, real-time count from localStorage */
 .lp6-hero-scarcity {
@@ -3318,6 +3471,60 @@ section[aria-label="Frequently asked questions"] {
   </div>
 </section>
 
+<!-- US vs THEM — comparison table (Magic Spoon pattern, decision-clarity for cold traffic) -->
+<section class="lp6-lp2 bg-cream lp6-vs-section" aria-label="Naturally Wyld versus drugstore makeup">
+  <p class="lp6-lp2-overline">The clean-beauty choice</p>
+  <h2 class="lp6-lp2-h2">Naturally Wyld vs. drugstore makeup.</h2>
+
+  <div class="lp6-vs-table">
+    <div class="lp6-vs-row lp6-vs-head">
+      <div class="lp6-vs-cell lp6-vs-feat"></div>
+      <div class="lp6-vs-cell lp6-vs-us">
+        <span class="lp6-vs-brand-us">Naturally Wyld</span>
+      </div>
+      <div class="lp6-vs-cell lp6-vs-them">
+        <span class="lp6-vs-brand-them">Drugstore<br>Makeup</span>
+      </div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">Coloured with real fruit &amp; veggies</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">Replaces 3 products in 1 tin</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">No hormone disruptors or talc</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">Vegan &amp; cruelty-free</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-maybe">Sometimes</span></div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">Hand-poured in Canada</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
+    </div>
+
+    <div class="lp6-vs-row">
+      <div class="lp6-vs-cell lp6-vs-feat">Plastic-free eco packaging</div>
+      <div class="lp6-vs-cell lp6-vs-us"><span class="lp6-vs-check">✓</span></div>
+      <div class="lp6-vs-cell lp6-vs-them"><span class="lp6-vs-x">✗</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="lp6-lp2 bg-bright lp6-hiw-section" aria-label="How it works">
   <div class="lp6-hiw-grid">
     <div class="lp6-hiw-content">
@@ -3381,36 +3588,70 @@ section[aria-label="Frequently asked questions"] {
   <p class="lp6-lp2-overline">Real customers · Real videos</p>
   <h2 class="lp6-lp2-h2">People are obsessed.</h2>
 
-  <div class="lp6-vids-track">
-    <div class="lp6-vid-card">
-      <div class="lp6-vid-wrap">
-        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  <div class="lp6-vids-marquee" aria-label="Auto-scrolling customer videos">
+    <div class="lp6-vids-track lp6-vids-track-auto">
+      <!-- Set A — primary -->
+      <div class="lp6-vid-card">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
       </div>
-      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
-    </div>
-    <div class="lp6-vid-card">
-      <div class="lp6-vid-wrap">
-        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/product-pan.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="lp6-vid-card">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/product-pan.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><b>Real fruit · Real tins</b><br>Hand-poured in Kelowna</div>
       </div>
-      <div class="lp6-vid-cap"><b>Real fruit · Real tins</b><br>Hand-poured in Kelowna</div>
-    </div>
-    <div class="lp6-vid-card">
-      <div class="lp6-vid-wrap">
-        <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="lp6-vid-card">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Shaye</b> — "A hidden gem"</div>
       </div>
-      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Shaye</b> — "A hidden gem"</div>
-    </div>
-    <div class="lp6-vid-card">
-      <div class="lp6-vid-wrap">
-        <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="lp6-vid-card">
+        <div class="lp6-vid-wrap">
+          <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — "Every single day"</div>
       </div>
-      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — "Every single day"</div>
-    </div>
-    <div class="lp6-vid-card">
-      <div class="lp6-vid-wrap">
-        <video src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="lp6-vid-card">
+        <div class="lp6-vid-wrap">
+          <video src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Mya</b> — "Replaced 3 products"</div>
       </div>
-      <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Mya</b> — "Replaced 3 products"</div>
+      <!-- Set B — duplicate for seamless infinite loop -->
+      <div class="lp6-vid-card" aria-hidden="true">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
+      </div>
+      <div class="lp6-vid-card" aria-hidden="true">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/product-pan.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><b>Real fruit · Real tins</b><br>Hand-poured in Kelowna</div>
+      </div>
+      <div class="lp6-vid-card" aria-hidden="true">
+        <div class="lp6-vid-wrap">
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Shaye</b> — "A hidden gem"</div>
+      </div>
+      <div class="lp6-vid-card" aria-hidden="true">
+        <div class="lp6-vid-wrap">
+          <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — "Every single day"</div>
+      </div>
+      <div class="lp6-vid-card" aria-hidden="true">
+        <div class="lp6-vid-wrap">
+          <video src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Mya</b> — "Replaced 3 products"</div>
+      </div>
     </div>
   </div>
 </section>
@@ -3538,6 +3779,23 @@ section[aria-label="Frequently asked questions"] {
   </div>
 </section>
 
+<!-- JUDGE.ME REVIEWS WIDGET — full text reviews with pagination -->
+<section class="lp6-lp2 lp6-judgeme-section" aria-label="All customer reviews">
+  <p class="lp6-lp2-overline">Every review · Nothing hidden</p>
+  <h2 class="lp6-lp2-h2">Read what real customers say.</h2>
+  <p class="lp6-lp2-sub">436+ verified buyer reviews. Sorted by most helpful. Click "Read more" to see all.</p>
+
+  <div class="lp6-judgeme-wrap">
+    <!-- Judge.me product reviews widget -->
+    <div id="judgeme_product_reviews"
+         class="jdgm-widget jdgm-review-widget"
+         data-id="9036283936"
+         data-product-title="MetaMultiColourCream"
+         data-url="https://naturallywyld.ca/products/metamulticolourcream">
+    </div>
+  </div>
+</section>
+
 <section class="lp6-lp2 bg-bright" aria-label="Frequently asked questions">
   <p class="lp6-lp2-overline">The honest answers</p>
   <h2 class="lp6-lp2-h2">Questions, answered.</h2>
@@ -3624,6 +3882,14 @@ section[aria-label="Frequently asked questions"] {
   </div>
   <span class="lp6-toast-close" id="lp6-toast-close">×</span>
 </div>
+
+<script>
+  // Judge.me bootstrap — auto-discovers and renders reviews widget
+  jdgm = window.jdgm || {};
+  jdgm.SHOP_DOMAIN = 'naturallywyld.myshopify.com';
+  jdgm.PLATFORM = 'shopify';
+</script>
+<script src="https://cdn.judge.me/widget_preloader.js" async></script>
 
 <script id="lp6-stat-counter">
 (function(){
