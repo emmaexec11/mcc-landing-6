@@ -3341,19 +3341,24 @@ body .lp6-overline {
   letter-spacing: 0.22em !important;
 }
 
-/* Unify ALL H2 fonts to Inter sans-serif (Devon: 2 serif outliers stuck out) */
+/* Unify ALL H2 fonts to Abhaya Libre serif — match the H1 hero, smaller size for hierarchy */
 body .lp6-lp2-h2,
 body .lp6-h2 {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 26px !important;
+  font-family: "Abhaya Libre", Georgia, "Times New Roman", serif !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
   color: #1A1A1A !important;
   line-height: 1.2 !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.015em !important;
+}
+@media (min-width: 768px) {
+  body .lp6-lp2-h2,
+  body .lp6-h2 {
+    font-size: 28px !important;
+  }
 }
 body .lp6-h2 em,
 body .lp6-lp2-h2 em {
-  font-family: "Abhaya Libre", Georgia, serif !important;
   font-style: italic !important;
   font-weight: 700 !important;
 }
