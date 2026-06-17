@@ -2578,6 +2578,63 @@ body .lp6-vid-cap b {
 }
 </style>
 
+<style id="lp6-hero-scarcity-css">
+/* DYNAMIC SCARCITY CHIP — above Add to Cart, real-time count from localStorage */
+.lp6-hero-scarcity {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FFF9F2 0%, #FBF1E5 100%);
+  border: 1px solid rgba(110, 43, 61, 0.18);
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin: 0 auto 12px;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1A1A1A;
+  letter-spacing: -0.005em;
+  box-shadow: 0 1px 4px rgba(110, 43, 61, 0.08);
+  max-width: fit-content;
+}
+.lp6-hero-scarcity-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6E2B3D;
+  flex-shrink: 0;
+  position: relative;
+  animation: lp6-scarcity-pulse 2s ease-in-out infinite;
+}
+@keyframes lp6-scarcity-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(110, 43, 61, 0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 0 6px rgba(110, 43, 61, 0); transform: scale(1.15); }
+}
+.lp6-hero-scarcity-text strong {
+  color: #6E2B3D;
+  font-weight: 800;
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+.lp6-hero-scarcity.lp6-hero-scarcity-warning {
+  background: linear-gradient(135deg, #FFEEE6 0%, #FFDED0 100%);
+  border-color: rgba(192, 57, 43, 0.4);
+}
+.lp6-hero-scarcity.lp6-hero-scarcity-warning .lp6-hero-scarcity-pulse {
+  background: #C0392B;
+  animation-duration: 1.2s;
+}
+.lp6-hero-scarcity.lp6-hero-scarcity-warning .lp6-hero-scarcity-text strong {
+  color: #C0392B;
+}
+@media (max-width: 380px) {
+  .lp6-hero-scarcity { font-size: 11.5px; padding: 7px 14px; }
+  .lp6-hero-scarcity-text strong { font-size: 15px; }
+}
+</style>
+
 <style id="lp6-new-sections-css">
 /* ====== BEFORE / AFTER SECTION ====== */
 .lp6-ba-section { background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F2 100%) !important; }
@@ -3170,6 +3227,11 @@ section[aria-label="Frequently asked questions"] {
         <button type="button" class="lp6-buy-qty-btn" data-action="increment" aria-label="Increase">+</button>
       </div>
     </div>
+    <div class="lp6-hero-scarcity" id="lp6-hero-scarcity" aria-live="polite">
+      <span class="lp6-hero-scarcity-pulse"></span>
+      <span class="lp6-hero-scarcity-text">Only <strong id="lp6-hero-scarcity-count">27</strong> tester packs left · next batch poured tomorrow</span>
+    </div>
+
     <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-buy-cta" id="lp6-buy-cta-link">
       Add to Cart — $30
     </a>
@@ -3754,10 +3816,10 @@ section[aria-label="Frequently asked questions"] {
 
 <script id="lp6-batch-counter-js">
 (function(){
-  var KEY = 'lp6-batch-count-v3';
-  var DEFAULT_START = 14;
-  var MIN_FLOOR = 3;
-  var DECREMENT_MS = 4 * 60 * 1000; // tick every 4 minutes (visible faster)
+  var KEY = 'lp6-batch-count-v4';
+  var DEFAULT_START = 27;             // realistic small-batch start
+  var MIN_FLOOR = 3;                  // never fully sell out — keep urgency lively
+  var DECREMENT_MS = 6 * 60 * 1000;   // tick every 6 minutes
   var data = null;
   try {
     var stored = localStorage.getItem(KEY);
@@ -3777,8 +3839,18 @@ section[aria-label="Frequently asked questions"] {
   try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
 
   function paint(){
-    var el = document.getElementById('lp6-batch-count');
-    if (el) el.textContent = data.count;
+    // Paint in both the existing batch strip AND the new hero scarcity chip
+    var ids = ['lp6-batch-count', 'lp6-hero-scarcity-count'];
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.textContent = data.count;
+    });
+    // Add warning class when count is low
+    var chip = document.getElementById('lp6-hero-scarcity');
+    if (chip) {
+      if (data.count <= 5) chip.classList.add('lp6-hero-scarcity-warning');
+      else chip.classList.remove('lp6-hero-scarcity-warning');
+    }
   }
   if (document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', paint);
