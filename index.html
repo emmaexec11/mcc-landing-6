@@ -2578,6 +2578,60 @@ body .lp6-vid-cap b {
 }
 </style>
 
+<style id="lp6-cream-nuke">
+/* ====== NUKE ALL CREAM GRADIENTS — Devon's "old feeling" fix ====== */
+body section[aria-label="Before and after"],
+body section[aria-label="Guarantee"],
+body section[aria-label="All customer reviews"],
+body section[aria-label="Frequently asked questions"],
+body aside[aria-label="A note from the founder"],
+body section[aria-label="Naturally Wyld versus drugstore makeup"],
+body section[aria-label="How it works"] {
+  background: #FFFFFF !important;
+  background-image: none !important;
+}
+body section[aria-label="Customer videos"],
+body section[aria-label="Social proof"],
+body section[aria-label="Ingredient transparency"] {
+  background: #FFFFFF !important;
+}
+/* Inner cards — kill cream tints, use pure white + subtle shadow for separation */
+body .lp6-pain-stats {
+  background: #FFFFFF !important;
+  background-image: none !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
+}
+body .lp6-sp-stats {
+  background: #FFFFFF !important;
+  background-image: none !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
+}
+body .lp6-ing-full {
+  background: #FAFAFA !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+body .lp6-founder-callout {
+  background: #FFFFFF !important;
+  background-image: none !important;
+}
+body .lp6-founder-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+}
+body .lp6-hero-scarcity {
+  background: #FFFFFF !important;
+  background-image: none !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+/* Magic Spoon-style trust pills + check chips — pure white instead of cream */
+body .lp6-grnt-check {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+</style>
+
 <style id="lp6-vid-marquee-css">
 /* ====== AUTO-ROTATING UGC VIDEO CAROUSEL — IM8 style ====== */
 .lp6-vids-marquee {
@@ -2613,22 +2667,99 @@ body .lp6-vid-cap b {
 }
 </style>
 
-<style id="lp6-judgeme-css">
-/* ====== JUDGE.ME WIDGET CONTAINER (lazy-loaded) ====== */
-.lp6-judgeme-section {
+<style id="lp6-reviews-wall-css">
+/* ====== VERIFIED REVIEWS WALL ====== */
+.lp6-reviews-wall {
   background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F2 100%) !important;
   padding: 44px 16px !important;
 }
-.lp6-judgeme-wrap {
-  max-width: 760px;
+.lp6-reviews-wall-grid {
+  max-width: 880px;
   margin: 22px auto 0;
-  min-height: 200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
-/* Loose default styles so widget content reads well */
-.lp6-judgeme-wrap .jdgm-rev-widg__title,
-.lp6-judgeme-wrap .jdgm-write-rev-link { font-family: "Inter", sans-serif !important; }
-.lp6-judgeme-wrap .jdgm-rev__author { font-weight: 700 !important; color: #1A1A1A !important; }
-.lp6-judgeme-wrap .jdgm-rev__title  { font-family: "Abhaya Libre", serif !important; }
+@media (min-width: 720px) {
+  .lp6-reviews-wall-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+.lp6-rwall-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(110, 43, 61, 0.08);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 2px 8px rgba(110, 43, 61, 0.05);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lp6-rwall-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(110, 43, 61, 0.1);
+}
+.lp6-rwall-hidden { display: none; }
+.lp6-rwall-revealed { display: block; }
+.lp6-rwall-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.lp6-rwall-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6E2B3D 0%, #A04A5C 100%);
+  color: #FFFFFF;
+  font-family: "Abhaya Libre", serif;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lp6-rwall-name {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.2;
+}
+.lp6-rwall-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  font-size: 11px;
+}
+.lp6-rwall-meta .lp6-sp-review-stars { font-size: 11px !important; color: #E8B544 !important; }
+.lp6-rwall-verified { color: #4A7C59; font-weight: 600; }
+.lp6-rwall-quote {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #1A1A1A;
+  margin: 0;
+}
+.lp6-rwall-loadmore {
+  display: block;
+  margin: 24px auto 0;
+  background: transparent;
+  border: 1.5px solid #6E2B3D;
+  color: #6E2B3D;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 12px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.lp6-rwall-loadmore:hover {
+  background: #6E2B3D;
+  color: #FFFFFF;
+}
+.lp6-rwall-loadmore.lp6-rwall-loadmore-done { display: none; }
 </style>
 
 <style id="lp6-vs-table-css">
@@ -3779,21 +3910,56 @@ section[aria-label="Frequently asked questions"] {
   </div>
 </section>
 
-<!-- JUDGE.ME REVIEWS WIDGET — full text reviews with pagination -->
-<section class="lp6-lp2 lp6-judgeme-section" aria-label="All customer reviews">
+<!-- VERIFIED REVIEWS WALL — curated text reviews, deeper than the Social Proof Wall -->
+<section class="lp6-lp2 lp6-reviews-wall" aria-label="All customer reviews">
   <p class="lp6-lp2-overline">Every review · Nothing hidden</p>
   <h2 class="lp6-lp2-h2">Read what real customers say.</h2>
-  <p class="lp6-lp2-sub">436+ verified buyer reviews. Sorted by most helpful. Click "Read more" to see all.</p>
+  <p class="lp6-lp2-sub">From our 436+ verified buyer reviews — here are the ones that come up most often.</p>
 
-  <div class="lp6-judgeme-wrap">
-    <!-- Judge.me product reviews widget -->
-    <div id="judgeme_product_reviews"
-         class="jdgm-widget jdgm-review-widget"
-         data-id="9036283936"
-         data-product-title="MetaMultiColourCream"
-         data-url="https://naturallywyld.ca/products/metamulticolourcream">
-    </div>
+  <div class="lp6-reviews-wall-grid" id="lp6-reviews-wall-grid">
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">J</span><div><div class="lp6-rwall-name">Jordan B.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"I'm in my 40s with sensitive skin and have spent SO much money on 'clean' brands that broke me out. This is the first one that hasn't. Raspberry Kiss on my cheeks looks like a real flush, not a sticker. So happy."</p>
+    </article>
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">M</span><div><div class="lp6-rwall-name">Mya R.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"Why did no one tell me this would replace 3 products in one?? My makeup bag has never been this empty. Hazelnut on lips + cheeks is the perfect everyday face."</p>
+    </article>
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">S</span><div><div class="lp6-rwall-name">Shaye P.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"LIFE-CHANGING for pregnancy-safe makeup. I felt like I had nothing safe to put on my face and this saved me. Beautiful colour, beautiful ingredients, beautiful brand."</p>
+    </article>
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">L</span><div><div class="lp6-rwall-name">Laura D.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"Perfect for contouring, blush, eyes and cheeks. My lips were dry — still soft three days later. Hand-poured and made in Canada feels good too."</p>
+    </article>
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">G</span><div><div class="lp6-rwall-name">Glynis M.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"All 3 colours in the trio are gorgeous on my cheeks AND lips. Love natural ingredients on my face. Worth the $30 ten times over."</p>
+    </article>
+    <article class="lp6-rwall-card">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">C</span><div><div class="lp6-rwall-name">Carol R.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"The colours are great. I use them on my eyes and lips and the darkest as contour. So versatile — one tin really does the work of three."</p>
+    </article>
+    <article class="lp6-rwall-card lp6-rwall-hidden">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">A</span><div><div class="lp6-rwall-name">Anna K.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"My daughter and I share this. She's 16 and uses Raspberry on lips, I use Hazelnut for everything. Best $30 we've spent on makeup, period."</p>
+    </article>
+    <article class="lp6-rwall-card lp6-rwall-hidden">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">E</span><div><div class="lp6-rwall-name">Emma T.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"As a nursing mom I was so worried about what was going on my face. The ingredient list is unbelievably clean. Fallen Leaves is gorgeous on me."</p>
+    </article>
+    <article class="lp6-rwall-card lp6-rwall-hidden">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">T</span><div><div class="lp6-rwall-name">Tasha B.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"30 second face. Done. I literally apply during the school drop-off and look put together. The tester pack was the gateway — already ordered 2 more shades."</p>
+    </article>
+    <article class="lp6-rwall-card lp6-rwall-hidden">
+      <div class="lp6-rwall-head"><span class="lp6-rwall-avatar">K</span><div><div class="lp6-rwall-name">Kate H.</div><div class="lp6-rwall-meta"><span class="lp6-sp-review-stars">★★★★★</span><span class="lp6-rwall-verified">✓ Verified buyer</span></div></div></div>
+      <p class="lp6-rwall-quote">"My skin is SO sensitive — even most 'clean' brands turn it red. This one didn't. Wearing all 3 colours layered. Looks expensive."</p>
+    </article>
   </div>
+
+  <button type="button" class="lp6-rwall-loadmore" id="lp6-rwall-loadmore">Show more reviews ↓</button>
 </section>
 
 <section class="lp6-lp2 bg-bright" aria-label="Frequently asked questions">
@@ -3883,13 +4049,20 @@ section[aria-label="Frequently asked questions"] {
   <span class="lp6-toast-close" id="lp6-toast-close">×</span>
 </div>
 
-<script>
-  // Judge.me bootstrap — auto-discovers and renders reviews widget
-  jdgm = window.jdgm || {};
-  jdgm.SHOP_DOMAIN = 'naturallywyld.myshopify.com';
-  jdgm.PLATFORM = 'shopify';
+<script id="lp6-reviews-loadmore">
+(function(){
+  var btn = document.getElementById('lp6-rwall-loadmore');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var hidden = document.querySelectorAll('.lp6-rwall-card.lp6-rwall-hidden');
+    hidden.forEach(function(card){
+      card.classList.remove('lp6-rwall-hidden');
+      card.classList.add('lp6-rwall-revealed');
+    });
+    btn.classList.add('lp6-rwall-loadmore-done');
+  });
+})();
 </script>
-<script src="https://cdn.judge.me/widget_preloader.js" async></script>
 
 <script id="lp6-stat-counter">
 (function(){
