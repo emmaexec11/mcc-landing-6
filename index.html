@@ -2578,80 +2578,112 @@ body .lp6-vid-cap b {
 }
 </style>
 
-<style id="lp6-inline-qty-cta">
-/* Magic Spoon style: inline quantity selector + ATC button on one row */
-.lp6-buy-action-row {
+<style id="lp6-mspoon-button">
+/* Magic Spoon fused-pill button — copied exactly from magicspoon.com PDP via Playwright */
+.lp6-mspoon-action {
   display: flex !important;
-  align-items: stretch !important;
-  gap: 10px !important;
-  margin: 8px 0 0 !important;
   width: 100% !important;
+  height: 55px !important;
+  margin: 10px 0 0 !important;
 }
-.lp6-buy-qty-inline {
-  display: inline-flex !important;
+.lp6-mspoon-qty {
+  flex: 1.3 1 0% !important;
+  display: flex !important;
   align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 14px 0 18px !important;
+  border-radius: 28px 0 0 28px !important;
+  box-shadow: inset 0 0 0 2px #6E2B3D !important;
   background: #FFFFFF !important;
-  border: 1.5px solid #6E2B3D !important;
-  border-radius: 100px !important;
-  padding: 0 4px !important;
-  flex-shrink: 0 !important;
-  height: auto !important;
-  min-height: 52px !important;
-  gap: 0 !important;
+  color: #6E2B3D !important;
+  margin: 0 !important;
+  border: 0 !important;
+  height: 55px !important;
 }
-.lp6-buy-qty-inline .lp6-buy-qty-btn {
-  width: 32px !important;
-  height: 32px !important;
+.lp6-mspoon-qty-label {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  color: #6E2B3D !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+}
+.lp6-mspoon-qty-control {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+.lp6-mspoon-qty-btn {
+  background: transparent !important;
+  border: 0 !important;
+  color: #6E2B3D !important;
+  font-family: -apple-system, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  width: 24px !important;
+  height: 24px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  border: none !important;
+  line-height: 1 !important;
+  border-radius: 0 !important;
+  transition: opacity 0.15s ease !important;
+}
+.lp6-mspoon-qty-btn:hover { opacity: 0.6 !important; }
+.lp6-mspoon-qty-input {
   background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
   color: #6E2B3D !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  transition: background 0.15s ease !important;
-}
-.lp6-buy-qty-inline .lp6-buy-qty-btn:hover { background: rgba(110, 43, 61, 0.08) !important; }
-.lp6-buy-qty-inline .lp6-buy-qty-input {
-  width: 28px !important;
-  height: 32px !important;
-  border: none !important;
-  background: transparent !important;
-  text-align: center !important;
-  font-family: "Inter", sans-serif !important;
-  font-size: 15px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
-  color: #1A1A1A !important;
+  width: 22px !important;
+  height: 24px !important;
   padding: 0 !important;
+  text-align: center !important;
   -moz-appearance: textfield !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
-.lp6-buy-qty-inline .lp6-buy-qty-input::-webkit-outer-spin-button,
-.lp6-buy-qty-inline .lp6-buy-qty-input::-webkit-inner-spin-button {
+.lp6-mspoon-qty-input::-webkit-outer-spin-button,
+.lp6-mspoon-qty-input::-webkit-inner-spin-button {
   -webkit-appearance: none !important;
   margin: 0 !important;
 }
-/* ATC button in the action row — flex-grow to fill remaining space */
-.lp6-buy-action-row .lp6-buy-cta {
-  flex: 1 !important;
-  margin: 0 !important;
+.lp6-mspoon-atc {
+  flex: 1 1 0% !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 52px !important;
+  background: #6E2B3D !important;
+  color: #FFFFFF !important;
+  border-radius: 0 28px 28px 0 !important;
+  text-decoration: none !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  height: 55px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  transition: background 0.2s ease !important;
 }
-/* Trust row goes on its own line below the action row */
-.lp6-buy-trust-row {
-  margin-top: 14px !important;
-}
+.lp6-mspoon-atc:hover { background: #5A2233 !important; }
+.lp6-buy-trust-row { margin-top: 14px !important; }
 @media (max-width: 380px) {
-  .lp6-buy-qty-inline { min-height: 48px !important; }
-  .lp6-buy-qty-inline .lp6-buy-qty-btn { width: 28px !important; height: 28px !important; font-size: 16px !important; }
-  .lp6-buy-qty-inline .lp6-buy-qty-input { width: 24px !important; font-size: 14px !important; }
-  .lp6-buy-action-row .lp6-buy-cta { min-height: 48px !important; font-size: 15px !important; }
+  .lp6-mspoon-action, .lp6-mspoon-qty, .lp6-mspoon-atc { height: 50px !important; }
+  .lp6-mspoon-qty-label { font-size: 11px !important; }
+  .lp6-mspoon-qty { padding: 0 10px 0 14px !important; }
+  .lp6-mspoon-atc { font-size: 13px !important; padding: 0 10px !important; }
 }
 </style>
 
@@ -3597,15 +3629,18 @@ section[aria-label="Frequently asked questions"] {
       <span class="lp6-hero-scarcity-text">Only <strong id="lp6-hero-scarcity-count">27</strong> tester packs left · next batch poured tomorrow</span>
     </div>
 
-    <!-- Magic Spoon style: inline quantity + ADD TO CART in single pill -->
-    <div class="lp6-buy-action-row">
-      <div class="lp6-buy-qty-inline" aria-label="Quantity selector">
-        <button type="button" class="lp6-buy-qty-btn" data-action="decrement" aria-label="Decrease quantity">−</button>
-        <input type="number" class="lp6-buy-qty-input" value="1" min="1" max="10" aria-label="Quantity">
-        <button type="button" class="lp6-buy-qty-btn" data-action="increment" aria-label="Increase quantity">+</button>
+    <!-- Magic Spoon-style fused pill: left qty (outlined) + right ATC (solid) -->
+    <div class="lp6-mspoon-action">
+      <div class="lp6-mspoon-qty" aria-label="Quantity selector">
+        <label for="lp6-mspoon-qty-input" class="lp6-mspoon-qty-label">QUANTITY</label>
+        <div class="lp6-mspoon-qty-control">
+          <button type="button" class="lp6-buy-qty-btn lp6-mspoon-qty-btn" data-action="decrement" aria-label="Decrease quantity">‹</button>
+          <input id="lp6-mspoon-qty-input" type="number" class="lp6-buy-qty-input lp6-mspoon-qty-input" value="1" min="1" max="10" aria-label="Quantity">
+          <button type="button" class="lp6-buy-qty-btn lp6-mspoon-qty-btn" data-action="increment" aria-label="Increase quantity">›</button>
+        </div>
       </div>
-      <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-buy-cta" id="lp6-buy-cta-link">
-        Add to Cart — $30
+      <a href="https://naturallywyld.ca/cart/add?id=49245232988385&quantity=1" class="lp6-buy-cta lp6-mspoon-atc" id="lp6-buy-cta-link">
+        ADD TO CART
       </a>
     </div>
     <div class="lp6-buy-trust-row">
