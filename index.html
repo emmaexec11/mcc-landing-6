@@ -4256,8 +4256,8 @@ section[aria-label="Frequently asked questions"] {
       if (qty < 1) qty = 1;
       if (qty > 10) qty = 10;
       input.value = qty;
-      var total = qty * 30;
-      ctaLink.textContent = 'Add to Cart — $' + total;
+      // Don't overwrite ATC text — Magic Spoon style keeps it as "ADD TO CART" only.
+      // Price is shown separately in the price block above.
       ctaLink.setAttribute('href', baseHref + qty);
     }
     btns.forEach(function(btn){
