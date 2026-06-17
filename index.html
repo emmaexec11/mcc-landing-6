@@ -3673,6 +3673,102 @@ section[aria-label="Frequently asked questions"] {
   .lp6-toast { left: auto; right: 24px; bottom: 24px; max-width: 320px; padding: 14px 16px; }
 }
 </style>
+
+<style id="lp6-pain-stats-premium">
+/* ════════ PAIN STATS — premium pro graphics ════════ */
+body .lp6-pain-stats-v2 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 14px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 28px auto 24px !important;
+  max-width: 760px !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(110, 43, 61, 0.10) !important;
+  border-radius: 18px !important;
+  padding: 26px 16px 22px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  position: relative !important;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.06), 0 1px 3px rgba(26, 26, 26, 0.04) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important; left: 18px !important; right: 18px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent 0%, #6E2B3D 30%, #6E2B3D 70%, transparent 100%) !important;
+  border-radius: 0 0 6px 6px !important;
+  opacity: 0.9 !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 32px rgba(26, 26, 26, 0.10), 0 2px 4px rgba(26, 26, 26, 0.05) !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-card::after {
+  display: none !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: rgba(110, 43, 61, 0.08) !important;
+  color: #6E2B3D !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 4px !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-number {
+  color: #6E2B3D !important;
+  font-size: 52px !important;
+  font-family: "Abhaya Libre", serif !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-desc {
+  font-family: "Inter", sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #5A5A5A !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  margin-top: 2px !important;
+}
+body .lp6-pain-stats-v2 .lp6-stat-desc b {
+  display: block !important;
+  color: #1A1A1A !important;
+  font-weight: 700 !important;
+  margin-bottom: 2px !important;
+  font-size: 12.5px !important;
+}
+@media (max-width: 600px) {
+  body .lp6-pain-stats-v2 { gap: 10px !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-card { padding: 20px 8px 18px !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-icon { width: 42px !important; height: 42px !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-icon svg { width: 22px !important; height: 22px !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-number { font-size: 36px !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-desc { font-size: 9.5px !important; letter-spacing: 0.04em !important; }
+  body .lp6-pain-stats-v2 .lp6-stat-desc b { font-size: 10.5px !important; }
+}
+</style>
 </head>
 <body class="template-page">
 
@@ -3752,20 +3848,29 @@ section[aria-label="Frequently asked questions"] {
 <section class="lp6-section-2" id="lp6-pain-diff">
   <h2 class="lp6-h2">The dirty truth: 98% of "clean" makeup <em>isn't.</em></h2>
 
-  <div class="lp6-pain-stats">
+  <div class="lp6-pain-stats lp6-pain-stats-v2">
     <div class="lp6-stat-card">
+      <div class="lp6-stat-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+      </div>
       <div class="lp6-stat-number" data-count="120" data-suffix="B+">120B+</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>packaging units</b> in landfill yearly</div>
       </div>
     </div>
     <div class="lp6-stat-card">
+      <div class="lp6-stat-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </div>
       <div class="lp6-stat-number" data-count="5" data-suffix=" lbs">5 lbs</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>absorbed through skin</b> per year</div>
       </div>
     </div>
     <div class="lp6-stat-card">
+      <div class="lp6-stat-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 3-9 8-11 5 2 8 6 8 11a7 7 0 0 1-7 7Z"/><path d="M12 9v11"/></svg>
+      </div>
       <div class="lp6-stat-number" data-count="70" data-suffix="%">70%</div>
       <div class="lp6-stat-content">
         <div class="lp6-stat-desc"><b>of "natural" brands</b> still use plastic + dyes</div>
@@ -3776,50 +3881,17 @@ section[aria-label="Frequently asked questions"] {
   <p class="lp6-bridge">We did this differently.</p>
 
   <div class="lp6-diff-block">
-    <h2 class="lp6-h2">Why we're not like other makeup.</h2>
-
-    <div class="lp6-diff-grid">
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">🍓</div>
-        <div class="lp6-diff-card-title">Real fruit colour</div>
-        <div class="lp6-diff-card-body">Coloured with real fruits &amp; veggies — not synthetic dyes</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">💧</div>
-        <div class="lp6-diff-card-title">Skincare + makeup</div>
-        <div class="lp6-diff-card-body">Nourishing botanicals built right into the formula</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">💋</div>
-        <div class="lp6-diff-card-title">Buildable cream</div>
-        <div class="lp6-diff-card-body">Smooth, creamy texture that's forgiving and easy to layer</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">⏱️</div>
-        <div class="lp6-diff-card-title">Long-lasting stain</div>
-        <div class="lp6-diff-card-body">Stays put for hours without fading fast</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">✨</div>
-        <div class="lp6-diff-card-title">3 products in 1</div>
-        <div class="lp6-diff-card-body">Use on lips, cheeks, and eyes — one tin, three places</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">🐰</div>
-        <div class="lp6-diff-card-title">Vegan, cruelty-free</div>
-        <div class="lp6-diff-card-body">Never tested on animals. Zero animal-derived ingredients.</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">♻️</div>
-        <div class="lp6-diff-card-title">Plastic-free tins</div>
-        <div class="lp6-diff-card-body">Recyclable metal tins, handmade in Okanagan, BC</div>
-      </div>
-      <div class="lp6-diff-card">
-        <div class="lp6-diff-card-icon">🌺</div>
-        <div class="lp6-diff-card-title">No hormone disruptors</div>
-        <div class="lp6-diff-card-body">No parabens, talc, or synthetic fragrance. Safe for sensitive skin.</div>
-      </div>
-    </div>
+    <h2 class="lp6-h2">Why We're Not Like Other Makeup</h2>
+    <ul class="lp6-diff-list">
+      <li><span class="lp6-diff-icon">🍓</span><span><b>Coloured with real fruits &amp; veggies</b> — not synthetic dyes</span></li>
+      <li><span class="lp6-diff-icon">💧</span><span><b>Nourishing skincare + makeup</b> in one simple product</span></li>
+      <li><span class="lp6-diff-icon">💋</span><span><b>Smooth, creamy application</b> — buildable + forgiving</span></li>
+      <li><span class="lp6-diff-icon">⏱️</span><span><b>Long-lasting stains</b> — stays put without fading fast</span></li>
+      <li><span class="lp6-diff-icon">✨</span><span><b>3 products in 1</b> — for lips, cheeks, and eyes</span></li>
+      <li><span class="lp6-diff-icon">🐰</span><span><b>Vegan &amp; cruelty-free</b> — never tested on animals</span></li>
+      <li><span class="lp6-diff-icon">♻️</span><span><b>Plastic-free eco tins</b> — handmade in Okanagan, BC</span></li>
+      <li><span class="lp6-diff-icon">🌺</span><span><b>No hormone disruptors</b> — safe for sensitive skin</span></li>
+    </ul>
   </div>
 </section>
 
