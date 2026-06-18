@@ -3967,6 +3967,93 @@ body section[aria-label="Ingredient transparency"] .lp6-ing-never { display: non
 body .lp6-ing-expand-body .lp6-ing-full-inline,
 body .lp6-ing-expand-body .lp6-ing-never-inline { display: block !important; }
 
+/* ════════ INGREDIENTS — themed 3-card grid (proven LP2026 pattern) ════════ */
+.lp6-ing-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 880px;
+  margin: 28px auto 28px;
+}
+@media (min-width: 768px) {
+  .lp6-ing-grid-3 { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+.lp6-ing-theme-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(31, 27, 23, 0.05);
+  border: 1px solid rgba(31, 27, 23, 0.05);
+}
+.lp6-ing-theme-icon { font-size: 30px; line-height: 1; margin-bottom: 12px; }
+.lp6-ing-theme-title {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+.lp6-ing-theme-list {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-style: italic;
+  font-size: 13.5px;
+  color: #6B5C54;
+  line-height: 1.45;
+}
+.lp6-ing-fulllist-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 27, 23, 0.10);
+  padding: 26px 22px;
+  max-width: 880px;
+  margin: 0 auto 18px;
+}
+.lp6-ing-fulllist-h {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6B5C54;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.lp6-ing-fulllist-text {
+  font-family: "Abhaya Libre", Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2A2A2A;
+  text-align: center;
+  margin: 0;
+}
+.lp6-ing-never-line {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: #5A5A5A;
+  text-align: center;
+  letter-spacing: 0.02em;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.lp6-ing-never-line b {
+  color: #6E2B3D;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+@media (max-width: 600px) {
+  .lp6-ing-fulllist-text { font-size: 13px; line-height: 1.65; }
+  .lp6-ing-never-line { font-size: 12px; padding: 0 8px; }
+}
+
+/* Hide old hero list + expand if anywhere */
+.lp6-ing-hero, .lp6-ing-expand { display: none; }
+
 
 /* Legacy v2 styles kept dormant for revert */
 body .lp6-pain-stats-v2 {
@@ -4331,30 +4418,34 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
 
 <section class="lp6-lp2 bg-bright" aria-label="Ingredient transparency">
   <h2 class="lp6-lp2-h2">Every ingredient. Nothing hidden.</h2>
-  <p class="lp6-lp2-sub">21 ingredients you can pronounce. Coloured by real fruit. Conditioned by real plants.</p>
+  <p class="lp6-lp2-sub">21 ingredients you can pronounce — and zero you can't. Coloured by real fruit. Conditioned by real plants.</p>
 
-  <ul class="lp6-ing-hero">
-    <li><span class="lp6-ing-hero-emoji">🥥</span><span><b>Organic Coconut Oil</b> · Antibacterial, deeply moisturizing</span></li>
-    <li><span class="lp6-ing-hero-emoji">🧈</span><span><b>Shea Butter</b> · Soothes, conditions, locks in hydration</span></li>
-    <li><span class="lp6-ing-hero-emoji">🫐</span><span><b>Beet Root Powder</b> · Real-food colour — no synthetic dyes</span></li>
-    <li><span class="lp6-ing-hero-emoji">💧</span><span><b>Hyaluronic Acid</b> · Plumps + hydrates</span></li>
-    <li><span class="lp6-ing-hero-emoji">🍇</span><span><b>Bilberry Extract</b> · Antioxidant, protects skin</span></li>
-    <li><span class="lp6-ing-hero-emoji">🌿</span><span><b>Jojoba Oil</b> · Mimics skin's natural oils</span></li>
-  </ul>
-
-  <details class="lp6-ing-expand">
-    <summary>View Full Ingredient List + What We Never Use</summary>
-    <div class="lp6-ing-expand-body">
-      <div class="lp6-ing-full-inline">
-        <div class="lp6-ing-full-h-inline">Full list</div>
-        <div class="lp6-ing-full-list-inline">Myrica Berry Wax · Shea Butter · Candelilla Wax · Coconut Oil · Jojoba Oil · Castor Oil · Cetearyl (from coconuts) · Sunflower Lecithin · Olive Squalane · Vitamin A · Vitamin E · Beet Root Powder · Bamboo Silica · Hyaluronic Acid · Xanthan Gum · Gum Arabic · Green Tea Extract · Isoamyl Laureate · Bilberry Extract · Oxides · Micas</div>
-      </div>
-      <div class="lp6-ing-never-inline">
-        <div class="lp6-ing-never-h-inline">Never</div>
-        <div class="lp6-ing-never-list-inline">Parabens · PEGs · Synthetic dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
-      </div>
+  <div class="lp6-ing-grid-3">
+    <div class="lp6-ing-theme-card">
+      <div class="lp6-ing-theme-icon">🍇</div>
+      <div class="lp6-ing-theme-title">Real fruit pigments</div>
+      <div class="lp6-ing-theme-list">Beet root · Bilberry · Mineral micas &amp; oxides</div>
     </div>
-  </details>
+    <div class="lp6-ing-theme-card">
+      <div class="lp6-ing-theme-icon">🍃</div>
+      <div class="lp6-ing-theme-title">Skin-loving botanicals</div>
+      <div class="lp6-ing-theme-list">Jojoba · Shea · Coconut · Castor · Green tea</div>
+    </div>
+    <div class="lp6-ing-theme-card">
+      <div class="lp6-ing-theme-icon">💧</div>
+      <div class="lp6-ing-theme-title">Hydrating support</div>
+      <div class="lp6-ing-theme-list">Hyaluronic acid · Vitamin E · Olive squalane</div>
+    </div>
+  </div>
+
+  <div class="lp6-ing-fulllist-card">
+    <div class="lp6-ing-fulllist-h">Full ingredient list</div>
+    <p class="lp6-ing-fulllist-text">Myrica Berry Wax · Shea Butter · Candelilla Wax · Coconut Oil · Jojoba Oil · Castor Oil · Cetearyl (from coconuts) · Sunflower Lecithin · Olive Squalane · Vitamin A · Vitamin E · Beet Root Powder · Bamboo Silica · Hyaluronic Acid · Xanthan Gum · Gum Arabic · Green Tea Extract · Isoamyl Laureate · Bilberry Extract · Oxides · Micas</p>
+  </div>
+
+  <div class="lp6-ing-never-line">
+    <b>NEVER:</b> Parabens · PEGs · Synthetic Dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine
+  </div>
 
   <div style="text-align:center; margin-top:28px;">
     <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
