@@ -4162,9 +4162,68 @@ body .lp6-ing-theme-list,
 body .lp6-faq-q,
 body .lp6-faq-a,
 body .lp6-sp-review-text,
-body .lp6-lp2-sub {
+body .lp6-lp2-sub,
+body .lp6-hiw-headline,
+body .lp6-lp2-h2,
+body .lp6-h2 {
   text-wrap: balance !important;
   -webkit-text-wrap: balance !important;
+}
+
+/* ════════ FINAL VISUAL POLISH PASS ════════ */
+
+/* #4 Review avatars — darker text + tinted bg for better readability */
+body .lp6-sp-avatar {
+  background: #EDE3D4 !important;  /* slightly tinted cream */
+  color: #1A1A1A !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(43, 43, 43, 0.14) !important;
+}
+
+/* #5 Risk-free subtext — tighten under ATC */
+body .lp6-risk-free {
+  margin-top: 6px !important;
+  margin-bottom: 0 !important;
+  font-size: 12.5px !important;
+  color: #5A5A5A !important;
+  text-align: center !important;
+}
+
+/* #6 Final CTA — proper breathing room */
+body section[aria-label="Final call to action"] {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+/* #2 HIW collage — align both bottom photos to the same baseline */
+body .lp6-hiw-img-bl {
+  align-self: end !important;
+}
+body .lp6-hiw-collage-left {
+  justify-content: space-between !important;
+}
+
+/* #3 Video carousel — soft side fade so partial edge cards look intentional */
+body .lp6-vids-marquee {
+  position: relative !important;
+}
+body .lp6-vids-marquee::before,
+body .lp6-vids-marquee::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 30px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+body .lp6-vids-marquee::before {
+  left: 0 !important;
+  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0) 100%) !important;
+}
+body .lp6-vids-marquee::after {
+  right: 0 !important;
+  background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%) !important;
 }
 /* tighten the hero rhythm without disturbing pill position */
 body .lp6-hero-image-wrap {
