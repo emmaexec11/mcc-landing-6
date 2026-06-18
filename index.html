@@ -3850,6 +3850,123 @@ body .lp6-pain-stats-v3 .lp6-stat-desc {
   body .lp6-pain-stats-v3 .lp6-stat-desc { font-size: 10.5px !important; max-width: 110px !important; }
 }
 
+/* ════════ INGREDIENTS HYBRID — 6 hero + expandable full list ════════ */
+.lp6-ing-hero {
+  list-style: none;
+  padding: 0;
+  margin: 24px auto 20px;
+  max-width: 460px;
+  font-size: 14.5px;
+  color: #2A2A2A;
+  line-height: 1.5;
+  text-align: left;
+}
+.lp6-ing-hero li {
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.lp6-ing-hero li:last-child { border-bottom: none; }
+.lp6-ing-hero-emoji {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1.1;
+  width: 28px;
+  text-align: center;
+}
+.lp6-ing-hero li b { color: #1A1A1A; font-weight: 700; }
+
+.lp6-ing-expand {
+  max-width: 460px;
+  margin: 8px auto 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.08);
+  padding-top: 18px;
+}
+.lp6-ing-expand summary {
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #6E2B3D;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  border: 1px solid rgba(110, 43, 61, 0.20);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  width: auto;
+}
+.lp6-ing-expand summary::-webkit-details-marker { display: none; }
+.lp6-ing-expand summary::after {
+  content: " ↓";
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+.lp6-ing-expand[open] summary::after { content: " ↑"; }
+.lp6-ing-expand summary:hover {
+  background: #6E2B3D;
+  color: #FFFFFF;
+}
+.lp6-ing-expand-body {
+  margin-top: 18px;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+}
+.lp6-ing-full-inline {
+  background: #F5EFE7;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.lp6-ing-full-h-inline {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6E2B3D;
+  margin-bottom: 8px;
+}
+.lp6-ing-full-list-inline {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #2A2A2A;
+}
+.lp6-ing-never-inline {
+  background: #2B2B2B;
+  border-radius: 12px;
+  padding: 16px 18px;
+  color: #FFFFFF;
+}
+.lp6-ing-never-h-inline {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E8B544;
+  margin-bottom: 8px;
+}
+.lp6-ing-never-list-inline {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #FFFFFF;
+}
+
+/* Hide old wall-of-text ingredient boxes if still rendered anywhere */
+body .lp6-ing-full,
+body .lp6-ing-never { display: none !important; }
+body section[aria-label="Ingredient transparency"] .lp6-ing-full,
+body section[aria-label="Ingredient transparency"] .lp6-ing-never { display: none !important; }
+/* Allow the new inline versions inside .lp6-ing-expand-body */
+body .lp6-ing-expand-body .lp6-ing-full-inline,
+body .lp6-ing-expand-body .lp6-ing-never-inline { display: block !important; }
+
+
 /* Legacy v2 styles kept dormant for revert */
 body .lp6-pain-stats-v2 {
   display: grid !important;
@@ -4215,15 +4332,28 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
   <h2 class="lp6-lp2-h2">Every ingredient. Nothing hidden.</h2>
   <p class="lp6-lp2-sub">21 ingredients you can pronounce. Coloured by real fruit. Conditioned by real plants.</p>
 
-  <div class="lp6-ing-full">
-    <div class="lp6-ing-full-h">Full ingredient list</div>
-    <div class="lp6-ing-full-list">Myrica Berry Wax · Shea Butter · Candelilla Wax · Coconut Oil · Jojoba Oil · Castor Oil · Cetearyl (from coconuts) · Sunflower Lecithin · Olive Squalane · Vitamin A · Vitamin E · Beet Root Powder · Bamboo Silica · Hyaluronic Acid · Xanthan Gum · Gum Arabic · Green Tea Extract · Isoamyl Laureate · Bilberry Extract · Oxides · Micas</div>
-  </div>
+  <ul class="lp6-ing-hero">
+    <li><span class="lp6-ing-hero-emoji">🥥</span><span><b>Organic Coconut Oil</b> · Antibacterial, deeply moisturizing</span></li>
+    <li><span class="lp6-ing-hero-emoji">🧈</span><span><b>Shea Butter</b> · Soothes, conditions, locks in hydration</span></li>
+    <li><span class="lp6-ing-hero-emoji">🫐</span><span><b>Beet Root Powder</b> · Real-food colour — no synthetic dyes</span></li>
+    <li><span class="lp6-ing-hero-emoji">💧</span><span><b>Hyaluronic Acid</b> · Plumps + hydrates</span></li>
+    <li><span class="lp6-ing-hero-emoji">🍇</span><span><b>Bilberry Extract</b> · Antioxidant, protects skin</span></li>
+    <li><span class="lp6-ing-hero-emoji">🌿</span><span><b>Jojoba Oil</b> · Mimics skin's natural oils</span></li>
+  </ul>
 
-  <div class="lp6-ing-never">
-    <div class="lp6-ing-never-h">Never</div>
-    <div class="lp6-ing-never-list">Parabens · PEGs · Synthetic dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
-  </div>
+  <details class="lp6-ing-expand">
+    <summary>View Full Ingredient List + What We Never Use</summary>
+    <div class="lp6-ing-expand-body">
+      <div class="lp6-ing-full-inline">
+        <div class="lp6-ing-full-h-inline">Full list</div>
+        <div class="lp6-ing-full-list-inline">Myrica Berry Wax · Shea Butter · Candelilla Wax · Coconut Oil · Jojoba Oil · Castor Oil · Cetearyl (from coconuts) · Sunflower Lecithin · Olive Squalane · Vitamin A · Vitamin E · Beet Root Powder · Bamboo Silica · Hyaluronic Acid · Xanthan Gum · Gum Arabic · Green Tea Extract · Isoamyl Laureate · Bilberry Extract · Oxides · Micas</div>
+      </div>
+      <div class="lp6-ing-never-inline">
+        <div class="lp6-ing-never-h-inline">Never</div>
+        <div class="lp6-ing-never-list-inline">Parabens · PEGs · Synthetic dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
+      </div>
+    </div>
+  </details>
 
   <div style="text-align:center; margin-top:28px;">
     <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
