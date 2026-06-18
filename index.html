@@ -4492,6 +4492,29 @@ body .lp6-ba-card figcaption {
 }
 </style>
 
+<style id="lp6-hero-clean-2026-06-18">
+/* Strip chrome from scarcity bar — plain text, no pill, no dot. Cleaner stack. */
+body .lp6-hero-scarcity {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px 16px !important;
+  margin: 6px auto 8px !important;
+  font-size: 12.5px !important;
+  color: #5A5A5A !important;
+}
+body .lp6-hero-scarcity-pulse {
+  display: none !important;
+}
+body .lp6-hero-scarcity-text {
+  color: #5A5A5A !important;
+}
+body .lp6-hero-scarcity-text strong {
+  color: #B5694F !important;  /* terracotta emphasis on key numbers/days */
+  font-weight: 700 !important;
+}
+</style>
+
 <style id="lp6-palette-swap-2026-06-18">
 /* ════════════════ PALETTE SWAP — HIGH-CONVERTING CLEAN PALETTE ════════════════
    Cream bg (untouched) + Deep Espresso CTAs + Muted Sage trust + Dusty Rose pop.
@@ -4676,7 +4699,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     </div>
     <div class="lp6-hero-scarcity" id="lp6-hero-scarcity" aria-live="polite">
       <span class="lp6-hero-scarcity-pulse"></span>
-      <span class="lp6-hero-scarcity-text">Last batch sold in <strong>11 days</strong> · Free shipping ends <strong id="lp6-ship-day">Sunday</strong></span>
+      <span class="lp6-hero-scarcity-text">Sold in <strong>11 days</strong> · Free shipping ends <strong id="lp6-ship-day">Sunday</strong></span>
     </div>
     <script>
       (function(){
