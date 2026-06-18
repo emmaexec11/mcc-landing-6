@@ -4172,8 +4172,6 @@ body .lp6-shipping-deadline strong {
 }
 
 /* Kill widow words across the LP — last word alone on a line looks broken */
-body .lp6-diff-list li,
-body .lp6-diff-list li > span,
 body .lp6-ing-hero li,
 body .lp6-ing-hero li > span,
 body .lp6-ing-theme-list,
@@ -4186,6 +4184,34 @@ body .lp6-lp2-h2,
 body .lp6-h2 {
   text-wrap: balance !important;
   -webkit-text-wrap: balance !important;
+}
+
+/* Diff bullets: copy LP2026 PROVEN layout — left-aligned, 15px text, natural wrap */
+body .lp6-diff-list {
+  text-align: left !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  color: #2A2A2A !important;
+  max-width: 460px !important;
+  margin: 0 auto !important;
+}
+body .lp6-diff-list li {
+  text-align: left !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  padding: 12px 0 !important;
+  gap: 14px !important;
+}
+body .lp6-diff-list li > span:not(.lp6-diff-icon) {
+  text-align: left !important;
+  text-wrap: auto !important;
+  -webkit-text-wrap: auto !important;
+  flex: 1 !important;
+}
+body .lp6-diff-list .lp6-diff-icon {
+  font-size: 22px !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
 }
 
 /* ════════ FINAL VISUAL POLISH PASS ════════ */
