@@ -3460,21 +3460,11 @@ body .lp6-h2 {
   margin-bottom: 16px !important;
   text-align: center !important;
 }
+/* Gold dashes removed — let typography stand alone */
 body .lp6-lp2-h2::after,
-body .lp6-h2::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 44px !important;
-  height: 2px !important;
-  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
-  border-radius: 2px !important;
-}
-section[aria-label="Final call to action"] .lp6-lp2-h2::after {
-  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
-}
+body .lp6-h2::after { display: none !important; }
+body .lp6-lp2-h2,
+body .lp6-h2 { padding-bottom: 0 !important; }
 
 /* Stat numbers in animation-prep state (invisible until JS triggers) */
 .lp6-stat-anim {
@@ -4369,10 +4359,6 @@ body section[aria-label="Final call to action"] .lp6-final-trust span {
 body section[aria-label="Final call to action"] .lp6-hiw-cta {
   background: #6E2B3D !important;
   color: #FFFFFF !important;
-}
-/* Gold underline after H2 in this section keeps amber for accent */
-body section[aria-label="Final call to action"] .lp6-lp2-h2::after {
-  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
 }
 
 /* —— FAQ: align padding with unified cards —— */
