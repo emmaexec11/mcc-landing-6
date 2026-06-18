@@ -4153,6 +4153,24 @@ body .lp6-on-image-overlay {
   text-align: center !important;
 }
 
+/* Free shipping deadline — small urgency line under scarcity bar */
+body .lp6-shipping-deadline {
+  font-family: "Inter", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #6E2B3D !important;
+  text-align: center !important;
+  margin: 8px 0 0 !important;
+  letter-spacing: 0.02em !important;
+}
+body .lp6-shipping-deadline strong {
+  color: #6E2B3D !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  text-decoration-thickness: 1px !important;
+}
+
 /* Kill widow words across the LP — last word alone on a line looks broken */
 body .lp6-diff-list li,
 body .lp6-diff-list li > span,
@@ -4496,6 +4514,23 @@ body .lp6-ba-card figcaption {
       <span class="lp6-hero-scarcity-pulse"></span>
       <span class="lp6-hero-scarcity-text">Last batch sold out in <strong>11 days</strong> · Hand-poured small-batch</span>
     </div>
+    <p class="lp6-shipping-deadline">Free shipping ends <strong id="lp6-ship-day">Sunday</strong></p>
+    <script>
+      (function(){
+        // Dynamically write the next Sunday (e.g., "Sunday Jun 22") for freshness
+        try {
+          var el = document.getElementById('lp6-ship-day');
+          if (!el) return;
+          var now = new Date();
+          var day = now.getDay(); // 0 = Sunday
+          var daysUntilSunday = day === 0 ? 7 : (7 - day); // if today is Sunday, next deadline is next Sunday
+          var target = new Date(now.getTime() + daysUntilSunday * 86400000);
+          var dayName = target.toLocaleDateString('en-US', { weekday: 'long' });
+          var monthDay = target.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          el.textContent = dayName + ' ' + monthDay;
+        } catch(e){}
+      })();
+    </script>
 
     <!-- Magic Spoon-style fused pill: left qty (outlined) + right ATC (solid) -->
     <div class="lp6-mspoon-action">
