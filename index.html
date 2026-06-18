@@ -4149,6 +4149,120 @@ body .lp6-pain-stats-v2 .lp6-stat-desc b {
   body .lp6-pain-stats-v2 .lp6-stat-desc b { font-size: 10.5px !important; }
 }
 </style>
+
+<style id="lp6-cohesion-pass-2026-06-18">
+/* ════════════════ FINAL COHESION PASS ════════════════
+   Unify card formula, section padding, subhead style, hairline icons
+   so the entire LP reads as one premium clean-beauty design system.
+*/
+
+/* —— SECTION RHYTHM: same vertical breathing room across all sections —— */
+body section.lp6-lp2,
+body section.lp6-section-2 {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+@media (max-width: 600px) {
+  body section.lp6-lp2,
+  body section.lp6-section-2 {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+}
+
+/* —— SUBHEADING (lp6-lp2-sub) — same look everywhere —— */
+body .lp6-lp2-sub {
+  font-family: "Inter", -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  color: #5A5A5A !important;
+  max-width: 480px !important;
+  margin: 0 auto 30px !important;
+  text-align: center !important;
+}
+
+/* —— UNIFIED CARD FORMULA — applies to every "card" on the LP —— */
+body .lp6-ing-theme-card,
+body .lp6-ing-fulllist-card,
+body .lp6-ba-card,
+body .lp6-faq-item,
+body .lp6-sp-review,
+body .lp6-pain-stats-v3 .lp6-stat-card {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(31, 27, 23, 0.07) !important;
+  box-shadow: 0 4px 14px rgba(31, 27, 23, 0.05) !important;
+}
+
+/* Pain stats: remove the !important border (was hairline divider only) — let unified rule apply */
+body .lp6-pain-stats-v3 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-card {
+  padding: 22px 14px !important;
+  text-align: center !important;
+  gap: 8px !important;
+}
+body .lp6-pain-stats-v3 .lp6-stat-card:not(:last-child)::after {
+  display: none !important;
+}
+
+/* —— H2 SECTION HEADLINE — same exact treatment everywhere —— */
+body .lp6-lp2-h2,
+body .lp6-h2 {
+  text-align: center !important;
+  margin-bottom: 14px !important;
+  font-family: "Abhaya Libre", Georgia, serif !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.2 !important;
+  color: #1A1A1A !important;
+}
+@media (min-width: 768px) {
+  body .lp6-lp2-h2,
+  body .lp6-h2 { font-size: 30px !important; }
+}
+
+/* —— STAT NUMBER FALLBACK — make sure they don't show "0" if JS lazy-load fails —— */
+body .lp6-stat-anim {
+  opacity: 1 !important;
+}
+
+/* —— STICKY-CART PRICE: white softened opacity stays —— */
+
+/* —— CTA padding consistency on hiw-cta everywhere —— */
+body .lp6-hiw-cta {
+  padding: 14px 26px !important;
+  font-size: 14.5px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+/* —— Hero buttons in the bottom-right of charcoal final CTA section: white text on wine —— */
+body section[aria-label="Final call to action"] .lp6-hiw-cta {
+  background: #6E2B3D !important;
+  color: #FFFFFF !important;
+}
+
+/* —— FAQ: align padding with unified cards —— */
+body .lp6-faq-item {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* —— BA pair card: ensure caption sits flush —— */
+body .lp6-ba-card figcaption {
+  padding: 14px 16px 16px !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #1A1A1A !important;
+  text-align: center !important;
+}
+</style>
 </head>
 <body class="template-page">
 
