@@ -4346,14 +4346,14 @@ body .lp6-hiw-cta {
   text-transform: none !important;
 }
 
-/* —— FINAL CTA SECTION — flip from full-bleed charcoal to white to match the rest of the LP —— */
+/* —— FINAL CTA SECTION — soft charcoal #2B2B2B (same as top bar + sticky) — pops as final moment without harsh pure-black —— */
 body section[aria-label="Final call to action"] {
-  background: #FFFFFF !important;
+  background: #2B2B2B !important;
 }
-body section[aria-label="Final call to action"] .lp6-lp2-h2 { color: #1A1A1A !important; }
-body section[aria-label="Final call to action"] .lp6-lp2-sub { color: #5A5A5A !important; }
+body section[aria-label="Final call to action"] .lp6-lp2-h2 { color: #FFFFFF !important; }
+body section[aria-label="Final call to action"] .lp6-lp2-sub { color: rgba(255, 255, 255, 0.78) !important; }
 body section[aria-label="Final call to action"] .lp6-final-warning {
-  color: #6E2B3D !important;
+  color: #E8B544 !important;
   font-weight: 700 !important;
   letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
@@ -4361,14 +4361,18 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   text-align: center !important;
 }
 body section[aria-label="Final call to action"] .lp6-final-trust {
-  color: #5A5A5A !important;
+  color: rgba(255, 255, 255, 0.72) !important;
 }
 body section[aria-label="Final call to action"] .lp6-final-trust span {
-  color: #5A5A5A !important;
+  color: rgba(255, 255, 255, 0.72) !important;
 }
 body section[aria-label="Final call to action"] .lp6-hiw-cta {
   background: #6E2B3D !important;
   color: #FFFFFF !important;
+}
+/* Gold underline after H2 in this section keeps amber for accent */
+body section[aria-label="Final call to action"] .lp6-lp2-h2::after {
+  background: linear-gradient(90deg, transparent, #E8B544, transparent) !important;
 }
 
 /* —— FAQ: align padding with unified cards —— */
