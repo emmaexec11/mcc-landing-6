@@ -4181,32 +4181,43 @@ body .lp6-lp2-sub {
   text-align: center !important;
 }
 
-/* —— UNIFIED CARD FORMULA — applies to every "card" on the LP —— */
+/* —— UNIFIED CARD FORMULA — applies to most cards (pain stats stays editorial) —— */
 body .lp6-ing-theme-card,
 body .lp6-ing-fulllist-card,
 body .lp6-ba-card,
 body .lp6-faq-item,
-body .lp6-sp-review,
-body .lp6-pain-stats-v3 .lp6-stat-card {
+body .lp6-sp-review {
   background: #FFFFFF !important;
   border-radius: 16px !important;
   border: 1px solid rgba(31, 27, 23, 0.07) !important;
   box-shadow: 0 4px 14px rgba(31, 27, 23, 0.05) !important;
 }
 
-/* Pain stats: remove the !important border (was hairline divider only) — let unified rule apply */
+/* Pain stats: KEEP the editorial hairline-divider treatment (was working — one breath of variety) */
 body .lp6-pain-stats-v3 {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 body .lp6-pain-stats-v3 .lp6-stat-card {
-  padding: 22px 14px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 8px 14px !important;
   text-align: center !important;
   gap: 8px !important;
+  position: relative !important;
 }
 body .lp6-pain-stats-v3 .lp6-stat-card:not(:last-child)::after {
-  display: none !important;
+  display: block !important;
+  content: '' !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 18% !important;
+  height: 64% !important;
+  width: 1px !important;
+  background: rgba(110, 43, 61, 0.16) !important;
 }
 
 /* —— H2 SECTION HEADLINE — same exact treatment everywhere —— */
