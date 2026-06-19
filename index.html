@@ -4628,6 +4628,13 @@ body .lp6-announcement-bar {
 body .lp6-bar-item {
   color: #FFFFFF !important;
 }
+/* Optical alignment fix — Unicode ★ glyph sits ~1-2px low relative to uppercase Latin cap-height */
+body .lp6-bar-star {
+  display: inline-block !important;
+  position: relative !important;
+  top: -1px !important;
+  line-height: 1 !important;
+}
 /* Sticky bar — white bg matches the page, espresso pill button pops harder against pure white */
 body .lp6-sticky-cta {
   background: #FFFFFF !important;
@@ -4730,7 +4737,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="lp6-announcement-bar" id="lp6-announcement-bar">
-  <span class="lp6-bar-item lp6-bar-active">★ Hand-Poured · Sold Out 7x ★</span>
+  <span class="lp6-bar-item lp6-bar-active"><span class="lp6-bar-star">★</span> Hand-Poured · Sold Out 7x <span class="lp6-bar-star">★</span></span>
 </div>
 
 <!-- STARS PILL ABOVE HERO -->
