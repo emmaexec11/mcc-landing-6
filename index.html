@@ -4351,17 +4351,29 @@ body .lp6-hiw-grid {
   margin-top: 26px !important;
 }
 
-/* CTA buttons — equal margin above/below in all positions */
+/* CTA buttons — match unified spacing system (28px mobile / 36px desktop). DISABLED the earlier 6px override that was clobbering the unified rule */
 body div[style*="text-align:center"] > .lp6-hiw-cta,
 body div[style*="text-align: center"] > .lp6-hiw-cta {
-  margin-top: 6px !important;
-  margin-bottom: 6px !important;
+  margin-top: 36px !important;
+  margin-bottom: 0 !important;
+}
+@media (max-width: 600px) {
+  body div[style*="text-align:center"] > .lp6-hiw-cta,
+  body div[style*="text-align: center"] > .lp6-hiw-cta {
+    margin-top: 28px !important;
+  }
 }
 
-/* Founder card — proper section margin */
+/* Founder card — match unified section padding (24px mobile, was 36px which broke the rhythm) */
 body section[aria-label="A note from the founder"] {
-  padding-top: 36px !important;
-  padding-bottom: 36px !important;
+  padding-top: 28px !important;
+  padding-bottom: 28px !important;
+}
+@media (max-width: 600px) {
+  body section[aria-label="A note from the founder"] {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
 }
 
 /* Final CTA — tighten elements inside */
@@ -4898,7 +4910,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
         <span class="lp6-hiw-attribution">— Emily, verified buyer</span>
       </div>
 
-      <div style="text-align:center; width:100%; margin-top:32px;">
+      <div style="text-align:center; width:100%;">
         <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
       </div>
     </div>
@@ -4991,7 +5003,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       </div>
     </div>
   </div>
-  <div style="text-align:center; margin-top:24px;">
+  <div style="text-align:center;">
     <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
   </div>
 </section>
@@ -5050,7 +5062,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     <b>NEVER:</b> Parabens · PEGs · Synthetic Dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine
   </div>
 
-  <div style="text-align:center; margin-top:28px;">
+  <div style="text-align:center;">
     <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
   </div>
 </section>
