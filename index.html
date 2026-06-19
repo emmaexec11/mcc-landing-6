@@ -3387,9 +3387,19 @@ body .lp6-hiw-grid { gap: 36px !important; }
   body section[aria-label="How it works"] { padding: 38px 18px !important; }
   body section[aria-label="Guarantee"] { padding: 38px 18px !important; }
   body section[aria-label="Frequently asked questions"] { padding: 38px 18px !important; }
-  /* On mobile show UGC collage ABOVE the headline + steps + CTA */
+  /* On mobile show UGC collage ABOVE the rest of the content (headline now sits ABOVE the grid entirely) */
   body .lp6-hiw-media { order: -1 !important; }
   body .lp6-hiw-content { order: 1 !important; }
+}
+
+/* Promoted headline sits ABOVE the grid (above the collage on mobile, above the side-by-side on desktop) */
+body .lp6-hiw-headline-top {
+  text-align: center !important;
+  margin: 0 auto 24px !important;
+  max-width: 720px !important;
+}
+@media (max-width: 600px) {
+  body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
 }
 
 /* Tighten guarantee crest spacing */
@@ -4815,9 +4825,9 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
 
 <section class="lp6-lp2 bg-bright lp6-hiw-section" aria-label="How it works">
+  <h2 class="lp6-lp2-h2 lp6-hiw-headline lp6-hiw-headline-top">Your entire makeup routine in 30 seconds.</h2>
   <div class="lp6-hiw-grid">
     <div class="lp6-hiw-content">
-      <h2 class="lp6-lp2-h2 lp6-hiw-headline">Your entire makeup routine in 30 seconds.</h2>
       <p class="lp6-lp2-sub">Say goodbye to cluttered makeup bags. This minimalist multitasker works as a lipstick, blush, and eye tint — all in one creamy formula that melts into skin for an effortless glow. <b>Replaces 3 products. Saves ~$87/year.</b></p>
 
       <div class="lp6-hiw-steps">
