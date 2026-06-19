@@ -3402,6 +3402,16 @@ body .lp6-hiw-headline-top {
   body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
 }
 
+/* Inline CTAs get a touch more breathing room above so they read as deliberate next-action elements (not glued to the preceding content) */
+body .lp6-hiw-cta,
+body .lp6-mini-cta-btn,
+body .lp6-buy-cta {
+  margin-top: 14px !important;
+}
+body div[style*="text-align: center"] > .lp6-hiw-cta {
+  margin-top: 18px !important;
+}
+
 /* Tighten guarantee crest spacing */
 body section[aria-label="Guarantee"]::before { margin-bottom: 8px !important; font-size: 30px !important; }
 
