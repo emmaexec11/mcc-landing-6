@@ -3402,10 +3402,9 @@ body .lp6-hiw-headline-top {
   body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
 }
 
-/* All inline CTAs get a clear margin-top so they read as deliberate next-action elements with breathing room above */
+/* All inline CTAs get a clear margin-top so they read as deliberate next-action elements with breathing room above. EXCLUDES .lp6-mspoon-atc — that one lives inside a joined flex row with .lp6-mspoon-qty and must NOT have its own margin-top (would break the joined layout) */
 body .lp6-hiw-cta,
 body .lp6-mini-cta-btn,
-body .lp6-buy-box .lp6-buy-cta,
 body .lp6-final-cta a,
 body section[aria-label="Final call to action"] .lp6-hiw-cta {
   margin-top: 36px !important;
@@ -3413,14 +3412,20 @@ body section[aria-label="Final call to action"] .lp6-hiw-cta {
 body div[style*="text-align: center"] > .lp6-hiw-cta {
   margin-top: 36px !important;
 }
+/* The Magic Spoon joined qty+atc container gets its OWN margin-top instead — applies as a whole row */
+body .lp6-buy-box .lp6-mspoon-action {
+  margin-top: 18px !important;
+}
 @media (max-width: 600px) {
   body .lp6-hiw-cta,
   body .lp6-mini-cta-btn,
-  body .lp6-buy-box .lp6-buy-cta,
   body .lp6-final-cta a,
   body section[aria-label="Final call to action"] .lp6-hiw-cta,
   body div[style*="text-align: center"] > .lp6-hiw-cta {
     margin-top: 28px !important;
+  }
+  body .lp6-buy-box .lp6-mspoon-action {
+    margin-top: 14px !important;
   }
 }
 
