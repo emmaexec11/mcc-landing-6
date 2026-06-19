@@ -3399,6 +3399,18 @@ body .lp6-hiw-headline-top {
   margin: 0 auto 12px !important;  /* tighter than other H2s — this one's followed by a visual, not body text */
   max-width: 720px !important;
 }
+
+/* H2 followed directly by a visual (videos / images / carousel) gets tighter gap — visuals need to ANCHOR to the headline, not float */
+body .lp6-lp2-h2:has(+ .lp6-vids-marquee),
+body .lp6-h2:has(+ .lp6-vids-marquee) {
+  margin-bottom: 12px !important;
+}
+@media (max-width: 600px) {
+  body .lp6-lp2-h2:has(+ .lp6-vids-marquee),
+  body .lp6-h2:has(+ .lp6-vids-marquee) {
+    margin-bottom: 8px !important;
+  }
+}
 @media (max-width: 600px) {
   body .lp6-hiw-headline-top { margin: 0 auto 8px !important; }
   /* Tighten the gap between the diff list (end of pain section) and the HIW headline — section-to-section transition was reading as too much air */
