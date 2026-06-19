@@ -3402,14 +3402,26 @@ body .lp6-hiw-headline-top {
   body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
 }
 
-/* Inline CTAs get a touch more breathing room above so they read as deliberate next-action elements (not glued to the preceding content) */
+/* All inline CTAs get a clear margin-top so they read as deliberate next-action elements with breathing room above */
 body .lp6-hiw-cta,
 body .lp6-mini-cta-btn,
-body .lp6-buy-cta {
-  margin-top: 14px !important;
+body .lp6-buy-box .lp6-buy-cta,
+body .lp6-final-cta a,
+body section[aria-label="Final call to action"] .lp6-hiw-cta {
+  margin-top: 36px !important;
 }
 body div[style*="text-align: center"] > .lp6-hiw-cta {
-  margin-top: 18px !important;
+  margin-top: 36px !important;
+}
+@media (max-width: 600px) {
+  body .lp6-hiw-cta,
+  body .lp6-mini-cta-btn,
+  body .lp6-buy-box .lp6-buy-cta,
+  body .lp6-final-cta a,
+  body section[aria-label="Final call to action"] .lp6-hiw-cta,
+  body div[style*="text-align: center"] > .lp6-hiw-cta {
+    margin-top: 28px !important;
+  }
 }
 
 /* Tighten guarantee crest spacing */
