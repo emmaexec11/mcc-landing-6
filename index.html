@@ -3400,6 +3400,8 @@ body .lp6-hiw-headline-top {
 }
 @media (max-width: 600px) {
   body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
+  /* Tighten the gap between the diff list (end of pain section) and the HIW headline — section-to-section transition was reading as too much air */
+  body section.lp6-hiw-section { padding-top: 10px !important; }
 }
 
 /* All inline CTAs get a clear margin-top so they read as deliberate next-action elements with breathing room above. EXCLUDES .lp6-mspoon-atc — that one lives inside a joined flex row with .lp6-mspoon-qty and must NOT have its own margin-top (would break the joined layout) */
