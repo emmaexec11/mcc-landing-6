@@ -4364,13 +4364,15 @@ body div[style*="text-align: center"] > .lp6-hiw-cta {
   }
 }
 
-/* Founder card — match unified section padding (24px mobile, was 36px which broke the rhythm) */
-body section[aria-label="A note from the founder"] {
+/* Founder card — match unified section padding. Element is an <aside>, not <section> — need to target both */
+body section[aria-label="A note from the founder"],
+body aside[aria-label="A note from the founder"] {
   padding-top: 28px !important;
   padding-bottom: 28px !important;
 }
 @media (max-width: 600px) {
-  body section[aria-label="A note from the founder"] {
+  body section[aria-label="A note from the founder"],
+  body aside[aria-label="A note from the founder"] {
     padding-top: 24px !important;
     padding-bottom: 24px !important;
   }
