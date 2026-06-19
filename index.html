@@ -3396,11 +3396,11 @@ body .lp6-hiw-grid { gap: 36px !important; }
 /* Promoted headline sits ABOVE the grid (above the collage on mobile, above the side-by-side on desktop) */
 body .lp6-hiw-headline-top {
   text-align: center !important;
-  margin: 0 auto 24px !important;
+  margin: 0 auto 12px !important;  /* tighter than other H2s — this one's followed by a visual, not body text */
   max-width: 720px !important;
 }
 @media (max-width: 600px) {
-  body .lp6-hiw-headline-top { margin: 0 auto 18px !important; }
+  body .lp6-hiw-headline-top { margin: 0 auto 8px !important; }
   /* Tighten the gap between the diff list (end of pain section) and the HIW headline — section-to-section transition was reading as too much air */
   body section.lp6-hiw-section { padding-top: 10px !important; }
 }
