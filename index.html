@@ -5550,5 +5550,58 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 })();
 </script>
 
+<script id="lp6-video-lazy-loader">
+/* Lazy-load all <video> elements below the fold via Intersection Observer.
+   On page load: move src → data-src, strip autoplay/preload so videos don't fetch.
+   On enter viewport: restore src + autoplay. Saves ~6MB of mobile download for users who don't scroll deep. */
+(function () {
+  var FOLD = 800; // pixels — anything below this is lazy on initial load
+  var videos = document.querySelectorAll('video');
+  var lazyVideos = [];
+  videos.forEach(function (v) {
+    var rect = v.getBoundingClientRect();
+    if (rect.top > FOLD) {
+      // Move src + source.src to data-src
+      if (v.src) { v.dataset.src = v.src; v.removeAttribute('src'); }
+      var sources = v.querySelectorAll('source');
+      sources.forEach(function (s) {
+        if (s.src) { s.dataset.src = s.src; s.removeAttribute('src'); }
+      });
+      v.removeAttribute('autoplay');
+      v.setAttribute('preload', 'none');
+      lazyVideos.push(v);
+    }
+  });
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: load all on scroll
+    function loadAll() {
+      lazyVideos.forEach(function (v) { hydrate(v); });
+      window.removeEventListener('scroll', loadAll);
+    }
+    window.addEventListener('scroll', loadAll, { once: true });
+    return;
+  }
+  function hydrate(v) {
+    if (v.dataset.src) { v.src = v.dataset.src; v.removeAttribute('data-src'); }
+    var sources = v.querySelectorAll('source');
+    sources.forEach(function (s) {
+      if (s.dataset.src) { s.src = s.dataset.src; s.removeAttribute('data-src'); }
+    });
+    v.setAttribute('preload', 'metadata');
+    v.load();
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        hydrate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px 0px' });  // hydrate 200px before in-view
+  lazyVideos.forEach(function (v) { io.observe(v); });
+})();
+</script>
 </body>
 </html>
