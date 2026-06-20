@@ -2776,7 +2776,7 @@ body .lp6-grnt-check {
 </style>
 
 <style id="lp6-vid-marquee-css">
-/* ====== AUTO-ROTATING UGC VIDEO CAROUSEL — IM8 style ====== */
+/* ====== AUTO-ROTATING UGC VIDEO CAROUSEL — IM8 style + manual swipe support ====== */
 .lp6-vids-marquee {
   width: 100vw;
   position: relative;
@@ -2784,12 +2784,17 @@ body .lp6-grnt-check {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  overflow: hidden;
+  overflow-x: auto !important;
+  overflow-y: hidden;
   padding: 12px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   /* Soft fade on the edges */
   -webkit-mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
           mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
 }
+.lp6-vids-marquee::-webkit-scrollbar { display: none; }
 .lp6-vids-track-auto {
   display: flex !important;
   gap: 14px !important;
@@ -2800,7 +2805,8 @@ body .lp6-grnt-check {
   width: max-content !important;
   animation: lp6-vid-marquee 40s linear infinite;
 }
-.lp6-vids-marquee:hover .lp6-vids-track-auto { animation-play-state: paused; }
+.lp6-vids-marquee:hover .lp6-vids-track-auto,
+.lp6-vids-marquee.lp6-vids-paused .lp6-vids-track-auto { animation-play-state: paused; }
 @keyframes lp6-vid-marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -2809,6 +2815,46 @@ body .lp6-grnt-check {
   .lp6-vids-track-auto { animation: none; }
 }
 </style>
+<script id="lp6-vids-manual-scroll">
+/* Manual swipe/scroll on the auto-marquee:
+   - Pause the CSS animation while user is touching/dragging
+   - Convert finger gesture into horizontal scrollLeft so user can swipe through
+   - Resume auto-marquee 2.5s after touch ends
+   - Preserves desktop hover-pause behavior */
+(function () {
+  function init() {
+    var carousels = document.querySelectorAll('.lp6-vids-marquee');
+    carousels.forEach(function (c) {
+      var resumeTimer = null;
+      function pause() {
+        c.classList.add('lp6-vids-paused');
+        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+      }
+      function resumeLater() {
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function () {
+          c.classList.remove('lp6-vids-paused');
+          // Snap scrollLeft back to 0 so animation resumes from its current visual position
+          c.scrollLeft = 0;
+        }, 2500);
+      }
+      ['touchstart', 'pointerdown', 'mousedown'].forEach(function (ev) {
+        c.addEventListener(ev, pause, { passive: true });
+      });
+      ['touchend', 'pointerup', 'pointercancel', 'mouseup', 'mouseleave'].forEach(function (ev) {
+        c.addEventListener(ev, resumeLater, { passive: true });
+      });
+      // Also pause while user is actively scrolling (in case it's via inertia, not touch)
+      c.addEventListener('scroll', function () { pause(); resumeLater(); }, { passive: true });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 <style id="lp6-reviews-wall-css">
 /* ====== VERIFIED REVIEWS WALL ====== */
