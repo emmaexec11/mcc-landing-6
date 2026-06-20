@@ -4690,10 +4690,20 @@ body .lp6-sticky-btn {
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
   box-shadow: 0 4px 14px rgba(43, 37, 34, 0.22) !important;
+  animation: lp6-sticky-pulse 4s ease-in-out infinite !important;
+  transform-origin: center !important;
 }
 body .lp6-sticky-btn:hover {
   background: #1A1614 !important;
   color: #FFFFFF !important;
+  animation: none !important;
+}
+@keyframes lp6-sticky-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .lp6-sticky-btn { animation: none !important; }
 }
 body .lp6-sticky-btn .lp6-sticky-btn-price {
   color: #FFFFFF !important;
