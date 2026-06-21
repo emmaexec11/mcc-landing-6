@@ -3194,29 +3194,37 @@ body .lp6-grnt-check {
   text-align:center;
 }
 .lp6-ls-label{
-  display:block;
-  font-size:10px;font-weight:600;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:#A89A8F;
-  margin-bottom:11px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#6E2B3D;
+  margin-bottom:12px;
 }
-.lp6-ls-clock{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-bottom:13px;}
-.lp6-ls-unit{display:flex;flex-direction:column;align-items:center;min-width:54px;}
+.lp6-ls-label svg{width:14px;height:14px;flex-shrink:0;}
+.lp6-ls-clock{display:flex;align-items:flex-start;justify-content:center;gap:7px;margin-bottom:14px;}
+.lp6-ls-unit{display:flex;flex-direction:column;align-items:center;}
 .lp6-ls-unit b{
-  font-weight:600;font-size:25px;line-height:1;
-  color:#2A2320;font-variant-numeric:tabular-nums;letter-spacing:.005em;
+  display:flex;align-items:center;justify-content:center;
+  min-width:54px;height:56px;
+  background:linear-gradient(180deg,#FFFCF8 0%,#FBF3EA 100%);
+  border:1px solid rgba(110,43,61,.12);
+  border-radius:14px;
+  font-weight:600;font-size:27px;line-height:1;
+  color:#2A2320;font-variant-numeric:tabular-nums;letter-spacing:.01em;
+  box-shadow:0 2px 6px rgba(110,43,61,.07), inset 0 1px 0 rgba(255,255,255,.6);
 }
 .lp6-ls-unit i{
-  font-style:normal;font-size:8.5px;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;color:#B8ADA3;margin-top:6px;
+  font-style:normal;font-size:9px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:#A89A8F;margin-top:8px;
 }
-.lp6-ls-div{width:1px;height:19px;background:rgba(42,35,32,.12);margin-top:2px;flex-shrink:0;}
-.lp6-ls-bar{height:2px;border-radius:99px;background:rgba(42,35,32,.08);overflow:hidden;max-width:236px;margin:0 auto;}
-.lp6-ls-bar-fill{display:block;height:100%;border-radius:99px;width:6%;background:#6E2B3D;transition:width 1s linear;}
+.lp6-ls-colon{height:56px;line-height:56px;font-size:22px;font-weight:400;color:rgba(110,43,61,.30);flex-shrink:0;}
+.lp6-ls-bar{height:3px;border-radius:99px;background:rgba(110,43,61,.10);overflow:hidden;max-width:248px;margin:0 auto;}
+.lp6-ls-bar-fill{display:block;height:100%;border-radius:99px;width:6%;background:linear-gradient(90deg,#6E2B3D,#9A3D52);transition:width 1s linear;}
 @media (max-width:380px){
-  .lp6-livescarcity{max-width:310px;}
-  .lp6-ls-unit{min-width:46px;}
-  .lp6-ls-unit b{font-size:23px;}
+  .lp6-livescarcity{max-width:320px;}
+  .lp6-ls-clock{gap:5px;}
+  .lp6-ls-unit b{min-width:48px;height:50px;font-size:24px;}
+  .lp6-ls-colon{height:50px;line-height:50px;font-size:19px;}
 }
 @media (prefers-reduced-motion: reduce){
   .lp6-ls-bar-fill{transition:none;}
@@ -4926,15 +4934,15 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       <span class="lp6-buy-save">SAVE $60</span>
     </div>
     <div class="lp6-livescarcity" id="lp6-livescarcity" role="timer" aria-label="Free shipping countdown">
-      <span class="lp6-ls-label">Free shipping ends in</span>
+      <span class="lp6-ls-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v9H3z"/><path d="M14 9h3.5L21 12v3h-7z"/><circle cx="6.5" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg>Free shipping ends in</span>
       <div class="lp6-ls-clock" id="lp6-ls-clock">
-        <span class="lp6-ls-unit"><b id="lp6-cd-d">0</b><i>days</i></span>
-        <span class="lp6-ls-div" aria-hidden="true"></span>
-        <span class="lp6-ls-unit"><b id="lp6-cd-h">00</b><i>hrs</i></span>
-        <span class="lp6-ls-div" aria-hidden="true"></span>
-        <span class="lp6-ls-unit"><b id="lp6-cd-m">00</b><i>min</i></span>
-        <span class="lp6-ls-div" aria-hidden="true"></span>
-        <span class="lp6-ls-unit"><b id="lp6-cd-s">00</b><i>sec</i></span>
+        <span class="lp6-ls-unit"><b id="lp6-cd-d">0</b><i>Days</i></span>
+        <span class="lp6-ls-colon" aria-hidden="true">:</span>
+        <span class="lp6-ls-unit"><b id="lp6-cd-h">00</b><i>Hrs</i></span>
+        <span class="lp6-ls-colon" aria-hidden="true">:</span>
+        <span class="lp6-ls-unit"><b id="lp6-cd-m">00</b><i>Min</i></span>
+        <span class="lp6-ls-colon" aria-hidden="true">:</span>
+        <span class="lp6-ls-unit"><b id="lp6-cd-s">00</b><i>Sec</i></span>
       </div>
       <div class="lp6-ls-bar"><span class="lp6-ls-bar-fill" id="lp6-ls-bar-fill"></span></div>
     </div>
