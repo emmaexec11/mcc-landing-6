@@ -5142,7 +5142,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   letter-spacing:.02em;color:#2A2320;cursor:pointer;transition:border-color .2s ease;
 }
 .lp6-ing-va-btn:hover{border-color:rgba(181,105,79,.45);}
-.lp6-ing-va-chev{color:#B5694F;font-size:16px;line-height:1;transition:transform .35s ease;display:inline-block;}
+.lp6-ing-va-chev{width:15px;height:15px;color:#B5694F;flex-shrink:0;transition:transform .35s ease;}
 .lp6-ing-va-btn[aria-expanded="true"] .lp6-ing-va-chev{transform:rotate(180deg);}
 .lp6-ing-panel{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1);}
 .lp6-ing-panel-inner{padding:6px 2px 4px;text-align:left;}
@@ -5158,7 +5158,8 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 .lp6-ing-never-pill b{color:#B5694F;font-weight:800;letter-spacing:.04em;}
 .lp6-ing-panel-cta{display:block;margin:16px auto 4px;max-width:330px;text-align:center;background:#2A2320;color:#FBF4EC;font-family:"Inter",-apple-system,sans-serif;font-size:15px;font-weight:700;padding:15px 20px;border-radius:99px;text-decoration:none;transition:transform .15s ease;}
 .lp6-ing-panel-cta:hover{transform:translateY(-1px);}
-.lp6-ing-va-close{display:block;margin:6px auto 2px;background:none;border:none;color:#A89A8F;font-family:"Inter",-apple-system,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;cursor:pointer;padding:9px;}
+.lp6-ing-va-close{display:flex;align-items:center;justify-content:center;gap:5px;margin:6px auto 2px;background:none;border:none;color:#A89A8F;font-family:"Inter",-apple-system,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;cursor:pointer;padding:9px;}
+.lp6-ing-va-close svg{width:12px;height:12px;}
 .lp6-ing-va-close:hover{color:#B5694F;}
 </style>
 
@@ -5186,7 +5187,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
   <div class="lp6-ing-viewall">
     <button type="button" class="lp6-ing-va-btn" id="lp6-ing-va-btn" aria-expanded="false" aria-controls="lp6-ing-panel">
-      View all ingredients <span class="lp6-ing-va-chev" aria-hidden="true">⌄</span>
+      View all ingredients <svg class="lp6-ing-va-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
     <div class="lp6-ing-panel" id="lp6-ing-panel">
       <div class="lp6-ing-panel-inner">
@@ -5221,7 +5222,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
         <div class="lp6-ing-never-pill"><b>NEVER:</b> Parabens · PEGs · Synthetic Dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
         <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-ing-panel-cta">Get My Tester Pack — $30 →</a>
-        <button type="button" class="lp6-ing-va-close" id="lp6-ing-va-close">Close ⌃</button>
+        <button type="button" class="lp6-ing-va-close" id="lp6-ing-va-close">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"></polyline></svg></button>
       </div>
     </div>
   </div>
@@ -5481,7 +5482,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   if(!stickyEl) return;
   var threshold = 280;
   // Hide the sticky bar whenever a REAL CTA (buy box or in-page button) is on screen — prevents two CTAs stacking.
-  var ctas = document.querySelectorAll('.lp6-buy-box, .lp6-hiw-cta');
+  var ctas = document.querySelectorAll('.lp6-buy-box, .lp6-hiw-cta, .lp6-ing-panel-cta');
   var visibleCount = 0;
   function check(){
     var show = window.scrollY > threshold && visibleCount === 0;
