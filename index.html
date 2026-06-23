@@ -2181,10 +2181,9 @@ body .lp6-buy-box .lp6-buy-cta:hover {
   position: relative;
   width: 220px;
   aspect-ratio: 9 / 16;
-  border-radius: 10px;
+  border-radius: 0;
   overflow: hidden;
   background: #1A1A1A;
-  box-shadow: 0 2px 6px rgba(31, 27, 22, 0.05), 0 1px 3px rgba(74, 53, 38, 0.06);
 }
 .lp6-vid-wrap video {
   width: 100%;
@@ -2797,7 +2796,7 @@ body .lp6-grnt-check {
 .lp6-vids-marquee::-webkit-scrollbar { display: none; }
 .lp6-vids-track-auto {
   display: flex !important;
-  gap: 6px !important;
+  gap: 0 !important;
   padding: 4px 0 8px !important;
   margin: 0 !important;
   overflow: visible !important;
@@ -2815,44 +2814,40 @@ body .lp6-grnt-check {
   .lp6-vids-track-auto { animation: none; }
 }
 </style>
-<script id="lp6-vids-manual-scroll">
-/* Manual swipe/scroll on the auto-marquee:
-   - Pause the CSS animation while user is touching/dragging
-   - Convert finger gesture into horizontal scrollLeft so user can swipe through
-   - Resume auto-marquee 2.5s after touch ends
-   - Preserves desktop hover-pause behavior */
+<script id="lp6-vids-autoscroll">
+/* JS-driven auto-scroll for the UGC carousel.
+   Works regardless of the user's "reduce motion" OS setting (CSS marquee did not — that's why it looked frozen).
+   Content is duplicated (Set A + Set B), so we loop seamlessly by subtracting half the track width.
+   Pauses while the user swipes/hovers, resumes shortly after. */
 (function () {
   function init() {
-    var carousels = document.querySelectorAll('.lp6-vids-marquee');
-    carousels.forEach(function (c) {
-      var resumeTimer = null;
-      function pause() {
-        c.classList.add('lp6-vids-paused');
-        if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+    document.querySelectorAll('.lp6-vids-marquee').forEach(function (marquee) {
+      var track = marquee.querySelector('.lp6-vids-track-auto');
+      if (!track) return;
+      // Take over from the CSS animation
+      track.style.animation = 'none';
+      track.style.transform = 'none';
+      var speed = 0.5;           // px per frame (~30px/s at 60fps)
+      var pos = 0, paused = false, resumeTimer = null;
+      function pause(){ paused = true; if (resumeTimer){ clearTimeout(resumeTimer); resumeTimer = null; } }
+      function resumeLater(){ if (resumeTimer) clearTimeout(resumeTimer); resumeTimer = setTimeout(function(){ pos = marquee.scrollLeft; paused = false; }, 1800); }
+      ['touchstart','pointerdown','mousedown'].forEach(function(e){ marquee.addEventListener(e, pause, {passive:true}); });
+      ['touchend','pointerup','pointercancel','mouseup'].forEach(function(e){ marquee.addEventListener(e, resumeLater, {passive:true}); });
+      marquee.addEventListener('mouseenter', pause);
+      marquee.addEventListener('mouseleave', resumeLater);
+      function step(){
+        if (!paused) {
+          var half = track.scrollWidth / 2;   // width of one full set (content is duplicated)
+          pos += speed;
+          if (half > 0 && pos >= half) { pos -= half; }
+          marquee.scrollLeft = pos;            // assign from float accumulator (avoids sub-pixel rounding stall)
+        }
+        requestAnimationFrame(step);
       }
-      function resumeLater() {
-        if (resumeTimer) clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(function () {
-          c.classList.remove('lp6-vids-paused');
-          // Snap scrollLeft back to 0 so animation resumes from its current visual position
-          c.scrollLeft = 0;
-        }, 2500);
-      }
-      ['touchstart', 'pointerdown', 'mousedown'].forEach(function (ev) {
-        c.addEventListener(ev, pause, { passive: true });
-      });
-      ['touchend', 'pointerup', 'pointercancel', 'mouseup', 'mouseleave'].forEach(function (ev) {
-        c.addEventListener(ev, resumeLater, { passive: true });
-      });
-      // Also pause while user is actively scrolling (in case it's via inertia, not touch)
-      c.addEventListener('scroll', function () { pause(); resumeLater(); }, { passive: true });
+      requestAnimationFrame(step);
     });
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
 })();
 </script>
 
@@ -5047,7 +5042,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       <!-- Set A — primary -->
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
-          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="auto" fetchpriority="high"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
       </div>
