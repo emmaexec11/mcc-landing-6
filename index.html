@@ -3186,27 +3186,29 @@ body .lp6-grnt-check {
 <style id="lp6-freshbatch-css">
 /* SMALL-BATCH / FRESH — honest scarcity (no timer, no fake counter, always true) */
 .lp6-freshbatch{
-  max-width:344px;
-  margin:6px auto 16px;
+  max-width:330px;
+  margin:9px auto 16px;
+  padding:13px 0 14px;
   text-align:center;
   font-family:"Inter",-apple-system,sans-serif;
+  border-top:1px solid rgba(181,105,79,.22);
+  border-bottom:1px solid rgba(181,105,79,.22);
 }
 .lp6-fb-eyebrow{
-  display:flex;align-items:center;justify-content:center;gap:10px;
+  display:block;
   font-size:10px;font-weight:700;
-  letter-spacing:.17em;text-transform:uppercase;
-  color:#6E2B3D;
-  margin-bottom:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#B5694F;
+  margin-bottom:8px;
 }
-.lp6-fb-rule{display:block;width:22px;height:1px;background:rgba(110,43,61,.25);}
 .lp6-fb-line{
-  font-size:13.5px;line-height:1.5;
+  font-size:14px;line-height:1.5;
   color:#5A4038;letter-spacing:-.005em;margin:0;
 }
-.lp6-fb-line b{color:#2A2320;font-weight:700;}
+.lp6-fb-line b{display:block;color:#2A2320;font-weight:700;margin-top:1px;}
 @media (max-width:380px){
-  .lp6-freshbatch{max-width:310px;}
-  .lp6-fb-line{font-size:12.5px;}
+  .lp6-freshbatch{max-width:312px;}
+  .lp6-fb-line{font-size:13px;}
 }
 /* Light scroll-reveal — below-the-fold sections only; classes applied by JS so no-JS users see everything, hero never touched (FCP-safe) */
 .lp6-reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1);}
@@ -4913,8 +4915,8 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       <span class="lp6-buy-save">SAVE $60</span>
     </div>
     <div class="lp6-freshbatch" id="lp6-freshbatch">
-      <span class="lp6-fb-eyebrow"><span class="lp6-fb-rule" aria-hidden="true"></span>Small Batch · Made Fresh<span class="lp6-fb-rule" aria-hidden="true"></span></span>
-      <p class="lp6-fb-line">Sold out 7 times. Only 50 per batch.<br><b>Get yours before this one's gone.</b></p>
+      <span class="lp6-fb-eyebrow">Sold out 7 times</span>
+      <p class="lp6-fb-line">Only 50 per small batch.<br><b>Get yours before this one's gone.</b></p>
     </div>
 
     <!-- Magic Spoon-style fused pill: left qty (outlined) + right ATC (solid) -->
