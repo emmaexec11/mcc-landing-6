@@ -5139,13 +5139,13 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 <style id="lp6-ing-chip-css">
 /* Compact ingredient list — hover (desktop) or tap (mobile) any ingredient to pop a tooltip bubble below it. Short by default, detail on demand. */
 .lp6-ing-hint{font-weight:400;color:#A89A8F;font-size:.82em;}
-.lp6-ing-chiplist{max-width:600px;margin:10px auto 0;text-align:center;line-height:2.2;font-size:13.5px;}
-.lp6-ing-sep{color:#CBBDB2;margin:0 1px;}
-.lp6-ing-chip{position:relative;display:inline-block;cursor:pointer;font-weight:600;color:#5A4038;border-bottom:1px dotted rgba(181,105,79,.6);transition:color .15s ease;outline:none;}
-.lp6-ing-chip:hover,.lp6-ing-chip:focus{color:#B5694F;}
+.lp6-ing-chiplist{max-width:540px;margin:12px auto 0;padding:0 6px;text-align:center;line-height:1.95;font-size:13.5px;color:#5A4038;}
+.lp6-ing-sep{color:#D2C6BB;margin:0 5px;}
+.lp6-ing-chip{position:relative;display:inline-block;cursor:pointer;font-weight:600;color:#5A4038;border-bottom:1px dotted transparent;transition:color .15s ease,border-color .15s ease;outline:none;}
+.lp6-ing-chip:hover,.lp6-ing-chip:focus{color:#B5694F;border-bottom-color:rgba(181,105,79,.55);}
 .lp6-ing-bubble{
   position:absolute;left:50%;top:calc(100% + 9px);transform:translateX(-50%) translateY(4px);
-  width:200px;background:#2A2320;color:#FBF4EC;
+  width:185px;background:#2A2320;color:#FBF4EC;
   font-size:12px;font-weight:400;line-height:1.45;letter-spacing:-.002em;
   padding:9px 12px;border-radius:10px;text-align:left;
   opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease,transform .15s ease;
@@ -5461,32 +5461,28 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
 <script id="lp6-sticky-cta-scroll">
 (function(){
-  var stickyEl;
-  function ensure(){
-    stickyEl = document.querySelector('.lp6-sticky-cta');
-    return !!stickyEl;
-  }
+  var stickyEl = document.querySelector('.lp6-sticky-cta');
+  if(!stickyEl) return;
   var threshold = 280;
+  // Hide the sticky bar whenever a REAL CTA (buy box or in-page button) is on screen — prevents two CTAs stacking.
+  var ctas = document.querySelectorAll('.lp6-buy-box, .lp6-hiw-cta');
+  var visibleCount = 0;
   function check(){
-    if (!stickyEl && !ensure()) return;
-    if (window.scrollY > threshold) {
-      stickyEl.classList.add('lp6-sticky-show');
-    } else {
-      stickyEl.classList.remove('lp6-sticky-show');
-    }
+    var show = window.scrollY > threshold && visibleCount === 0;
+    stickyEl.classList[show ? 'add' : 'remove']('lp6-sticky-show');
   }
-  function start(){
-    ensure();
-    window.addEventListener('scroll', check, {passive:true});
-    window.addEventListener('touchmove', check, {passive:true});
-    window.addEventListener('resize', check, {passive:true});
-    check();
+  if ('IntersectionObserver' in window && ctas.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.__ctaVis = e.isIntersecting; });
+      visibleCount = [].filter.call(ctas, function(c){ return c.__ctaVis; }).length;
+      check();
+    }, {threshold:0.12});
+    ctas.forEach(function(c){ io.observe(c); });
   }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
+  window.addEventListener('scroll', check, {passive:true});
+  window.addEventListener('touchmove', check, {passive:true});
+  window.addEventListener('resize', check, {passive:true});
+  if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', check); } else { check(); }
 })();
 </script>
 
