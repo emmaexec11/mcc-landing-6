@@ -5136,20 +5136,27 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   </div>
 </section>
 
-<style id="lp6-ing-accordion-css">
-/* Tap-to-expand ingredient explainer — native <details>, no JS, mobile-friendly. Reinforces the clean story. */
-.lp6-ing-accordion{display:flex;flex-direction:column;gap:6px;max-width:560px;margin:14px auto 0;text-align:left;}
-.lp6-ing-item{border:1px solid rgba(110,43,61,.12);border-radius:11px;background:#FFFCF8;overflow:hidden;transition:border-color .2s ease;}
-.lp6-ing-item[open]{border-color:rgba(181,105,79,.4);}
-.lp6-ing-item summary{list-style:none;cursor:pointer;padding:12px 15px;font-family:"Inter",-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#2A2320;display:flex;align-items:center;gap:8px;}
-.lp6-ing-item summary::-webkit-details-marker{display:none;}
-.lp6-ing-item summary::after{content:"+";margin-left:auto;color:#B5694F;font-size:19px;font-weight:400;line-height:1;flex-shrink:0;}
-.lp6-ing-item[open] summary::after{content:"\2212";}
-.lp6-ing-tag{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5E7B52;background:rgba(94,123,82,.1);padding:2px 7px;border-radius:99px;white-space:nowrap;}
-.lp6-ing-item p{margin:0;padding:0 15px 13px;font-size:12.5px;line-height:1.55;color:#5A4038;}
-@media (max-width:380px){
-  .lp6-ing-item summary{font-size:12.5px;padding:11px 13px;}
-  .lp6-ing-item p{font-size:12px;padding:0 13px 12px;}
+<style id="lp6-ing-chip-css">
+/* Compact ingredient list — hover (desktop) or tap (mobile) any ingredient to pop a tooltip bubble below it. Short by default, detail on demand. */
+.lp6-ing-hint{font-weight:400;color:#A89A8F;font-size:.82em;}
+.lp6-ing-chiplist{max-width:600px;margin:10px auto 0;text-align:center;line-height:2.2;font-size:13.5px;}
+.lp6-ing-sep{color:#CBBDB2;margin:0 1px;}
+.lp6-ing-chip{position:relative;display:inline-block;cursor:pointer;font-weight:600;color:#5A4038;border-bottom:1px dotted rgba(181,105,79,.6);transition:color .15s ease;outline:none;}
+.lp6-ing-chip:hover,.lp6-ing-chip:focus{color:#B5694F;}
+.lp6-ing-bubble{
+  position:absolute;left:50%;top:calc(100% + 9px);transform:translateX(-50%) translateY(4px);
+  width:200px;background:#2A2320;color:#FBF4EC;
+  font-size:12px;font-weight:400;line-height:1.45;letter-spacing:-.002em;
+  padding:9px 12px;border-radius:10px;text-align:left;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease,transform .15s ease;
+  z-index:30;box-shadow:0 6px 22px rgba(42,35,32,.25);
+}
+.lp6-ing-bubble b{color:#E8B79E;font-weight:700;}
+.lp6-ing-bubble::before{content:"";position:absolute;left:50%;bottom:100%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:#2A2320;}
+.lp6-ing-chip:hover .lp6-ing-bubble,.lp6-ing-chip:focus .lp6-ing-bubble{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+@media (max-width:420px){
+  .lp6-ing-chiplist{font-size:12.5px;}
+  .lp6-ing-bubble{width:180px;}
 }
 </style>
 
@@ -5176,31 +5183,31 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   </div>
 
   <div class="lp6-ing-fulllist-card">
-    <div class="lp6-ing-fulllist-h">Every ingredient — tap any one to see what it is &amp; what it does</div>
-    <div class="lp6-ing-accordion">
-      <details class="lp6-ing-item"><summary>Myrica Berry Wax</summary><p>Bayberry fruit wax — gives the cream its smooth structure and even glide.</p></details>
-      <details class="lp6-ing-item"><summary>Shea Butter</summary><p>Rich plant butter that deeply moisturizes and softens skin.</p></details>
-      <details class="lp6-ing-item"><summary>Candelilla Wax</summary><p>Vegan plant wax that holds the formula together — our beeswax-free binder.</p></details>
-      <details class="lp6-ing-item"><summary>Coconut Oil</summary><p>Nourishing oil that conditions skin and adds a soft, creamy slip.</p></details>
-      <details class="lp6-ing-item"><summary>Jojoba Oil</summary><p>Liquid plant wax that mimics your skin's own oils — balancing and moisturizing.</p></details>
-      <details class="lp6-ing-item"><summary>Castor Oil</summary><p>Plant oil that adds a natural sheen and helps the colour glide on evenly.</p></details>
-      <details class="lp6-ing-item"><summary>Cetearyl <span class="lp6-ing-tag">plant-derived</span></summary><p>Coconut-derived fatty alcohol that smooths the texture and locks in moisture.</p></details>
-      <details class="lp6-ing-item"><summary>Sunflower Lecithin</summary><p>Natural sunflower emulsifier that keeps the cream soft and easy to blend.</p></details>
-      <details class="lp6-ing-item"><summary>Olive Squalane</summary><p>Olive-derived lightweight moisture that absorbs fast with zero grease.</p></details>
-      <details class="lp6-ing-item"><summary>Vitamin A</summary><p>Antioxidant that supports healthy, fresh-looking skin.</p></details>
-      <details class="lp6-ing-item"><summary>Vitamin E</summary><p>Antioxidant that protects skin and keeps the formula fresh.</p></details>
-      <details class="lp6-ing-item"><summary>Beet Root Powder</summary><p>Real beet — a natural source of soft pink-red colour.</p></details>
-      <details class="lp6-ing-item"><summary>Bamboo Silica</summary><p>From bamboo — adds a soft, silky, blurred finish.</p></details>
-      <details class="lp6-ing-item"><summary>Hyaluronic Acid</summary><p>A moisture magnet that holds water in the skin for a plump, dewy look.</p></details>
-      <details class="lp6-ing-item"><summary>Xanthan Gum</summary><p>Natural thickener from fermented plant sugars — gives the cream its texture.</p></details>
-      <details class="lp6-ing-item"><summary>Gum Arabic</summary><p>Natural tree-sap binder for a smooth, even feel.</p></details>
-      <details class="lp6-ing-item"><summary>Green Tea Extract</summary><p>Antioxidant-rich — helps soothe and protect skin.</p></details>
-      <details class="lp6-ing-item"><summary>Isoamyl Laurate <span class="lp6-ing-tag">plant-derived</span></summary><p>Silky, fast-absorbing plant emollient — our clean swap for silicones.</p></details>
-      <details class="lp6-ing-item"><summary>Raspberry Powder</summary><p>Real raspberry — natural berry colour plus antioxidants.</p></details>
-      <details class="lp6-ing-item"><summary>Bilberry Extract</summary><p>Wild berry — natural colour and antioxidants.</p></details>
-      <details class="lp6-ing-item"><summary>Iron Oxides</summary><p>Earth-derived mineral pigments — safe, stable natural colour.</p></details>
-      <details class="lp6-ing-item"><summary>Micas</summary><p>Natural mineral shimmer that catches the light.</p></details>
-    </div>
+    <div class="lp6-ing-fulllist-h">Full ingredient list <span class="lp6-ing-hint">— tap any ingredient to see what it does</span></div>
+    <p class="lp6-ing-chiplist">
+      <span class="lp6-ing-chip" tabindex="0">Myrica Berry Wax<span class="lp6-ing-bubble">Bayberry fruit wax — gives the cream its smooth structure and glide.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Shea Butter<span class="lp6-ing-bubble">Rich plant butter — deeply moisturizes and softens.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Candelilla Wax<span class="lp6-ing-bubble">Vegan plant wax — our beeswax-free binder that holds it together.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Coconut Oil<span class="lp6-ing-bubble">Nourishing oil — conditions skin and adds a creamy slip.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Jojoba Oil<span class="lp6-ing-bubble">Mimics your skin's own oils — balancing and moisturizing.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Castor Oil<span class="lp6-ing-bubble">Adds a natural sheen and helps the colour glide on evenly.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Cetearyl<span class="lp6-ing-bubble"><b>Plant-derived</b> (from coconut) — smooths texture and seals in moisture.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Sunflower Lecithin<span class="lp6-ing-bubble">Natural sunflower emulsifier — keeps the cream soft and blendable.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Olive Squalane<span class="lp6-ing-bubble">Olive-derived light moisture — absorbs fast with zero grease.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Vitamin A<span class="lp6-ing-bubble">Antioxidant — supports healthy, fresh-looking skin.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Vitamin E<span class="lp6-ing-bubble">Antioxidant — protects skin and keeps the formula fresh.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Beet Root Powder<span class="lp6-ing-bubble">Real beet — a natural source of soft pink-red colour.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Bamboo Silica<span class="lp6-ing-bubble">From bamboo — adds a soft, silky finish.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Hyaluronic Acid<span class="lp6-ing-bubble">Moisture magnet — holds water in skin for a plump, dewy look.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Xanthan Gum<span class="lp6-ing-bubble">Natural thickener from fermented plant sugars.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Gum Arabic<span class="lp6-ing-bubble">Natural tree-sap binder for a smooth, even feel.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Green Tea Extract<span class="lp6-ing-bubble">Antioxidant-rich — helps soothe and protect skin.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Isoamyl Laurate<span class="lp6-ing-bubble"><b>Plant-derived</b> — silky, fast-absorbing; our clean swap for silicones.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Raspberry Powder<span class="lp6-ing-bubble">Real raspberry — natural berry colour plus antioxidants.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Bilberry Extract<span class="lp6-ing-bubble">Wild berry — natural colour and antioxidants.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Iron Oxides<span class="lp6-ing-bubble">Earth-derived mineral pigments — safe, stable natural colour.</span></span><span class="lp6-ing-sep">·</span>
+      <span class="lp6-ing-chip" tabindex="0">Micas<span class="lp6-ing-bubble">Natural mineral shimmer that catches the light.</span></span>
+    </p>
   </div>
 
   <div class="lp6-ing-never-line">
