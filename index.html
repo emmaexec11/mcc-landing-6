@@ -5131,28 +5131,35 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   </div>
 </section>
 
-<style id="lp6-ing-chip-css">
-/* Compact ingredient list — hover (desktop) or tap (mobile) any ingredient to pop a tooltip bubble below it. Short by default, detail on demand. */
-.lp6-ing-hint{font-weight:400;color:#A89A8F;font-size:.82em;}
-.lp6-ing-chiplist{max-width:540px;margin:12px auto 0;padding:0 6px;text-align:center;line-height:1.95;font-size:13.5px;color:#5A4038;}
-.lp6-ing-sep{color:#D2C6BB;margin:0 5px;}
-.lp6-ing-chip{position:relative;display:inline-block;cursor:pointer;font-weight:600;color:#5A4038;border-bottom:1px dotted transparent;transition:color .15s ease,border-color .15s ease;outline:none;}
-.lp6-ing-chip:hover,.lp6-ing-chip:focus{color:#B5694F;border-bottom-color:rgba(181,105,79,.55);}
-.lp6-ing-bubble{
-  position:absolute;left:50%;top:calc(100% + 9px);transform:translateX(-50%) translateY(4px);
-  width:185px;background:#2A2320;color:#FBF4EC;
-  font-size:12px;font-weight:400;line-height:1.45;letter-spacing:-.002em;
-  padding:9px 12px;border-radius:10px;text-align:left;
-  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease,transform .15s ease;
-  z-index:30;box-shadow:0 6px 22px rgba(42,35,32,.25);
+<style id="lp6-ing-viewall-css">
+/* "View all ingredients" — slides open smoothly (not a pop-up). Benefit-grouped, emoji per ingredient,
+   objection-busting copy, NEVER contrast, and a buy CTA at the trust peak. Easy close top + bottom. */
+.lp6-ing-viewall{max-width:560px;margin:14px auto 0;}
+.lp6-ing-va-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#FFFCF8;border:1px solid rgba(110,43,61,.18);border-radius:12px;
+  padding:13px 18px;font-family:"Inter",-apple-system,sans-serif;font-size:13.5px;font-weight:700;
+  letter-spacing:.02em;color:#2A2320;cursor:pointer;transition:border-color .2s ease;
 }
-.lp6-ing-bubble b{color:#E8B79E;font-weight:700;}
-.lp6-ing-bubble::before{content:"";position:absolute;left:50%;bottom:100%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:#2A2320;}
-.lp6-ing-chip:hover .lp6-ing-bubble,.lp6-ing-chip:focus .lp6-ing-bubble{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-@media (max-width:420px){
-  .lp6-ing-chiplist{font-size:12.5px;}
-  .lp6-ing-bubble{width:180px;}
-}
+.lp6-ing-va-btn:hover{border-color:rgba(181,105,79,.45);}
+.lp6-ing-va-chev{color:#B5694F;font-size:16px;line-height:1;transition:transform .35s ease;display:inline-block;}
+.lp6-ing-va-btn[aria-expanded="true"] .lp6-ing-va-chev{transform:rotate(180deg);}
+.lp6-ing-panel{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1);}
+.lp6-ing-panel-inner{padding:6px 2px 4px;text-align:left;}
+.lp6-ing-group-h{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#B5694F;margin:18px 0 8px;}
+.lp6-ing-group-h:first-child{margin-top:12px;}
+.lp6-ing-row{display:flex;gap:11px;align-items:flex-start;padding:7px 4px;border-bottom:1px solid rgba(110,43,61,.06);}
+.lp6-ing-emoji{font-size:17px;line-height:1.45;flex-shrink:0;width:22px;text-align:center;}
+.lp6-ing-row p{margin:0;font-size:12.8px;line-height:1.5;color:#5A4038;}
+.lp6-ing-row b{color:#2A2320;font-weight:700;}
+.lp6-ing-row em{font-style:italic;}
+.lp6-ing-pd{font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5E7B52;background:rgba(94,123,82,.12);padding:2px 6px;border-radius:99px;white-space:nowrap;margin:0 1px;}
+.lp6-ing-never-pill{margin:18px 0 4px;padding:12px 14px;background:rgba(110,43,61,.05);border-radius:10px;font-size:11.5px;line-height:1.7;color:#5A4038;text-align:center;}
+.lp6-ing-never-pill b{color:#B5694F;font-weight:800;letter-spacing:.04em;}
+.lp6-ing-panel-cta{display:block;margin:16px auto 4px;max-width:330px;text-align:center;background:#2A2320;color:#FBF4EC;font-family:"Inter",-apple-system,sans-serif;font-size:15px;font-weight:700;padding:15px 20px;border-radius:99px;text-decoration:none;transition:transform .15s ease;}
+.lp6-ing-panel-cta:hover{transform:translateY(-1px);}
+.lp6-ing-va-close{display:block;margin:6px auto 2px;background:none;border:none;color:#A89A8F;font-family:"Inter",-apple-system,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;cursor:pointer;padding:9px;}
+.lp6-ing-va-close:hover{color:#B5694F;}
 </style>
 
 <section class="lp6-lp2 bg-bright" aria-label="Ingredient transparency">
@@ -5177,32 +5184,46 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     </div>
   </div>
 
-  <div class="lp6-ing-fulllist-card">
-    <div class="lp6-ing-fulllist-h">Full ingredient list <span class="lp6-ing-hint">— tap any ingredient to see what it does</span></div>
-    <p class="lp6-ing-chiplist">
-      <span class="lp6-ing-chip" tabindex="0">Myrica Berry Wax<span class="lp6-ing-bubble">Bayberry fruit wax — gives the cream its smooth structure and glide.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Shea Butter<span class="lp6-ing-bubble">Rich plant butter — deeply moisturizes and softens.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Candelilla Wax<span class="lp6-ing-bubble">Vegan plant wax — our beeswax-free binder that holds it together.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Coconut Oil<span class="lp6-ing-bubble">Nourishing oil — conditions skin and adds a creamy slip.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Jojoba Oil<span class="lp6-ing-bubble">Mimics your skin's own oils — balancing and moisturizing.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Castor Oil<span class="lp6-ing-bubble">Adds a natural sheen and helps the colour glide on evenly.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Cetearyl<span class="lp6-ing-bubble"><b>Plant-derived</b> (from coconut) — smooths texture and seals in moisture.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Sunflower Lecithin<span class="lp6-ing-bubble">Natural sunflower emulsifier — keeps the cream soft and blendable.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Olive Squalane<span class="lp6-ing-bubble">Olive-derived light moisture — absorbs fast with zero grease.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Vitamin A<span class="lp6-ing-bubble">Antioxidant — supports healthy, fresh-looking skin.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Vitamin E<span class="lp6-ing-bubble">Antioxidant — protects skin and keeps the formula fresh.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Beet Root Powder<span class="lp6-ing-bubble">Real beet — a natural source of soft pink-red colour.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Bamboo Silica<span class="lp6-ing-bubble">From bamboo — adds a soft, silky finish.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Hyaluronic Acid<span class="lp6-ing-bubble">Moisture magnet — holds water in skin for a plump, dewy look.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Xanthan Gum<span class="lp6-ing-bubble">Natural thickener from fermented plant sugars.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Gum Arabic<span class="lp6-ing-bubble">Natural tree-sap binder for a smooth, even feel.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Green Tea Extract<span class="lp6-ing-bubble">Antioxidant-rich — helps soothe and protect skin.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Isoamyl Laurate<span class="lp6-ing-bubble"><b>Plant-derived</b> — silky, fast-absorbing; our clean swap for silicones.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Raspberry Powder<span class="lp6-ing-bubble">Real raspberry — natural berry colour plus antioxidants.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Bilberry Extract<span class="lp6-ing-bubble">Wild berry — natural colour and antioxidants.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Iron Oxides<span class="lp6-ing-bubble">Earth-derived mineral pigments — safe, stable natural colour.</span></span><span class="lp6-ing-sep">·</span>
-      <span class="lp6-ing-chip" tabindex="0">Mineral Micas<span class="lp6-ing-bubble">Natural mineral pigment — adds soft, even colour.</span></span>
-    </p>
+  <div class="lp6-ing-viewall">
+    <button type="button" class="lp6-ing-va-btn" id="lp6-ing-va-btn" aria-expanded="false" aria-controls="lp6-ing-panel">
+      View all ingredients <span class="lp6-ing-va-chev" aria-hidden="true">⌄</span>
+    </button>
+    <div class="lp6-ing-panel" id="lp6-ing-panel">
+      <div class="lp6-ing-panel-inner">
+
+        <div class="lp6-ing-group-h">🎨 For colour</div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🍓</span><p><b>Raspberry Powder</b> — real raspberry; natural berry colour plus antioxidants.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🫐</span><p><b>Bilberry Extract</b> — wild berry; natural colour plus antioxidants.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🟣</span><p><b>Beet Root Powder</b> — real beet; a natural source of soft pink-red colour.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🪨</span><p><b>Iron Oxides</b> — safe earth-mineral pigment, the same gentle colour used in mineral makeup (not rust — totally inert).</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🤎</span><p><b>Mineral Micas</b> — natural mineral pigment that adds soft, even colour.</p></div>
+
+        <div class="lp6-ing-group-h">🌿 For your skin</div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🥥</span><p><b>Coconut Oil</b> — nourishing oil; conditions and adds a creamy slip.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌿</span><p><b>Jojoba Oil</b> — mimics your skin's own oils; balancing and moisturizing.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🫒</span><p><b>Olive Squalane</b> — olive-derived light moisture; absorbs fast with no grease.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🧈</span><p><b>Shea Butter</b> — rich plant butter; deep moisture and softness.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌰</span><p><b>Castor Oil</b> — natural sheen; helps the colour glide on evenly.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🍃</span><p><b>Cetearyl</b> <span class="lp6-ing-pd">plant-derived</span> — a <em>fatty</em> alcohol, NOT the drying kind. It softens and conditions.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌻</span><p><b>Sunflower Lecithin</b> — natural sunflower emulsifier; keeps it soft and creamy.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🍵</span><p><b>Green Tea Extract</b> — antioxidant-rich; helps soothe and protect.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🥕</span><p><b>Vitamin A</b> — antioxidant; supports healthy, fresh-looking skin.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">💧</span><p><b>Vitamin E</b> — antioxidant; protects skin and keeps the formula fresh.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">✨</span><p><b>Hyaluronic Acid</b> — a moisture magnet; holds water in skin for a plump, dewy look.</p></div>
+
+        <div class="lp6-ing-group-h">💋 For texture &amp; wear</div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🍂</span><p><b>Myrica Berry Wax</b> — bayberry fruit wax; smooth structure and glide.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌵</span><p><b>Candelilla Wax</b> — vegan plant wax; our beeswax-free binder.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🎋</span><p><b>Bamboo Silica</b> — from bamboo; a soft, silky finish.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌾</span><p><b>Xanthan Gum</b> — natural thickener from fermented plant sugars.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌳</span><p><b>Gum Arabic</b> — natural tree-sap binder for a smooth, even feel.</p></div>
+        <div class="lp6-ing-row"><span class="lp6-ing-emoji">🧴</span><p><b>Isoamyl Laurate</b> <span class="lp6-ing-pd">plant-derived</span> — silky, fast-absorbing; our clean swap for silicones.</p></div>
+
+        <div class="lp6-ing-never-pill"><b>NEVER:</b> Parabens · PEGs · Synthetic Dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
+        <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-ing-panel-cta">Get My Tester Pack — $30 →</a>
+        <button type="button" class="lp6-ing-va-close" id="lp6-ing-va-close">Close ⌃</button>
+      </div>
+    </div>
   </div>
 
   <div class="lp6-ing-never-line">
@@ -5733,6 +5754,22 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   var ticking=false;
   function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ sweep(); ticking=false; }); } }
   window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+
+<script id="lp6-ing-viewall-js">
+/* Smooth slide-open for the ingredient panel. Easy to close from the top button OR the bottom "Close" link. */
+(function(){
+  var btn = document.getElementById('lp6-ing-va-btn');
+  var panel = document.getElementById('lp6-ing-panel');
+  var closeBtn = document.getElementById('lp6-ing-va-close');
+  if(!btn || !panel) return;
+  function setLabel(open){ if(btn.childNodes[0]) btn.childNodes[0].nodeValue = (open ? 'Hide ingredients ' : 'View all ingredients '); }
+  function open(){ btn.setAttribute('aria-expanded','true'); panel.style.maxHeight = panel.scrollHeight + 'px'; setLabel(true); }
+  function close(){ btn.setAttribute('aria-expanded','false'); panel.style.maxHeight = '0px'; setLabel(false); }
+  btn.addEventListener('click', function(){ btn.getAttribute('aria-expanded')==='true' ? close() : open(); });
+  if(closeBtn) closeBtn.addEventListener('click', function(){ close(); btn.scrollIntoView({block:'center', behavior:'smooth'}); });
+  window.addEventListener('resize', function(){ if(btn.getAttribute('aria-expanded')==='true'){ panel.style.maxHeight = panel.scrollHeight + 'px'; } });
 })();
 </script>
 </body>
