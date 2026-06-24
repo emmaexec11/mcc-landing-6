@@ -4548,7 +4548,7 @@ body .lp6-pain-stats-v3 .lp6-stat-card {
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-end !important;
+  justify-content: flex-start !important; /* top-align numbers on mobile (was flex-end, which floated the 3-line middle stat up) */
   align-items: center !important;
 }
 body .lp6-pain-stats-v3 .lp6-stat-number {
