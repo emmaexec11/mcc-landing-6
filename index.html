@@ -2789,9 +2789,7 @@ body .lp6-grnt-check {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* Soft fade on the edges */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
+  /* edge fade removed — it was painted on this scrolling element, so it drifted left with the scroll */
 }
 .lp6-vids-marquee::-webkit-scrollbar { display: none; }
 .lp6-vids-track-auto {
@@ -4385,27 +4383,12 @@ body .lp6-hiw-collage-left {
   justify-content: space-between !important;
 }
 
-/* #3 Video carousel — soft side fade so partial edge cards look intentional */
+/* #3 Video carousel — side fade removed. It was painted with absolutely-positioned
+   ::before/::after gradients INSIDE the horizontally-scrolling element, so the white
+   gradient was anchored to the scroll content and drifted left as the carousel auto-scrolled
+   (the "white line that won't stay in place"). Crisp edges instead. */
 body .lp6-vids-marquee {
   position: relative !important;
-}
-body .lp6-vids-marquee::before,
-body .lp6-vids-marquee::after {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  width: 30px !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-}
-body .lp6-vids-marquee::before {
-  left: 0 !important;
-  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0) 100%) !important;
-}
-body .lp6-vids-marquee::after {
-  right: 0 !important;
-  background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%) !important;
 }
 /* tighten hero — pill sits higher on image, headline pulled UP via negative margin */
 body .lp6-hero-image-wrap {
@@ -5220,8 +5203,6 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
         <div class="lp6-ing-row"><span class="lp6-ing-emoji">🌳</span><p><b>Gum Arabic</b> — natural tree-sap binder for a smooth, even feel.</p></div>
         <div class="lp6-ing-row"><span class="lp6-ing-emoji">🧴</span><p><b>Isoamyl Laurate</b> <span class="lp6-ing-pd">plant-derived</span> — silky, fast-absorbing; our clean swap for silicones.</p></div>
 
-        <div class="lp6-ing-never-pill"><b>NEVER:</b> Parabens · PEGs · Synthetic Dyes · Talc · Fragrance · Phthalates · Petroleum · Carmine</div>
-        <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-ing-panel-cta">Get My Tester Pack — $30 →</a>
         <button type="button" class="lp6-ing-va-close" id="lp6-ing-va-close">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"></polyline></svg></button>
       </div>
     </div>
