@@ -2183,7 +2183,7 @@ body .lp6-buy-box .lp6-buy-cta:hover {
   aspect-ratio: 9 / 16;
   border-radius: 0;
   overflow: hidden;
-  background: #1A1A1A;
+  background: #EFE6DA; /* cream fallback while a clip buffers — was #1A1A1A, which flashed as a black square on fast scroll */
 }
 .lp6-vid-wrap video {
   width: 100%;
@@ -2822,6 +2822,13 @@ body .lp6-grnt-check {
     document.querySelectorAll('.lp6-vids-marquee').forEach(function (marquee) {
       var track = marquee.querySelector('.lp6-vids-track-auto');
       if (!track) return;
+      // Keep every clip buffered + playing so none flashes black when it scrolls into view
+      marquee.querySelectorAll('video').forEach(function (v) {
+        v.muted = true;
+        try { v.preload = 'auto'; } catch (e) {}
+        var go = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+        if (v.readyState >= 2) { go(); } else { v.addEventListener('loadeddata', go, { once: true }); try { v.load(); } catch (e) {} }
+      });
       // Take over from the CSS animation
       track.style.animation = 'none';
       track.style.transform = 'none';
