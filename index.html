@@ -2834,7 +2834,7 @@ body .lp6-grnt-check {
   overflow: visible !important;
   scroll-snap-type: none !important;
   width: max-content !important;
-  animation: lp6-vid-marquee 40s linear infinite;
+  animation: lp6-vid-marquee 80s linear infinite;
 }
 .lp6-vids-marquee:hover .lp6-vids-track-auto,
 .lp6-vids-marquee.lp6-vids-paused .lp6-vids-track-auto { animation-play-state: paused; }
@@ -2866,7 +2866,7 @@ body .lp6-grnt-check {
       // Take over from the CSS animation
       track.style.animation = 'none';
       track.style.transform = 'none';
-      var speed = 0.5;           // px per frame (~30px/s at 60fps)
+      var speed = 0.25;          // px per frame (~15px/s at 60fps) — slow enough to actually watch each clip
       var pos = 0, paused = false, resumeTimer = null;
       function pause(){ paused = true; if (resumeTimer){ clearTimeout(resumeTimer); resumeTimer = null; } }
       function resumeLater(){ if (resumeTimer) clearTimeout(resumeTimer); resumeTimer = setTimeout(function(){ pos = marquee.scrollLeft; paused = false; }, 1800); }
