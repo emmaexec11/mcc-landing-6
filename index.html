@@ -2867,13 +2867,35 @@ body .lp6-grnt-check {
       track.style.animation = 'none';
       track.style.transform = 'none';
       var speed = 0.25;          // px per frame (~15px/s at 60fps) — slow enough to actually watch each clip
-      var pos = 0, paused = false, resumeTimer = null;
+      // Animation is GATED by viewport: only runs while the section is on screen so the
+      // FIRST VIDEO is always the starting frame when the viewer arrives. Otherwise the
+      // marquee would have been scrolling since page load and the viewer would land
+      // somewhere mid-rotation.
+      var pos = 0, paused = true, inView = false, resumeTimer = null;
       function pause(){ paused = true; if (resumeTimer){ clearTimeout(resumeTimer); resumeTimer = null; } }
-      function resumeLater(){ if (resumeTimer) clearTimeout(resumeTimer); resumeTimer = setTimeout(function(){ pos = marquee.scrollLeft; paused = false; }, 1800); }
+      function resumeLater(){
+        if (!inView) return;  // never resume when off-screen
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function(){ pos = marquee.scrollLeft; paused = false; }, 1800);
+      }
       ['touchstart','pointerdown','mousedown'].forEach(function(e){ marquee.addEventListener(e, pause, {passive:true}); });
       ['touchend','pointerup','pointercancel','mouseup'].forEach(function(e){ marquee.addEventListener(e, resumeLater, {passive:true}); });
       marquee.addEventListener('mouseenter', pause);
       marquee.addEventListener('mouseleave', resumeLater);
+      // Viewport gating — pause when off-screen, resume immediately when on-screen.
+      if ('IntersectionObserver' in window) {
+        var vio = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            inView = e.isIntersecting;
+            if (inView) { paused = false; }
+            else { paused = true; }
+          });
+        }, { threshold: 0.15 });
+        vio.observe(marquee);
+      } else {
+        // Older browsers: just run immediately
+        inView = true; paused = false;
+      }
       function step(){
         if (!paused) {
           var half = track.scrollWidth / 2;   // width of one full set (content is duplicated)
