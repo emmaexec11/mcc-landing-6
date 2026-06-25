@@ -5024,52 +5024,6 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   </div>
 </section>
 
-<!-- Optional pre-checkout add-on: 2-shade bundle. Placed mid-page (after How It Works,
-     before Customer Videos / proof) so 70-80% of scrollers see it, with zero conversion
-     risk to the main hero CTA. Locked bundle (not individual picks) = single yes/no
-     decision = lowest cognitive load. Real product tin photos (not abstract swatches)
-     for instant visual recognition. -->
-<section class="lp6-bundle-midpage" aria-label="Optional shade add-on">
-  <div class="lp6-bundle-midpage-inner">
-    <div class="lp6-bundle-eyebrow-light">+ OPTIONAL ADD-ON</div>
-    <h3 class="lp6-bundle-headline">Add 2 More Shades to Your Pack?</h3>
-    <p class="lp6-bundle-sub">Your tester pack has 3 shades. Add these 2 for a complete 5-shade wardrobe — normally $50, today just $20.</p>
-
-    <label class="lp6-bundle-card" for="lp6-bundle-check">
-      <input type="checkbox" id="lp6-bundle-check" class="lp6-bundle-check" aria-label="Add Terracotta Sunset + Rosewood Multi-Colour Creams for $20">
-
-      <div class="lp6-bundle-products">
-        <div class="lp6-bundle-product">
-          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Colour_Cream_Terracotta_Sunset_natural_makeup.jpg?v=1761240386&width=240&format=webp" alt="Terracotta Sunset Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
-          <span class="lp6-bundle-shade">Terracotta Sunset</span>
-          <span class="lp6-bundle-shade-note">warm orange-bronze</span>
-        </div>
-        <div class="lp6-bundle-plus" aria-hidden="true">+</div>
-        <div class="lp6-bundle-product">
-          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/rosewood-natural-multi-colour-cream-in-metal-tin.jpg?v=1750713033&width=240&format=webp" alt="Rosewood Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
-          <span class="lp6-bundle-shade">Rosewood</span>
-          <span class="lp6-bundle-shade-note">soft rose-pink</span>
-        </div>
-      </div>
-
-      <div class="lp6-bundle-action">
-        <div class="lp6-bundle-pricing">
-          <span class="lp6-bundle-price-now">$20</span>
-          <span class="lp6-bundle-price-was">$49.90</span>
-          <span class="lp6-bundle-save">Save $29.90</span>
-        </div>
-        <div class="lp6-bundle-toggle-pill" aria-hidden="true">
-          <span class="lp6-bundle-toggle-label-off">Tap to add</span>
-          <span class="lp6-bundle-toggle-label-on">✓ Added</span>
-          <div class="lp6-bundle-switch"></div>
-        </div>
-      </div>
-    </label>
-
-    <p class="lp6-bundle-finetext">No commitment — uncheck anytime. Total at checkout adjusts automatically.</p>
-  </div>
-</section>
-
 <section class="lp6-lp2 bg-cream" aria-label="Customer videos">
   <h2 class="lp6-lp2-h2">People are obsessed.</h2>
 
@@ -5204,7 +5158,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
    so 70-80% of scrollers see it without competing with the main hero CTA decision.
    Real product tin photos (not abstract swatches) for instant visual clarity. */
 .lp6-bundle-midpage {
-  background: linear-gradient(180deg, #faf6ee 0%, #f4ede0 100%);
+  background: #FFFFFF;
   padding: 44px 20px 50px;
 }
 .lp6-bundle-midpage-inner {
@@ -5239,8 +5193,8 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 }
 .lp6-bundle-card {
   display: block;
-  background: #fffaf2;
-  border: 2px solid #e0d4c0;
+  background: #FAF6EE;
+  border: 2px solid #E5DCC8;
   border-radius: 14px;
   padding: 20px 18px;
   cursor: pointer;
@@ -5249,10 +5203,10 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   -webkit-tap-highlight-color: transparent;
   position: relative;
 }
-.lp6-bundle-card:hover { border-color: #c8b9a3; }
+.lp6-bundle-card:hover { border-color: #B5694F; }
 .lp6-bundle-card.is-checked {
-  border-color: #6E2B3D;
-  background: linear-gradient(180deg, #fffaf2 0%, #f6ecec 100%);
+  border-color: #B5694F;
+  background: linear-gradient(180deg, #FAF6EE 0%, #F2E7DC 100%);
 }
 .lp6-bundle-check {
   position: absolute;
@@ -5339,7 +5293,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   font-weight: 700;
   letter-spacing: .04em;
   color: #fff;
-  background: #B5694F;
+  background: #4A7C59;
   padding: 3px 8px;
   border-radius: 4px;
   text-transform: uppercase;
@@ -5348,7 +5302,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #6E2B3D;
+  background: #1A1A1A;
   color: #fff;
   padding: 10px 14px 10px 16px;
   border-radius: 999px;
@@ -5362,7 +5316,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 .lp6-bundle-toggle-label-on { display: none; }
 .lp6-bundle-card.is-checked .lp6-bundle-toggle-label-off { display: none; }
 .lp6-bundle-card.is-checked .lp6-bundle-toggle-label-on { display: inline; }
-.lp6-bundle-card.is-checked .lp6-bundle-toggle-pill { background: #5A2233; }
+.lp6-bundle-card.is-checked .lp6-bundle-toggle-pill { background: #4A7C59; }
 .lp6-bundle-switch {
   position: relative;
   width: 28px;
@@ -5384,7 +5338,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 }
 .lp6-bundle-card.is-checked .lp6-bundle-switch { background: rgba(250,246,238,0.55); }
 .lp6-bundle-card.is-checked .lp6-bundle-switch::after { transform: translateX(12px); }
-.lp6-bundle-card:focus-within { outline: 2px solid #6E2B3D; outline-offset: 3px; }
+.lp6-bundle-card:focus-within { outline: 2px solid #B5694F; outline-offset: 3px; }
 .lp6-bundle-finetext {
   font-family: "Inter", -apple-system, sans-serif;
   font-size: 11.5px;
@@ -5634,6 +5588,50 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
         <div class="lp6-sp-review-name"><b>Shaye</b><span>·</span><span class="lp6-sp-verified">Verified buyer</span></div>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- Optional pre-checkout 2-shade bundle. Placed AFTER all social proof (testimonials,
+     before-after, reviews) so visitors who reach it are convinced and ready to act.
+     Lowest possible conversion impact + highest qualified-buyer attach rate. -->
+<section class="lp6-bundle-midpage" aria-label="Optional shade add-on">
+  <div class="lp6-bundle-midpage-inner">
+    <div class="lp6-bundle-eyebrow-light">+ OPTIONAL ADD-ON</div>
+    <h3 class="lp6-bundle-headline">Add 2 More Shades to Your Pack?</h3>
+    <p class="lp6-bundle-sub">Your tester pack has 3 shades. Add these 2 for a complete 5-shade wardrobe — normally $50, today just $20.</p>
+
+    <label class="lp6-bundle-card" for="lp6-bundle-check">
+      <input type="checkbox" id="lp6-bundle-check" class="lp6-bundle-check" aria-label="Add Terracotta Sunset + Rosewood Multi-Colour Creams for $20">
+
+      <div class="lp6-bundle-products">
+        <div class="lp6-bundle-product">
+          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Colour_Cream_Terracotta_Sunset_natural_makeup.jpg?v=1761240386&width=240&format=webp" alt="Terracotta Sunset Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
+          <span class="lp6-bundle-shade">Terracotta Sunset</span>
+          <span class="lp6-bundle-shade-note">warm orange-bronze</span>
+        </div>
+        <div class="lp6-bundle-plus" aria-hidden="true">+</div>
+        <div class="lp6-bundle-product">
+          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/rosewood-natural-multi-colour-cream-in-metal-tin.jpg?v=1750713033&width=240&format=webp" alt="Rosewood Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
+          <span class="lp6-bundle-shade">Rosewood</span>
+          <span class="lp6-bundle-shade-note">soft rose-pink</span>
+        </div>
+      </div>
+
+      <div class="lp6-bundle-action">
+        <div class="lp6-bundle-pricing">
+          <span class="lp6-bundle-price-now">$20</span>
+          <span class="lp6-bundle-price-was">$49.90</span>
+          <span class="lp6-bundle-save">Save $29.90</span>
+        </div>
+        <div class="lp6-bundle-toggle-pill" aria-hidden="true">
+          <span class="lp6-bundle-toggle-label-off">Tap to add</span>
+          <span class="lp6-bundle-toggle-label-on">✓ Added</span>
+          <div class="lp6-bundle-switch"></div>
+        </div>
+      </div>
+    </label>
+
+    <p class="lp6-bundle-finetext">No commitment — uncheck anytime. Total at checkout adjusts automatically.</p>
   </div>
 </section>
 
