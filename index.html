@@ -5929,8 +5929,11 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   var stickyEl = document.querySelector('.lp6-sticky-cta');
   if(!stickyEl) return;
   var threshold = 280;
-  // Hide the sticky bar whenever a REAL CTA (buy box or in-page button) is on screen — prevents two CTAs stacking.
-  var ctas = document.querySelectorAll('.lp6-buy-box, .lp6-hiw-cta, .lp6-ing-panel-cta');
+  // Hide the sticky bar only when the HERO BUY BOX is on screen — prevents two CTAs stacking
+  // in the same viewport. We DON'T hide on every in-page .lp6-hiw-cta because there are
+  // multiple scattered throughout the page (HIW section, after-customers, final CTA, etc.)
+  // and each one passing into view caused the sticky to flicker on/off as users scrolled.
+  var ctas = document.querySelectorAll('.lp6-buy-box');
   var visibleCount = 0;
   function check(){
     var show = window.scrollY > threshold && visibleCount === 0;
