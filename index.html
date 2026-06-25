@@ -5139,25 +5139,42 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 </section>
 
 <!-- BEFORE / AFTER — AI-generated photoreal -->
-<section class="lp6-lp2 bg-bright lp6-ba-section" aria-label="Before and after">
-  <h2 class="lp6-lp2-h2">See the real difference.</h2>
-  <p class="lp6-lp2-sub">No filters. No retouching. Just one tin of Multi-Colour Cream applied in 30 seconds.</p>
+<!-- Real customers / real shades — replaces the previous AI-generated before/after.
+     Mix of editorial and authentic UGC. Diverse demographics (redheads, brunettes,
+     blondes, freckles, with/without glasses, mature) showcasing the shade range. -->
+<section class="lp6-lp2 bg-bright lp6-customers-section" aria-label="Real customers wearing Multi-Colour Cream">
+  <h2 class="lp6-lp2-h2">Real beauty. Real shades.</h2>
+  <p class="lp6-lp2-sub">No filters. No retouching. Just our Multi-Colour Cream on real customers across every skin tone.</p>
 
-  <div class="lp6-ba-grid lp6-ba-grid-2">
-    <figure class="lp6-ba-card lp6-ba-card-pair">
-      <div class="lp6-ba-pair">
-        <div class="lp6-ba-pair-cell"><img src="ba-fl-before.jpg?v=5" alt="Customer before applying Fallen Leaves" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-before">BEFORE</span></div>
-        <div class="lp6-ba-pair-cell"><img src="ba-fl-after.jpg?v=5" alt="Customer after applying Fallen Leaves" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-after">AFTER</span></div>
-      </div>
-      <figcaption>Fallen Leaves · cranberry on lips + cheeks</figcaption>
+  <div class="lp6-customers-grid">
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-1-redhead-closeup.jpg" alt="Customer with red hair and freckles wearing Raspberry Kiss" loading="lazy">
+      <figcaption>Raspberry Kiss · berry-pink on lips + soft pink eye</figcaption>
     </figure>
-    <figure class="lp6-ba-card lp6-ba-card-pair">
-      <div class="lp6-ba-pair">
-        <div class="lp6-ba-pair-cell"><img src="ba-rk-before.jpg?v=5" alt="Customer before applying Raspberry Kiss" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-before">BEFORE</span></div>
-        <div class="lp6-ba-pair-cell"><img src="ba-rk-after.jpg?v=5" alt="Customer after applying Raspberry Kiss" loading="lazy"><span class="lp6-ba-tag lp6-ba-tag-after">AFTER</span></div>
-      </div>
-      <figcaption>Raspberry Kiss · soft berry-pink glow</figcaption>
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-2-glasses-ugc.jpg" alt="Customer wearing Terracotta Sunset on lips and cheeks" loading="lazy">
+      <figcaption>Terracotta Sunset · warm bronze on lips + cheeks</figcaption>
     </figure>
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-3-mature-curls.jpg" alt="Customer with curly black hair wearing Rosewood" loading="lazy">
+      <figcaption>Rosewood · soft rose-pink on lips + cheeks</figcaption>
+    </figure>
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-4-redhead-outdoor.jpg" alt="Customer with red hair wearing Cherry Blossom" loading="lazy">
+      <figcaption>Cherry Blossom · soft pink everyday glow</figcaption>
+    </figure>
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-5-brunette-gold.jpg" alt="Customer with brown hair in gold top wearing Hazelnut" loading="lazy">
+      <figcaption>Hazelnut · warm nude on cheeks + lips</figcaption>
+    </figure>
+    <figure class="lp6-customer-card">
+      <img src="customer-photos/customer-6-brunette-halter.jpg" alt="Customer with long brown hair wearing Fallen Leaves" loading="lazy">
+      <figcaption>Fallen Leaves · deep cranberry editorial look</figcaption>
+    </figure>
+  </div>
+
+  <div style="text-align:center;margin-top:18px;">
+    <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
   </div>
 </section>
 
@@ -5191,6 +5208,54 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 .lp6-ing-va-close{display:flex;align-items:center;justify-content:center;gap:5px;margin:6px auto 2px;background:none;border:none;color:#A89A8F;font-family:"Inter",-apple-system,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;cursor:pointer;padding:9px;}
 .lp6-ing-va-close svg{width:12px;height:12px;}
 .lp6-ing-va-close:hover{color:#B5694F;}
+</style>
+
+<style id="lp6-customers-css">
+/* Real customers section — replaces the AI-generated before/after.
+   2-col mobile, 3-col desktop grid. Photo + shade caption per card. */
+.lp6-customers-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F2 100%);
+}
+.lp6-customers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 920px;
+  margin: 24px auto 0;
+}
+@media (min-width: 700px) {
+  .lp6-customers-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+.lp6-customer-card {
+  margin: 0;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(31,27,23,0.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.lp6-customer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(31,27,23,0.14);
+}
+.lp6-customer-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.lp6-customer-card figcaption {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: #2A2320;
+  padding: 10px 12px 12px;
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .lp6-customer-card figcaption { font-size: 12.5px; padding: 12px 14px 14px; }
+}
 </style>
 
 <style id="lp6-bundle-css">
