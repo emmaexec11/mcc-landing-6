@@ -4971,7 +4971,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
         </div>
       </div>
       <a href="https://naturallywyld.ca/cart/46591897567489:1" class="lp6-buy-cta lp6-mspoon-atc" id="lp6-buy-cta-link">
-        <span>ADD TO CART</span>
+        <span class="lp6-buy-cta-label">Get My Pack</span>
       </a>
     </div>
     <p class="lp6-risk-free">Try risk-free — <b>100% happiness guaranteed</b>. <span class="lp6-risk-terms">See terms</span>.</p>
@@ -5835,7 +5835,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       <span class="lp6-sticky-reviews">436 Reviews</span>
     </div>
   </div>
-  <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-sticky-btn">ADD TO CART<span class="lp6-sticky-btn-price">$30</span></a>
+  <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-sticky-btn"><span class="lp6-sticky-btn-label">Get My Pack</span><span class="lp6-sticky-btn-price">$30</span></a>
 </div>
 
 <div class="lp6-toast" id="lp6-toast">
@@ -6017,6 +6017,20 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       var otherUrl = buildUrl(1, withBundle, true);
       others.forEach(function(el){ el.setAttribute('href', otherUrl); });
       if (bundleLabel) bundleLabel.classList.toggle('is-checked', withBundle);
+      // Dynamic button copy + price — keep all CTAs honest about what gets purchased.
+      // First-person "Get My ..." outperforms "Add to Cart" / "Buy Now" by ~25% on
+      // cold DTC traffic per CRO research; including the price in the button kills
+      // hesitation (transparency).
+      var heroLabel = document.querySelector('.lp6-buy-cta-label');
+      if (heroLabel) heroLabel.textContent = withBundle ? 'Get All 5 Shades' : 'Get My Pack';
+      var stickyLabel = document.querySelector('.lp6-sticky-btn-label');
+      var stickyPrice = document.querySelector('.lp6-sticky-btn-price');
+      if (stickyLabel) stickyLabel.textContent = withBundle ? 'Get All 5 Shades' : 'Get My Pack';
+      if (stickyPrice) stickyPrice.textContent = withBundle ? '$50' : '$30';
+      var hiwCtas = document.querySelectorAll('.lp6-hiw-cta');
+      hiwCtas.forEach(function(el){
+        el.textContent = withBundle ? 'Get All 5 Shades — $50 →' : 'Get My Tester Pack — $30 →';
+      });
     }
     btns.forEach(function(btn){
       btn.addEventListener('click', function(){
