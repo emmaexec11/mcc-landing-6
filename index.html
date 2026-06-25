@@ -4919,11 +4919,12 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       </a>
     </div>
     <div class="lp6-addon-section">
+      <div class="lp6-addon-eyebrow">+ OPTIONAL ADD-ON</div>
       <label class="lp6-addon-toggle" for="lp6-addon-check">
         <input type="checkbox" id="lp6-addon-check" class="lp6-addon-check" aria-label="Add Matcha Melt Makeup Remover for $30">
         <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/NaturallyWyldMakeupRemover.jpg?v=1773375749" alt="" class="lp6-addon-thumb" loading="lazy" width="44" height="44">
         <div class="lp6-addon-info">
-          <div class="lp6-addon-name">Complete your order — Add Matcha Melt Remover</div>
+          <div class="lp6-addon-name">Matcha Melt Makeup Remover</div>
           <div class="lp6-addon-benefit">Gently melts off makeup — even waterproof mascara</div>
         </div>
         <div class="lp6-addon-price">+ $30</div>
@@ -5169,7 +5170,17 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 /* Pre-checkout add-on toggle under the buy box.
    Default OFF, minimal info, framed as "complete your order".
    Intent: low-friction AOV lift without competing with the primary CTA. */
-.lp6-addon-section { margin: 12px 0 0; }
+.lp6-addon-section { margin: 18px 0 0; }
+.lp6-addon-eyebrow {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #8a7d6f;
+  text-align: center;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
 .lp6-addon-toggle {
   display: flex;
   align-items: center;
