@@ -5024,6 +5024,52 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   </div>
 </section>
 
+<!-- Optional pre-checkout add-on: 2-shade bundle. Placed mid-page (after How It Works,
+     before Customer Videos / proof) so 70-80% of scrollers see it, with zero conversion
+     risk to the main hero CTA. Locked bundle (not individual picks) = single yes/no
+     decision = lowest cognitive load. Real product tin photos (not abstract swatches)
+     for instant visual recognition. -->
+<section class="lp6-bundle-midpage" aria-label="Optional shade add-on">
+  <div class="lp6-bundle-midpage-inner">
+    <div class="lp6-bundle-eyebrow-light">+ OPTIONAL ADD-ON</div>
+    <h3 class="lp6-bundle-headline">Add 2 More Shades to Your Pack?</h3>
+    <p class="lp6-bundle-sub">Your tester pack has 3 shades. Add these 2 for a complete 5-shade wardrobe — normally $50, today just $20.</p>
+
+    <label class="lp6-bundle-card" for="lp6-bundle-check">
+      <input type="checkbox" id="lp6-bundle-check" class="lp6-bundle-check" aria-label="Add Terracotta Sunset + Rosewood Multi-Colour Creams for $20">
+
+      <div class="lp6-bundle-products">
+        <div class="lp6-bundle-product">
+          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/Colour_Cream_Terracotta_Sunset_natural_makeup.jpg?v=1761240386&width=240&format=webp" alt="Terracotta Sunset Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
+          <span class="lp6-bundle-shade">Terracotta Sunset</span>
+          <span class="lp6-bundle-shade-note">warm orange-bronze</span>
+        </div>
+        <div class="lp6-bundle-plus" aria-hidden="true">+</div>
+        <div class="lp6-bundle-product">
+          <img src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/rosewood-natural-multi-colour-cream-in-metal-tin.jpg?v=1750713033&width=240&format=webp" alt="Rosewood Multi-Colour Cream tin" class="lp6-bundle-img" loading="lazy" width="120" height="120">
+          <span class="lp6-bundle-shade">Rosewood</span>
+          <span class="lp6-bundle-shade-note">soft rose-pink</span>
+        </div>
+      </div>
+
+      <div class="lp6-bundle-action">
+        <div class="lp6-bundle-pricing">
+          <span class="lp6-bundle-price-now">$20</span>
+          <span class="lp6-bundle-price-was">$49.90</span>
+          <span class="lp6-bundle-save">Save $29.90</span>
+        </div>
+        <div class="lp6-bundle-toggle-pill" aria-hidden="true">
+          <span class="lp6-bundle-toggle-label-off">Tap to add</span>
+          <span class="lp6-bundle-toggle-label-on">✓ Added</span>
+          <div class="lp6-bundle-switch"></div>
+        </div>
+      </div>
+    </label>
+
+    <p class="lp6-bundle-finetext">No commitment — uncheck anytime. Total at checkout adjusts automatically.</p>
+  </div>
+</section>
+
 <section class="lp6-lp2 bg-cream" aria-label="Customer videos">
   <h2 class="lp6-lp2-h2">People are obsessed.</h2>
 
@@ -5154,40 +5200,59 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 </style>
 
 <style id="lp6-bundle-css">
-/* Final-CTA bundle add-on: Terracotta + Rosewood for $20. Lives at the BOTTOM
-   of the page (inside the wine-bg final CTA section). Lowest-risk placement —
-   visitor has already passed the conversion-critical hero / proof / guarantee,
-   so the toggle can't interrupt the main decision. Locked bundle (not individual
-   picks) keeps cognitive load minimal at point of last-chance attach. */
-.lp6-bundle-section { max-width: 540px; margin: 18px auto 22px; }
-.lp6-bundle-eyebrow {
-  font-family: "Inter", -apple-system, sans-serif;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  color: rgba(250,246,238,0.72);
-  text-align: center;
-  margin-bottom: 8px;
-  text-transform: uppercase;
+/* Mid-page 2-shade bundle add-on. Sits between How It Works and Customer Videos
+   so 70-80% of scrollers see it without competing with the main hero CTA decision.
+   Real product tin photos (not abstract swatches) for instant visual clarity. */
+.lp6-bundle-midpage {
+  background: linear-gradient(180deg, #faf6ee 0%, #f4ede0 100%);
+  padding: 44px 20px 50px;
 }
-.lp6-bundle-toggle {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: rgba(250,246,238,0.08);
-  border: 1.5px solid rgba(250,246,238,0.22);
-  border-radius: 12px;
+.lp6-bundle-midpage-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.lp6-bundle-eyebrow-light {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: #8a7d6f;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lp6-bundle-headline {
+  font-family: "Crimson Text", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 500;
+  color: #1f3a2e;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+.lp6-bundle-sub {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 14px;
+  color: #5a4f42;
+  line-height: 1.45;
+  margin: 0 auto 22px;
+  max-width: 480px;
+}
+.lp6-bundle-card {
+  display: block;
+  background: #fffaf2;
+  border: 2px solid #e0d4c0;
+  border-radius: 14px;
+  padding: 20px 18px;
   cursor: pointer;
-  transition: border-color .18s, background .18s;
+  transition: border-color .18s, background .18s, transform .18s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  backdrop-filter: blur(6px);
+  position: relative;
 }
-.lp6-bundle-toggle:hover { border-color: rgba(250,246,238,0.42); }
-.lp6-bundle-toggle.is-checked {
-  border-color: #E8C9C0;
-  background: rgba(232,201,192,0.18);
+.lp6-bundle-card:hover { border-color: #c8b9a3; }
+.lp6-bundle-card.is-checked {
+  border-color: #1f3a2e;
+  background: linear-gradient(180deg, #fffaf2 0%, #eef2ec 100%);
 }
 .lp6-bundle-check {
   position: absolute;
@@ -5195,46 +5260,115 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   width: 1px; height: 1px;
   pointer-events: none;
 }
-.lp6-bundle-swatches {
+.lp6-bundle-products {
   display: flex;
-  gap: 4px;
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
 }
-.lp6-bundle-swatch {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.28),
-              inset 0 3px 6px rgba(255,255,255,0.18),
-              0 1px 3px rgba(0,0,0,0.25);
-  border: 1.5px solid rgba(250,246,238,0.4);
+.lp6-bundle-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 180px;
 }
-.lp6-bundle-info { flex: 1; min-width: 0; color: #faf6ee; }
-.lp6-bundle-name {
+.lp6-bundle-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(31,58,46,0.08);
+}
+.lp6-bundle-shade {
   font-family: "Inter", -apple-system, sans-serif;
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.25;
+  color: #1f3a2e;
+  line-height: 1.2;
 }
-.lp6-bundle-benefit {
+.lp6-bundle-shade-note {
   font-family: "Inter", -apple-system, sans-serif;
-  font-size: 12px;
-  color: rgba(250,246,238,0.78);
-  line-height: 1.3;
+  font-size: 11.5px;
+  color: #8a7d6f;
+  line-height: 1.25;
   margin-top: 2px;
 }
-.lp6-bundle-price {
-  font-family: "Inter", -apple-system, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #E8C9C0;
+.lp6-bundle-plus {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #8a7d6f;
   flex-shrink: 0;
-  margin-left: 4px;
+  align-self: center;
+  margin-top: -16px;
 }
+.lp6-bundle-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e0d4c0;
+}
+.lp6-bundle-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lp6-bundle-price-now {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f3a2e;
+  line-height: 1;
+}
+.lp6-bundle-price-was {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 14px;
+  color: #8a7d6f;
+  text-decoration: line-through;
+}
+.lp6-bundle-save {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #fff;
+  background: #6e8a5e;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.lp6-bundle-toggle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1f3a2e;
+  color: #faf6ee;
+  padding: 10px 14px 10px 16px;
+  border-radius: 999px;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  transition: background .18s;
+  flex-shrink: 0;
+}
+.lp6-bundle-toggle-label-on { display: none; }
+.lp6-bundle-card.is-checked .lp6-bundle-toggle-label-off { display: none; }
+.lp6-bundle-card.is-checked .lp6-bundle-toggle-label-on { display: inline; }
+.lp6-bundle-card.is-checked .lp6-bundle-toggle-pill { background: #6e8a5e; }
 .lp6-bundle-switch {
   position: relative;
-  width: 38px; height: 22px;
-  background: rgba(250,246,238,0.22);
-  border-radius: 22px;
+  width: 28px;
+  height: 16px;
+  background: rgba(250,246,238,0.32);
+  border-radius: 16px;
   flex-shrink: 0;
   transition: background .18s;
 }
@@ -5242,25 +5376,37 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   content: '';
   position: absolute;
   top: 2px; left: 2px;
-  width: 18px; height: 18px;
-  background: #faf6ee;
+  width: 12px;
+  height: 12px;
+  background: #fff;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.28);
   transition: transform .18s;
 }
-.lp6-bundle-toggle.is-checked .lp6-bundle-switch { background: #E8C9C0; }
-.lp6-bundle-toggle.is-checked .lp6-bundle-switch::after { transform: translateX(16px); }
-.lp6-bundle-toggle:focus-within { outline: 2px solid #E8C9C0; outline-offset: 2px; }
+.lp6-bundle-card.is-checked .lp6-bundle-switch { background: rgba(250,246,238,0.55); }
+.lp6-bundle-card.is-checked .lp6-bundle-switch::after { transform: translateX(12px); }
+.lp6-bundle-card:focus-within { outline: 2px solid #1f3a2e; outline-offset: 3px; }
+.lp6-bundle-finetext {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 11.5px;
+  color: #8a7d6f;
+  line-height: 1.4;
+  margin: 14px auto 0;
+  max-width: 420px;
+}
 @media (max-width: 600px) {
-  .lp6-bundle-name { font-size: 13px; }
-  .lp6-bundle-benefit { font-size: 11.5px; }
-  .lp6-bundle-price { font-size: 14px; }
-  .lp6-bundle-swatch { width: 22px; height: 22px; }
+  .lp6-bundle-midpage { padding: 36px 16px 42px; }
+  .lp6-bundle-card { padding: 16px 14px; }
+  .lp6-bundle-img { width: 92px; height: 92px; }
+  .lp6-bundle-shade { font-size: 13px; }
+  .lp6-bundle-shade-note { font-size: 11px; }
+  .lp6-bundle-plus { font-size: 24px; }
+  .lp6-bundle-price-now { font-size: 22px; }
+  .lp6-bundle-toggle-pill { font-size: 12px; padding: 9px 12px 9px 14px; }
 }
 @media (max-width: 360px) {
-  .lp6-bundle-toggle { padding: 12px 13px; gap: 10px; }
-  .lp6-bundle-name { font-size: 12.5px; }
-  .lp6-bundle-benefit { font-size: 11px; }
+  .lp6-bundle-action { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .lp6-bundle-toggle-pill { align-self: stretch; justify-content: center; }
+  .lp6-bundle-img { width: 80px; height: 80px; }
 }
 </style>
 
@@ -5547,23 +5693,6 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   <h2 class="lp6-lp2-h2">Stop wasting money on fake clean.</h2>
   <p class="lp6-lp2-sub">Join 12,000+ Canadians who've switched to makeup made with real food. Only 50 per small batch, and we've sold out 7 times. Get yours before this one's gone.</p>
 
-  <div class="lp6-bundle-section">
-    <div class="lp6-bundle-eyebrow">+ COMPLETE YOUR SHADE WARDROBE</div>
-    <label class="lp6-bundle-toggle" for="lp6-bundle-check">
-      <input type="checkbox" id="lp6-bundle-check" class="lp6-bundle-check" aria-label="Add Terracotta Sunset + Rosewood for $20">
-      <div class="lp6-bundle-swatches" aria-hidden="true">
-        <span class="lp6-bundle-swatch" style="background:radial-gradient(circle at 35% 30%,#D17B5C 0%,#A85638 55%,#7A3924 100%)"></span>
-        <span class="lp6-bundle-swatch" style="background:radial-gradient(circle at 35% 30%,#C56E7E 0%,#964254 55%,#6C2A38 100%)"></span>
-      </div>
-      <div class="lp6-bundle-info">
-        <div class="lp6-bundle-name">Add Terracotta Sunset + Rosewood</div>
-        <div class="lp6-bundle-benefit">2 more full-size shades · normally $50 · today $20</div>
-      </div>
-      <div class="lp6-bundle-price">+ $20</div>
-      <div class="lp6-bundle-switch" aria-hidden="true"></div>
-    </label>
-  </div>
-
   <a href="https://naturallywyld.ca/cart/46591897567489:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
 
   <div class="lp6-final-trust">
@@ -5745,7 +5874,7 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     var btns = document.querySelectorAll('.lp6-buy-qty-btn');
     var ctaLink = document.querySelector('#lp6-buy-cta-link');
     var bundleCheck = document.querySelector('#lp6-bundle-check');
-    var bundleLabel = document.querySelector('.lp6-bundle-toggle');
+    var bundleLabel = document.querySelector('.lp6-bundle-card');
     if (!input || !btns.length || !ctaLink) return;
     function updateAll(){
       var qty = parseInt(input.value, 10) || 1;
