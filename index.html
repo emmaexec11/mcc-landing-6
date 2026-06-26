@@ -6010,8 +6010,9 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       if (qty > 10) qty = 10;
       input.value = qty;
       var withBundle = !!(bundleCheck && bundleCheck.checked);
-      // Hero: qty-aware, lands on cart page (matches prior behavior).
-      ctaLink.setAttribute('href', buildUrl(qty, withBundle, false));
+      // Hero: qty-aware, NOW also goes to checkout (was landing on cart page — Devon wants
+      // all CTAs to behave consistently and skip the cart per LP2's pattern).
+      ctaLink.setAttribute('href', buildUrl(qty, withBundle, true));
       // All in-page + sticky + final tester CTAs: qty=1 (no nearby qty selector), ?checkout.
       var others = document.querySelectorAll('.lp6-hiw-cta, .lp6-sticky-btn');
       var otherUrl = buildUrl(1, withBundle, true);
