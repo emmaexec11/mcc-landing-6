@@ -6050,7 +6050,9 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       if (heroLabel) heroLabel.textContent = withBundle ? 'Get All 5 Shades' : 'Get My Pack';
       var stickyLabel = document.querySelector('.lp6-sticky-btn-label');
       var stickyPrice = document.querySelector('.lp6-sticky-btn-price');
-      if (stickyLabel) stickyLabel.textContent = withBundle ? 'Get All 5 Shades' : 'Get My Pack';
+      // Sticky stays compact — "Get All 5" instead of "Get All 5 Shades" so the
+      // title + star row don't get squeezed off-screen at 360-430px widths.
+      if (stickyLabel) stickyLabel.textContent = withBundle ? 'Get All 5' : 'Get My Pack';
       if (stickyPrice) stickyPrice.textContent = withBundle ? '$50' : '$30';
       var hiwCtas = document.querySelectorAll('.lp6-hiw-cta');
       hiwCtas.forEach(function(el){
