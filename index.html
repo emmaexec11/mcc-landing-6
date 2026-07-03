@@ -6024,17 +6024,15 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   // so ALL CTAs (hero, in-page, sticky, final) reflect the user's qty + bundle choice.
   // Without JS, the static hrefs still work as a single-tester fallback.
   var TESTER     = '46591897567489';
-  var TERRACOTTA = '46414696153345';  // Terracotta Sunset Colour Cream 7g
-  var ROSEWOOD   = '46414122057985';  // Rosewood Colour Cream 7g
-  // Discount code Devon needs to create in Shopify: takes the two shades from
-  // $49.90 down to $20 (a $29.90 cart-level discount that only applies when both
-  // shade variants are in the cart alongside the tester). See LP6-BUNDLE-SETUP.md.
-  var BUNDLE_DISCOUNT = 'MORESHADES20';
+  // $10 duplicate variants Devon created in Shopify — UNLISTED products purchasable
+  // only via direct cart permalink. Bypasses the earlier discount-code approach so
+  // the customer sees $10 each in the cart without a code required.
+  var TERRACOTTA = '49513723461889';  // Terracotta Sunset Colour Cream $10 bundle variant
+  var ROSEWOOD   = '49513723101441';  // Rosewood Colour Cream $10 bundle variant
   function buildUrl(qty, withBundle, withCheckout){
     var url = 'https://naturallywyld.ca/cart/' + TESTER + ':' + qty;
     if (withBundle) url += ',' + TERRACOTTA + ':1,' + ROSEWOOD + ':1';
     var params = [];
-    if (withBundle) params.push('discount=' + BUNDLE_DISCOUNT);
     if (withCheckout) params.push('checkout');
     if (params.length) url += '?' + params.join('&');
     return url;
