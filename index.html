@@ -4928,10 +4928,11 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 }
 
 /* ============================================================
-   DESKTOP-ONLY LP6 FIXES (2026-07-03) — hidden below 1025px
-   Everything here fires ONLY on desktop. Mobile is untouched.
+   TABLET + DESKTOP LP6 FIXES (2026-07-03)
+   Fires from 601px+ so tablet gets the same treatment as desktop.
+   Mobile (≤600px) is completely untouched.
    ============================================================ */
-@media (min-width: 1025px) {
+@media (min-width: 601px) {
 
   /* Bug 7 — Reduce excessive top spacing */
   body .lp6-hero { padding-top: 12px !important; }
@@ -4939,11 +4940,12 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   body .lp6-cursive-headline { margin-top: 4px !important; margin-bottom: 14px !important; }
   body .lp6-hero-image-wrap { margin-top: 8px !important; margin-bottom: 8px !important; }
 
-  /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper desktop styling
-     Negative top-margin pulls pill up to sit right under the tin image edge */
+  /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper tablet/desktop styling.
+     Mobile styles were scoped to max-width:600px so tablet/desktop had unstyled leak.
+     Negative top-margin pulls pill up close to the tin image edge. */
   body .lp6-on-image-overlay {
     text-align: center !important;
-    margin-top: -80px !important;
+    margin-top: -40px !important;
     margin-bottom: 12px !important;
     position: relative !important;
     z-index: 5 !important;
