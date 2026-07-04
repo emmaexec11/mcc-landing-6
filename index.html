@@ -4940,18 +4940,13 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   body .lp6-hero-image-wrap { margin-top: 8px !important; margin-bottom: 8px !important; }
 
   /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper desktop styling
-     Position on the image like mobile (was floating below with big gap) */
-  body .lp6-hero-image-wrap { position: relative; }
+     Negative top-margin pulls pill up to sit right under the tin image edge */
   body .lp6-on-image-overlay {
-    position: absolute !important;
-    left: 50% !important;
-    bottom: -14px !important;
-    transform: translateX(-50%) !important;
-    z-index: 5 !important;
     text-align: center !important;
-    width: max-content !important;
-    max-width: 90% !important;
-    margin: 0 !important;
+    margin-top: -80px !important;
+    margin-bottom: 12px !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
   body .lp6-on-image-overlay-pill {
     display: inline-block !important;
