@@ -4927,6 +4927,49 @@ body section[aria-label="Final call to action"] {
 body section[aria-label="Final call to action"] .lp6-final-warning {
   color: #B5694F !important;  /* terracotta — matches emphasis palette, gold was off-palette */
 }
+
+/* ============================================================
+   EXIT-INTENT POPUP — Build Your Bundle · $30 · PICK3
+   Fires only on real exit signals (back button / mouse-out top)
+   with strict engagement gates. Kill switch at top of the JS.
+   ============================================================ */
+.ex-overlay { position: fixed; inset: 0; background: rgba(20,15,12,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 99998; display: none; align-items: center; justify-content: center; padding: 12px; animation: exFadeIn 0.25s ease; }
+.ex-overlay.is-visible { display: flex; }
+@keyframes exFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.ex-card { background: #FFFFFF; border-radius: 20px; width: 100%; max-width: 420px; max-height: 94vh; overflow-y: auto; padding: 26px 22px 22px; position: relative; box-shadow: 0 30px 72px rgba(0,0,0,0.38), 0 2px 8px rgba(0,0,0,0.12); animation: exSlideUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); font-family: 'Inter', -apple-system, sans-serif; }
+@keyframes exSlideUp { from { opacity: 0; transform: translateY(30px) scale(0.96); } to { opacity: 1; transform: none; } }
+.ex-close { position: absolute; top: 10px; right: 10px; background: transparent; border: none; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #8a7d6f; font-size: 24px; line-height: 1; transition: background 0.15s; z-index: 2; }
+.ex-close:hover, .ex-close:active { background: #F5F0E8; color: #2A2320; }
+.ex-eyebrow-line { font-size: 12px; color: #8a7d6f; text-align: center; letter-spacing: 0.02em; font-style: italic; margin-bottom: 8px; }
+.ex-badge { display: block; background: linear-gradient(135deg, #6E2B3D 0%, #8B3548 100%); color: #FFFFFF; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 12px; border-radius: 20px; margin: 0 auto 10px; width: fit-content; box-shadow: 0 4px 12px rgba(110, 43, 61, 0.28); }
+.ex-headline { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; line-height: 1.12; color: #1A1614; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em; }
+.ex-headline .ex-price { color: #6E2B3D; font-style: italic; }
+.ex-trust { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 10px; padding: 0; margin: 0 0 12px; font-size: 11px; color: #5A4038; letter-spacing: 0.01em; }
+.ex-trust li { display: inline-flex; align-items: center; gap: 3px; }
+.ex-trust li + li::before { content: "·"; color: #C9A090; margin-right: 8px; font-weight: 700; }
+.ex-star { color: #D4A73C; font-size: 13px; line-height: 1; }
+.ex-subhead { font-size: 14px; color: #5A4038; text-align: center; line-height: 1.45; margin: 0 0 14px; }
+.ex-subhead b { color: #1A1614; font-weight: 700; }
+.ex-shades { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px 6px; margin: 0 0 14px; }
+.ex-shade { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 4px 2px 6px; border: none; background: transparent; cursor: pointer; transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s; font-family: inherit; font-size: 10px; color: #2A2320; text-align: center; line-height: 1.2; letter-spacing: 0; position: relative; }
+.ex-shade:active { transform: scale(0.94); }
+.ex-shade[disabled] { opacity: 0.28; cursor: not-allowed; }
+.ex-shade[disabled]:active { transform: none; }
+.ex-shade.is-selected .ex-tin { box-shadow: 0 0 0 3px #6E2B3D, 0 4px 12px rgba(110, 43, 61, 0.28); transform: scale(1.05); }
+.ex-shade.is-selected .ex-shade-name { color: #6E2B3D; font-weight: 700; }
+.ex-shade.is-selected .ex-tin::after { content: "✓"; position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%; background: #6E2B3D; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.22); }
+.ex-tin { width: 52px; height: 52px; border-radius: 50%; background-size: cover; background-position: center; background-color: #F5F0E8; position: relative; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.12); transition: box-shadow 0.2s, transform 0.2s; }
+.ex-shade-name { font-weight: 500; font-size: 10px; max-width: 66px; color: #4A3D34; transition: color 0.15s; }
+.ex-cta { display: block; width: 100%; background: linear-gradient(135deg, #6E2B3D 0%, #8B3548 100%); color: #FFFFFF; border: none; padding: 16px 20px; border-radius: 30px; font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.02em; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s; box-shadow: 0 6px 20px rgba(110, 43, 61, 0.32); }
+.ex-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(110, 43, 61, 0.4); }
+.ex-cta:active { transform: translateY(0); }
+.ex-cta[disabled] { background: #E5DFD7; color: #A89C8E; cursor: not-allowed; box-shadow: none; transform: none; }
+.ex-cta[disabled]:hover { transform: none; box-shadow: none; }
+.ex-footnote { text-align: center; font-size: 11.5px; color: #8a7d6f; margin-top: 12px; line-height: 1.4; letter-spacing: 0.01em; }
+.ex-footnote s { color: #A89C8E; }
+.ex-footnote b { color: #1A1614; font-weight: 700; }
+@media (min-width: 480px) { .ex-headline { font-size: 30px; } .ex-tin { width: 58px; height: 58px; } }
+@media (max-width: 380px) { .ex-card { padding: 22px 14px 18px; } .ex-headline { font-size: 22px; } .ex-shades { gap: 10px 4px; } .ex-tin { width: 46px; height: 46px; } .ex-shade-name { font-size: 9.5px; } .ex-badge { font-size: 9px; padding: 5px 10px; } }
 </style>
 </head>
 <body class="template-page">
@@ -6325,6 +6368,245 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   btn.addEventListener('click', function(){ btn.getAttribute('aria-expanded')==='true' ? close() : open(); });
   if(closeBtn) closeBtn.addEventListener('click', function(){ close(); btn.scrollIntoView({block:'center', behavior:'smooth'}); });
   window.addEventListener('resize', function(){ if(btn.getAttribute('aria-expanded')==='true'){ panel.style.maxHeight = panel.scrollHeight + 'px'; } });
+})();
+</script>
+
+<!-- ============================================================
+     EXIT-INTENT POPUP — Build Your Bundle · $30 · PICK3
+     ============================================================ -->
+<div class="ex-overlay" id="ex-overlay" role="dialog" aria-modal="true" aria-labelledby="ex-headline" aria-hidden="true">
+  <div class="ex-card">
+    <button class="ex-close" id="ex-close" aria-label="Close">×</button>
+    <p class="ex-eyebrow-line">Before you go —</p>
+    <span class="ex-badge">Build your bundle</span>
+    <h2 class="ex-headline" id="ex-headline">Pick any 3 shades.<br><span class="ex-price">Just $30.</span></h2>
+    <p class="ex-subhead">Rather choose your own shades? Same <b>$30</b> as the bestseller Tester Pack — you just pick.</p>
+    <ul class="ex-trust">
+      <li><span class="ex-star">★</span> 4.9 · 8,000+ reviews</li>
+      <li>Free Canadian shipping</li>
+      <li>Happiness guaranteed</li>
+    </ul>
+    <div class="ex-shades" id="ex-shades"></div>
+    <button class="ex-cta" id="ex-cta" disabled>Pick 3 shades to continue</button>
+    <p class="ex-footnote">Free Canadian shipping · Ships from Kelowna, BC</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  /* -----------------------------------------------------------
+     KILL SWITCH — flip to false + push to disable the popup.
+     ----------------------------------------------------------- */
+  var POPUP_ENABLED = true;
+  if (!POPUP_ENABLED) return;
+
+  /* -----------------------------------------------------------
+     Config
+     ----------------------------------------------------------- */
+  var CDN = 'https://cdn.shopify.com/s/files/1/0640/4977/4849/files/';
+  var SHADES = [
+    { name: 'Hazelnut',        img: CDN + 'Naturally_wyld_multistick_tin_Hazelnut.png?v=1750713545',           variant: '46414555447553' },
+    { name: 'Dusty Rose',      img: CDN + 'dusty-rose-fruit-pigmented-cream-texture-swatch.png?v=1780344712',  variant: '49221576950017' },
+    { name: 'Cherry Blossom',  img: CDN + 'Naturally_wyld_multistick_tin_Cherry_Blossom.png?v=1750713733',     variant: '46414557905153' },
+    { name: 'Raspberry Kiss',  img: CDN + 'Naturally_wyld_multistick_tin_Hazelnut_1.png?v=1750713242',         variant: '46414549942529' },
+    { name: 'Sugar Plum',      img: CDN + 'sugar-plum-fruit-pigmented-cream-texture-swatch.png?v=1780344712',  variant: '49221578391809' },
+    { name: 'Rosewood',        img: CDN + 'Naturally_wyld_multistick_tin_Rosewood.png?v=1750712605',           variant: '46414122057985' },
+    { name: 'Fallen Leaves',   img: CDN + 'Naturally_wyld_multistick_tin_Fallen_Leaves.png?v=1750715241',      variant: '46414643724545' },
+    { name: 'Chili Pepper',    img: CDN + 'Naturally_wyld_multistick_tin_1.png?v=1750715894',                  variant: '46414693204225' },
+    { name: 'Terracotta',      img: CDN + 'Terracotta_Sunset_Naturally_Wyld_Colour_Swatch.png?v=1761427803',   variant: '46414696153345' },
+    { name: 'Sienna Clay',     img: CDN + 'Naturally_wyld_multistick_tin_Sienna_Clay.png?v=1750714687',        variant: '46414575337729' }
+  ];
+  var MAX_SELECT = 3;
+  var CHECKOUT_BASE = 'https://naturallywyld.ca/cart/';
+  var DISCOUNT_CODE = 'PICK3,FREESHIPMC';
+  var STORAGE_KEY = 'lp6_exit_popup_shown';
+  var ATC_CLICKED_KEY = 'lp6_atc_clicked';
+
+  var MIN_TIME_ON_PAGE_MS = 20000;   // 20 seconds
+  var MIN_SCROLL_PERCENT  = 40;      // 40% scrolled
+  var MOUSELEAVE_TOP_PX   = 50;      // desktop: fire only if mouse leaves within 50px of top
+  var URL_KILL_PARAM      = 'nopopup'; // ?nopopup=1 disables for testing
+
+  /* -----------------------------------------------------------
+     Skip early if user disabled via URL
+     ----------------------------------------------------------- */
+  if (location.search.indexOf(URL_KILL_PARAM + '=1') !== -1) return;
+
+  /* -----------------------------------------------------------
+     DOM refs
+     ----------------------------------------------------------- */
+  var $overlay = document.getElementById('ex-overlay');
+  var $close   = document.getElementById('ex-close');
+  var $grid    = document.getElementById('ex-shades');
+  var $cta     = document.getElementById('ex-cta');
+  if (!$overlay || !$grid || !$cta) return;
+
+  /* -----------------------------------------------------------
+     Track Add-to-Cart clicks so we don't popup after intent
+     ----------------------------------------------------------- */
+  document.addEventListener('click', function(e) {
+    var t = e.target;
+    if (!t) return;
+    var href = (t.closest && t.closest('a')) ? t.closest('a').getAttribute('href') || '' : '';
+    if (href.indexOf('/cart/') !== -1 || href.indexOf('/checkout') !== -1) {
+      try { sessionStorage.setItem(ATC_CLICKED_KEY, '1'); } catch(_) {}
+    }
+  }, true);
+
+  /* -----------------------------------------------------------
+     Render shade grid
+     ----------------------------------------------------------- */
+  var selected = [];
+  SHADES.forEach(function(shade, idx) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ex-shade';
+    btn.setAttribute('data-idx', idx);
+    btn.innerHTML =
+      '<span class="ex-tin" style="background-image:url(\'' + shade.img + '\')"></span>' +
+      '<span class="ex-shade-name">' + shade.name + '</span>';
+    btn.addEventListener('click', function() { toggleShade(idx); });
+    $grid.appendChild(btn);
+  });
+
+  function toggleShade(idx) {
+    var pos = selected.indexOf(idx);
+    if (pos !== -1) selected.splice(pos, 1);
+    else if (selected.length < MAX_SELECT) selected.push(idx);
+    updateUI();
+  }
+
+  function updateUI() {
+    var reachedMax = selected.length === MAX_SELECT;
+    Array.prototype.forEach.call($grid.children, function(btn) {
+      var idx = parseInt(btn.getAttribute('data-idx'), 10);
+      var isSel = selected.indexOf(idx) !== -1;
+      btn.classList.toggle('is-selected', isSel);
+      if (reachedMax && !isSel) btn.setAttribute('disabled', '');
+      else btn.removeAttribute('disabled');
+    });
+    if (selected.length === MAX_SELECT) {
+      $cta.removeAttribute('disabled');
+      $cta.textContent = 'Get My 3-Shade Pack — $30 →';
+    } else if (selected.length === 0) {
+      $cta.setAttribute('disabled', '');
+      $cta.textContent = 'Pick 3 shades to continue';
+    } else {
+      $cta.setAttribute('disabled', '');
+      var remaining = MAX_SELECT - selected.length;
+      $cta.textContent = 'Pick ' + remaining + ' more shade' + (remaining === 1 ? '' : 's');
+    }
+  }
+
+  $cta.addEventListener('click', function() {
+    if (selected.length !== MAX_SELECT) return;
+    try {
+      if (window.fbq) fbq('trackCustom', 'PopupConverted', { value: 30, currency: 'CAD', num_shades: 3 });
+    } catch(_) {}
+    var url = CHECKOUT_BASE + selected.map(function(i) { return SHADES[i].variant + ':1'; }).join(',') +
+              '?discount=' + DISCOUNT_CODE + '&checkout';
+    window.location.href = url;
+  });
+
+  /* -----------------------------------------------------------
+     Show / hide
+     ----------------------------------------------------------- */
+  var isOpen = false;
+
+  function showPopup() {
+    if (isOpen) return;
+    isOpen = true;
+    $overlay.classList.add('is-visible');
+    $overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch(_) {}
+    try {
+      if (window.fbq) fbq('trackCustom', 'PopupShown', { source: 'exit_intent' });
+    } catch(_) {}
+  }
+
+  function hidePopup() {
+    isOpen = false;
+    $overlay.classList.remove('is-visible');
+    $overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    selected = [];
+    updateUI();
+  }
+
+  $close.addEventListener('click', hidePopup);
+  $overlay.addEventListener('click', function(e) { if (e.target === $overlay) hidePopup(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) hidePopup(); });
+
+  /* -----------------------------------------------------------
+     GATES — must ALL be true or no fire
+     ----------------------------------------------------------- */
+  var pageLoadTime = Date.now();
+
+  function passesGates() {
+    // Session already shown
+    try { if (sessionStorage.getItem(STORAGE_KEY) === '1') return false; } catch(_) {}
+    // Already committed to buying
+    try { if (sessionStorage.getItem(ATC_CLICKED_KEY) === '1') return false; } catch(_) {}
+    // On cart or checkout URL
+    if (location.pathname.indexOf('/cart') !== -1 || location.pathname.indexOf('/checkout') !== -1) return false;
+    // Time on page
+    if (Date.now() - pageLoadTime < MIN_TIME_ON_PAGE_MS) return false;
+    // Scroll depth
+    var doc = document.documentElement;
+    var scrolled = (window.pageYOffset || doc.scrollTop) + window.innerHeight;
+    var total = Math.max(doc.scrollHeight, doc.offsetHeight, document.body.scrollHeight);
+    var percent = total > 0 ? (scrolled / total) * 100 : 0;
+    if (percent < MIN_SCROLL_PERCENT) return false;
+    return true;
+  }
+
+  /* -----------------------------------------------------------
+     TRIGGER 1 — Desktop mouseleave TOP
+     Fires only when mouse leaves the viewport through the top edge
+     with real upward velocity (going for tab/URL bar/close button).
+     ----------------------------------------------------------- */
+  var lastMouseY = 0;
+  var lastMouseTime = 0;
+  document.addEventListener('mousemove', function(e) {
+    lastMouseY = e.clientY;
+    lastMouseTime = Date.now();
+  });
+  document.addEventListener('mouseleave', function(e) {
+    if (!passesGates()) return;
+    // e.clientY < 50 = leaving through top
+    if (e.clientY > MOUSELEAVE_TOP_PX) return;
+    // Require recent upward velocity to filter accidental drift
+    var elapsed = Date.now() - lastMouseTime;
+    if (elapsed > 300) return;
+    showPopup();
+  });
+
+  /* -----------------------------------------------------------
+     TRIGGER 2 — Mobile back-button (popstate)
+     On page load, push an extra history state. First back press
+     consumes that state → we fire the popup. Close it → next back
+     press exits normally (no hostage pattern).
+     ----------------------------------------------------------- */
+  var backStateArmed = false;
+  function armBackState() {
+    if (backStateArmed) return;
+    try {
+      history.pushState({ lp6ExitGuard: true }, '');
+      backStateArmed = true;
+    } catch(_) {}
+  }
+  window.addEventListener('popstate', function() {
+    // If not armed OR gates fail, let the back happen normally
+    if (!backStateArmed || !passesGates()) return;
+    backStateArmed = false;
+    showPopup();
+    // Immediately re-arm so subsequent close-then-back doesn't fire the popup twice
+    // (session lock stops re-fire anyway, but this is belt-and-suspenders)
+  });
+  // Arm the back-state trap after engagement gates could plausibly pass
+  setTimeout(armBackState, 5000);
+
 })();
 </script>
 </body>
