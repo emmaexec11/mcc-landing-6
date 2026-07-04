@@ -5018,6 +5018,22 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     margin-right: auto !important;
   }
 
+  /* Bug 8 — General text centering pass. Section paragraphs and headlines
+     read cleaner centered in a narrow desktop column. Cards/quotes/step lists
+     stay left (centered testimonials look fake, numbered steps read left). */
+  body .lp6-lp2-sub,
+  body .lp6-hiw-headline,
+  body .lp6-hiw-content .lp6-lp2-sub,
+  body .lp6-hiw-body {
+    text-align: center !important;
+  }
+  body .lp6-hiw-content {
+    text-align: center !important;
+  }
+  body .lp6-hiw-title {
+    text-align: center !important;
+  }
+
 }
 
 /* ============================================================
