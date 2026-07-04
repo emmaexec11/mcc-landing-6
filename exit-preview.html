@@ -333,22 +333,22 @@
 <div class="ex-overlay" id="ex-overlay" role="dialog" aria-modal="true" aria-labelledby="ex-headline">
   <div class="ex-card">
     <button class="ex-close" id="ex-close" aria-label="Close">×</button>
-    <span class="ex-badge">Pick 3 · Save 66%</span>
-    <h2 class="ex-headline" id="ex-headline">Build your own tester pack.<br><span class="ex-price">Just $25.</span></h2>
+    <span class="ex-badge">Free bonus shade · $24.95 value</span>
+    <h2 class="ex-headline" id="ex-headline">Add a <span class="ex-price">4th shade</span><br>to your Tester Pack — <span class="ex-price">on us.</span></h2>
     <ul class="ex-trust">
       <li><span class="ex-star">★</span> 4.9 · 8,000+ reviews</li>
       <li>Free Canadian shipping</li>
       <li>Happiness guaranteed</li>
     </ul>
-    <p class="ex-shades-label">Handpick any 3 shades below</p>
+    <p class="ex-shades-label">Pick your bonus shade below</p>
 
     <div class="ex-shades" id="ex-shades">
       <!-- Shades injected by JS -->
     </div>
 
-    <button class="ex-cta" id="ex-cta" disabled>Pick 3 shades to continue</button>
+    <button class="ex-cta" id="ex-cta" disabled>Pick your bonus shade →</button>
 
-    <p class="ex-footnote">Regular price <s>$74.85</s>. <b>You save $49.85.</b></p>
+    <p class="ex-footnote">Tester Pack stays <b>$30</b>. Bonus shade (<s>$24.95</s>) is free.</p>
   </div>
 </div>
 
@@ -369,9 +369,10 @@
     { name: 'Sienna Clay',     img: CDN + 'Naturally_wyld_multistick_tin_Sienna_Clay.png?v=1750714687',        variant: '46414575337729' }
   ];
 
-  var MAX_SELECT = 3;
+  var MAX_SELECT = 1;
+  var TESTER_VARIANT = '46591897567489'; // MCC Tester Pack (Devon's picks) $30
   var CHECKOUT_BASE = 'https://naturallywyld.ca/cart/';
-  var DISCOUNT_CODE = 'EXIT25'; // Auto-apply discount code Devon needs to create in Shopify
+  var DISCOUNT_CODE = 'FREEBONUS'; // Auto-apply discount — takes the bonus shade to $0
 
   var selected = [];
   var $overlay = document.getElementById('ex-overlay');
@@ -395,7 +396,10 @@
 
   function toggleShade(idx) {
     var pos = selected.indexOf(idx);
-    if (pos !== -1) {
+    if (MAX_SELECT === 1) {
+      // Radio-select: always replace
+      selected = pos !== -1 ? [] : [idx];
+    } else if (pos !== -1) {
       selected.splice(pos, 1);
     } else if (selected.length < MAX_SELECT) {
       selected.push(idx);
@@ -405,11 +409,12 @@
 
   function updateUI() {
     var reachedMax = selected.length === MAX_SELECT;
+    var isRadio = MAX_SELECT === 1;
     Array.prototype.forEach.call($grid.children, function(btn) {
       var idx = parseInt(btn.getAttribute('data-idx'), 10);
       var isSel = selected.indexOf(idx) !== -1;
       btn.classList.toggle('is-selected', isSel);
-      if (reachedMax && !isSel) {
+      if (!isRadio && reachedMax && !isSel) {
         btn.setAttribute('disabled', '');
       } else {
         btn.removeAttribute('disabled');
@@ -417,22 +422,18 @@
     });
     if (selected.length === MAX_SELECT) {
       $cta.removeAttribute('disabled');
-      $cta.textContent = 'Get My $25 Pack →';
-    } else if (selected.length === 0) {
-      $cta.setAttribute('disabled', '');
-      $cta.textContent = 'Pick 3 shades to continue';
+      $cta.textContent = 'Add to Tester Pack — $30 →';
     } else {
       $cta.setAttribute('disabled', '');
-      var remaining = MAX_SELECT - selected.length;
-      $cta.textContent = 'Pick ' + remaining + ' more shade' + (remaining === 1 ? '' : 's');
+      $cta.textContent = 'Pick your bonus shade →';
     }
   }
 
   $cta.addEventListener('click', function() {
     if (selected.length !== MAX_SELECT) return;
-    var url = CHECKOUT_BASE + selected.map(function(i) {
-      return SHADES[i].variant + ':1';
-    }).join(',') + '?discount=' + DISCOUNT_CODE + '&checkout';
+    var bonus = SHADES[selected[0]].variant;
+    var url = CHECKOUT_BASE + TESTER_VARIANT + ':1,' + bonus + ':1' +
+              '?discount=' + DISCOUNT_CODE + '&checkout';
     window.location.href = url;
   });
 
