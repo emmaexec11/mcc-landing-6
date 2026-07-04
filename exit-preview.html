@@ -63,14 +63,14 @@
   .ex-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(20, 15, 12, 0.68);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(20, 15, 12, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     z-index: 9998;
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 12px;
     animation: exFadeIn 0.25s ease;
   }
   .ex-overlay.is-visible { display: flex; }
@@ -81,120 +81,179 @@
 
   .ex-card {
     background: #FFFFFF;
-    border-radius: 18px;
+    border-radius: 20px;
     width: 100%;
-    max-width: 440px;
-    max-height: 92vh;
+    max-width: 420px;
+    max-height: 94vh;
     overflow-y: auto;
-    padding: 24px 22px 22px;
+    padding: 26px 22px 22px;
     position: relative;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-    animation: exSlideUp 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+    box-shadow: 0 30px 72px rgba(0,0,0,0.38), 0 2px 8px rgba(0,0,0,0.12);
+    animation: exSlideUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
   @keyframes exSlideUp {
-    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    from { opacity: 0; transform: translateY(30px) scale(0.96); }
     to { opacity: 1; transform: none; }
   }
 
   .ex-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     background: transparent;
     border: none;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     color: #8a7d6f;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1;
     transition: background 0.15s;
+    z-index: 2;
   }
   .ex-close:hover, .ex-close:active { background: #F5F0E8; color: #2A2320; }
 
-  .ex-eyebrow {
-    font-size: 11px;
+  .ex-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6E2B3D 0%, #8B3548 100%);
+    color: #FFFFFF;
+    font-size: 10px;
     font-weight: 700;
-    color: #B5694F;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    margin-bottom: 8px;
-    text-align: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 0 auto 10px;
+    display: block;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(110, 43, 61, 0.28);
   }
   .ex-headline {
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: 26px;
-    line-height: 1.15;
+    line-height: 1.12;
     color: #1A1614;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
   }
+  .ex-headline .ex-price {
+    color: #6E2B3D;
+    font-style: italic;
+  }
+  .ex-trust {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    padding: 0;
+    margin: 0 0 12px;
+    font-size: 11px;
+    color: #5A4038;
+    letter-spacing: 0.01em;
+  }
+  .ex-trust li { display: inline-flex; align-items: center; gap: 3px; }
+  .ex-trust li + li::before {
+    content: "·";
+    color: #C9A090;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+  .ex-star { color: #D4A73C; font-size: 13px; line-height: 1; }
+
   .ex-subhead {
-    font-size: 14.5px;
+    font-size: 14px;
     color: #5A4038;
     text-align: center;
-    line-height: 1.5;
-    margin-bottom: 18px;
+    line-height: 1.45;
+    margin-bottom: 14px;
   }
   .ex-subhead b { color: #1A1614; font-weight: 700; }
 
+  .ex-shades-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8a7d6f;
+    text-align: center;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 6px 0 10px;
+  }
   .ex-shades {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px 8px;
-    margin: 4px 0 16px;
+    gap: 12px 6px;
+    margin: 0 0 14px;
   }
   .ex-shade {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 6px 4px 8px;
-    border: 2px solid transparent;
-    border-radius: 10px;
+    gap: 5px;
+    padding: 4px 2px 6px;
+    border: none;
     background: transparent;
     cursor: pointer;
-    transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s;
     font-family: inherit;
-    font-size: 10.5px;
+    font-size: 10px;
     color: #2A2320;
     text-align: center;
-    line-height: 1.15;
-    letter-spacing: -0.005em;
+    line-height: 1.2;
+    letter-spacing: 0;
+    position: relative;
   }
-  .ex-shade[disabled] { opacity: 0.32; cursor: not-allowed; }
-  .ex-shade.is-selected {
-    border-color: #6E2B3D;
-    background: #FAF0EC;
+  .ex-shade:active { transform: scale(0.94); }
+  .ex-shade[disabled] { opacity: 0.28; cursor: not-allowed; }
+  .ex-shade[disabled]:active { transform: none; }
+  .ex-shade.is-selected .ex-tin {
+    box-shadow: 0 0 0 3px #6E2B3D, 0 4px 12px rgba(110, 43, 61, 0.28);
+    transform: scale(1.05);
   }
-  .ex-shade.is-selected .ex-dot::after {
+  .ex-shade.is-selected .ex-shade-name {
+    color: #6E2B3D;
+    font-weight: 700;
+  }
+  .ex-shade.is-selected .ex-tin::after {
     content: "✓";
     position: absolute;
-    inset: 0;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6E2B3D;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.22);
   }
-  .ex-dot {
-    width: 40px;
-    height: 40px;
+  .ex-tin {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.14);
+    background-size: cover;
+    background-position: center;
+    background-color: #F5F0E8;
     position: relative;
     flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s, transform 0.2s;
   }
   .ex-shade-name {
-    font-weight: 600;
-    font-size: 10.5px;
-    max-width: 68px;
+    font-weight: 500;
+    font-size: 10px;
+    max-width: 66px;
+    color: #4A3D34;
+    transition: color 0.15s;
   }
 
   .ex-counter {
@@ -209,47 +268,53 @@
   .ex-cta {
     display: block;
     width: 100%;
-    background: #2B2522;
+    background: linear-gradient(135deg, #6E2B3D 0%, #8B3548 100%);
     color: #FFFFFF;
     border: none;
-    padding: 15px 20px;
+    padding: 16px 20px;
     border-radius: 30px;
     font-family: inherit;
     font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     cursor: pointer;
-    transition: background 0.15s, opacity 0.15s;
-    box-shadow: 0 4px 14px rgba(43, 37, 34, 0.22);
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    box-shadow: 0 6px 20px rgba(110, 43, 61, 0.32);
   }
-  .ex-cta:hover, .ex-cta:active { background: #1A1614; }
+  .ex-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(110, 43, 61, 0.4); }
+  .ex-cta:active { transform: translateY(0); }
   .ex-cta[disabled] {
-    background: #C9C3BC;
+    background: #E5DFD7;
+    color: #A89C8E;
     cursor: not-allowed;
     box-shadow: none;
-    opacity: 0.75;
+    transform: none;
   }
+  .ex-cta[disabled]:hover { transform: none; box-shadow: none; }
 
   .ex-footnote {
     text-align: center;
     font-size: 11.5px;
     color: #8a7d6f;
-    margin-top: 10px;
+    margin-top: 12px;
     line-height: 1.4;
+    letter-spacing: 0.01em;
   }
-  .ex-footnote b { color: #6E2B3D; font-weight: 700; }
+  .ex-footnote s { color: #A89C8E; }
+  .ex-footnote b { color: #1A1614; font-weight: 700; }
 
   @media (min-width: 480px) {
     .ex-headline { font-size: 30px; }
-    .ex-dot { width: 44px; height: 44px; }
+    .ex-tin { width: 58px; height: 58px; }
   }
 
   @media (max-width: 380px) {
-    .ex-card { padding: 20px 16px 18px; }
-    .ex-headline { font-size: 24px; }
-    .ex-shades { gap: 8px 6px; }
-    .ex-dot { width: 38px; height: 38px; }
-    .ex-shade-name { font-size: 10px; }
+    .ex-card { padding: 22px 14px 18px; }
+    .ex-headline { font-size: 22px; }
+    .ex-shades { gap: 10px 4px; }
+    .ex-tin { width: 46px; height: 46px; }
+    .ex-shade-name { font-size: 9.5px; }
+    .ex-badge { font-size: 9px; padding: 5px 10px; }
   }
 </style>
 </head>
@@ -268,36 +333,40 @@
 <div class="ex-overlay" id="ex-overlay" role="dialog" aria-modal="true" aria-labelledby="ex-headline">
   <div class="ex-card">
     <button class="ex-close" id="ex-close" aria-label="Close">×</button>
-    <div class="ex-eyebrow">Wait — before you go</div>
-    <h2 class="ex-headline" id="ex-headline">Pick your own 3 shades for $25.</h2>
-    <p class="ex-subhead">Normally <b>$30</b>. Only for people leaving without ordering. Tap any 3 shades below.</p>
+    <span class="ex-badge">Pick 3 · Save 66%</span>
+    <h2 class="ex-headline" id="ex-headline">Build your own tester pack.<br><span class="ex-price">Just $25.</span></h2>
+    <ul class="ex-trust">
+      <li><span class="ex-star">★</span> 4.9 · 8,000+ reviews</li>
+      <li>Free Canadian shipping</li>
+      <li>30-day money-back</li>
+    </ul>
+    <p class="ex-shades-label">Handpick any 3 shades below</p>
 
     <div class="ex-shades" id="ex-shades">
       <!-- Shades injected by JS -->
     </div>
 
-    <p class="ex-counter">Selected: <b id="ex-count">0</b> / 3</p>
+    <button class="ex-cta" id="ex-cta" disabled>Pick 3 shades to continue</button>
 
-    <button class="ex-cta" id="ex-cta" disabled>Add My $25 Pack →</button>
-
-    <p class="ex-footnote">One-time offer. <b>Total savings $49.85</b> shown at checkout.</p>
+    <p class="ex-footnote">Regular price <s>$74.85</s>. <b>You save $49.85.</b></p>
   </div>
 </div>
 
 <script>
 (function() {
-  // 10 curated MCC shades — Devon-approved
+  // 10 curated MCC shades — real Shopify tin photos + variant IDs
+  var CDN = 'https://cdn.shopify.com/s/files/1/0640/4977/4849/files/';
   var SHADES = [
-    { name: 'Hazelnut',       color: '#C29060', variant: '46414555447553' },
-    { name: 'Dusty Rose',     color: '#C58A88', variant: '49221576950017' },
-    { name: 'Cherry Blossom', color: '#E68B93', variant: '46414557905153' },
-    { name: 'Raspberry Kiss', color: '#C74D67', variant: '46414549942529' },
-    { name: 'Sugar Plum',     color: '#8E4B6C', variant: '49221578391809' },
-    { name: 'Rosewood',       color: '#A93E45', variant: '46414122057985' },
-    { name: 'Fallen Leaves',  color: '#853242', variant: '46414643724545' },
-    { name: 'Chili Pepper',   color: '#B93222', variant: '46414693204225' },
-    { name: 'Terracotta Sunset', color: '#C8654F', variant: '46414696153345' },
-    { name: 'Sienna Clay',    color: '#A65A3F', variant: '46414575337729' }
+    { name: 'Hazelnut',        img: CDN + 'hazelnut-vegan-makeup-balm-in-reusable-tin.jpg?v=1756846735',        variant: '46414555447553' },
+    { name: 'Dusty Rose',      img: CDN + 'dusty-rose-natural-multi-colour-cream-in-metal-tin.jpg?v=1780344712', variant: '49221576950017' },
+    { name: 'Cherry Blossom',  img: CDN + 'cherry-blossom-vegan-beauty-cream-in-metal-tin.jpg?v=1750713804',    variant: '46414557905153' },
+    { name: 'Raspberry Kiss',  img: CDN + 'raspberry-kiss-natural-multi-colour-cream-in-metal-tin.jpg?v=1756846735', variant: '46414549942529' },
+    { name: 'Sugar Plum',      img: CDN + 'sugar-plum-natural-multi-colour-cream-in-metal-tin.jpg?v=1780344712', variant: '49221578391809' },
+    { name: 'Rosewood',        img: CDN + 'rosewood-natural-multi-colour-cream-in-metal-tin.jpg?v=1750713033',  variant: '46414122057985' },
+    { name: 'Fallen Leaves',   img: CDN + 'fallen-leaves-vegan-multi-colour-cream-tin.jpg?v=1756846735',        variant: '46414643724545' },
+    { name: 'Chili Pepper',    img: CDN + 'chili-pepper-natural-cream-makeup-in-tin.jpg?v=1750715978',          variant: '46414693204225' },
+    { name: 'Terracotta',      img: CDN + 'Colour_Cream_Terracotta_Sunset_natural_makeup.jpg?v=1761240386',     variant: '46414696153345' },
+    { name: 'Sienna Clay',     img: CDN + 'sienna-clay-multi-colour-cream-tin.jpg?v=1750714764',                variant: '46414575337729' }
   ];
 
   var MAX_SELECT = 3;
@@ -308,7 +377,6 @@
   var $overlay = document.getElementById('ex-overlay');
   var $close   = document.getElementById('ex-close');
   var $grid    = document.getElementById('ex-shades');
-  var $count   = document.getElementById('ex-count');
   var $cta     = document.getElementById('ex-cta');
   var $trigger = document.getElementById('test-trigger');
 
@@ -319,7 +387,7 @@
     btn.className = 'ex-shade';
     btn.setAttribute('data-idx', idx);
     btn.innerHTML =
-      '<span class="ex-dot" style="background:' + shade.color + '"></span>' +
+      '<span class="ex-tin" style="background-image:url(\'' + shade.img + '\')"></span>' +
       '<span class="ex-shade-name">' + shade.name + '</span>';
     btn.addEventListener('click', function() { toggleShade(idx); });
     $grid.appendChild(btn);
@@ -336,7 +404,6 @@
   }
 
   function updateUI() {
-    $count.textContent = selected.length;
     var reachedMax = selected.length === MAX_SELECT;
     Array.prototype.forEach.call($grid.children, function(btn) {
       var idx = parseInt(btn.getAttribute('data-idx'), 10);
@@ -350,10 +417,14 @@
     });
     if (selected.length === MAX_SELECT) {
       $cta.removeAttribute('disabled');
-      $cta.textContent = 'Add My $25 Pack →';
+      $cta.textContent = 'Get My $25 Pack →';
+    } else if (selected.length === 0) {
+      $cta.setAttribute('disabled', '');
+      $cta.textContent = 'Pick 3 shades to continue';
     } else {
       $cta.setAttribute('disabled', '');
-      $cta.textContent = 'Pick ' + (MAX_SELECT - selected.length) + ' more →';
+      var remaining = MAX_SELECT - selected.length;
+      $cta.textContent = 'Pick ' + remaining + ' more shade' + (remaining === 1 ? '' : 's');
     }
   }
 
