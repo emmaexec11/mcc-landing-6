@@ -4762,11 +4762,17 @@ body .lp6-final-cta a {
   box-shadow: 0 2px 10px rgba(43, 37, 34, 0.22) !important;
 }
 body .lp6-buy-cta:hover,
+body .lp6-buy-cta.lp6-mspoon-atc:hover,
 body .lp6-hiw-cta:hover,
 body .lp6-mini-cta-btn:hover,
 body .lp6-sticky-btn:hover {
   background: #1A1614 !important;  /* darker espresso on hover */
   color: #FFFFFF !important;
+}
+/* mspoon ATC lives in a fused row with the qty pill — no vertical shift on hover
+   or it visually breaks alignment. Match the espresso hover state only. */
+body .lp6-buy-cta.lp6-mspoon-atc:hover {
+  transform: none !important;
 }
 
 /* Final CTA (on dark wine section) — INVERTED: white pill with dark text
