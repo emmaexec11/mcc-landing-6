@@ -333,22 +333,22 @@
 <div class="ex-overlay" id="ex-overlay" role="dialog" aria-modal="true" aria-labelledby="ex-headline">
   <div class="ex-card">
     <button class="ex-close" id="ex-close" aria-label="Close">×</button>
-    <span class="ex-badge">Free bonus shade · $24.95 value</span>
-    <h2 class="ex-headline" id="ex-headline">Add a <span class="ex-price">4th shade</span><br>to your Tester Pack — <span class="ex-price">on us.</span></h2>
+    <span class="ex-badge">Pick your own · 3 shades · $30</span>
+    <h2 class="ex-headline" id="ex-headline">Skip the mystery pack.<br><span class="ex-price">Pick your 3 shades.</span></h2>
     <ul class="ex-trust">
       <li><span class="ex-star">★</span> 4.9 · 8,000+ reviews</li>
       <li>Free Canadian shipping</li>
       <li>Happiness guaranteed</li>
     </ul>
-    <p class="ex-shades-label">Pick your bonus shade below</p>
+    <p class="ex-shades-label">Choose any 3 shades below</p>
 
     <div class="ex-shades" id="ex-shades">
       <!-- Shades injected by JS -->
     </div>
 
-    <button class="ex-cta" id="ex-cta" disabled>Pick your bonus shade →</button>
+    <button class="ex-cta" id="ex-cta" disabled>Pick 3 shades to continue</button>
 
-    <p class="ex-footnote">Tester Pack stays <b>$30</b>. Bonus shade (<s>$24.95</s>) is free.</p>
+    <p class="ex-footnote">Same <b>$30</b> as the Tester Pack — you just pick the shades.</p>
   </div>
 </div>
 
@@ -369,10 +369,9 @@
     { name: 'Sienna Clay',     img: CDN + 'Naturally_wyld_multistick_tin_Sienna_Clay.png?v=1750714687',        variant: '46414575337729' }
   ];
 
-  var MAX_SELECT = 1;
-  var TESTER_VARIANT = '46591897567489'; // MCC Tester Pack (Devon's picks) $30
+  var MAX_SELECT = 3;
   var CHECKOUT_BASE = 'https://naturallywyld.ca/cart/';
-  var DISCOUNT_CODE = 'FREEBONUS'; // Auto-apply discount — takes the bonus shade to $0
+  var DISCOUNT_CODE = 'PICK3'; // Auto-apply: takes 3 × $24.95 down to $30 flat
 
   var selected = [];
   var $overlay = document.getElementById('ex-overlay');
@@ -422,18 +421,22 @@
     });
     if (selected.length === MAX_SELECT) {
       $cta.removeAttribute('disabled');
-      $cta.textContent = 'Add to Tester Pack — $30 →';
+      $cta.textContent = 'Get My 3-Shade Pack — $30 →';
+    } else if (selected.length === 0) {
+      $cta.setAttribute('disabled', '');
+      $cta.textContent = 'Pick 3 shades to continue';
     } else {
       $cta.setAttribute('disabled', '');
-      $cta.textContent = 'Pick your bonus shade →';
+      var remaining = MAX_SELECT - selected.length;
+      $cta.textContent = 'Pick ' + remaining + ' more shade' + (remaining === 1 ? '' : 's');
     }
   }
 
   $cta.addEventListener('click', function() {
     if (selected.length !== MAX_SELECT) return;
-    var bonus = SHADES[selected[0]].variant;
-    var url = CHECKOUT_BASE + TESTER_VARIANT + ':1,' + bonus + ':1' +
-              '?discount=' + DISCOUNT_CODE + '&checkout';
+    var url = CHECKOUT_BASE + selected.map(function(i) {
+      return SHADES[i].variant + ':1';
+    }).join(',') + '?discount=' + DISCOUNT_CODE + '&checkout';
     window.location.href = url;
   });
 
