@@ -6209,9 +6209,9 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   function buildUrl(qty, withBundle, withCheckout){
     var url = 'https://naturallywyld.ca/cart/' + TESTER + ':' + qty;
     if (withBundle) url += ',' + TERRACOTTA + ':1,' + ROSEWOOD + ':1';
-    var params = [];
+    var params = ['discount=LPSHIP'];
     if (withCheckout) params.push('checkout');
-    if (params.length) url += '?' + params.join('&');
+    url += '?' + params.join('&');
     return url;
   }
   function init(){
