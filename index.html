@@ -196,6 +196,7 @@
   .lp6-cursive-headline{font-size:20px !important;margin-bottom:6px !important}
   .lp6-cursive-headline .lp6-hearts{font-size:16px}
   .lp6-hero-image-wrap{
+    position:relative !important;
     display:block !important;
     line-height:0 !important;
     font-size:0 !important;
@@ -205,15 +206,16 @@
     vertical-align:top !important;
   }
   .lp6-on-image-overlay{
-    position:relative !important;
-    left:auto !important;
-    bottom:auto !important;
-    transform:none !important;
+    position:absolute !important;
+    left:50% !important;
+    bottom:-14px !important;
+    top:auto !important;
+    transform:translateX(-50%) !important;
     z-index:5 !important;
     text-align:center !important;
-    width:auto !important;
-    max-width:100% !important;
-    margin:8px auto 0 !important;
+    width:max-content !important;
+    max-width:90% !important;
+    margin:0 !important;
     line-height:normal !important;
     font-size:12px !important;
   }
