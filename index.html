@@ -4935,10 +4935,11 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 @media (min-width: 601px) {
 
   /* Bug 7 — Reduce excessive top spacing */
-  body .lp6-hero { padding-top: 12px !important; }
-  body .lp6-hero-h1 { margin-top: 4px !important; margin-bottom: 6px !important; }
-  body .lp6-cursive-headline { margin-top: 4px !important; margin-bottom: 14px !important; }
-  body .lp6-hero-image-wrap { margin-top: 8px !important; margin-bottom: 8px !important; }
+  body .lp6-hero { padding-top: 6px !important; }
+  body .lp6-stars-pill-wrap { padding-top: 8px !important; }
+  body .lp6-hero-h1 { margin-top: 0 !important; margin-bottom: 4px !important; }
+  body .lp6-cursive-headline { margin-top: 2px !important; margin-bottom: 10px !important; }
+  body .lp6-hero-image-wrap { margin-top: 4px !important; margin-bottom: 4px !important; }
 
   /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper tablet/desktop styling.
      Mobile styles were scoped to max-width:600px so tablet/desktop had unstyled leak.
@@ -4949,6 +4950,10 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     margin-bottom: 12px !important;
     position: relative !important;
     z-index: 5 !important;
+  }
+  @media (min-width: 1025px) {
+    /* Desktop: image is bigger, so pill needs a stronger pull up */
+    body .lp6-on-image-overlay { margin-top: -90px !important; }
   }
   body .lp6-on-image-overlay-pill {
     display: inline-block !important;
