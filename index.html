@@ -4941,16 +4941,19 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   body .lp6-cursive-headline { margin-top: 2px !important; margin-bottom: 10px !important; }
   body .lp6-hero-image-wrap { margin-top: 4px !important; margin-bottom: 4px !important; }
 
-  /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper tablet/desktop styling.
-     Mobile styles were scoped to max-width:600px so tablet/desktop had unstyled leak.
-     Uses viewport-relative negative margin so pill hugs the tin image edge
-     at ALL viewport sizes (scales with the image). */
+  /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: mirror mobile styling
+     (absolute positioning, 32px from image bottom = pill overlaps image edge). */
+  body .lp6-hero-image-wrap { position: relative !important; }
   body .lp6-on-image-overlay {
-    text-align: center !important;
-    margin-top: -5vw !important;
-    margin-bottom: 14px !important;
-    position: relative !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 32px !important;
+    transform: translateX(-50%) !important;
     z-index: 5 !important;
+    text-align: center !important;
+    width: max-content !important;
+    max-width: 90% !important;
+    margin: 0 !important;
   }
   body .lp6-on-image-overlay-pill {
     display: inline-block !important;
