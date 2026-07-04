@@ -6500,9 +6500,6 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
   $cta.addEventListener('click', function() {
     if (selected.length !== MAX_SELECT) return;
-    try {
-      if (window.fbq) fbq('trackCustom', 'PopupConverted', { value: 30, currency: 'CAD', num_shades: 3 });
-    } catch(_) {}
     var url = CHECKOUT_BASE + selected.map(function(i) { return SHADES[i].variant + ':1'; }).join(',') +
               '?discount=' + DISCOUNT_CODE + '&checkout';
     window.location.href = url;
@@ -6520,9 +6517,6 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     $overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch(_) {}
-    try {
-      if (window.fbq) fbq('trackCustom', 'PopupShown', { source: 'exit_intent' });
-    } catch(_) {}
   }
 
   function hidePopup() {
