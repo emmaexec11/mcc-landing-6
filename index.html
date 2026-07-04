@@ -4943,17 +4943,14 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
   /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper tablet/desktop styling.
      Mobile styles were scoped to max-width:600px so tablet/desktop had unstyled leak.
-     Negative top-margin pulls pill up close to the tin image edge. */
+     Uses viewport-relative negative margin so pill hugs the tin image edge
+     at ALL viewport sizes (scales with the image). */
   body .lp6-on-image-overlay {
     text-align: center !important;
-    margin-top: -40px !important;
-    margin-bottom: 12px !important;
+    margin-top: -7vw !important;
+    margin-bottom: 14px !important;
     position: relative !important;
     z-index: 5 !important;
-  }
-  @media (min-width: 1025px) {
-    /* Desktop: image is bigger, so pill needs a stronger pull up */
-    body .lp6-on-image-overlay { margin-top: -90px !important; }
   }
   body .lp6-on-image-overlay-pill {
     display: inline-block !important;
