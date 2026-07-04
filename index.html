@@ -4940,8 +4940,19 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   body .lp6-hero-image-wrap { margin-top: 8px !important; margin-bottom: 8px !important; }
 
   /* Bug 2 — FREE SHIPPING · CANADIAN MADE pill: proper desktop styling
-     (mobile styling was scoped to @media max-width:600px only, so desktop had unstyled leak) */
-  body .lp6-on-image-overlay { text-align: center !important; margin: 6px auto 12px !important; }
+     Position on the image like mobile (was floating below with big gap) */
+  body .lp6-hero-image-wrap { position: relative; }
+  body .lp6-on-image-overlay {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: -14px !important;
+    transform: translateX(-50%) !important;
+    z-index: 5 !important;
+    text-align: center !important;
+    width: max-content !important;
+    max-width: 90% !important;
+    margin: 0 !important;
+  }
   body .lp6-on-image-overlay-pill {
     display: inline-block !important;
     font-family: 'Inter', -apple-system, sans-serif !important;
@@ -5003,14 +5014,27 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
     overflow: hidden !important;
   }
 
-  /* Bug 6 — Testimonials review grid: center the orphan 5th card when odd count */
-  body .lp6-reviews-wall-grid .lp6-rwall-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 7px);
-    margin-left: auto;
-    margin-right: auto;
+  /* Bug 6 — Testimonials review grid: center the orphan 5th card when odd count.
+     Correct selector: LP6 uses .lp6-sp-reviews (not .lp6-reviews-wall-grid). */
+  body .lp6-sp-reviews .lp6-sp-review:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    max-width: calc(50% - 6px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
+}
+
+/* ============================================================
+   STICKY CTA BAR — desktop layout (viewport 900-1024px range)
+   Sticky bar's flex-space-between stretches product info + button
+   to opposite edges on wider viewports. Cap inner content width.
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .lp6-sticky-cta {
+    padding-left: max(16px, calc((100vw - 720px) / 2)) !important;
+    padding-right: max(16px, calc((100vw - 720px) / 2)) !important;
+  }
 }
 
 /* ============================================================
