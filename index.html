@@ -5327,56 +5327,56 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
       </div>
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
-          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
       </div>
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
-          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><b>Hazelnut · Fallen Leaves</b></div>
       </div>
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
-          <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — wears it every single day 🙌</div>
       </div>
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
-          <video src="shaye-pink-dress.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="shaye-pink-dress.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span>"A hidden gem." — <b>Shaye</b></div>
       </div>
       <!-- Set B — duplicate for seamless infinite loop -->
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
-          <video src="videos/brown-girl-smile.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="videos/brown-girl-smile.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><b>Real fruit · Real tins · Hand-poured in Kelowna</b><br>— Devon, founder</div>
       </div>
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
-          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://emmaexec11.github.io/mcc-landing-2026/videos/customer-application.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>"My new daily ritual"</b></div>
       </div>
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
-          <video src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://emmaexec11.github.io/mcc-landing-2026/videos/shaye-hidden-gem.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><b>Hazelnut · Fallen Leaves</b></div>
       </div>
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
-          <video src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://cdn.shopify.com/videos/c/o/v/7e802f23e19a4cd294628eaddbbba0b0.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Jamye</b> — wears it every single day 🙌</div>
       </div>
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
-          <video src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          <video data-src="https://cdn.shopify.com/videos/c/o/v/e17d3e8b83de41b0a917a84369de33a0.mp4" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="lp6-vid-cap"><span class="lp6-vid-stars">★★★★★</span><b>Mya</b> — "Replaced 3 products"</div>
       </div>
@@ -6767,6 +6767,35 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
   // Arm the back-state trap after engagement gates could plausibly pass
   setTimeout(armBackState, 5000);
 
+})();
+</script>
+
+<script id="lp6-video-lazy-load">
+(function(){
+  var videos = document.querySelectorAll('.lp6-vids-marquee video[data-src]');
+  if (!videos.length) return;
+  var activate = function(v){
+    if (v.dataset.activated) return;
+    v.dataset.activated = '1';
+    v.src = v.dataset.src;
+    v.preload = 'metadata';
+    v.load();
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  };
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(activate);
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        activate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '400px 800px 400px 800px', threshold: 0.01 });
+  videos.forEach(function(v){ io.observe(v); });
 })();
 </script>
 </body>
