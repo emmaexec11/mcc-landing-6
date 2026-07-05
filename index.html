@@ -6769,34 +6769,5 @@ body section[aria-label="Final call to action"] .lp6-final-warning {
 
 })();
 </script>
-
-<script id="lp6-video-lazy-load">
-(function(){
-  var videos = document.querySelectorAll('.lp6-vids-marquee video[data-src]');
-  if (!videos.length) return;
-  var activate = function(v){
-    if (v.dataset.activated) return;
-    v.dataset.activated = '1';
-    v.src = v.dataset.src;
-    v.preload = 'metadata';
-    v.load();
-    var p = v.play();
-    if (p && p.catch) p.catch(function(){});
-  };
-  if (!('IntersectionObserver' in window)) {
-    videos.forEach(activate);
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        activate(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '400px 800px 400px 800px', threshold: 0.01 });
-  videos.forEach(function(v){ io.observe(v); });
-})();
-</script>
 </body>
 </html>
