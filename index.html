@@ -239,6 +239,15 @@
   body .lp6-sticky-cta { padding: 12px 14px calc(12px + env(safe-area-inset-bottom)) !important; gap: 10px !important; }
 }
 </style>
+<style id="lp6-sticky-desktop-center-2026-07-06">
+/* Desktop: center the sticky content on wide viewports (was stuck at edges >1024px). */
+@media (min-width: 1025px) {
+  body .lp6-sticky-cta {
+    padding-left: max(20px, calc((100vw - 720px) / 2)) !important;
+    padding-right: max(20px, calc((100vw - 720px) / 2)) !important;
+  }
+}
+</style>
 </head>
 <body class="template-page">
 
