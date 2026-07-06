@@ -138,7 +138,7 @@
 
 <style id="lp6-featured-vid-css">.lp6-featured-vid-wrap{max-width:360px;margin:0 auto 24px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(31,27,23,0.18);background:#1A1A1A;position:relative}.lp6-featured-vid{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}.lp6-featured-vid-cap{background:rgba(26,26,26,0.92);color:#FFFFFF;font-family:"Inter",-apple-system,sans-serif;font-size:13px;text-align:center;padding:10px 14px}.lp6-featured-vid-cap .lp6-vid-stars{color:#E8B544;margin-right:6px}.lp6-featured-vid-cap b{color:#FFFFFF;font-weight:700}@media (min-width:700px){.lp6-featured-vid-wrap{max-width:420px}}</style>
 
-<style id="lp6-vid-marquee-css">.lp6-vids-marquee{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;overflow-x:auto !important;overflow-y:hidden;padding:12px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.lp6-vids-marquee::-webkit-scrollbar{display:none}.lp6-vids-track-auto{display:flex !important;gap:0 !important;padding:4px 0 8px !important;margin:0 !important;overflow:visible !important;scroll-snap-type:none !important;width:max-content !important;animation:lp6-vid-marquee 45s linear infinite}.lp6-vids-marquee:hover .lp6-vids-track-auto,.lp6-vids-marquee.lp6-vids-paused .lp6-vids-track-auto{animation-play-state:paused}@keyframes lp6-vid-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}@media (prefers-reduced-motion:reduce){.lp6-vids-track-auto{animation:none}}</style>
+<style id="lp6-vid-marquee-css">.lp6-vids-marquee{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;overflow-x:auto !important;overflow-y:hidden;padding:12px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.lp6-vids-marquee::-webkit-scrollbar{display:none}.lp6-vids-track-auto{display:flex !important;gap:0 !important;padding:4px 0 8px !important;margin:0 !important;overflow:visible !important;scroll-snap-type:none !important;width:max-content !important;animation:lp6-vid-marquee 60s linear infinite}.lp6-vids-marquee:hover .lp6-vids-track-auto,.lp6-vids-marquee.lp6-vids-paused .lp6-vids-track-auto{animation-play-state:paused}@keyframes lp6-vid-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}@media (prefers-reduced-motion:reduce){.lp6-vids-track-auto{animation:none}}</style>
 <script id="lp6-vids-autoscroll">
 /* JS-driven auto-scroll for the UGC carousel.
    Works regardless of the user's "reduce motion" OS setting (CSS marquee did not — that's why it looked frozen).
@@ -433,7 +433,7 @@
         <div class="lp6-vid-wrap">
           <video src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/mcc-lp6-brown-girl-smile.mp4?v=1783291659" autoplay muted loop playsinline preload="auto" fetchpriority="high"></video>
         </div>
-        <div class="lp6-vid-cap"><b>Real fruit · Real tins · Hand-poured in Kelowna</b><br>— Devon, founder</div>
+        <div class="lp6-vid-cap"><b>Real fruit · Real tins · Hand-poured in Kelowna</b></div>
       </div>
       <div class="lp6-vid-card">
         <div class="lp6-vid-wrap">
@@ -464,7 +464,7 @@
         <div class="lp6-vid-wrap">
           <video data-src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/mcc-lp6-brown-girl-smile.mp4?v=1783291659" autoplay muted loop playsinline preload="none"></video>
         </div>
-        <div class="lp6-vid-cap"><b>Real fruit · Real tins · Hand-poured in Kelowna</b><br>— Devon, founder</div>
+        <div class="lp6-vid-cap"><b>Real fruit · Real tins · Hand-poured in Kelowna</b></div>
       </div>
       <div class="lp6-vid-card" aria-hidden="true">
         <div class="lp6-vid-wrap">
@@ -1467,6 +1467,21 @@
   // Arm the back-state trap after engagement gates could plausibly pass
   setTimeout(armBackState, 5000);
 
+})();
+</script>
+<script id="lp6-marquee-visibility">
+(function(){
+  var m = document.querySelector('.lp6-vids-marquee');
+  var t = document.querySelector('.lp6-vids-track-auto');
+  if (!m || !t) return;
+  t.style.animationPlayState = 'paused';
+  if (!('IntersectionObserver' in window)) { t.style.animationPlayState = 'running'; return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      t.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+    });
+  }, { threshold: 0.05 });
+  io.observe(m);
 })();
 </script>
 </body>
