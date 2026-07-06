@@ -939,26 +939,33 @@
       // Hero: qty-aware, NOW also goes to checkout (was landing on cart page — Devon wants
       // all CTAs to behave consistently and skip the cart per LP2's pattern).
       ctaLink.setAttribute('href', buildUrl(qty, withBundle, true));
-      // All in-page + sticky + final tester CTAs: qty=1 (no nearby qty selector), ?checkout.
+      // All in-page + sticky + final tester CTAs mirror the buy-box qty so a user
+      // who bumped qty=3 up top doesn't get surprised by cart total after clicking
+      // sticky. If they never touch qty, everything stays at 1×$30 (no scare on
+      // cold traffic).
       var others = document.querySelectorAll('.lp6-hiw-cta, .lp6-sticky-btn');
-      var otherUrl = buildUrl(1, withBundle, true);
+      var otherUrl = buildUrl(qty, withBundle, true);
       others.forEach(function(el){ el.setAttribute('href', otherUrl); });
       if (bundleLabel) bundleLabel.classList.toggle('is-checked', withBundle);
-      // Dynamic button copy + price — keep all CTAs honest about what gets purchased.
-      // First-person "Get My ..." outperforms "Add to Cart" / "Buy Now" by ~25% on
-      // cold DTC traffic per CRO research; including the price in the button kills
-      // hesitation (transparency).
       var heroLabel = document.querySelector('.lp6-buy-cta-label');
       if (heroLabel) heroLabel.textContent = withBundle ? 'Get All 5 Shades' : 'Get My Pack';
       var stickyLabel = document.querySelector('.lp6-sticky-btn-label');
       var stickyPrice = document.querySelector('.lp6-sticky-btn-price');
-      // Sticky stays compact — "Get All 5" instead of "Get All 5 Shades" so the
-      // title + star row don't get squeezed off-screen at 360-430px widths.
-      if (stickyLabel) stickyLabel.textContent = withBundle ? 'Get All 5' : 'Get My Pack';
-      if (stickyPrice) stickyPrice.textContent = withBundle ? '$50' : '$30';
+      if (stickyLabel) stickyLabel.textContent = withBundle
+        ? 'Get All 5'
+        : (qty > 1 ? 'Get ' + qty + ' Packs' : 'Get My Pack');
+      if (stickyPrice) stickyPrice.textContent = withBundle
+        ? '$50'
+        : ('$' + (qty * 30));
       var hiwCtas = document.querySelectorAll('.lp6-hiw-cta');
       hiwCtas.forEach(function(el){
-        el.textContent = withBundle ? 'Get All 5 Shades — $50 →' : 'Get My Tester Pack — $30 →';
+        if (withBundle) {
+          el.textContent = 'Get All 5 Shades — $50 →';
+        } else if (qty > 1) {
+          el.textContent = 'Get ' + qty + ' Tester Packs — $' + (qty * 30) + ' →';
+        } else {
+          el.textContent = 'Get My Tester Pack — $30 →';
+        }
       });
     }
     btns.forEach(function(btn){
