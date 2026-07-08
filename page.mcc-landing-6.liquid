@@ -276,7 +276,7 @@
   <h1 class="lp6-hero-h1">Everything You Wanted in Natural Makeup—Finally Done Right.</h1>
   <div class="lp6-cursive-headline">"It's the best deal ever"</div>
 
-  <div class="lp6-hero-image-wrap">
+  <div class="lp6-hero-image-wrap" role="button" aria-label="Scroll to buy" tabindex="0" style="cursor:pointer" onclick="document.getElementById('lp6-buy').scrollIntoView({behavior:'smooth',block:'center'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('lp6-buy').scrollIntoView({behavior:'smooth',block:'center'})}">
     <img loading="eager" fetchpriority="high" src="https://cdn.shopify.com/s/files/1/0640/4977/4849/files/mcc-lp6-hero-photoreal.webp?v=1783294927" alt="Multi-Colour Cream tester pack — Hazelnut, Fallen Leaves, Raspberry Kiss" width="1170" height="912">
     <div class="lp6-on-image-overlay">
       <span class="lp6-on-image-overlay-pill">FREE SHIPPING · CANADIAN MADE</span>
@@ -294,7 +294,7 @@
     <p class="lp6-clear-line2">Use on <b>lips, cheeks, and eyes</b>.</p>
   </div>
 
-  <div class="lp6-buy-box">
+  <div class="lp6-buy-box" id="lp6-buy">
     <div class="lp6-buy-price-row">
       <span class="lp6-buy-price">$30</span>
       <span class="lp6-buy-was">$90</span>
