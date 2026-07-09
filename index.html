@@ -1419,17 +1419,25 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) hidePopup(); });
 
   /* -----------------------------------------------------------
-     GATES — must ALL be true or no fire
+     GATES
+     Full gates = desktop mouseleave (time + scroll required).
+     Min gates = mobile back button (session + ATC only — fires on any back).
      ----------------------------------------------------------- */
   var pageLoadTime = Date.now();
+  var IS_MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
 
-  function passesGates() {
+  function passesGatesMin() {
     // Session already shown
     try { if (sessionStorage.getItem(STORAGE_KEY) === '1') return false; } catch(_) {}
     // Already committed to buying
     try { if (sessionStorage.getItem(ATC_CLICKED_KEY) === '1') return false; } catch(_) {}
     // On cart or checkout URL
     if (location.pathname.indexOf('/cart') !== -1 || location.pathname.indexOf('/checkout') !== -1) return false;
+    return true;
+  }
+
+  function passesGates() {
+    if (!passesGatesMin()) return false;
     // Time on page
     if (Date.now() - pageLoadTime < MIN_TIME_ON_PAGE_MS) return false;
     // Scroll depth
@@ -1477,15 +1485,16 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
     } catch(_) {}
   }
   window.addEventListener('popstate', function() {
-    // If not armed OR gates fail, let the back happen normally
-    if (!backStateArmed || !passesGates()) return;
+    if (!backStateArmed) return;
+    // Mobile back button: session + ATC guards only, no time/scroll gate
+    var gatesOk = IS_MOBILE ? passesGatesMin() : passesGates();
+    if (!gatesOk) return;
     backStateArmed = false;
     showPopup();
-    // Immediately re-arm so subsequent close-then-back doesn't fire the popup twice
-    // (session lock stops re-fire anyway, but this is belt-and-suspenders)
   });
-  // Arm the back-state trap after engagement gates could plausibly pass
-  setTimeout(armBackState, 5000);
+  // Mobile: arm instantly so first back press always fires. Desktop: 5s delay.
+  if (IS_MOBILE) armBackState();
+  else setTimeout(armBackState, 5000);
 
 })();
 </script>
