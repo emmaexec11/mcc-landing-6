@@ -422,7 +422,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
       </div>
 
       <div style="text-align:center; width:100%;">
-        <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
+        <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
       </div>
     </div>
 
@@ -521,7 +521,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
     </div>
   </div>
   <div style="text-align:center;">
-    <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
+    <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
   </div>
 </section>
 
@@ -554,7 +554,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   </div>
 
   <div style="text-align:center;margin-top:18px;">
-    <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
+    <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
   </div>
 </section>
 
@@ -633,7 +633,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   </div>
 
   <div style="text-align:center;">
-    <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
+    <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a><div class="lp6-cta-microcopy">✓ Free shipping &nbsp;·&nbsp; ✓ 100% happiness guaranteed</div>
   </div>
 </section>
 
@@ -786,7 +786,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   <h2 class="lp6-lp2-h2">Stop wasting money on fake clean.</h2>
   <p class="lp6-lp2-sub">Join thousands of Canadians who've switched to makeup made with real fruit. We've sold out 23 times. Get yours before this drop is gone.</p>
 
-  <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
+  <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-hiw-cta">Get My Tester Pack — $30 →</a>
 
   <div class="lp6-final-trust">
     <span>✓ Free shipping</span>
@@ -803,7 +803,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
       <span class="lp6-sticky-reviews">436 Reviews</span>
     </div>
   </div>
-  <a href="https://naturallywyld.ca/cart/46636732252417:1?checkout" class="lp6-sticky-btn"><span class="lp6-sticky-btn-label">Get My Pack</span><span class="lp6-sticky-btn-price">$30</span></a>
+  <a href="https://naturallywyld.ca/cart/46636732252417:1?discount=LPSHIP&checkout" class="lp6-sticky-btn"><span class="lp6-sticky-btn-label">Get My Pack</span><span class="lp6-sticky-btn-price">$30</span></a>
 </div>
 
 <div class="lp6-toast" id="lp6-toast">
@@ -958,7 +958,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   function buildUrl(qty, withBundle, withCheckout){
     var url = 'https://naturallywyld.ca/cart/' + TESTER + ':' + qty;
     if (withBundle) url += ',' + TERRACOTTA + ':1,' + ROSEWOOD + ':1';
-    var params = [];
+    var params = ['discount=LPSHIP'];
     if (withCheckout) params.push('checkout');
     url += '?' + params.join('&');
     return url;
@@ -1310,7 +1310,7 @@ body .lp6-sticky-title { overflow: hidden !important; text-overflow: ellipsis !i
   ];
   var MAX_SELECT = 3;
   var CHECKOUT_BASE = 'https://naturallywyld.ca/cart/';
-  var DISCOUNT_CODE = 'PICK3,LPSHIP.';
+  var DISCOUNT_CODE = 'PICK3,LPSHIP';
   var STORAGE_KEY = 'lp6_exit_popup_shown';
   var ATC_CLICKED_KEY = 'lp6_atc_clicked';
 
